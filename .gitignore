@@ -3,3 +3,15 @@
 ################################################################################
 
 /CrystalPhysics/CrystalPhysics/x64/Debug
+/CrystalScene/AppBase/x64/Debug
+/CrystalScene/Command/x64/Debug
+/CrystalScene/Scene/x64/Debug
+/CrystalSpace/CrystalSpace/x64/Debug
+/CrystalVDB/.vs/CrystalVDB/v16
+/CrystalVDB/CrystalVDB/x64/Debug
+/CrystalVDB/CrystalVDBView/x64/Debug
+/CrystalVDB/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4
+/CrystalVDB/VDBCommand/x64/Debug
+/CrystalVDB/VDBCommandTest/x64/Debug
+/CrystalVDB/VDBRunner/x64/Debug
+/CrystalVDB/x64/Debug

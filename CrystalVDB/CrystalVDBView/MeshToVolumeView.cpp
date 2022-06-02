@@ -1,6 +1,6 @@
 #include "MeshToVolumeView.h"
 
-#include "../CrystalVDB/VDBPolygonMeshScene.h"
+#include "../CrystalVDB/VDBMeshScene.h"
 #include "../CrystalVDB/VDBMeshToVolumeConverter.h"
 
 #include "../CrystalVDB/VDBVolumeScene.h"

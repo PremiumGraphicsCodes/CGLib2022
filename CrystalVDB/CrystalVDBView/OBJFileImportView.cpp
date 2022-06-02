@@ -2,7 +2,7 @@
 
 //#include "../VDBCommand/VDBOBJFileReadCommand.h"
 
-#include "../CrystalVDB/VDBPolygonMeshScene.h"
+#include "../CrystalVDB/VDBMeshScene.h"
 
 using namespace Crystal::Scene;
 using namespace Crystal::UI;

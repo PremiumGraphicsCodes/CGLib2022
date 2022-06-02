@@ -2,7 +2,7 @@
 
 using namespace Crystal::VDB;
 
-#include "../CrystalVDB/VDBPolygonMeshScene.h"
+#include "../CrystalVDB/VDBMeshScene.h"
 #include "../CrystalVDB/VDBPolygonMeshConverter.h"
 #include "../CrystalVDB/VDBVolumeScene.h"
 #include "../CrystalVDB/VDBVolumeConverter.h"

@@ -15,7 +15,7 @@ namespace
 
 #include "../CrystalVDB/VDBVolumeConverter.h"
 #include "../CrystalVDB/VDBVolumeScene.h"
-#include "../CrystalVDB/VDBPolygonMeshScene.h"
+#include "../CrystalVDB/VDBMeshScene.h"
 #include "../CrystalVDB/VDBScene.h"
 
 #include "../CrystalVDB/VDBMeshToVolumeConverter.h"

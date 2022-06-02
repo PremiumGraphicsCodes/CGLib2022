@@ -1,7 +1,7 @@
 #include "VDBSceneCreateCommand.h"
 
 #include "../../CrystalVDB/CrystalVDB/VDBPointsScene.h"
-#include "../../CrystalVDB/CrystalVDB/VDBPolygonMeshScene.h"
+#include "../../CrystalVDB/CrystalVDB/VDBMeshScene.h"
 #include "../../CrystalVDB/CrystalVDB/VDBVolumeScene.h"
 #include "../../CrystalVDB/CrystalVDB/VDBScene.h"
 
