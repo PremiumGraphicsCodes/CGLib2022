@@ -1,0 +1,25 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/sphere.vdb",
+            "Radius": 0.5
+        }
+    ],
+    [
+        "VDBSceneVolumeToMesh",
+        {
+            "Adaptivity": 0.0,
+            "Threshold": 0.0,
+            "VDBSceneId": 1
+        }
+    ],
+    [
+        "VDBSceneFileExport",
+        {
+            "FilePath": "../VDBDataSet/scene_to_mesh_torus.stl",
+			"FileFormat" : "STL",
+            "VDBSceneId": 2
+        }
+    ]
+]

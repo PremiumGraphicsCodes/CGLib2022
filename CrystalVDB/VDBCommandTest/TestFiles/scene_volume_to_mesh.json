@@ -1,0 +1,10 @@
+[
+    [
+        "VDBSceneVolumeToMesh",
+        {
+            "Adaptivity": 0.0,
+            "Threshold": 0.0,
+            "VDBSceneId": -1
+        }
+    ]
+]

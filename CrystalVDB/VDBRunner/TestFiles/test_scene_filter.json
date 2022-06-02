@@ -1,0 +1,25 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/torus.vdb",
+            "Radius": 0.5
+        }
+    ],
+	[
+        "VDBSceneFilter",
+        {
+            "FilterType": "Median",
+            "Iteration": 1,
+            "VDBSceneId": 1,
+            "Width": 1
+        }
+    ],
+    [
+        "VDBSceneFileWrite",
+        {
+            "FilePath": "../VDBDataSet/scene_filtered_torus.vdb",
+            "VDBSceneId": 1
+        }
+    ]
+]

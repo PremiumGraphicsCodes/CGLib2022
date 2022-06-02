@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CSPH">
+      <UniqueIdentifier>{77488121-418f-48ac-9822-6b51cce96a7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DFSPH">
+      <UniqueIdentifier>{80bcb3ac-b523-4050-8667-f3e7ed2ffc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PBSPH">
+      <UniqueIdentifier>{51e44d13-c0a6-4c44-b8d2-140b0cc53e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boundary">
+      <UniqueIdentifier>{20181694-560d-416c-a91b-238762370505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boundary\CSG">
+      <UniqueIdentifier>{36ac42dd-19c5-4f90-b9b1-969f7d4923a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boundary\Mesh">
+      <UniqueIdentifier>{ff819c75-8710-4215-b391-e3ce5a50f5c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SPHFlame">
+      <UniqueIdentifier>{843b95aa-82b5-4fc1-92ce-63a98953ad6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MVP">
+      <UniqueIdentifier>{78ff2e95-a432-49fc-8ca9-4c386fae1a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MVP\Boundary">
+      <UniqueIdentifier>{d17b61cc-41f8-454c-a5a7-e7e916c4078b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MPS">
+      <UniqueIdentifier>{37a477fb-a4fb-4e49-b089-907f70eb65b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IISPH">
+      <UniqueIdentifier>{969b6c58-c6da-47ab-b43e-826ab7d134cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{93dd166c-0ba5-44cc-8a40-880633228676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume\Converter">
+      <UniqueIdentifier>{af39bd43-2807-472e-92ba-98afa163cc44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SPHConstant.h" />
+    <ClInclude Include="SPHKernel.h" />
+    <ClInclude Include="MVP\MVPMassParticle.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPVolumeParticle.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPFluidSolver.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPFluidScene.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPFluidScenePresenter.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\IMVPFluidScene.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPFluidEmitterScene.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="CSPH\CSPHBoundarySolver.h">
+      <Filter>CSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="CSPH\CSPHFluidScene.h">
+      <Filter>CSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="CSPH\CSPHFluidSceneController.h">
+      <Filter>CSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="CSPH\CSPHParticle.h">
+      <Filter>CSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="CSPH\CSPHSolver.h">
+      <Filter>CSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSPH\DFFluidScene.h">
+      <Filter>DFSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSPH\DFFluidSceneController.h">
+      <Filter>DFSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSPH\DFFluidSolver.h">
+      <Filter>DFSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSPH\DFSPHBoundarySolver.h">
+      <Filter>DFSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="DFSPH\DFSPHParticle.h">
+      <Filter>DFSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBFluidScene.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBFluidSceneController.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBSPHBoundaryParticle.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBSPHBoundarySolver.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBSPHParticle.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="PBSPH\PBSPHSolver.h">
+      <Filter>PBSPH</Filter>
+    </ClInclude>
+    <ClInclude Include="IPhysicsParticle.h" />
+    <ClInclude Include="SPHFlame\SPHFlameScenePresenter.h">
+      <Filter>SPHFlame</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPBoundaryParticle.h">
+      <Filter>MVP\Boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPBoundaryScene.h">
+      <Filter>MVP\Boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPBoundaryScenePresenter.h">
+      <Filter>MVP\Boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="MVP\MVPBoundarySolver.h">
+      <Filter>MVP\Boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="MVPSampler.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHFlame\SPHFlameBoundarySolver.h">
+      <Filter>SPHFlame</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHFlame\SPHFlameParticle.h">
+      <Filter>SPHFlame</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHFlame\SPHFlameScene.h">
+      <Filter>SPHFlame</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHFlame\SPHFlameSolver.h">
+      <Filter>SPHFlame</Filter>
+    </ClInclude>
+    <ClInclude Include="MPS\MPSFluidSolver.h">
+      <Filter>MPS</Filter>
+    </ClInclude>
+    <ClInclude Include="Boundary\CSGBoundaryScene.h">
+      <Filter>Boundary\CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="Boundary\CSGBoundaryScenePresenter.h">
+      <Filter>Boundary\CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="Boundary\MeshBoundaryScene.h">
+      <Filter>Boundary\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Boundary\MeshBoundaryScenePresenter.h">
+      <Filter>Boundary\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="IISPH\IISPHFluidScene.h">
+      <Filter>IISPH</Filter>
+    </ClInclude>
+    <ClInclude Include="IISPH\IISPHParticle.h">
+      <Filter>IISPH</Filter>
+    </ClInclude>
+    <ClInclude Include="IISPH\IISPHFluidSceneController.h">
+      <Filter>IISPH</Filter>
+    </ClInclude>
+    <ClInclude Include="MPS\MPSParticle.h">
+      <Filter>MPS</Filter>
+    </ClInclude>
+    <ClInclude Include="MPS\MPSFluidScene.h">
+      <Filter>MPS</Filter>
+    </ClInclude>
+    <ClInclude Include="MPS\MPSFluidSceneController.h">
+      <Filter>MPS</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidVolumeScene.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="MVPVolumeConverter.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceConstruction\SPHVolumeConverter.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceConstruction\SPHSurfaceParticle.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceConstruction\WPCA.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidVolumePresenter.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SPHKernel.cpp" />
+    <ClCompile Include="MVP\MVPMassParticle.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPVolumeParticle.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPFluidSolver.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPFluidScene.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPFluidScenePresenter.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\IMVPFluidScene.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPFluidEmitterScene.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="CSPH\CSPHBoundarySolver.cpp">
+      <Filter>CSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="CSPH\CSPHFluidScene.cpp">
+      <Filter>CSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="CSPH\CSPHFluidSceneController.cpp">
+      <Filter>CSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="CSPH\CSPHParticle.cpp">
+      <Filter>CSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="CSPH\CSPHSolver.cpp">
+      <Filter>CSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="DFSPH\DFFluidScene.cpp">
+      <Filter>DFSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="DFSPH\DFFluidSceneController.cpp">
+      <Filter>DFSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="DFSPH\DFFluidSolver.cpp">
+      <Filter>DFSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="DFSPH\DFSPHBoundarySolver.cpp">
+      <Filter>DFSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="DFSPH\DFSPHParticle.cpp">
+      <Filter>DFSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBFluidScene.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBFluidSceneController.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBSPHBoundaryParticle.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBSPHBoundarySolver.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBSPHParticle.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="PBSPH\PBSPHSolver.cpp">
+      <Filter>PBSPH</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHFlame\SPHFlameScenePresenter.cpp">
+      <Filter>SPHFlame</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPBoundaryParticle.cpp">
+      <Filter>MVP\Boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPBoundaryScene.cpp">
+      <Filter>MVP\Boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPBoundaryScenePresenter.cpp">
+      <Filter>MVP\Boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="MVP\MVPBoundarySolver.cpp">
+      <Filter>MVP\Boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="MVPSampler.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHFlame\SPHFlameBoundarySolver.cpp">
+      <Filter>SPHFlame</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHFlame\SPHFlameParticle.cpp">
+      <Filter>SPHFlame</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHFlame\SPHFlameScene.cpp">
+      <Filter>SPHFlame</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHFlame\SPHFlameSolver.cpp">
+      <Filter>SPHFlame</Filter>
+    </ClCompile>
+    <ClCompile Include="MPS\MPSFluidSolver.cpp">
+      <Filter>MPS</Filter>
+    </ClCompile>
+    <ClCompile Include="Boundary\CSGBoundaryScene.cpp">
+      <Filter>Boundary\CSG</Filter>
+    </ClCompile>
+    <ClCompile Include="Boundary\CSGBoundaryScenePresenter.cpp">
+      <Filter>Boundary\CSG</Filter>
+    </ClCompile>
+    <ClCompile Include="Boundary\MeshBoundaryScene.cpp">
+      <Filter>Boundary\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Boundary\MeshBoundaryScenePresenter.cpp">
+      <Filter>Boundary\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="IISPH\IISPHFluidScene.cpp">
+      <Filter>IISPH</Filter>
+    </ClCompile>
+    <ClCompile Include="IISPH\IISPHFluidSceneController.cpp">
+      <Filter>IISPH</Filter>
+    </ClCompile>
+    <ClCompile Include="MPS\MPSFluidScene.cpp">
+      <Filter>MPS</Filter>
+    </ClCompile>
+    <ClCompile Include="MPS\MPSFluidSceneController.cpp">
+      <Filter>MPS</Filter>
+    </ClCompile>
+    <ClCompile Include="MPS\MPSParticle.cpp">
+      <Filter>MPS</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidVolumeScene.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="MVPVolumeConverter.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceConstruction\SPHVolumeConverter.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceConstruction\SPHSurfaceParticle.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceConstruction\WPCA.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidVolumePresenter.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

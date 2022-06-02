@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--this is a xml test file-->
+<Root>
+    <Tree>
+        <Int>1</Int>
+        <Double>3.140000</Double>
+        <Tree2>
+            <Float>3.140000</Float>
+            <Text>Hello</Text>
+        </Tree2>
+    </Tree>
+</Root>

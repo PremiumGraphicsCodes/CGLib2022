@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="IShape.h" />
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameBuilder.h">
+      <Filter>WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameEdge.h">
+      <Filter>WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Face.h">
+      <Filter>PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMesh.h">
+      <Filter>PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshBuilder.h">
+      <Filter>PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrame.h">
+      <Filter>WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularBuffer.h" />
+    <ClInclude Include="TriangleMesh.h">
+      <Filter>TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMeshBuilder.h">
+      <Filter>TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Volume.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticle.h">
+      <Filter>ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="CSG.h">
+      <Filter>CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="Solid.h">
+      <Filter>CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleSystem.h">
+      <Filter>ParticleSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ParticleSystem">
+      <UniqueIdentifier>{567f843a-3819-46ae-9002-a8049947704e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WireFrame">
+      <UniqueIdentifier>{b2bff9a9-8922-40a5-bcf4-3cae6de8f826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolygonMesh">
+      <UniqueIdentifier>{83be5bb4-42ba-4424-93cc-44177186141d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TriangleMesh">
+      <UniqueIdentifier>{0a38f2d4-10b7-4b60-a11b-6014bc66487d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{250a25a8-1979-467a-b40c-8164c5e4ea41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSG">
+      <UniqueIdentifier>{35c736aa-e4d8-48b9-9eda-fc362f21718b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WireFrameBuilder.cpp">
+      <Filter>WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Face.cpp">
+      <Filter>PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMesh.cpp">
+      <Filter>PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshBuilder.cpp">
+      <Filter>PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFrame.cpp">
+      <Filter>WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMesh.cpp">
+      <Filter>TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMeshBuilder.cpp">
+      <Filter>TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Volume.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="CSG.cpp">
+      <Filter>CSG</Filter>
+    </ClCompile>
+    <ClCompile Include="Solid.cpp">
+      <Filter>CSG</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

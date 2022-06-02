@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="IOTest.cpp" />
+    <ClCompile Include="PCDFileReaderTest.cpp">
+      <Filter>PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="MTLFileReaderTest.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileReaderTest.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="PCDFileWriterTest.cpp">
+      <Filter>PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="STLASCIIFileReaderTest.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="STLASCIIFileWriterTest.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileWriterTest.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="MTLFileWriterTest.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileReaderTest.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileWriterTest.cpp">
+      <Filter>TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileReaderTest.cpp">
+      <Filter>TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="PLYFileWriterTest.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="PLYFileReaderTest.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PCD">
+      <UniqueIdentifier>{a15c868c-e496-42cf-a660-63b741e07df3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ">
+      <UniqueIdentifier>{408c8216-741f-408f-964a-a8118a7c0110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{4c949bac-5d6c-4dc7-a794-96f94ea89520}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TXT">
+      <UniqueIdentifier>{8bdc56ae-5dc7-4fbd-8f7a-61c7e8085333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLY">
+      <UniqueIdentifier>{99bce126-4203-4698-bf45-0f514f66e006}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

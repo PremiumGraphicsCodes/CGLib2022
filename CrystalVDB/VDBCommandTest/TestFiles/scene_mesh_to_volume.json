@@ -1,0 +1,9 @@
+[
+    [
+        "VDBSceneMeshToVolume",
+        {
+            "DivideLength": 1.0,
+            "VDBSceneId": -1
+        }
+    ]
+]

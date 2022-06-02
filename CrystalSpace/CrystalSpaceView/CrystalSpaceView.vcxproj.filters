@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="SpaceHashView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="OctreeView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="MarchingCubesView.cpp">
+      <Filter>MarchingCubes</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionView.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeConvertView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="ZOrderSearchView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformGrid3dView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="CompactSpaceHash3dView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexedSortSearchAlgoView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="ISVAddView.cpp">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="SVSphereView.cpp">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="IVoxelAddView.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelSphereView.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshToParticleView.cpp" />
+    <ClCompile Include="LinearOctreeView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracerView.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceMenu.cpp" />
+    <ClCompile Include="CrystalSpaceView.cpp" />
+    <ClCompile Include="VoxelizerView.cpp">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanLineVoxelizerView.cpp">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClCompile>
+    <ClCompile Include="SVBoxView.cpp">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicOctreeView.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SpaceHashView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="OctreeView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="MarchingCubesView.h">
+      <Filter>MarchingCubes</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionView.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeConvertView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="ZOrderSearchView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformGrid3dView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="CompactSpaceHash3dView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexedSortSearchAlgoView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="SVSphereView.h">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="ISVAddView.h">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelSphereView.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="IVoxelAddView.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshToParticleView.h" />
+    <ClInclude Include="LinearOctreeView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracerView.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceMenu.h" />
+    <ClInclude Include="VoxelizerView.h">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanLineVoxelizerView.h">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClInclude>
+    <ClInclude Include="SVBoxView.h">
+      <Filter>Volume\SparseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOctreeView.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Intersection">
+      <UniqueIdentifier>{81e14b45-7bcc-400a-a684-4e49e0cf861f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarchingCubes">
+      <UniqueIdentifier>{bb8df9fd-c2ee-46f5-b032-a296b1b0a69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search">
+      <UniqueIdentifier>{41a6a766-e885-4f76-9831-f9c5f38774f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{c2c44d67-d31e-48da-b504-2046a4e41f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume\SparseVolume">
+      <UniqueIdentifier>{9f94bf65-7479-4403-b110-951813dc8f21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel">
+      <UniqueIdentifier>{0d969ffd-9d34-4937-9987-6ce315f6b5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel\Voxelizer">
+      <UniqueIdentifier>{fc72286e-d192-41a0-b1c1-526a57296a12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

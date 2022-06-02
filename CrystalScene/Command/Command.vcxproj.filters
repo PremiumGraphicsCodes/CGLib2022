@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="FileImportCommand.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory.h" />
+    <ClInclude Include="MockCommand.h" />
+    <ClInclude Include="IArgs.h" />
+    <ClInclude Include="IResults.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="FileExportCommand.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCommand.h" />
+    <ClInclude Include="TransformCommand.h">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFitCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraZoomCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraTranslateCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="PickCommand.h" />
+    <ClInclude Include="PCDFileImportCommand.h">
+      <Filter>File\PCD</Filter>
+    </ClInclude>
+    <ClInclude Include="STLFileImportCommand.h">
+      <Filter>File\STL</Filter>
+    </ClInclude>
+    <ClInclude Include="STLFileExportCommand.h">
+      <Filter>File\STL</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJFileImportCommand.h">
+      <Filter>File\OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJFileExportCommand.h">
+      <Filter>File\OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="PCDFileExportCommand.h">
+      <Filter>File\PCD</Filter>
+    </ClInclude>
+    <ClInclude Include="TrimCommand.h">
+      <Filter>Scene\Shape\Trim</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameCreateCommand.h">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemCreateCommand.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshCreateCommand.h">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCommand.h" />
+    <ClInclude Include="LightCreateCommand.h">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialCreateCommand.h">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeSelectCommand.h">
+      <Filter>Scene\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearCommand.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraRotateCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureCreateCommand.h">
+      <Filter>Scene\Appearance\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialGetCommand.h">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialSetCommand.h">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSetCommand.h">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="LightGetCommand.h">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGetCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSetCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraGetCommand.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureSetCommand.h">
+      <Filter>Scene\Appearance\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderBuildCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderSendCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraCreateCommand.h">
+      <Filter>Scene\Appearance\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidCreateCommand.h">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClInclude>
+    <ClInclude Include="PresenterSetCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSetCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshAddVerticesCommand.h">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshAddFacesCommand.h">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemGetCommand.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemSetCommand.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMeshCreateCommand.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMeshGetCommand.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMeshSetCommand.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicLabel.h" />
+    <ClInclude Include="TXTFileImportCommand.h">
+      <Filter>File\TXT</Filter>
+    </ClInclude>
+    <ClInclude Include="TXTFileExportCommand.h">
+      <Filter>File\TXT</Filter>
+    </ClInclude>
+    <ClInclude Include="PLYFileExportCommand.h">
+      <Filter>File\PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="PLYFileImportCommand.h">
+      <Filter>File\PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONFileWriter.h">
+      <Filter>JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONConverter.h">
+      <Filter>JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONFileReader.h">
+      <Filter>JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLFileWriter.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLConverter.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLFileReader.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="IPropertyTreeFactory.h">
+      <Filter>Property</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="PropertyTree.h">
+      <Filter>Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Property</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileImportCommand.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory.cpp" />
+    <ClCompile Include="MockCommand.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="FileExportCommand.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCommand.cpp" />
+    <ClCompile Include="TransformCommand.cpp">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFitCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraZoomCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraTranslateCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="PickCommand.cpp" />
+    <ClCompile Include="PCDFileImportCommand.cpp">
+      <Filter>File\PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileImportCommand.cpp">
+      <Filter>File\STL</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileExportCommand.cpp">
+      <Filter>File\STL</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileImportCommand.cpp">
+      <Filter>File\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileExportCommand.cpp">
+      <Filter>File\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="PCDFileExportCommand.cpp">
+      <Filter>File\PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="TrimCommand.cpp">
+      <Filter>Scene\Shape\Trim</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFrameCreateCommand.cpp">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemCreateCommand.cpp">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshCreateCommand.cpp">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCommand.cpp" />
+    <ClCompile Include="LightCreateCommand.cpp">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialCreateCommand.cpp">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeSelectCommand.cpp">
+      <Filter>Scene\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearCommand.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraRotateCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureCreateCommand.cpp">
+      <Filter>Scene\Appearance\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialGetCommand.cpp">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSetCommand.cpp">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSetCommand.cpp">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="LightGetCommand.cpp">
+      <Filter>Scene\Appearance\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGetCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSetCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraGetCommand.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureSetCommand.cpp">
+      <Filter>Scene\Appearance\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderBuildCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderSendCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraCreateCommand.cpp">
+      <Filter>Scene\Appearance\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidCreateCommand.cpp">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClCompile>
+    <ClCompile Include="PresenterSetCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneSetCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshAddVerticesCommand.cpp">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshAddFacesCommand.cpp">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemGetCommand.cpp">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemSetCommand.cpp">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMeshCreateCommand.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMeshGetCommand.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMeshSetCommand.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileImportCommand.cpp">
+      <Filter>File\TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileExportCommand.cpp">
+      <Filter>File\TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="PLYFileExportCommand.cpp">
+      <Filter>File\PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="PLYFileImportCommand.cpp">
+      <Filter>File\PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONConverter.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileWriter.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileReader.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLFileWriter.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLConverter.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLFileReader.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="ICommand.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{b7086cd9-f50a-435e-964a-8e5395384f99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{c6a7890d-cf84-4105-acdd-dc0da0eddf17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape">
+      <UniqueIdentifier>{4f81f62c-81fa-45b7-9867-98da2e63bbcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance">
+      <UniqueIdentifier>{5008008f-228d-4376-b123-d0293605e6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Transform">
+      <UniqueIdentifier>{653ad305-666d-4e9b-ba03-9eea40943d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem">
+      <UniqueIdentifier>{a2955083-84ec-435a-a5cf-7e82af13379b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh">
+      <UniqueIdentifier>{372e22b4-7ef2-4a57-aad3-48d9598c67e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame">
+      <UniqueIdentifier>{dc1000d9-5ac0-4216-b9e4-c076d1638f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{38bb3154-0de5-4bba-afa6-a792c3a6ebe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\PCD">
+      <UniqueIdentifier>{dc691723-56be-4a0f-a3e0-4a490be68a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\STL">
+      <UniqueIdentifier>{cb222483-923f-4320-9e11-fddafba396ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\OBJ">
+      <UniqueIdentifier>{42593c27-df0f-4740-bafb-9b6414a5528d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Trim">
+      <UniqueIdentifier>{d9be7589-1db5-4cd6-8ea1-d013ea4f6881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Light">
+      <UniqueIdentifier>{fae99320-b54d-4a67-8088-c4ba6adc8bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Material">
+      <UniqueIdentifier>{f2fa3de0-28d9-4239-9bbe-b253d1c9d10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Texture">
+      <UniqueIdentifier>{0488bdbf-75e0-4a40-aa75-75a3de41e196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{fec791a6-45c4-43d2-a4c3-8aa0990ce47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Camera">
+      <UniqueIdentifier>{f409ed4e-20e1-4584-8a2e-24b452169d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Solid">
+      <UniqueIdentifier>{43be9c66-602e-4cf1-8b3e-f9f492576ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\TriangleMesh">
+      <UniqueIdentifier>{6b7ee31a-8822-46b4-bcba-b649cd9d78d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\TXT">
+      <UniqueIdentifier>{d656cd53-3765-411c-b9b5-78e4ceda7b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\PLY">
+      <UniqueIdentifier>{fec2cc50-ffa8-49f5-90a0-d802f3a569ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON">
+      <UniqueIdentifier>{a91131b3-0112-455f-aac8-de4409b2581b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{f83baf22-63c2-4cb1-ab9f-528a3d4e0b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Property">
+      <UniqueIdentifier>{0fdcfb25-d6c3-422a-be21-ae7c49c3e704}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

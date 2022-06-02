@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="FluidSimulationCommand.cpp" />
+    <ClCompile Include="PhysicsCommandFactory.cpp" />
+    <ClCompile Include="FluidSceneCreateCommand.cpp">
+      <Filter>FluidScene</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidSceneUpdateCommand.cpp">
+      <Filter>FluidScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSolverCreateCommand.cpp">
+      <Filter>FluidSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGBoundarySceneCreateCommand.cpp">
+      <Filter>CSGBoundaryScene</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGBoundarySceneUpdateCommand.cpp">
+      <Filter>CSGBoundaryScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSolverUpdateCommand.cpp">
+      <Filter>FluidSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidSceneToPSCommand.cpp">
+      <Filter>FluidScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshBoundarySceneCreateCommand.cpp">
+      <Filter>MeshBoundaryScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshBoundarySceneUpdateCommand.cpp">
+      <Filter>MeshBoundaryScene</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterSceneCreateCommand.cpp">
+      <Filter>EmitterScene</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterSceneUpdateCommand.cpp">
+      <Filter>EmitterScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSolverExportCommand.cpp">
+      <Filter>FluidSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidVolumeExportCommand.cpp">
+      <Filter>FluidVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="MVPVolumeConvertCommand.cpp">
+      <Filter>FluidVolume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHVolumeConvertCommand.cpp">
+      <Filter>FluidVolume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidVolumeSceneCreateCommand.cpp">
+      <Filter>FluidVolume</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FluidSimulationCommand.h" />
+    <ClInclude Include="PhysicsCommandFactory.h" />
+    <ClInclude Include="FluidSceneCreateCommand.h">
+      <Filter>FluidScene</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidSceneUpdateCommand.h">
+      <Filter>FluidScene</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSolverCreateCommand.h">
+      <Filter>FluidSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGBoundarySceneCreateCommand.h">
+      <Filter>CSGBoundaryScene</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGBoundarySceneUpdateCommand.h">
+      <Filter>CSGBoundaryScene</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSolverUpdateCommand.h">
+      <Filter>FluidSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidSceneToPSCommand.h">
+      <Filter>FluidScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshBoundarySceneCreateCommand.h">
+      <Filter>MeshBoundaryScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshBoundarySceneUpdateCommand.h">
+      <Filter>MeshBoundaryScene</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterSceneCreateCommand.h">
+      <Filter>EmitterScene</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterSceneUpdateCommand.h">
+      <Filter>EmitterScene</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSolverExportCommand.h">
+      <Filter>FluidSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidVolumeExportCommand.h">
+      <Filter>FluidVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="MVPVolumeConvertCommand.h">
+      <Filter>FluidVolume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHVolumeConvertCommand.h">
+      <Filter>FluidVolume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidVolumeSceneCreateCommand.h">
+      <Filter>FluidVolume</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="FluidScene">
+      <UniqueIdentifier>{49b4c075-d2d9-4376-92a1-e5e2d6d1b4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidSolver">
+      <UniqueIdentifier>{71daf46d-e797-4125-92e6-6c4f824562bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSGBoundaryScene">
+      <UniqueIdentifier>{990b8a89-85fa-4075-82dc-e504a33157c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBoundaryScene">
+      <UniqueIdentifier>{21e4c9d6-5737-4a6e-80eb-0e36d12b5b29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmitterScene">
+      <UniqueIdentifier>{e2569788-f3f2-4e61-bc12-e4992cec8ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidVolume">
+      <UniqueIdentifier>{56bdd695-b2eb-4bd8-a55c-f3e8533bf8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidVolume\Converter">
+      <UniqueIdentifier>{d88668b6-2193-4c5f-9292-8672ceec640b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

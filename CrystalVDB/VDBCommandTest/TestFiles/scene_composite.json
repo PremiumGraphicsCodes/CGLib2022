@@ -1,0 +1,10 @@
+[
+    [
+        "VDBSceneComposite",
+        {
+            "CompositeType": "Union",
+            "SceneId1": -1,
+            "SceneId2": -1
+        }
+    ]
+]

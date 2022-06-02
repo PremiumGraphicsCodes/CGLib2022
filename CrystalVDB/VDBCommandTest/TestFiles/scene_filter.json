@@ -1,0 +1,11 @@
+[
+    [
+        "VDBSceneFilter",
+        {
+            "FilterType": "Median",
+            "Iteration": 1,
+            "VDBSceneId": -1,
+            "Width": 1
+        }
+    ]
+]

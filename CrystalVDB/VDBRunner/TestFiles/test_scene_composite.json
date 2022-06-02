@@ -1,0 +1,31 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/torus.vdb",
+            "Radius": 0.5
+        }
+    ],
+	[
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/cube.vdb",
+            "Radius": 0.5
+        }
+    ],
+	[
+        "VDBSceneComposite",
+        {
+            "CompositeType": "Union",
+            "SceneId1": 1,
+            "SceneId2": 2
+        }
+    ],
+    [
+        "VDBSceneFileWrite",
+        {
+            "FilePath": "../VDBDataSet/scene_composited_torus.vdb",
+            "VDBSceneId": 1
+        }
+    ]
+]

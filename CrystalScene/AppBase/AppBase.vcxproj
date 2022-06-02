@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AppearanceMenu.cpp" />
+    <ClCompile Include="BoolView.cpp" />
+    <ClCompile Include="Box3dView.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CameraMenu.cpp" />
+    <ClCompile Include="CameraUICtrl.cpp" />
+    <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="CheckBox.cpp" />
+    <ClCompile Include="Circle3dView.cpp" />
+    <ClCompile Include="ColorMapView.cpp" />
+    <ClCompile Include="ColorRGBAView.cpp" />
+    <ClCompile Include="ComboBox.cpp" />
+    <ClCompile Include="Cone3dView.cpp" />
+    <ClCompile Include="ControlPanel.cpp" />
+    <ClCompile Include="CtrlMenu.cpp" />
+    <ClCompile Include="Cylinder3dView.cpp" />
+    <ClCompile Include="DeleteView.cpp" />
+    <ClCompile Include="DirectoryView.cpp" />
+    <ClCompile Include="Double4View.cpp" />
+    <ClCompile Include="DoubleView.cpp" />
+    <ClCompile Include="Ellipsoid3dView.cpp" />
+    <ClCompile Include="FileMenu.cpp" />
+    <ClCompile Include="FileOpenMenu.cpp" />
+    <ClCompile Include="FileOpenView.cpp" />
+    <ClCompile Include="FileSaveMenu.cpp" />
+    <ClCompile Include="FileSaveView.cpp" />
+    <ClCompile Include="Float4View.cpp" />
+    <ClCompile Include="FloatView.cpp" />
+    <ClCompile Include="ImageView.cpp" />
+    <ClCompile Include="IMenu.cpp" />
+    <ClCompile Include="IntView.cpp" />
+    <ClCompile Include="IPMAddView.cpp" />
+    <ClCompile Include="IPSAddView.cpp" />
+    <ClCompile Include="ISolidAddView.cpp" />
+    <ClCompile Include="ITMAddView.cpp" />
+    <ClCompile Include="IVolAddView.cpp" />
+    <ClCompile Include="IVoxelAddView.cpp" />
+    <ClCompile Include="IWFAddView.cpp" />
+    <ClCompile Include="MaterialSelectView.cpp" />
+    <ClCompile Include="Matrix2dView.cpp" />
+    <ClCompile Include="Matrix3dView.cpp" />
+    <ClCompile Include="Matrix4dView.cpp" />
+    <ClCompile Include="IMenuItem.cpp" />
+    <ClCompile Include="PickUICtrl.cpp" />
+    <ClCompile Include="Plane3dView.cpp" />
+    <ClCompile Include="PMConeView.cpp" />
+    <ClCompile Include="PMPresenterView.cpp" />
+    <ClCompile Include="Quad3dView.cpp" />
+    <ClCompile Include="Ray3dView.cpp" />
+    <ClCompile Include="RotateView.cpp" />
+    <ClCompile Include="ScaleView.cpp" />
+    <ClCompile Include="SelectionMenu.cpp" />
+    <ClCompile Include="ShaderAddView.cpp" />
+    <ClCompile Include="ShaderView.cpp" />
+    <ClCompile Include="ShapeCloneView.cpp" />
+    <ClCompile Include="ShapeMenu.cpp" />
+    <ClCompile Include="SolidBoxView.cpp" />
+    <ClCompile Include="Sphere3dView.cpp" />
+    <ClCompile Include="SpotLightView.cpp" />
+    <ClCompile Include="StringView.cpp" />
+    <ClCompile Include="TextureAddView.cpp" />
+    <ClCompile Include="TextureEditView.cpp" />
+    <ClCompile Include="TextureView.cpp" />
+    <ClCompile Include="MaskMenu.cpp" />
+    <ClCompile Include="FaceView.cpp" />
+    <ClCompile Include="ParticleSystemEditView.cpp" />
+    <ClCompile Include="PolygonMeshEditView.cpp" />
+    <ClCompile Include="SceneListPanel.cpp" />
+    <ClCompile Include="SphereRegionSelectView.cpp" />
+    <ClCompile Include="TMBoxView.cpp" />
+    <ClCompile Include="TMSphereView.cpp" />
+    <ClCompile Include="TranslateView.cpp" />
+    <ClCompile Include="Vector3dView.cpp" />
+    <ClCompile Include="VertexView.cpp" />
+    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="imgui_draw.cpp" />
+    <ClCompile Include="imgui_impl_glfw.cpp" />
+    <ClCompile Include="imgui_impl_opengl3.cpp" />
+    <ClCompile Include="imgui_stdlib.cpp" />
+    <ClCompile Include="imgui_widgets.cpp" />
+    <ClCompile Include="IPanel.cpp" />
+    <ClCompile Include="IPopupButton.cpp" />
+    <ClCompile Include="LightAddView.cpp" />
+    <ClCompile Include="LightEditView.cpp" />
+    <ClCompile Include="LightView.cpp" />
+    <ClCompile Include="MaterialAddView.cpp" />
+    <ClCompile Include="MaterialEditView.cpp" />
+    <ClCompile Include="MaterialView.cpp" />
+    <ClCompile Include="PMBoxView.cpp" />
+    <ClCompile Include="PMQuadView.cpp" />
+    <ClCompile Include="PMSphereView.cpp" />
+    <ClCompile Include="PSBoxView.cpp" />
+    <ClCompile Include="PSConeView.cpp" />
+    <ClCompile Include="PSCylinderView.cpp" />
+    <ClCompile Include="PSSphereView.cpp" />
+    <ClCompile Include="PSTorusView.cpp" />
+    <ClCompile Include="ScreenMenu.cpp" />
+    <ClCompile Include="ObjectSelectView.cpp" />
+    <ClCompile Include="PositionSelectView.cpp" />
+    <ClCompile Include="tinyfiledialogs.cpp" />
+    <ClCompile Include="TransformView.cpp" />
+    <ClCompile Include="VolSphereView.cpp" />
+    <ClCompile Include="VoxelSphereView.cpp" />
+    <ClCompile Include="WFAttributeView.cpp" />
+    <ClCompile Include="WFBoxView.cpp" />
+    <ClCompile Include="WFCircleView.cpp" />
+    <ClCompile Include="WFConeView.cpp" />
+    <ClCompile Include="WFCylinderView.cpp" />
+    <ClCompile Include="WFEllipsoidView.cpp" />
+    <ClCompile Include="WFSphereView.cpp" />
+    <ClCompile Include="WFTorusView.cpp" />
+    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WireFrameEditView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AppearanceMenu.h" />
+    <ClInclude Include="CameraUICtrl.h" />
+    <ClInclude Include="Canvas.h" />
+    <ClInclude Include="CheckBox.h" />
+    <ClInclude Include="Circle3dView.h" />
+    <ClInclude Include="ComboBox.h" />
+    <ClInclude Include="DeleteView.h" />
+    <ClInclude Include="DirectoryView.h" />
+    <ClInclude Include="Double4View.h" />
+    <ClInclude Include="Ellipsoid3dView.h" />
+    <ClInclude Include="FileOpenView.h" />
+    <ClInclude Include="FileSaveView.h" />
+    <ClInclude Include="glfw3.h" />
+    <ClInclude Include="IEditCancelView.h" />
+    <ClInclude Include="ImageView.h" />
+    <ClInclude Include="IOkCancelView.h" />
+    <ClInclude Include="IPMAddView.h" />
+    <ClInclude Include="IPSAddView.h" />
+    <ClInclude Include="ISolidAddView.h" />
+    <ClInclude Include="ITMAddView.h" />
+    <ClInclude Include="IUICtrl.h" />
+    <ClInclude Include="IView.h" />
+    <ClInclude Include="IVolAddView.h" />
+    <ClInclude Include="IVoxelAddView.h" />
+    <ClInclude Include="IWFAddView.h" />
+    <ClInclude Include="MaterialSelectView.h" />
+    <ClInclude Include="Matrix2dView.h" />
+    <ClInclude Include="Matrix4dView.h" />
+    <ClInclude Include="IMenuItem.h" />
+    <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="PickUICtrl.h" />
+    <ClInclude Include="PMConeView.h" />
+    <ClInclude Include="PMPresenterView.h" />
+    <ClInclude Include="RotateView.h" />
+    <ClInclude Include="ScaleView.h" />
+    <ClInclude Include="SelectionMenu.h" />
+    <ClInclude Include="ShaderView.h" />
+    <ClInclude Include="ShapeCloneView.h" />
+    <ClInclude Include="ShapeMenu.h" />
+    <ClInclude Include="BoolView.h" />
+    <ClInclude Include="Box3dView.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="CameraMenu.h" />
+    <ClInclude Include="ColorMapView.h" />
+    <ClInclude Include="ColorRGBAView.h" />
+    <ClInclude Include="Cone3dView.h" />
+    <ClInclude Include="ControlPanel.h" />
+    <ClInclude Include="CtrlMenu.h" />
+    <ClInclude Include="Cylinder3dView.h" />
+    <ClInclude Include="DoubleView.h" />
+    <ClInclude Include="FileMenu.h" />
+    <ClInclude Include="FileOpenMenu.h" />
+    <ClInclude Include="FileSaveMenu.h" />
+    <ClInclude Include="Float4View.h" />
+    <ClInclude Include="FloatView.h" />
+    <ClInclude Include="Matrix3dView.h" />
+    <ClInclude Include="ShaderAddView.h" />
+    <ClInclude Include="SolidBoxView.h" />
+    <ClInclude Include="SpotLightView.h" />
+    <ClInclude Include="TextureAddView.h" />
+    <ClInclude Include="TextureEditView.h" />
+    <ClInclude Include="TextureView.h" />
+    <ClInclude Include="MaskMenu.h" />
+    <ClInclude Include="FaceView.h" />
+    <ClInclude Include="ParticleSystemEditView.h" />
+    <ClInclude Include="PolygonMeshEditView.h" />
+    <ClInclude Include="SceneListPanel.h" />
+    <ClInclude Include="SphereRegionSelectView.h" />
+    <ClInclude Include="TMBoxView.h" />
+    <ClInclude Include="TMSphereView.h" />
+    <ClInclude Include="TranslateView.h" />
+    <ClInclude Include="VertexView.h" />
+    <ClInclude Include="Quad3dView.h" />
+    <ClInclude Include="imconfig.h" />
+    <ClInclude Include="IMenu.h" />
+    <ClInclude Include="imgui.h" />
+    <ClInclude Include="imgui_impl_glfw.h" />
+    <ClInclude Include="imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui_internal.h" />
+    <ClInclude Include="imgui_stdlib.h" />
+    <ClInclude Include="imstb_rectpack.h" />
+    <ClInclude Include="imstb_textedit.h" />
+    <ClInclude Include="imstb_truetype.h" />
+    <ClInclude Include="IntView.h" />
+    <ClInclude Include="IPanel.h" />
+    <ClInclude Include="IPopupButton.h" />
+    <ClInclude Include="ITreeList.h" />
+    <ClInclude Include="IWindow.h" />
+    <ClInclude Include="LightAddView.h" />
+    <ClInclude Include="LightEditView.h" />
+    <ClInclude Include="LightView.h" />
+    <ClInclude Include="MaterialAddView.h" />
+    <ClInclude Include="MaterialEditView.h" />
+    <ClInclude Include="MaterialView.h" />
+    <ClInclude Include="Plane3dView.h" />
+    <ClInclude Include="PMBoxView.h" />
+    <ClInclude Include="PMQuadView.h" />
+    <ClInclude Include="PMSphereView.h" />
+    <ClInclude Include="PSAttributeView.h" />
+    <ClInclude Include="PSTorusView.h" />
+    <ClInclude Include="PSBoxView.h" />
+    <ClInclude Include="PSConeView.h" />
+    <ClInclude Include="PSCylinderView.h" />
+    <ClInclude Include="PSSphereView.h" />
+    <ClInclude Include="Ray3dView.h" />
+    <ClInclude Include="ScreenMenu.h" />
+    <ClInclude Include="Sphere3dView.h" />
+    <ClInclude Include="StringView.h" />
+    <ClInclude Include="Torus3dView.h" />
+    <ClInclude Include="ObjectSelectView.h" />
+    <ClInclude Include="PositionSelectView.h" />
+    <ClInclude Include="tinyfiledialogs.h" />
+    <ClInclude Include="TransformView.h" />
+    <ClInclude Include="Vector2dView.h" />
+    <ClInclude Include="Vector3dView.h" />
+    <ClInclude Include="VolSphereView.h" />
+    <ClInclude Include="VoxelSphereView.h" />
+    <ClInclude Include="WFAttributeView.h" />
+    <ClInclude Include="WFBoxView.h" />
+    <ClInclude Include="WFCircleView.h" />
+    <ClInclude Include="WFConeView.h" />
+    <ClInclude Include="WFCylinderView.h" />
+    <ClInclude Include="WFEllipsoidView.h" />
+    <ClInclude Include="WFSphereView.h" />
+    <ClInclude Include="WFTorusView.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="WireFrameEditView.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8BCD40A1-4223-4E7A-A84A-93FBF1B6FFD8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AppBase</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../ThirdParty/cereal-1.2.2/include/;../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../ThirdParty/cereal-1.2.2/include/;../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets" Condition="Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" />
+    <Import Project="..\packages\glew.1.9.0.1\build\native\glew.targets" Condition="Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" />
+  </ImportGroup>
+</Project>

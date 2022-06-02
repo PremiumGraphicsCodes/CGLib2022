@@ -1,0 +1,9 @@
+[
+    [
+        "VDBSceneVolumeToPoints",
+        {
+            "Radius": 5.0,
+            "VDBSceneId": -1
+        }
+    ]
+]

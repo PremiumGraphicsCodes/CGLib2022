@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="MarchingCubesAlgo.h">
+      <Filter>MarchingCubes</Filter>
+    </ClInclude>
+    <ClInclude Include="MarchingCubesTable.h">
+      <Filter>MarchingCubes</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeConvertAlgo.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="MCCell.h">
+      <Filter>MarchingCubes</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexedParticle.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="ZIndexedSearchAlgo.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="ZOrderCurve2d.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="ZOrderCurve3d.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformGrid3d.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="StopWatch.h" />
+    <ClInclude Include="IndexedSortSearchAlgo.h">
+      <Filter>Search</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseVolumeScene.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseVolumePresenter.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseVolume.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelScene.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="Voxel.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelPresenter.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshToParticleConverter.h" />
+    <ClInclude Include="VoxelToParticleConverter.h" />
+    <ClInclude Include="Overlap.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="CompactSpaceHash3d.h">
+      <Filter>Search\SpaceHash</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceHash3d.h">
+      <Filter>Search\SpaceHash</Filter>
+    </ClInclude>
+    <ClInclude Include="Octree.h">
+      <Filter>Search\Octree</Filter>
+    </ClInclude>
+    <ClInclude Include="OctreeOperator.h">
+      <Filter>Search\Octree</Filter>
+    </ClInclude>
+    <ClInclude Include="IOctreeItem.h">
+      <Filter>Search\Octree</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionCalculator.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanLineVoxelizer.h">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Voxelizer.h">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClInclude>
+    <ClInclude Include="DistanceCalculator.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearOctree.h">
+      <Filter>Search\Octree\LinearOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearOctreeIndex.h">
+      <Filter>Search\Octree\LinearOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleBoxOverlapCalculator.h">
+      <Filter>Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseVolumeBuilder.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOctree.h">
+      <Filter>Search\Octree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MarchingCubesAlgo.cpp">
+      <Filter>MarchingCubes</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeConvertAlgo.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexedParticle.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="ZIndexedSearchAlgo.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="ZOrderCurve2d.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="ZOrderCurve3d.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformGrid3d.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexedSortSearchAlgo.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolumeScene.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolumePresenter.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolume.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="Voxel.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelScene.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelPresenter.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshToParticleConverter.cpp" />
+    <ClCompile Include="VoxelToParticleConverter.cpp" />
+    <ClCompile Include="Overlap.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="CompactSpaceHash3d.cpp">
+      <Filter>Search\SpaceHash</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceHash3d.cpp">
+      <Filter>Search\SpaceHash</Filter>
+    </ClCompile>
+    <ClCompile Include="Octree.cpp">
+      <Filter>Search\Octree</Filter>
+    </ClCompile>
+    <ClCompile Include="OctreeOperator.cpp">
+      <Filter>Search\Octree</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionCalculator.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanLineVoxelizer.cpp">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClCompile>
+    <ClCompile Include="Voxelizer.cpp">
+      <Filter>Voxel\Voxelizer</Filter>
+    </ClCompile>
+    <ClCompile Include="DistanceCalculator.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearOctree.cpp">
+      <Filter>Search\Octree\LinearOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearOctreeIndex.cpp">
+      <Filter>Search\Octree\LinearOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleBoxOverlapCalculator.cpp">
+      <Filter>Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolumeBuilder.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicOctree.cpp">
+      <Filter>Search\Octree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Search">
+      <UniqueIdentifier>{e3a4c719-e1a6-4082-a18a-bf9d62b1fdcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intersection">
+      <UniqueIdentifier>{0048fd5c-36a5-427c-a1c4-7e067be63738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarchingCubes">
+      <UniqueIdentifier>{6d4a5a03-215a-4a8a-b4e5-c6cdd72662bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{aa657a9f-2f54-427f-a595-70f197e46c21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel">
+      <UniqueIdentifier>{7eb616ec-5cd0-4afe-98cb-39efb984a28f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search\SpaceHash">
+      <UniqueIdentifier>{a136df2c-f572-4919-b097-7919268da5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search\Octree">
+      <UniqueIdentifier>{dfbb5ca3-054e-431f-8ad7-aadeff567136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel\Voxelizer">
+      <UniqueIdentifier>{68c8dfc0-a706-4065-8e83-2739a497516f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search\Octree\LinearOctree">
+      <UniqueIdentifier>{7631fe81-9852-4548-a942-1f1a0c63d87b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

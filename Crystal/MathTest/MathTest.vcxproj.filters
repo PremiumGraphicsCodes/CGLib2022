@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Matrix">
+      <UniqueIdentifier>{2ee3834c-c55c-4b53-9897-2fb232e464d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vector">
+      <UniqueIdentifier>{b807285c-d727-4a84-ae41-1602b18c585a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive2d">
+      <UniqueIdentifier>{f5697436-9181-44e0-a579-3c14c24dc38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive3d">
+      <UniqueIdentifier>{1765ff6f-07d1-48a1-a9b4-db722b5b5fa8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ray3dTest.cpp" />
+    <ClCompile Include="Matrix2dTest.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3dTest.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4dTest.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3dTest.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2dTest.cpp">
+      <Filter>Primitive2d</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle2d.cpp">
+      <Filter>Primitive2d</Filter>
+    </ClCompile>
+    <ClCompile Include="Box3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Cone3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Line3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Torus3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipsoid3dTest.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2dTest.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Gaussian3dTest.cpp" />
+    <ClCompile Include="Gaussian1dTest.cpp" />
+    <ClCompile Include="Gaussian2dTest.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="VDBCommandFactory.cpp" />
+    <ClCompile Include="VDBInitCommand.cpp" />
+    <ClCompile Include="VDBSceneCreateCommand.cpp" />
+    <ClCompile Include="VDBSceneFileReadCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneFileWriteCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneFilterCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneCompositeCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneResamplingCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBScenePSToVolumeCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneFileImportCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneFileExportCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneMeshToVolumeCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneVolumeToMeshCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneVolumeToPointsCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSceneTransformCommand.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VDBCommandFactory.h" />
+    <ClInclude Include="VDBInitCommand.h" />
+    <ClInclude Include="VDBSceneCreateCommand.h" />
+    <ClInclude Include="VDBSceneFileReadCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneFileWriteCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneFilterCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneCompositeCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneResamplingCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBScenePSToVolumeCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneFileImportCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneFileExportCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneMeshToVolumeCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneVolumeToMeshCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneVolumeToPointsCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSceneTransformCommand.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{71ca32ae-affb-4dde-8009-dbec5bc27d19}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

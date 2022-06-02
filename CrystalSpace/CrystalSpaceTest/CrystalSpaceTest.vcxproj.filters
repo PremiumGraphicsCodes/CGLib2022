@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="DistanceCalculatorTest.cpp" />
+    <ClCompile Include="IntersectionCalculatorTest.cpp" />
+    <ClCompile Include="LinearOctreeTest.cpp" />
+    <ClCompile Include="OverlapTest.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="ZIndexedSearchAlgoTest.cpp" />
+    <ClCompile Include="ZOrderCurve3dTest.cpp" />
+    <ClCompile Include="ZOrderCurve2dTest.cpp" />
+    <ClCompile Include="SparseVolumeTest.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="CompactSpaceHash3dTest.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolumeBuilderTest.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicOctreeTest.cpp">
+      <Filter>Search</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{83a570be-b6d3-46c9-9a2d-734f8f7fc3d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search">
+      <UniqueIdentifier>{36cbb46b-477b-4563-a3a8-f9aa8aded32e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

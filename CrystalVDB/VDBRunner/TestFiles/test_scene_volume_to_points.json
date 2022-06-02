@@ -1,0 +1,24 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/scene_to_volume.vdb",
+            "Radius": 0.5
+        }
+    ],
+    [
+        "VDBSceneVolumeToPoints",
+        {
+            "Radius": 1.0,
+            "VDBSceneId": 1
+        }
+    ],
+    [
+        "VDBSceneFileExport",
+        {
+            "FilePath": "../VDBDataSet/scene_to_points_torus.ply",
+			"FileFormat" : "PLY",
+            "VDBSceneId": 2
+        }
+    ]
+]

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CommandFactoryTest.cpp" />
+    <ClCompile Include="CommandTest.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PCDFileExportCommandTest.cpp">
+      <Filter>File\PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="FileExportCommandTest.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="PCDFileImportCommandTest.cpp">
+      <Filter>File\PCD</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshCreateCommandTest.cpp">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileExportCommandTest.cpp">
+      <Filter>File\STL</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileImportCommandTest.cpp">
+      <Filter>File\STL</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileExportCommandTest.cpp">
+      <Filter>File\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFrameCreateCommandTest.cpp">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemCreateCommandTest.cpp">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileImportCommandTest.cpp">
+      <Filter>File\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileImportCommandTest.cpp">
+      <Filter>File\TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTFileExportCommandTest.cpp">
+      <Filter>File\TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileConverterTest.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileWriterTest.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileReaderTest.cpp">
+      <Filter>JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLFileWriterTest.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLFileReaderTest.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PCDFileImportTest.pcd">
+      <Filter>File\PCD</Filter>
+    </None>
+    <None Include="STLFileImportTest.stl">
+      <Filter>File\STL</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="File">
+      <UniqueIdentifier>{724b0a68-a21f-4f2e-9e46-f366375a95db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\STL">
+      <UniqueIdentifier>{ba0fb7b8-ef99-475c-82c5-fa14ecf32e20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\PCD">
+      <UniqueIdentifier>{75b5c49a-2979-4e74-8593-e9ba6ed3d6e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{2b2dda4a-30a9-4df2-ac65-537c412f2345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape">
+      <UniqueIdentifier>{5bf87c77-4692-43d1-aa1e-d0f6d1b65837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem">
+      <UniqueIdentifier>{bc71f262-541d-49cb-aa90-01b8b2551aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh">
+      <UniqueIdentifier>{f940af74-3d6a-4090-aada-c00af6316b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\OBJ">
+      <UniqueIdentifier>{783b3d5b-826f-4410-8836-479ca81c3286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame">
+      <UniqueIdentifier>{8ecc9919-d7eb-4bda-97eb-1dbae90c367c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\TXT">
+      <UniqueIdentifier>{4fd9e299-c510-4088-a6eb-01519cd16bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON">
+      <UniqueIdentifier>{7b2ab6ba-7f47-4aec-bdad-6f1848032d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{b3046775-bb8b-48ee-8042-2442b969eb57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

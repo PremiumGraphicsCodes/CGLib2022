@@ -1,0 +1,24 @@
+[
+    [
+        "VDBSceneFileImport",
+        {
+            "FilePath": "../VDBDataSet/box.stl",
+			"FileFormat" : "STL",
+            "Radius": 0.5
+        }
+    ],
+	[
+        "VDBSceneMeshToVolume",
+        {
+            "VDBSceneId": 1,
+            "DivideLength": 1.0
+        }
+    ],
+    [
+        "VDBSceneFileWrite",
+        {
+            "FilePath": "../VDBDataSet/mesh_to_volume.vdb",
+            "VDBSceneId": 2
+        }
+    ]
+]

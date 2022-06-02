@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Tolerance.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="glm.h" />
+    <ClInclude Include="Ray3d.h" />
+    <ClInclude Include="Matrix2d.h">
+      <Filter>Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3d.h">
+      <Filter>Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4d.h">
+      <Filter>Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2d.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3d.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4d.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Line3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Box3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Cone3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle2d.h">
+      <Filter>Primitive2d</Filter>
+    </ClInclude>
+    <ClInclude Include="Line2d.h">
+      <Filter>Primitive2d</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2d.h">
+      <Filter>Primitive2d</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Space3d.h" />
+    <ClInclude Include="ICurve3d.h">
+      <Filter>Primitive3d\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ISurface3d.h">
+      <Filter>Primitive3d\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipsoid3d.h">
+      <Filter>Primitive3d</Filter>
+    </ClInclude>
+    <ClInclude Include="IVolume3d.h">
+      <Filter>Primitive3d\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="TriLerp.h">
+      <Filter>Interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="Lerp.h">
+      <Filter>Interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="Gaussian1d.h">
+      <Filter>Gaussian</Filter>
+    </ClInclude>
+    <ClInclude Include="Gaussian2d.h">
+      <Filter>Gaussian</Filter>
+    </ClInclude>
+    <ClInclude Include="Gaussian3d.h">
+      <Filter>Gaussian</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Matrix">
+      <UniqueIdentifier>{d0a4de4b-26b6-4a81-b3ab-52342e035b73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vector">
+      <UniqueIdentifier>{a20ffa60-e43b-4cba-a0fe-209061263892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive3d">
+      <UniqueIdentifier>{62e4bbe1-ab29-4955-a2e5-b711c2a90036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive2d">
+      <UniqueIdentifier>{6345ad72-c8fd-4e79-82f5-c72584a1e0d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive3d\Interface">
+      <UniqueIdentifier>{3de7be59-319c-4b1a-af3e-1cd59d2b5f53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpolation">
+      <UniqueIdentifier>{24ec816c-64b8-4d4e-9cf7-9521be166241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gaussian">
+      <UniqueIdentifier>{e1d6d134-9f63-46ba-8842-85d2b546760f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ray3d.cpp" />
+    <ClCompile Include="Vector3d.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Line3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Box3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Cone3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Line2d.cpp">
+      <Filter>Primitive2d</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2d.cpp">
+      <Filter>Primitive2d</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Space3d.cpp" />
+    <ClCompile Include="Torus3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipsoid3d.cpp">
+      <Filter>Primitive3d</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

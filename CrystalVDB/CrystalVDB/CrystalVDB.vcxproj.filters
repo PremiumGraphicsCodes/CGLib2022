@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Converter.cpp">
+      <Filter>Converter\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBAdapter.cpp" />
+    <ClCompile Include="VDBFileReader.cpp">
+      <Filter>FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBFileWriter.cpp">
+      <Filter>FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBParticleSystemConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPolygonMeshConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPointsPresenter.cpp">
+      <Filter>Points</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumePresenter.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeScene.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPointsImpl.cpp">
+      <Filter>Points\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPointsScene.cpp">
+      <Filter>Points</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBMeshPresenter.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBMeshScene.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBMeshImpl.cpp">
+      <Filter>Mesh\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeImpl.cpp">
+      <Filter>Volume\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBFilter.cpp">
+      <Filter>Tools\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBTransform.cpp">
+      <Filter>Tools\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBComposite.cpp">
+      <Filter>Tools\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBResampler.cpp">
+      <Filter>Tools\Resampler</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBToSpheres.cpp">
+      <Filter>Tools\ToSpheres</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothVolumeConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBScene.cpp" />
+    <ClCompile Include="VDBFileImporter.cpp">
+      <Filter>FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBFileExporter.cpp">
+      <Filter>FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBMeshToVolumeConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeToMeshConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeToPointsConverter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Converter.h">
+      <Filter>Converter\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBAdapter.h" />
+    <ClInclude Include="VDBFileReader.h">
+      <Filter>FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBFileWriter.h">
+      <Filter>FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBParticleSystemConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPolygonMeshConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPointsPresenter.h">
+      <Filter>Points</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumePresenter.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeScene.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPointsImpl.h">
+      <Filter>Points\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPointsScene.h">
+      <Filter>Points</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBMeshPresenter.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBMeshScene.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBMeshImpl.h">
+      <Filter>Mesh\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeImpl.h">
+      <Filter>Volume\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBFilter.h">
+      <Filter>Tools\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBTransform.h">
+      <Filter>Tools\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBComposite.h">
+      <Filter>Tools\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBResampler.h">
+      <Filter>Tools\Resampler</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBToSpheres.h">
+      <Filter>Tools\ToSpheres</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothVolumeConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBScene.h" />
+    <ClInclude Include="VDBFileImporter.h">
+      <Filter>FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBFileExporter.h">
+      <Filter>FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBMeshToVolumeConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeToMeshConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeToPointsConverter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPLYFileWriter.h">
+      <Filter>FileIO\PLY</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Converter">
+      <UniqueIdentifier>{2538a3bd-b862-4418-97e9-1652dd54d164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileIO">
+      <UniqueIdentifier>{c5f10b5d-9511-410c-99ce-6ef985958a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{55f10d9d-169d-4327-8b69-528b2c908e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume\Private">
+      <UniqueIdentifier>{6f79be99-26d8-40a9-ab7f-505504c5fdcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converter\Private">
+      <UniqueIdentifier>{0f07a8f8-2e2f-46b1-84e9-eb32e7f913f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{a0f3b029-8fb9-4be2-979f-4fd21b258d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Composite">
+      <UniqueIdentifier>{e7f0dbe8-6aa2-41f4-8a16-e75ed603715c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Filter">
+      <UniqueIdentifier>{62d5c720-21b3-4457-951b-6e44979ddd15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Transform">
+      <UniqueIdentifier>{e4b6d57f-f910-4a99-b207-fea9ca91baf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Resampler">
+      <UniqueIdentifier>{249bec63-4bdf-4260-9fa3-ce8ce27983c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\ToSpheres">
+      <UniqueIdentifier>{e7dcb0c6-08dc-4678-a70b-820b7e4eeee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Points">
+      <UniqueIdentifier>{d2aae527-4a64-4e57-84b8-245f2953f558}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Points\Private">
+      <UniqueIdentifier>{0451f205-71e5-4c76-acef-a932cd8f6ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileIO\PLY">
+      <UniqueIdentifier>{5ec32ed1-feab-4f91-b06f-ed5c85a5b6c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{d97b5d3a-14a6-4efc-b47a-67ca70ac9421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh\Private">
+      <UniqueIdentifier>{54852c6f-bc32-48ff-9fc0-3ba07b936a5b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

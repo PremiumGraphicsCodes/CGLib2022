@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="imgui.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="IPopupButton.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="IPanel.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_glfw.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_opengl3.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_stdlib.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMenu.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenMenu.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="MaskMenu.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlPanel.cpp" />
+    <ClCompile Include="SceneListPanel.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ParticleSystemEditView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialEditView.cpp">
+      <Filter>Scene\Appearance\Material\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFrameEditView.cpp">
+      <Filter>Scene\Shape\WireFrame\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="BoolView.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleView.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="PSConeView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PSBoxView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PSCylinderView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshEditView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="PSSphereView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PMBoxView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PSTorusView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PMQuadView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="PMSphereView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="WFBoxView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="WFConeView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="WFCylinderView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="WFSphereView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="WFTorusView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialAddView.cpp">
+      <Filter>Scene\Appearance\Material\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureAddView.cpp">
+      <Filter>Scene\Appearance\Texture\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureEditView.cpp">
+      <Filter>Scene\Appearance\Texture\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialView.cpp">
+      <Filter>Scene\Appearance\Material\View</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureView.cpp">
+      <Filter>Scene\Appearance\Texture\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LightAddView.cpp">
+      <Filter>Scene\Appearance\Light\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="LightEditView.cpp">
+      <Filter>Scene\Appearance\Light\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="LightView.cpp">
+      <Filter>Scene\Appearance\Light\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSelectView.cpp">
+      <Filter>Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionSelectView.cpp">
+      <Filter>Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereRegionSelectView.cpp">
+      <Filter>Selection\Region</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderAddView.cpp">
+      <Filter>Scene\Appearance\Shader\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderView.cpp">
+      <Filter>Scene\Appearance\Shader\View</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUICtrl.cpp">
+      <Filter>UICtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>UICtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="PickUICtrl.cpp">
+      <Filter>UICtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Float4View.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatView.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="IntView.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="StringView.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="AppearanceMenu.cpp">
+      <Filter>Scene\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeMenu.cpp">
+      <Filter>Scene\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMenu.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionMenu.cpp">
+      <Filter>Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlMenu.cpp">
+      <Filter>UICtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleView.cpp">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformView.cpp">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="TranslateView.cpp">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Box3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Cone3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateView.cpp">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3dView.cpp">
+      <Filter>Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4dView.cpp">
+      <Filter>Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyfiledialogs.cpp">
+      <Filter>ThirdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2dView.cpp">
+      <Filter>Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3dView.cpp">
+      <Filter>Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Double4View.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeCloneView.cpp">
+      <Filter>Scene\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="IPSAddView.cpp">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="IWFAddView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteView.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageView.cpp" />
+    <ClCompile Include="PMConeView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="WFCircleView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="IPMAddView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryView.cpp">
+      <Filter>File\Directory</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboBox.cpp" />
+    <ClCompile Include="WFAttributeView.cpp">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="ISolidAddView.cpp">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidBoxView.cpp">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClCompile>
+    <ClCompile Include="PMPresenterView.cpp">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSelectView.cpp">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOpenMenu.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSaveMenu.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOpenView.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSaveView.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotLightView.cpp">
+      <Filter>Scene\Appearance\Light\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorMapView.cpp">
+      <Filter>Color</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorRGBAView.cpp">
+      <Filter>Color</Filter>
+    </ClCompile>
+    <ClCompile Include="IVolAddView.cpp">
+      <Filter>Scene\Shape\Volume\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="VolSphereView.cpp">
+      <Filter>Scene\Shape\Volume\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipsoid3dView.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="WFEllipsoidView.cpp">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="IVoxelAddView.cpp">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelSphereView.cpp">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="ITMAddView.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TMSphereView.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TMBoxView.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="IMenu.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="IMenuItem.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBox.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="imgui.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="IPopupButton.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="IPanel.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="IMenu.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="IWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ITreeList.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_glfw.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleView.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Box3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Cone3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Float4View.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatView.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="WFAttributeView.h">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="IntView.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="StringView.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_stdlib.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMenu.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenMenu.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorRGBAView.h">
+      <Filter>Color</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorMapView.h">
+      <Filter>Color</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="MaskMenu.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceView.h">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexView.h">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolView.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlPanel.h" />
+    <ClInclude Include="SceneListPanel.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ParticleSystemEditView.h">
+      <Filter>Scene\Shape\ParticleSystem\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialEditView.h">
+      <Filter>Scene\Appearance\Material\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameEditView.h">
+      <Filter>Scene\Shape\WireFrame\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="PSConeView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PSBoxView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PSCylinderView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshEditView.h">
+      <Filter>Scene\Shape\PolygonMesh\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="PSSphereView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PMBoxView.h">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PSTorusView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PMQuadView.h">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PMSphereView.h">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFBoxView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFConeView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFCylinderView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderAddView.h">
+      <Filter>Scene\Appearance\Shader\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFSphereView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFTorusView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialAddView.h">
+      <Filter>Scene\Appearance\Material\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAddView.h">
+      <Filter>Scene\Appearance\Texture\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureEditView.h">
+      <Filter>Scene\Appearance\Texture\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialView.h">
+      <Filter>Scene\Appearance\Material\View</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureView.h">
+      <Filter>Scene\Appearance\Texture\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LightAddView.h">
+      <Filter>Scene\Appearance\Light\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="LightEditView.h">
+      <Filter>Scene\Appearance\Light\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="LightView.h">
+      <Filter>Scene\Appearance\Light\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSelectView.h">
+      <Filter>Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionSelectView.h">
+      <Filter>Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereRegionSelectView.h">
+      <Filter>Selection\Region</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderView.h">
+      <Filter>Scene\Appearance\Shader\View</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUICtrl.h">
+      <Filter>UICtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="IUICtrl.h">
+      <Filter>UICtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>UICtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUICtrl.h">
+      <Filter>UICtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="AppearanceMenu.h">
+      <Filter>Scene\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeMenu.h">
+      <Filter>Scene\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMenu.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionMenu.h">
+      <Filter>Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlMenu.h">
+      <Filter>UICtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleView.h">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformView.h">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="TranslateView.h">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateView.h">
+      <Filter>Scene\Shape\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2dView.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3dView.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4dView.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyfiledialogs.h">
+      <Filter>ThirdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2dView.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3dView.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Double4View.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="IOkCancelView.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="IView.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCloneView.h">
+      <Filter>Scene\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="IPSAddView.h">
+      <Filter>Scene\Shape\ParticleSystem\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="PSAttributeView.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IWFAddView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="glfw3.h">
+      <Filter>ThirdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteView.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IEditCancelView.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageView.h" />
+    <ClInclude Include="PMConeView.h">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFCircleView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="IPMAddView.h">
+      <Filter>Scene\Shape\PolygonMesh\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryView.h">
+      <Filter>File\Directory</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBox.h" />
+    <ClInclude Include="SolidBoxView.h">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClInclude>
+    <ClInclude Include="ISolidAddView.h">
+      <Filter>Scene\Shape\Solid</Filter>
+    </ClInclude>
+    <ClInclude Include="PMPresenterView.h">
+      <Filter>Scene\Shape\PolygonMesh\View</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialSelectView.h">
+      <Filter>Scene\Appearance\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOpenMenu.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSaveMenu.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOpenView.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSaveView.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotLightView.h">
+      <Filter>Scene\Appearance\Light\View</Filter>
+    </ClInclude>
+    <ClInclude Include="VolSphereView.h">
+      <Filter>Scene\Shape\Volume\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="IVolAddView.h">
+      <Filter>Scene\Shape\Volume\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="WFEllipsoidView.h">
+      <Filter>Scene\Shape\WireFrame\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipsoid3dView.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="IVoxelAddView.h">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelSphereView.h">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="ITMAddView.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TMSphereView.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TMBoxView.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="IMenuItem.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBox.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Window">
+      <UniqueIdentifier>{afc4d729-1eb0-481b-8ee0-3d334e6eec54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Selection">
+      <UniqueIdentifier>{936f90df-2aa6-430e-9906-90d661af54f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{70e528ba-4a3a-4f71-8dd3-08addce9576a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Color">
+      <UniqueIdentifier>{2f26ae1a-95f1-4072-91f2-986837e61ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Selection\Region">
+      <UniqueIdentifier>{e4b2434e-80ef-408a-8240-0d6068d1138a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{8e7bcd81-820d-49ce-8f4a-0badefb7b484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape">
+      <UniqueIdentifier>{6cfd2689-f312-496c-8422-5698b7f5afb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame">
+      <UniqueIdentifier>{70322aba-1e02-4d91-9ba6-d618af4f3ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem">
+      <UniqueIdentifier>{ff093b54-2cac-42ed-845f-0440a5f5fe53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh">
+      <UniqueIdentifier>{ad45230d-8683-40fd-90bc-ec9f4bf7bbd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh\View">
+      <UniqueIdentifier>{7d47a270-b5be-48e3-ae02-5582727d03b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance">
+      <UniqueIdentifier>{5e2f3a12-647d-4e15-89bd-da1dfc33d71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Material">
+      <UniqueIdentifier>{f6814e74-3dbf-4ce7-b3ec-ae98ae76a6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Light">
+      <UniqueIdentifier>{00de2540-e2ad-4d52-9bd0-ea1797d96551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Texture">
+      <UniqueIdentifier>{264d4f7c-5a27-4f59-872c-adce9137fd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive">
+      <UniqueIdentifier>{03e79bbc-d400-4ee6-baef-09a416838ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem\Edit">
+      <UniqueIdentifier>{db94fe90-c632-4fb2-bf95-bac77d0878ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Material\Edit">
+      <UniqueIdentifier>{6065c070-c3c6-4308-90d1-318293bf11d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame\Edit">
+      <UniqueIdentifier>{c89b2041-f2ff-48f5-9bd1-c2a37cb319ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Shader">
+      <UniqueIdentifier>{f9511435-7972-4726-96e9-ec00fd9973c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh\Edit">
+      <UniqueIdentifier>{0ae31894-1c86-4c94-b39c-562582ae4fb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem\Add">
+      <UniqueIdentifier>{aecead23-e970-491d-a425-53f4d593d5b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh\Add">
+      <UniqueIdentifier>{de8ab38c-9b84-47d6-87c6-c6cc2ebcc527}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Material\Add">
+      <UniqueIdentifier>{ab9d6b48-39ad-430c-80b9-bcabe1486191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame\Add">
+      <UniqueIdentifier>{0ef178e9-c8bf-499a-b9bf-fb031433e057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Shader\Add">
+      <UniqueIdentifier>{7c2b8257-3636-4e0b-8b0a-d87925e37bbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Texture\Add">
+      <UniqueIdentifier>{c82d6f3c-3fb5-41f7-b8de-364dbe9c801b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Texture\Edit">
+      <UniqueIdentifier>{6543e3cd-7590-46a3-a798-c144608e2049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Material\View">
+      <UniqueIdentifier>{14031458-3d12-4364-9164-3b9d40194fef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Texture\View">
+      <UniqueIdentifier>{879f21b8-ffc5-4ecf-8e36-76612b044e0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Light\Add">
+      <UniqueIdentifier>{996da972-ddaf-4642-ac94-97bff22cf49d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Light\Edit">
+      <UniqueIdentifier>{4b5cc65c-be72-467d-b1d8-86e72d305d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Light\View">
+      <UniqueIdentifier>{416758df-c1a5-498f-848d-5a53dda6e17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Shader\View">
+      <UniqueIdentifier>{8bb109ae-0815-467f-b695-bdac07c4a6b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance\Shader\Edit">
+      <UniqueIdentifier>{01c88d73-663b-4fbf-bbaf-82caf2d8ff07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UICtrl">
+      <UniqueIdentifier>{b65367ad-e676-4622-ae35-ba737971ddc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{26b5bd9f-5afa-4db8-8fc9-47581f977f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Transform">
+      <UniqueIdentifier>{e7fc0823-3758-48b2-a744-3bcde64f3869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{f853c8fe-34f8-4970-9ae4-5a8b5c5c99cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Matrix">
+      <UniqueIdentifier>{10e0da6a-ae71-4a41-bdcf-41e61d900fc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{dc4896c0-6bca-46ee-a40f-7803c34057cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\imgui">
+      <UniqueIdentifier>{662b1c1e-ae3f-44f1-9bee-a62584f1809b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vector">
+      <UniqueIdentifier>{5336a907-956d-437b-9038-0da11a41ac0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Directory">
+      <UniqueIdentifier>{a813769c-dfc6-4d2d-ac56-4d7230a206bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Solid">
+      <UniqueIdentifier>{8acc4850-ed18-4c7d-a067-fce84a808c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Volume">
+      <UniqueIdentifier>{fe44758a-61fb-47fe-b271-fdd42c12974b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Volume\Add">
+      <UniqueIdentifier>{0294b4e3-e168-4a73-9765-d4feeae94815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Voxel">
+      <UniqueIdentifier>{04a10c40-662f-4000-9cd5-df2f8bc055e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\TriangleMesh">
+      <UniqueIdentifier>{90048a3c-4b7a-43fd-bf8d-a582098eb75d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

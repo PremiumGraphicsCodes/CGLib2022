@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UUID.h" />
+    <ClInclude Include="IScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IShapeScene.h">
+      <Filter>Scene\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneType.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneId.h" />
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneIdProvider.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LightScene.h">
+      <Filter>Scene\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialScene.h">
+      <Filter>Scene\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonMeshScene.h">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAttribute.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemScene.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameAttribute.h">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFrameScene.h">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformScene.h">
+      <Filter>Scene\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h" />
+    <ClInclude Include="TriangleMeshScene.h">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeScene.h">
+      <Filter>Scene\Shape\Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="IPoint.h">
+      <Filter>Scene\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraScene.h">
+      <Filter>Scene\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureScene.h">
+      <Filter>Scene\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="PointBuffer.h">
+      <Filter>SceneShader\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="LineBuffer.h">
+      <Filter>SceneShader\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="PointShaderScene.h">
+      <Filter>SceneShader\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="LineShaderScene.h">
+      <Filter>SceneShader\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneShader.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
+    <ClInclude Include="IShaderScene.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
+    <ClInclude Include="IAnimator.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IPresenter.h">
+      <Filter>Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleShaderScene.h">
+      <Filter>SceneShader\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleBuffer.h">
+      <Filter>SceneShader\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenIdShader.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenShader.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGScene.h">
+      <Filter>Scene\Shape\CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidScene.h">
+      <Filter>Scene\Shape\CSG</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemPresenter.h">
+      <Filter>Presenter\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WireFramePresenter.h">
+      <Filter>Presenter\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="IWireFramePresenter.h">
+      <Filter>Presenter\Shape\WireFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleSystemPresenter.h">
+      <Filter>Presenter\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialPresenter.h">
+      <Filter>Presenter\Appearance\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="PMSmoothPresenter.h">
+      <Filter>Presenter\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothShaderScene.h">
+      <Filter>SceneShader\Smooth</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterialScene.h">
+      <Filter>SceneShader\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialShaderScene.h">
+      <Filter>SceneShader\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="IPMPresenter.h">
+      <Filter>Presenter\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PMWirePresenter.h">
+      <Filter>Presenter\Shape\PolygonMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="LightPresenter.h">
+      <Filter>Presenter\Appearance\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturePresenter.h">
+      <Filter>Presenter\Appearance\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidAsWFPresenter.h">
+      <Filter>Presenter\Shape\Solid</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleSystemScene.h">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumePresenter.h">
+      <Filter>Presenter\Shape\Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelScene.h">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelPresenter.h">
+      <Filter>Presenter\Shape\Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="ITMPresenter.h">
+      <Filter>Presenter\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TMWirePresenter.h">
+      <Filter>Presenter\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TMSurfacePresenter.h">
+      <Filter>Presenter\Shape\TriangleMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererRepository.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="LightScene.cpp">
+      <Filter>Scene\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonMeshScene.cpp">
+      <Filter>Scene\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemScene.cpp">
+      <Filter>Scene\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFrameScene.cpp">
+      <Filter>Scene\Shape\WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialScene.cpp">
+      <Filter>Scene\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformScene.cpp">
+      <Filter>Scene\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="TriangleMeshScene.cpp">
+      <Filter>Scene\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeScene.cpp">
+      <Filter>Scene\Shape\Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureScene.cpp">
+      <Filter>Scene\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="PointShaderScene.cpp">
+      <Filter>SceneShader\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="LineShaderScene.cpp">
+      <Filter>SceneShader\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothShaderScene.cpp">
+      <Filter>SceneShader\Smooth</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneShader.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraScene.cpp">
+      <Filter>Scene\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleShaderScene.cpp">
+      <Filter>SceneShader\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenIdShader.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenShader.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGScene.cpp">
+      <Filter>Scene\Shape\CSG</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidScene.cpp">
+      <Filter>Scene\Shape\CSG</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemPresenter.cpp">
+      <Filter>Presenter\Shape\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WireFramePresenter.cpp">
+      <Filter>Presenter\Shape\WireFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialPresenter.cpp">
+      <Filter>Presenter\Appearance\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="PMSmoothPresenter.cpp">
+      <Filter>Presenter\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialShaderScene.cpp">
+      <Filter>SceneShader\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="PMWirePresenter.cpp">
+      <Filter>Presenter\Shape\PolygonMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="LightPresenter.cpp">
+      <Filter>Presenter\Appearance\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturePresenter.cpp">
+      <Filter>Presenter\Appearance\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidAsWFPresenter.cpp">
+      <Filter>Presenter\Shape\Solid</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumePresenter.cpp">
+      <Filter>Presenter\Shape\Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelScene.cpp">
+      <Filter>Scene\Shape\Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelPresenter.cpp">
+      <Filter>Presenter\Shape\Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="TMWirePresenter.cpp">
+      <Filter>Presenter\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TMSurfacePresenter.cpp">
+      <Filter>Presenter\Shape\TriangleMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="RendererRepository.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{b8ac2286-41a7-4c7a-8e11-7f3ca28786ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape">
+      <UniqueIdentifier>{27b37c2d-3ec6-4cde-8dbe-4e0905e7cd52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Appearance">
+      <UniqueIdentifier>{b3e58cb2-98f8-4ebd-af48-c18db3dce8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\PolygonMesh">
+      <UniqueIdentifier>{e541b7cb-5f77-473c-aa74-c3ee9d0dd728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\ParticleSystem">
+      <UniqueIdentifier>{5bd90439-7295-49c0-a06b-3c7790169911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\WireFrame">
+      <UniqueIdentifier>{09fb888a-ebba-4ade-9e15-4b067cb8f0c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Transform">
+      <UniqueIdentifier>{cc2dee8e-1aa8-4b36-971f-d59b4361fad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\TriangleMesh">
+      <UniqueIdentifier>{74600514-a3cc-49be-8c9f-04f5fab37c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Volume">
+      <UniqueIdentifier>{e4eec2bb-f092-4b14-864c-f47953c88957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader">
+      <UniqueIdentifier>{442dc2c7-873a-40c4-a519-d8ff2e247cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader\Point">
+      <UniqueIdentifier>{49b90fdf-90d4-4783-b57f-e098b1691c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader\Line">
+      <UniqueIdentifier>{f769a1c5-59b7-4df8-baee-b951b683673b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader\Smooth">
+      <UniqueIdentifier>{ab71925f-3edc-4808-b231-7094ef2b8fc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader\Triangle">
+      <UniqueIdentifier>{88b8dc67-ef55-415e-8748-bdd81864b242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter">
+      <UniqueIdentifier>{6c2a936a-2655-454e-9870-3306dae4a9ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\CSG">
+      <UniqueIdentifier>{968cf7ad-c0af-4a0e-a00f-fba1c0e11ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneShader\Material">
+      <UniqueIdentifier>{22a1a97e-6869-45b2-8d92-4424713abb59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Appearance">
+      <UniqueIdentifier>{8af6cd6f-9cdf-4a55-84fc-89ad4190d37d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Appearance\Light">
+      <UniqueIdentifier>{07019a94-ef98-4b82-a7a3-f5f2029f347b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Appearance\Material">
+      <UniqueIdentifier>{09d2bfb2-780f-4524-b805-e76103f4fd91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Appearance\Texture">
+      <UniqueIdentifier>{15492d18-10fe-4651-a7da-46ba77abeced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape">
+      <UniqueIdentifier>{8869dde4-b04c-4ec0-81e5-746196e0263e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\ParticleSystem">
+      <UniqueIdentifier>{070c53fe-4bfc-4f4a-884d-1f8a1b6d6aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\PolygonMesh">
+      <UniqueIdentifier>{c851061b-17b8-4e08-ab22-5b0e71f97385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\WireFrame">
+      <UniqueIdentifier>{dd678cf2-731d-43e9-8bed-6aa094d92d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\Solid">
+      <UniqueIdentifier>{2aee7916-85d9-48c4-a3a5-743525cf59b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\Volume">
+      <UniqueIdentifier>{cd64008b-51dd-40ad-9917-6bc1e8391a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Shape\Voxel">
+      <UniqueIdentifier>{f2573e85-c39e-4e1e-bd0d-47fa5fb03862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\Voxel">
+      <UniqueIdentifier>{4d6a83ec-51de-4586-a503-5883ad499b51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Voxel">
+      <UniqueIdentifier>{720e27db-c0df-44a6-85b4-3bafb96d12e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter\Shape\TriangleMesh">
+      <UniqueIdentifier>{ebb728a7-35f7-46ea-8941-bafaf111efb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{4C0EFD78-680E-45C9-9828-9B674EE70DF0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CrystalPhysics</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <Optimization>Full</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OpenMPSupport>true</OpenMPSupport>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <AdditionalOptions>/Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Boundary\CSGBoundaryScene.h" />
+    <ClInclude Include="Boundary\CSGBoundaryScenePresenter.h" />
+    <ClInclude Include="Boundary\MeshBoundaryScene.h" />
+    <ClInclude Include="Boundary\MeshBoundaryScenePresenter.h" />
+    <ClInclude Include="CSPH\CSPHBoundarySolver.h" />
+    <ClInclude Include="CSPH\CSPHFluidScene.h" />
+    <ClInclude Include="CSPH\CSPHFluidSceneController.h" />
+    <ClInclude Include="CSPH\CSPHParticle.h" />
+    <ClInclude Include="CSPH\CSPHSolver.h" />
+    <ClInclude Include="DFSPH\DFFluidScene.h" />
+    <ClInclude Include="DFSPH\DFFluidSceneController.h" />
+    <ClInclude Include="DFSPH\DFFluidSolver.h" />
+    <ClInclude Include="DFSPH\DFSPHBoundarySolver.h" />
+    <ClInclude Include="DFSPH\DFSPHParticle.h" />
+    <ClInclude Include="FluidVolumePresenter.h" />
+    <ClInclude Include="IISPH\IISPHFluidScene.h" />
+    <ClInclude Include="IISPH\IISPHFluidSceneController.h" />
+    <ClInclude Include="IISPH\IISPHParticle.h" />
+    <ClInclude Include="IPhysicsParticle.h" />
+    <ClInclude Include="MPS\MPSFluidSceneController.h" />
+    <ClInclude Include="MPS\MPSFluidScene.h" />
+    <ClInclude Include="MPS\MPSFluidSolver.h" />
+    <ClInclude Include="MPS\MPSParticle.h" />
+    <ClInclude Include="MVPSampler.h" />
+    <ClInclude Include="MVPVolumeConverter.h" />
+    <ClInclude Include="FluidVolumeScene.h" />
+    <ClInclude Include="MVP\IMVPFluidScene.h" />
+    <ClInclude Include="MVP\MVPBoundaryParticle.h" />
+    <ClInclude Include="MVP\MVPBoundaryScene.h" />
+    <ClInclude Include="MVP\MVPBoundaryScenePresenter.h" />
+    <ClInclude Include="MVP\MVPBoundarySolver.h" />
+    <ClInclude Include="MVP\MVPFluidEmitterScene.h" />
+    <ClInclude Include="MVP\MVPFluidScene.h" />
+    <ClInclude Include="MVP\MVPFluidScenePresenter.h" />
+    <ClInclude Include="MVP\MVPFluidSolver.h" />
+    <ClInclude Include="MVP\MVPVolumeParticle.h" />
+    <ClInclude Include="MVP\MVPMassParticle.h" />
+    <ClInclude Include="PBSPH\PBFluidScene.h" />
+    <ClInclude Include="PBSPH\PBFluidSceneController.h" />
+    <ClInclude Include="PBSPH\PBSPHBoundaryParticle.h" />
+    <ClInclude Include="PBSPH\PBSPHBoundarySolver.h" />
+    <ClInclude Include="PBSPH\PBSPHParticle.h" />
+    <ClInclude Include="PBSPH\PBSPHSolver.h" />
+    <ClInclude Include="SPHConstant.h" />
+    <ClInclude Include="SPHFlame\SPHFlameBoundarySolver.h" />
+    <ClInclude Include="SPHFlame\SPHFlameParticle.h" />
+    <ClInclude Include="SPHFlame\SPHFlameScene.h" />
+    <ClInclude Include="SPHFlame\SPHFlameScenePresenter.h" />
+    <ClInclude Include="SPHFlame\SPHFlameSolver.h" />
+    <ClInclude Include="SPHKernel.h" />
+    <ClInclude Include="SurfaceConstruction\SPHVolumeConverter.h" />
+    <ClInclude Include="SurfaceConstruction\SPHSurfaceParticle.h" />
+    <ClInclude Include="SurfaceConstruction\WPCA.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Boundary\CSGBoundaryScene.cpp" />
+    <ClCompile Include="Boundary\CSGBoundaryScenePresenter.cpp" />
+    <ClCompile Include="Boundary\MeshBoundaryScene.cpp" />
+    <ClCompile Include="Boundary\MeshBoundaryScenePresenter.cpp" />
+    <ClCompile Include="CSPH\CSPHBoundarySolver.cpp" />
+    <ClCompile Include="CSPH\CSPHFluidScene.cpp" />
+    <ClCompile Include="CSPH\CSPHFluidSceneController.cpp" />
+    <ClCompile Include="CSPH\CSPHParticle.cpp" />
+    <ClCompile Include="CSPH\CSPHSolver.cpp" />
+    <ClCompile Include="DFSPH\DFFluidScene.cpp" />
+    <ClCompile Include="DFSPH\DFFluidSceneController.cpp" />
+    <ClCompile Include="DFSPH\DFFluidSolver.cpp" />
+    <ClCompile Include="DFSPH\DFSPHBoundarySolver.cpp" />
+    <ClCompile Include="DFSPH\DFSPHParticle.cpp" />
+    <ClCompile Include="FluidVolumePresenter.cpp" />
+    <ClCompile Include="IISPH\IISPHFluidScene.cpp" />
+    <ClCompile Include="IISPH\IISPHFluidSceneController.cpp" />
+    <ClCompile Include="MPS\MPSFluidScene.cpp" />
+    <ClCompile Include="MPS\MPSFluidSceneController.cpp" />
+    <ClCompile Include="MPS\MPSFluidSolver.cpp" />
+    <ClCompile Include="MPS\MPSParticle.cpp" />
+    <ClCompile Include="MVPSampler.cpp" />
+    <ClCompile Include="MVPVolumeConverter.cpp" />
+    <ClCompile Include="FluidVolumeScene.cpp" />
+    <ClCompile Include="MVP\IMVPFluidScene.cpp" />
+    <ClCompile Include="MVP\MVPBoundaryParticle.cpp" />
+    <ClCompile Include="MVP\MVPBoundaryScene.cpp" />
+    <ClCompile Include="MVP\MVPBoundaryScenePresenter.cpp" />
+    <ClCompile Include="MVP\MVPBoundarySolver.cpp" />
+    <ClCompile Include="MVP\MVPFluidEmitterScene.cpp" />
+    <ClCompile Include="MVP\MVPFluidScene.cpp" />
+    <ClCompile Include="MVP\MVPFluidScenePresenter.cpp" />
+    <ClCompile Include="MVP\MVPFluidSolver.cpp" />
+    <ClCompile Include="MVP\MVPVolumeParticle.cpp" />
+    <ClCompile Include="MVP\MVPMassParticle.cpp" />
+    <ClCompile Include="PBSPH\PBFluidScene.cpp" />
+    <ClCompile Include="PBSPH\PBFluidSceneController.cpp" />
+    <ClCompile Include="PBSPH\PBSPHBoundaryParticle.cpp" />
+    <ClCompile Include="PBSPH\PBSPHBoundarySolver.cpp" />
+    <ClCompile Include="PBSPH\PBSPHParticle.cpp" />
+    <ClCompile Include="PBSPH\PBSPHSolver.cpp" />
+    <ClCompile Include="SPHFlame\SPHFlameBoundarySolver.cpp" />
+    <ClCompile Include="SPHFlame\SPHFlameParticle.cpp" />
+    <ClCompile Include="SPHFlame\SPHFlameScene.cpp" />
+    <ClCompile Include="SPHFlame\SPHFlameScenePresenter.cpp" />
+    <ClCompile Include="SPHFlame\SPHFlameSolver.cpp" />
+    <ClCompile Include="SPHKernel.cpp" />
+    <ClCompile Include="SurfaceConstruction\SPHVolumeConverter.cpp" />
+    <ClCompile Include="SurfaceConstruction\SPHSurfaceParticle.cpp" />
+    <ClCompile Include="SurfaceConstruction\WPCA.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

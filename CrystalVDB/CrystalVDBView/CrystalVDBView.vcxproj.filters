@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="VDBView.cpp" />
+    <ClCompile Include="VolumeToMeshView.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeToPSView.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPSBoxView.cpp">
+      <Filter>Points</Filter>
+    </ClCompile>
+    <ClCompile Include="PSToVolumeView.cpp">
+      <Filter>Points\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshToVolumeView.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPMBoxView.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileExportView.cpp">
+      <Filter>Mesh\OBJFileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJFileImportView.cpp">
+      <Filter>Mesh\OBJFileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBPSMenu.cpp">
+      <Filter>Points</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBMeshMenu.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBVolumeMenu.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBFileMenu.cpp">
+      <Filter>FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="ToVDBVolumeView.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBSphereView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="VDBFilterView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VolumeToMeshView.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeToPSView.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPSBoxView.h">
+      <Filter>Points</Filter>
+    </ClInclude>
+    <ClInclude Include="PSToVolumeView.h">
+      <Filter>Points\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshToVolumeView.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPMBoxView.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJFileExportView.h">
+      <Filter>Mesh\OBJFileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJFileImportView.h">
+      <Filter>Mesh\OBJFileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBPSMenu.h">
+      <Filter>Points</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBMeshMenu.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBVolumeMenu.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBFileMenu.h">
+      <Filter>FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ToVDBVolumeView.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBSphereView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="VDBFilterView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{79cf4d34-a3ee-4b1f-b37b-2be51f22edab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume\Converter">
+      <UniqueIdentifier>{2512a1f0-8460-4a5d-9f5b-096d2e1bea55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileIO">
+      <UniqueIdentifier>{8cf978ae-990a-46ea-9f06-9d9ab9f93eab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Points">
+      <UniqueIdentifier>{aa16ed70-b898-4b38-b1d3-8793e7cdfb0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Points\Converter">
+      <UniqueIdentifier>{678dd3ad-051c-41d8-be59-8e45c4ff77c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{e0529865-6f40-458e-be5b-f9567bd34bcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh\OBJFileIO">
+      <UniqueIdentifier>{e20b1f7f-e0c4-46a1-9e03-84c6df89d447}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,24 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/sphere_points.vdb",
+            "Radius": 0.5
+        }
+    ],
+	[
+        "VDBScenePSToVolume",
+        {
+            "Radius": 5.0,
+            "SceneId": 1,
+            "VoxelSize": 1.0
+        }
+    ],
+    [
+        "VDBSceneFileWrite",
+        {
+            "FilePath": "../VDBDataSet/scene_to_volume.vdb",
+            "VDBSceneId": 2
+        }
+    ]
+]

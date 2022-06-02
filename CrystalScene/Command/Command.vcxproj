@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{5A0D1CB7-6BE7-41A2-B061-431750E47BE0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Command</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraCreateCommand.h" />
+    <ClInclude Include="CameraGetCommand.h" />
+    <ClInclude Include="CameraSetCommand.h" />
+    <ClInclude Include="IPropertyTreeFactory.h" />
+    <ClInclude Include="JSONConverter.h" />
+    <ClInclude Include="JSONFileReader.h" />
+    <ClInclude Include="JSONFileWriter.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="PropertyTree.h" />
+    <ClInclude Include="ParticleSystemGetCommand.h" />
+    <ClInclude Include="ParticleSystemSetCommand.h" />
+    <ClInclude Include="PLYFileExportCommand.h" />
+    <ClInclude Include="PLYFileImportCommand.h" />
+    <ClInclude Include="PolygonMeshAddFacesCommand.h" />
+    <ClInclude Include="PolygonMeshAddVerticesCommand.h" />
+    <ClInclude Include="PresenterSetCommand.h" />
+    <ClInclude Include="PublicLabel.h" />
+    <ClInclude Include="SceneGetCommand.h" />
+    <ClInclude Include="CameraFitCommand.h" />
+    <ClInclude Include="CameraRotateCommand.h" />
+    <ClInclude Include="CameraTranslateCommand.h" />
+    <ClInclude Include="CameraZoomCommand.h" />
+    <ClInclude Include="ClearCommand.h" />
+    <ClInclude Include="CommandFactory.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="DeleteCommand.h" />
+    <ClInclude Include="FileExportCommand.h" />
+    <ClInclude Include="FileImportCommand.h" />
+    <ClInclude Include="GetCommand.h" />
+    <ClInclude Include="IArgs.h" />
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="IResults.h" />
+    <ClInclude Include="LightCreateCommand.h" />
+    <ClInclude Include="LightGetCommand.h" />
+    <ClInclude Include="LightSetCommand.h" />
+    <ClInclude Include="MaterialCreateCommand.h" />
+    <ClInclude Include="MaterialGetCommand.h" />
+    <ClInclude Include="MaterialSetCommand.h" />
+    <ClInclude Include="MockCommand.h" />
+    <ClInclude Include="NewCommand.h" />
+    <ClInclude Include="OBJFileExportCommand.h" />
+    <ClInclude Include="OBJFileImportCommand.h" />
+    <ClInclude Include="ParticleSystemCreateCommand.h" />
+    <ClInclude Include="PCDFileExportCommand.h" />
+    <ClInclude Include="PCDFileImportCommand.h" />
+    <ClInclude Include="PickCommand.h" />
+    <ClInclude Include="PolygonMeshCreateCommand.h" />
+    <ClInclude Include="SceneSetCommand.h" />
+    <ClInclude Include="ShaderBuildCommand.h" />
+    <ClInclude Include="ShaderSendCommand.h" />
+    <ClInclude Include="ShapeSelectCommand.h" />
+    <ClInclude Include="SolidCreateCommand.h" />
+    <ClInclude Include="STLFileExportCommand.h" />
+    <ClInclude Include="STLFileImportCommand.h" />
+    <ClInclude Include="TextureCreateCommand.h" />
+    <ClInclude Include="TextureSetCommand.h" />
+    <ClInclude Include="tinyxml2.h" />
+    <ClInclude Include="TransformCommand.h" />
+    <ClInclude Include="TriangleMeshCreateCommand.h" />
+    <ClInclude Include="TriangleMeshGetCommand.h" />
+    <ClInclude Include="TriangleMeshSetCommand.h" />
+    <ClInclude Include="TrimCommand.h" />
+    <ClInclude Include="TXTFileExportCommand.h" />
+    <ClInclude Include="TXTFileImportCommand.h" />
+    <ClInclude Include="WireFrameCreateCommand.h" />
+    <ClInclude Include="XMLConverter.h" />
+    <ClInclude Include="XMLFileReader.h" />
+    <ClInclude Include="XMLFileWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CameraCreateCommand.cpp" />
+    <ClCompile Include="CameraFitCommand.cpp" />
+    <ClCompile Include="CameraGetCommand.cpp" />
+    <ClCompile Include="CameraRotateCommand.cpp" />
+    <ClCompile Include="CameraSetCommand.cpp" />
+    <ClCompile Include="CameraTranslateCommand.cpp" />
+    <ClCompile Include="CameraZoomCommand.cpp" />
+    <ClCompile Include="ClearCommand.cpp" />
+    <ClCompile Include="CommandFactory.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="DeleteCommand.cpp" />
+    <ClCompile Include="FileExportCommand.cpp" />
+    <ClCompile Include="FileImportCommand.cpp" />
+    <ClCompile Include="GetCommand.cpp" />
+    <ClCompile Include="ICommand.cpp" />
+    <ClCompile Include="JSONConverter.cpp" />
+    <ClCompile Include="JSONFileReader.cpp" />
+    <ClCompile Include="JSONFileWriter.cpp" />
+    <ClCompile Include="LightCreateCommand.cpp" />
+    <ClCompile Include="LightGetCommand.cpp" />
+    <ClCompile Include="LightSetCommand.cpp" />
+    <ClCompile Include="MaterialCreateCommand.cpp" />
+    <ClCompile Include="MaterialGetCommand.cpp" />
+    <ClCompile Include="MaterialSetCommand.cpp" />
+    <ClCompile Include="MockCommand.cpp" />
+    <ClCompile Include="NewCommand.cpp" />
+    <ClCompile Include="OBJFileExportCommand.cpp" />
+    <ClCompile Include="OBJFileImportCommand.cpp" />
+    <ClCompile Include="ParticleSystemCreateCommand.cpp" />
+    <ClCompile Include="ParticleSystemGetCommand.cpp" />
+    <ClCompile Include="ParticleSystemSetCommand.cpp" />
+    <ClCompile Include="PCDFileExportCommand.cpp" />
+    <ClCompile Include="PCDFileImportCommand.cpp" />
+    <ClCompile Include="PickCommand.cpp" />
+    <ClCompile Include="PLYFileExportCommand.cpp" />
+    <ClCompile Include="PLYFileImportCommand.cpp" />
+    <ClCompile Include="PolygonMeshAddFacesCommand.cpp" />
+    <ClCompile Include="PolygonMeshAddVerticesCommand.cpp" />
+    <ClCompile Include="PolygonMeshCreateCommand.cpp" />
+    <ClCompile Include="PresenterSetCommand.cpp" />
+    <ClCompile Include="SceneGetCommand.cpp" />
+    <ClCompile Include="SceneSetCommand.cpp" />
+    <ClCompile Include="ShaderBuildCommand.cpp" />
+    <ClCompile Include="ShaderSendCommand.cpp" />
+    <ClCompile Include="ShapeSelectCommand.cpp" />
+    <ClCompile Include="SolidCreateCommand.cpp" />
+    <ClCompile Include="STLFileExportCommand.cpp" />
+    <ClCompile Include="STLFileImportCommand.cpp" />
+    <ClCompile Include="TextureCreateCommand.cpp" />
+    <ClCompile Include="TextureSetCommand.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="TransformCommand.cpp" />
+    <ClCompile Include="TriangleMeshCreateCommand.cpp" />
+    <ClCompile Include="TriangleMeshGetCommand.cpp" />
+    <ClCompile Include="TriangleMeshSetCommand.cpp" />
+    <ClCompile Include="TrimCommand.cpp" />
+    <ClCompile Include="TXTFileExportCommand.cpp" />
+    <ClCompile Include="TXTFileImportCommand.cpp" />
+    <ClCompile Include="WireFrameCreateCommand.cpp" />
+    <ClCompile Include="XMLConverter.cpp" />
+    <ClCompile Include="XMLFileReader.cpp" />
+    <ClCompile Include="XMLFileWriter.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

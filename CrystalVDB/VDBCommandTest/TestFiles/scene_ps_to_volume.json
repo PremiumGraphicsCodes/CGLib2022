@@ -1,0 +1,10 @@
+[
+    [
+        "VDBScenePSToVolume",
+        {
+            "Radius": 5.0,
+            "SceneId": -1,
+            "VoxelSize": 1.0
+        }
+    ]
+]

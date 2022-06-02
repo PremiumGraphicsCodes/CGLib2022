@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SparseVolume">
+      <UniqueIdentifier>{b8a76ead-c15c-45b6-8ec2-f9eec2b7b387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel">
+      <UniqueIdentifier>{ec92dbe9-7bda-4a51-8aaa-a3cde6bd553e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SpaceCommandFactory.h" />
+    <ClInclude Include="MeshToPSCommand.h" />
+    <ClInclude Include="MeshToVoxelCommand.h" />
+    <ClInclude Include="SparseVolumeNodeSetCommand.h">
+      <Filter>SparseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseVolumeSceneCreateCommand.h">
+      <Filter>SparseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelSceneCreateCommand.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelToPSCommand.h" />
+    <ClInclude Include="VoxelizerCommand.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelSetCommand.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelGetCommand.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SpaceCommandFactory.cpp" />
+    <ClCompile Include="MeshToPSCommand.cpp" />
+    <ClCompile Include="MeshToVoxelCommand.cpp" />
+    <ClCompile Include="SparseVolumeNodeSetCommand.cpp">
+      <Filter>SparseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="SparseVolumeSceneCreateCommand.cpp">
+      <Filter>SparseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelSceneCreateCommand.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelToPSCommand.cpp" />
+    <ClCompile Include="VoxelizerCommand.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelSetCommand.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelGetCommand.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

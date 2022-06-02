@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CrystalPhysicsView.cpp" />
+    <ClCompile Include="PhysicsMenu.cpp" />
+    <ClCompile Include="CSPHFluidSimulationView.cpp" />
+    <ClCompile Include="DFSPHFluidSimulationView.cpp" />
+    <ClCompile Include="PBSPHFluidSimulationView.cpp" />
+    <ClCompile Include="CSGBoundaryView.cpp" />
+    <ClCompile Include="MeshBoundaryView.cpp" />
+    <ClCompile Include="SPHFlameSimulationView.cpp" />
+    <ClCompile Include="MVPFluidSimulationView.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MVPSamplerView.cpp">
+      <Filter>MVP</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSFluidSimulationView.cpp" />
+    <ClCompile Include="SPHVolumeConverterView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="MVPVolumeConverterView.cpp">
+      <Filter>Volume</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PhysicsMenu.h" />
+    <ClInclude Include="CSPHFluidSimulationView.h" />
+    <ClInclude Include="DFSPHFluidSimulationView.h" />
+    <ClInclude Include="PBSPHFluidSimulationView.h" />
+    <ClInclude Include="CSGBoundaryView.h" />
+    <ClInclude Include="MeshBoundaryView.h" />
+    <ClInclude Include="SPHFlameSimulationView.h" />
+    <ClInclude Include="MVPFluidSimulationView.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MVPSamplerView.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSFluidSimulationView.h" />
+    <ClInclude Include="SPHVolumeConverterView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="MVPVolumeConverterView.h">
+      <Filter>Volume</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MVP">
+      <UniqueIdentifier>{0bf1766f-8214-4be3-a508-94db4a5ee80d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Volume">
+      <UniqueIdentifier>{e12cf7dc-66cb-446c-bbc0-292a2025606f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

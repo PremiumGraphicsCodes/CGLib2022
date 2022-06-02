@@ -1,0 +1,23 @@
+[
+    [
+        "VDBSceneFileRead",
+        {
+            "FilePath": "../VDBDataSet/torus.vdb",
+            "Radius": 0.5
+        }
+    ],
+    [
+        "VDBSceneResampling",
+        {
+            "SamplingType": "Box",
+            "SceneId": 1
+        }
+    ],
+    [
+        "VDBSceneFileWrite",
+        {
+            "FilePath": "../VDBDataSet/scene_resampled_torus.vdb",
+            "VDBSceneId": 1
+        }
+    ]
+]
