@@ -15,3 +15,8 @@
 /CrystalVDB/VDBCommandTest/x64/Debug
 /CrystalVDB/VDBRunner/x64/Debug
 /CrystalVDB/x64/Debug
+/CrystalScene/AppBase/x64/Release/*.obj
+/CrystalScene/Command/x64/Release/*.obj
+/CrystalScene/Scene/x64/Release
+/CrystalSpace/CrystalSpace/x64/Release
+/CrystalScene/AppBase/x64/Release

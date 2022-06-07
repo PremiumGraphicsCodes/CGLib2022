@@ -17,28 +17,21 @@ ISolidAddView::ISolidAddView(const std::string& name, Scene::World* model, Canva
 	IOkCancelView(name, model, canvas),
 //	attributeView("WFAttribute"),
 	nameView("Name", "WireFrame01"),
-	colorView("Color", ColorRGBAf(0,0,0,0))
+	colorView("Color", ColorRGBAf(1,1,1,0))
 {
 	//add(&attributeView);
 	add(&nameView);
+	add(&colorView);
 }
 
 void ISolidAddView::addSolid(std::unique_ptr<Solid> solid)
 {
-	/*
+	const auto& name = nameView.getValue();
 	auto newId = getWorld()->getNextSceneId();
 	auto scene = new SolidScene(newId, name, std::move(solid));
 	scene->setColor(colorView.getValue());
 	getWorld()->getScenes()->addScene(scene);
-	//getWorld()->addScene(scene);
 
-
-	Command::Command command;
-	command.create(ShaderBuildLabels::CommandNameLabel);
-	command.setArg(ShaderBuildLabels::IdLabel, newId);
-	command.execute(getWorld());
-
-	command.create(CameraFitCommandLabels::CameraFitCommandLabel);
-	command.execute(getWorld());
-	*/
+	auto presenter = scene->getPresenter();
+	presenter->createView(getWorld()->getRenderer());
 }
