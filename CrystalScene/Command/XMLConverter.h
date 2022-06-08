@@ -14,7 +14,7 @@ public:
 	template<typename T>
 	static tinyxml2::XMLElement* toXML(tinyxml2::XMLDocument* doc, const std::string& name, const T value);
 	
-	static tinyxml2::XMLText* toXML(tinyxml2::XMLDocument* doc, const std::any& value);
+	static tinyxml2::XMLElement* toXML(tinyxml2::XMLDocument* doc, const std::string& name, const std::any& value);
 
 	static tinyxml2::XMLElement* toXML(tinyxml2::XMLDocument* doc, const PropertyTree& tree);
 

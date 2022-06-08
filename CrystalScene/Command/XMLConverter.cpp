@@ -7,6 +7,15 @@ using namespace Crystal::Math;
 using namespace Crystal::Command;
 
 template<>
+tinyxml2::XMLElement* XMLConverter::toXML<bool>(tinyxml2::XMLDocument* doc, const std::string& name, const bool value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto text = doc->NewText(std::to_string(value).c_str());
+    elem->InsertEndChild(text);
+    return elem;
+}
+
+template<>
 tinyxml2::XMLElement* XMLConverter::toXML<int>(tinyxml2::XMLDocument* doc, const std::string& name, const int value)
 {
     auto elem = doc->NewElement(name.c_str());
@@ -90,28 +99,28 @@ tinyxml2::XMLElement* XMLConverter::toXML<Box3df>(tinyxml2::XMLDocument* doc, co
     return elem;
 }
 
-tinyxml2::XMLText* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std::any& value)
+tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std::string& name, const std::any& value)
 {
     const auto& type = value.type();
     if (type == typeid(bool)) {
         const auto v = std::any_cast<bool>(value);
-        return doc->NewText(std::to_string(v).c_str());
+        return toXML<bool>(doc, name, v);
     }
     if (type == typeid(int)) {
         const auto v = std::any_cast<int>(value);
-        return doc->NewText(std::to_string(v).c_str());
+        return toXML<int>(doc, name, v);
     }
     if (type == typeid(float)) {
         const auto v = std::any_cast<float>(value);
-        return doc->NewText(std::to_string(v).c_str());
+        return toXML<float>(doc, name , v);
     }
     if (type == typeid(double)) {
         const auto v = std::any_cast<double>(value);
-        return doc->NewText(std::to_string(v).c_str());
+        return toXML<double>(doc, name, v );
     }
     if (type == typeid(std::string)) {
         const auto v = std::any_cast<std::string>(value);
-        return doc->NewText(v.c_str());
+        return toXML<std::string>(doc, name, v);
     }
     if (type == typeid(Vector3dd)) {
         const auto v = std::any_cast<Vector3dd>(value);
@@ -151,9 +160,7 @@ tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc,  const Pro
     auto elem = doc->NewElement(args.getName().c_str());
     const auto values = args.getValues();
     for (auto v : values) {
-        auto e = doc->NewElement(v->name.c_str());
-        auto x = toXML(doc, v->value);
-        e->InsertEndChild(x);
+        auto e = toXML(doc, v->name, v->value);
         elem->InsertEndChild(e);
     }
 
