@@ -184,6 +184,24 @@ void XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std
 }
 
 template<>
+int XMLConverter::fromXML<int>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    return parent.FirstChildElement(name.c_str())->IntText();
+}
+
+template<>
+float XMLConverter::fromXML<float>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    return parent.FirstChildElement(name.c_str())->FloatText();
+}
+
+template<>
+double XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    return parent.FirstChildElement(name.c_str())->DoubleText();
+}
+
+template<>
 std::string XMLConverter::fromXML<std::string>(const tinyxml2::XMLElement& parent, const std::string& name)
 {
     return parent.FirstChildElement(name.c_str())->GetText();
@@ -193,12 +211,9 @@ template<>
 Vector3df XMLConverter::fromXML<Vector3df>(const tinyxml2::XMLElement& parent, const std::string& name)
 {
     const auto e = parent.FirstChildElement(name.c_str());
-    float x = 0.0f;
-    float y = 0.0f;
-    float z = 0.0f;
-    fromXML<float>(*e, "x", x);
-    fromXML<float>(*e, "y", y);
-    fromXML<float>(*e, "z", z);
+    const auto x = fromXML<float>(*e, "x");
+    const auto y = fromXML<float>(*e, "y");
+    const auto z = fromXML<float>(*e, "z");
     return Vector3dd(x, y, z);
 }
 
@@ -206,12 +221,9 @@ template<>
 Vector3dd XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const std::string& name)
 {
     const auto e = parent.FirstChildElement(name.c_str());
-    double x = 0.0;
-    double y = 0.0;
-    double z = 0.0;
-    fromXML<double>(*e, "x", x);
-    fromXML<double>(*e, "y", y);
-    fromXML<double>(*e, "z", z);
+    const auto x = fromXML<double>(*e, "x");
+    const auto y = fromXML<double>(*e, "y");
+    const auto z = fromXML<double>(*e, "z");
     return Vector3dd(x, y, z);
 }
 
