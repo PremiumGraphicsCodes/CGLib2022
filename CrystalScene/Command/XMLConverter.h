@@ -23,6 +23,9 @@ public:
 	template<typename T>
 	static void fromXML(const tinyxml2::XMLElement& text, const std::string& name, T& value);
 
+	template<typename T>
+	static T fromXML(const tinyxml2::XMLElement& text, const std::string& name);
+
 	static void fromXML(const tinyxml2::XMLElement& text, std::any& dest);
 
 	static bool fromXML(const tinyxml2::XMLElement& parent, PropertyTree& tree);

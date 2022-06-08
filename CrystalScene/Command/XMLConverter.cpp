@@ -1,5 +1,6 @@
 #include "XMLConverter.h"
 #include "Crystal/Math/Vector3d.h"
+#include "Crystal/Math/Box3d.h"
 #include <cassert>
 
 using namespace Crystal::Math;
@@ -42,6 +43,17 @@ tinyxml2::XMLElement* XMLConverter::toXML<Vector3dd>(tinyxml2::XMLDocument* doc,
     elem->InsertEndChild(x);
     elem->InsertEndChild(y);
     elem->InsertEndChild(z);
+    return elem;
+}
+
+template<>
+tinyxml2::XMLElement* XMLConverter::toXML<Box3dd>(tinyxml2::XMLDocument* doc, const std::string& name, const Box3dd value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto min = toXML(doc, "min", value.getMin());
+    auto max = toXML(doc, "max", value.getMax());
+    elem->InsertEndChild(min);
+    elem->InsertEndChild(max);
     return elem;
 }
 
@@ -139,7 +151,7 @@ void XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std
 }
 
 template<>
-void XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const std::string& name, Vector3dd& value)
+Vector3dd XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const std::string& name)
 {
     const auto e = parent.FirstChildElement(name.c_str());
     double x = 0.0;
@@ -148,9 +160,16 @@ void XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const 
     fromXML<double>(*e, "x", x);
     fromXML<double>(*e, "y", y);
     fromXML<double>(*e, "z", z);
-    value.x = x;
-    value.y = y;
-    value.z = z;
+    return Vector3dd(x, y, z);
+}
+
+template<>
+Box3dd XMLConverter::fromXML<Box3dd>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    auto e = parent.FirstChildElement(name.c_str());
+    auto min = fromXML<Vector3dd>(*e, "min");
+    auto max = fromXML<Vector3dd>(*e, "max");
+    return Box3dd(min, max);
 }
 
 void XMLConverter::fromXML(const tinyxml2::XMLElement& text, std::any& value)
