@@ -34,6 +34,28 @@ tinyxml2::XMLElement* XMLConverter::toXML<double>(tinyxml2::XMLDocument* doc, co
 }
 
 template<>
+tinyxml2::XMLElement* XMLConverter::toXML<std::string>(tinyxml2::XMLDocument* doc, const std::string& name, const std::string value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto text = doc->NewText(value.c_str());
+    elem->InsertEndChild(text);
+    return elem;
+}
+
+template<>
+tinyxml2::XMLElement* XMLConverter::toXML<Vector3df>(tinyxml2::XMLDocument* doc, const std::string& name, const Vector3df value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto x = toXML(doc, "x", value.x);
+    auto y = toXML(doc, "y", value.y);
+    auto z = toXML(doc, "z", value.z);
+    elem->InsertEndChild(x);
+    elem->InsertEndChild(y);
+    elem->InsertEndChild(z);
+    return elem;
+}
+
+template<>
 tinyxml2::XMLElement* XMLConverter::toXML<Vector3dd>(tinyxml2::XMLDocument* doc, const std::string& name, const Vector3dd value)
 {
     auto elem = doc->NewElement(name.c_str());
@@ -48,6 +70,17 @@ tinyxml2::XMLElement* XMLConverter::toXML<Vector3dd>(tinyxml2::XMLDocument* doc,
 
 template<>
 tinyxml2::XMLElement* XMLConverter::toXML<Box3dd>(tinyxml2::XMLDocument* doc, const std::string& name, const Box3dd value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto min = toXML(doc, "min", value.getMin());
+    auto max = toXML(doc, "max", value.getMax());
+    elem->InsertEndChild(min);
+    elem->InsertEndChild(max);
+    return elem;
+}
+
+template<>
+tinyxml2::XMLElement* XMLConverter::toXML<Box3df>(tinyxml2::XMLDocument* doc, const std::string& name, const Box3df value)
 {
     auto elem = doc->NewElement(name.c_str());
     auto min = toXML(doc, "min", value.getMin());
@@ -151,6 +184,25 @@ void XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std
 }
 
 template<>
+std::string XMLConverter::fromXML<std::string>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    return parent.FirstChildElement(name.c_str())->GetText();
+}
+
+template<>
+Vector3df XMLConverter::fromXML<Vector3df>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    const auto e = parent.FirstChildElement(name.c_str());
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
+    fromXML<float>(*e, "x", x);
+    fromXML<float>(*e, "y", y);
+    fromXML<float>(*e, "z", z);
+    return Vector3dd(x, y, z);
+}
+
+template<>
 Vector3dd XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const std::string& name)
 {
     const auto e = parent.FirstChildElement(name.c_str());
@@ -161,6 +213,15 @@ Vector3dd XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, c
     fromXML<double>(*e, "y", y);
     fromXML<double>(*e, "z", z);
     return Vector3dd(x, y, z);
+}
+
+template<>
+Box3df XMLConverter::fromXML<Box3df>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    auto e = parent.FirstChildElement(name.c_str());
+    auto min = fromXML<Vector3df>(*e, "min");
+    auto max = fromXML<Vector3df>(*e, "max");
+    return Box3df(min, max);
 }
 
 template<>
