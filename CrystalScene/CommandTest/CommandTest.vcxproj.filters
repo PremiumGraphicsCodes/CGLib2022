@@ -56,6 +56,9 @@
     <ClCompile Include="XMLFileReaderTest.cpp">
       <Filter>XML</Filter>
     </ClCompile>
+    <ClCompile Include="XMLConverterTest.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

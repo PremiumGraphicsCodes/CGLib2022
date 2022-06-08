@@ -60,6 +60,7 @@
     <ClCompile Include="TXTFileExportCommandTest.cpp" />
     <ClCompile Include="TXTFileImportCommandTest.cpp" />
     <ClCompile Include="WireFrameCreateCommandTest.cpp" />
+    <ClCompile Include="XMLConverterTest.cpp" />
     <ClCompile Include="XMLFileReaderTest.cpp" />
     <ClCompile Include="XMLFileWriterTest.cpp" />
   </ItemGroup>

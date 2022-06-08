@@ -1,6 +1,8 @@
 #include "XMLConverter.h"
+#include "Crystal/Math/Vector3d.h"
 #include <cassert>
 
+using namespace Crystal::Math;
 using namespace Crystal::Command;
 
 template<>
@@ -18,6 +20,28 @@ tinyxml2::XMLElement* XMLConverter::toXML<float>(tinyxml2::XMLDocument* doc, con
     auto elem = doc->NewElement(name.c_str());
     auto text = doc->NewText(std::to_string(value).c_str());
     elem->InsertEndChild(text);
+    return elem;
+}
+
+template<>
+tinyxml2::XMLElement* XMLConverter::toXML<double>(tinyxml2::XMLDocument* doc, const std::string& name, const double value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto text = doc->NewText(std::to_string(value).c_str());
+    elem->InsertEndChild(text);
+    return elem;
+}
+
+template<>
+tinyxml2::XMLElement* XMLConverter::toXML<Vector3dd>(tinyxml2::XMLDocument* doc, const std::string& name, const Vector3dd value)
+{
+    auto elem = doc->NewElement(name.c_str());
+    auto x = toXML(doc, "x", value.x);
+    auto y = toXML(doc, "y", value.y);
+    auto z = toXML(doc, "z", value.z);
+    elem->InsertEndChild(x);
+    elem->InsertEndChild(y);
+    elem->InsertEndChild(z);
     return elem;
 }
 
@@ -44,6 +68,9 @@ tinyxml2::XMLText* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std::an
         const auto v = std::any_cast<std::string>(value);
         return doc->NewText(v.c_str());
     }
+    if (type == typeid(Vector3dd)) {
+        const auto v = std::any_cast<Vector3dd>(value);
+    }
     /*
     if (type == typeid(std::vector<int>)) {
         return std::any_cast<std::vector<int>>(value);
@@ -62,9 +89,6 @@ tinyxml2::XMLText* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std::an
     }
     if (type == typeid(Math::Vector3df)) {
         return std::any_cast<Math::Vector3df>(value);
-    }
-    if (type == typeid(Math::Vector3dd)) {
-        return std::any_cast<Math::Vector3dd>(value);
     }
     if (type == typeid(std::vector<Math::Vector3dd>)) {
         return std::any_cast<std::vector<Math::Vector3dd>>(value);
@@ -108,6 +132,26 @@ void XMLConverter::fromXML<float>(const tinyxml2::XMLElement& parent, const std:
     value = parent.FirstChildElement(name.c_str())->FloatText();
 }
 
+template<>
+void XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std::string& name, double& value)
+{
+    value = parent.FirstChildElement(name.c_str())->DoubleText();
+}
+
+template<>
+void XMLConverter::fromXML<Vector3dd>(const tinyxml2::XMLElement& parent, const std::string& name, Vector3dd& value)
+{
+    const auto e = parent.FirstChildElement(name.c_str());
+    double x = 0.0;
+    double y = 0.0;
+    double z = 0.0;
+    fromXML<double>(*e, "x", x);
+    fromXML<double>(*e, "y", y);
+    fromXML<double>(*e, "z", z);
+    value.x = x;
+    value.y = y;
+    value.z = z;
+}
 
 void XMLConverter::fromXML(const tinyxml2::XMLElement& text, std::any& value)
 {
