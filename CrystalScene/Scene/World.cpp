@@ -113,6 +113,7 @@ void World::clear()
 	//glFactory.clear();
 	sceneIdProvider.reset(1);
 	scene->clear();
+	animations.clear();
 }
 
 void World::addScene(IScene* scene)
