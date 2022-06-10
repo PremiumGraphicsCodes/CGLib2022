@@ -24,6 +24,8 @@ struct PropertyTree
 
 	void add(PropertyTree* child) { children.push_back(child); }
 
+	void addAttribute(IProperty* attr) { attributes.push_back(attr); }
+
 	std::any getValue(const std::string& name) const {
 		auto iter = std::find_if(values.begin(), values.end(), [=](auto a) { return a->name == name; });
 		return (*iter)->value;
@@ -37,6 +39,8 @@ struct PropertyTree
 
 	std::vector<PropertyTree*> getChildren() const { return children; }
 
+	std::vector<IProperty*> getAttributes() const { return attributes; }
+
 	/*
 
 	void setValue(const std::string& name, std::any value) {
@@ -48,6 +52,7 @@ struct PropertyTree
 private:
 	std::string name;
 	std::vector<IProperty*> values;
+	std::vector<IProperty*> attributes;
 	std::vector<PropertyTree*> children;
 };
 

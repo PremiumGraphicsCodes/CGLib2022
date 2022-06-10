@@ -18,6 +18,8 @@ TEST(XMLFileWriterTest, TestWrite)
 	PropertyTree tree2("Tree2");
 	tree2.add(&floatValue);
 	tree2.add(&textValue);
+	Property<std::string> name("Name", "AAA");
+	tree1.addAttribute(&name);
 	tree1.add(&tree2);
 
 	XMLFileWriter writer;

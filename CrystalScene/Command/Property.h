@@ -18,6 +18,8 @@ struct IProperty
 		value(value)
 	{}
 
+	virtual ~IProperty() = default;
+
 	std::string name;
 	std::any value;
 };

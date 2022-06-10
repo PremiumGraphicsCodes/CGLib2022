@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--this is a xml test file-->
 <Root>
-    <Tree>
+    <Tree Name="AAA">
         <Int>1</Int>
         <Double>3.140000</Double>
         <Tree2>

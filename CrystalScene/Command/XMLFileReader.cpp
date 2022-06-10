@@ -24,11 +24,19 @@ bool XMLFileReader::read(const std::filesystem::path& path, const IPropertyTreeF
 
 bool XMLFileReader::read(tinyxml2::XMLElement* parent, const IPropertyTreeFactory& factory, PropertyTree& tree)
 {
+	auto a = parent->FirstAttribute();
+	while (a != nullptr) {
+		a->Name();
+		a->Value();
+		a = a->Next();
+	}
+
 	auto c = parent->FirstChildElement();
 
 	while (c != nullptr) {
 		const std::string name = c->Value();
 		const auto text = c->GetText();
+
 		if (text == nullptr) {
 			auto t = factory.create(name);
 			read(c, factory, *t);

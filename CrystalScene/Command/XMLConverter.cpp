@@ -158,6 +158,12 @@ tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std:
 tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc,  const PropertyTree& args)
 {
     auto elem = doc->NewElement(args.getName().c_str());
+
+    const auto attrs = args.getAttributes();
+    for (auto a : attrs) {
+        elem->SetAttribute(a->name.c_str(), std::any_cast<std::string>(a->value).c_str());
+    }
+
     const auto values = args.getValues();
     for (auto v : values) {
         auto e = toXML(doc, v->name, v->value);
