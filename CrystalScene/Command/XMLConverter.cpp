@@ -122,9 +122,23 @@ tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc, const std:
         const auto v = std::any_cast<std::string>(value);
         return toXML<std::string>(doc, name, v);
     }
+    if (type == typeid(Vector3df)) {
+        const auto v = std::any_cast<Vector3df>(value);
+        return toXML<Vector3df>(doc, name, v);
+    }
     if (type == typeid(Vector3dd)) {
         const auto v = std::any_cast<Vector3dd>(value);
+        return toXML<Vector3dd>(doc, name, v);
     }
+    if (type == typeid(Box3df)) {
+        const auto v = std::any_cast<Box3df>(value);
+        return toXML<Box3df>(doc, name, v);
+    }
+    if (type == typeid(Math::Box3dd)) {
+        const auto v = std::any_cast<Math::Box3dd>(value);
+        return toXML<Box3dd>(doc, name, v);
+    }
+
     /*
     if (type == typeid(std::vector<int>)) {
         return std::any_cast<std::vector<int>>(value);

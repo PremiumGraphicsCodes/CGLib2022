@@ -21,12 +21,9 @@ bool XMLFileWriter::write(const PropertyTree& tree, const std::filesystem::path&
 	tinyxml2::XMLComment* comment = doc.NewComment("this is a xml test file");
 	doc.InsertEndChild(comment);
 
-	tinyxml2::XMLElement* root = doc.NewElement("Root");
-	doc.InsertEndChild(root);
-
 	auto e = XMLConverter::toXML(&doc, tree);
 
-	root->InsertEndChild(e);
+	doc.InsertEndChild(e);
 
 	//model->toXML(&doc, root);
 	ret = doc.SaveFile(path.string().c_str());
