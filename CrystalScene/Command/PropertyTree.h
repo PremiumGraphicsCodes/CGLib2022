@@ -31,6 +31,11 @@ struct PropertyTree
 		return (*iter)->value;
 	};
 
+	void setValue(const std::string& name, const std::any& value) {
+		auto iter = std::find_if(values.begin(), values.end(), [=](auto a) { return a->name == name; });
+		(*iter)->value = value;
+	}
+
 	const std::type_info& getType(const std::string& name) const {
 		return getValue(name).type();
 	}

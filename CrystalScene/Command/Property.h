@@ -13,6 +13,10 @@ struct IProperty
 	IProperty()
 	{}
 
+	explicit IProperty(const std::string& name) :
+		name(name)
+	{}
+
 	IProperty(const std::string& name, std::any value) :
 		name(name),
 		value(value)
@@ -27,6 +31,10 @@ struct IProperty
 template<typename T>
 struct Property : public IProperty
 {
+	explicit Property(const std::string& name) :
+		IProperty(name)
+	{}
+
 	Property(const std::string& name, T value) :
 		IProperty(name, value)
 	{}
