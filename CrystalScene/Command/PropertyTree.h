@@ -46,6 +46,21 @@ struct PropertyTree
 
 	std::vector<IProperty*> getAttributes() const { return attributes; }
 
+
+	PropertyTree* getChild(const std::string& name) const {
+		auto iter = std::find_if(children.begin(), children.end(), [=](auto a) { return a->name == name; });
+		return (*iter);
+	}
+
+	std::vector<PropertyTree*> getChildren(const std::string& name) const {
+		std::vector<PropertyTree*> results;
+		for (const auto& c : children) {
+			if (c->name == name) {
+				results.push_back(c);
+			}
+		}
+		return results;
+	}
 	/*
 
 	void setValue(const std::string& name, std::any value) {

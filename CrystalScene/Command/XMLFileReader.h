@@ -12,7 +12,7 @@ namespace Crystal {
 class XMLFileReader
 {
 public:
-	bool read(const std::filesystem::path& path, const IPropertyTreeFactory& factory);
+	bool read(const std::filesystem::path& path);
 
 	std::unique_ptr<PropertyTree> getTree() { return std::move(tree); }
 
@@ -20,7 +20,7 @@ private:
 	std::unique_ptr<PropertyTree> tree;
 	//std::map<std::string, typeid>
 
-	bool read(tinyxml2::XMLElement* parent, const IPropertyTreeFactory& factory, PropertyTree& t);
+	bool read(tinyxml2::XMLElement* parent, PropertyTree& t);
 
 };
 

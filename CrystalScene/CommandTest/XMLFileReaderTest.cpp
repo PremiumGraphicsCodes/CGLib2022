@@ -38,7 +38,7 @@ TEST(XMLFileReaderTest, TestRead)
 	LBFactory factory;
 
 	XMLFileReader reader;
-	const auto isOk = reader.read("./TestFiles/test.xml", factory);
+	const auto isOk = reader.read("./TestFiles/test.xml");
 	EXPECT_TRUE(isOk);
 	EXPECT_EQ(1, reader.getTree()->getChildren().size());
 }
