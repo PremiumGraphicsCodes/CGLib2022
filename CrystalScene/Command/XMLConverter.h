@@ -32,6 +32,7 @@ public:
 
 	//static void fromJSON(const nlohmann::json& json, ICommand& command);
 
+
 };
 	}
 }

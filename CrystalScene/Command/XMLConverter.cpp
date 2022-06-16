@@ -193,6 +193,12 @@ tinyxml2::XMLElement* XMLConverter::toXML(tinyxml2::XMLDocument* doc,  const Pro
 }
 
 template<>
+void XMLConverter::fromXML<bool>(const tinyxml2::XMLElement& parent, const std::string& name, bool& value)
+{
+    value = parent.FirstChildElement(name.c_str())->BoolText();
+}
+
+template<>
 void XMLConverter::fromXML<int>(const tinyxml2::XMLElement& parent, const std::string& name, int& value)
 {
     value = parent.FirstChildElement(name.c_str())->IntText();
@@ -208,6 +214,12 @@ template<>
 void XMLConverter::fromXML<double>(const tinyxml2::XMLElement& parent, const std::string& name, double& value)
 {
     value = parent.FirstChildElement(name.c_str())->DoubleText();
+}
+
+template<>
+bool XMLConverter::fromXML<bool>(const tinyxml2::XMLElement& parent, const std::string& name)
+{
+    return parent.FirstChildElement(name.c_str())->BoolText();
 }
 
 template<>
