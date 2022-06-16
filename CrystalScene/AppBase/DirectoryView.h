@@ -16,6 +16,8 @@ public:
 
 	std::string getPath() const { return pathView.getValue(); }
 
+	void setPath(const std::string& path) { this->pathView.setValue(path); }
+
 private:
 	void onSelect();
 

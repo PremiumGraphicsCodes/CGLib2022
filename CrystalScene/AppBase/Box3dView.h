@@ -9,6 +9,23 @@
 namespace Crystal {
 	namespace UI {
 
+class Box3dfView : public IView
+{
+public:
+	explicit Box3dfView(const std::string& name);
+
+	Box3dfView(const std::string& name, const Math::Box3df& value);
+
+	Math::Box3df getValue() const;
+
+	void setValue(const Math::Box3df& value);
+
+private:
+	Vector3dfView minView;
+	Vector3dfView maxView;
+};
+
+
 class Box3dView : public IView
 {
 public:
