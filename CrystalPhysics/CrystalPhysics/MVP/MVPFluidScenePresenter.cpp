@@ -8,6 +8,7 @@ using namespace Crystal::Scene;
 using namespace Crystal::Physics;
 
 MVPFluidScenePresenter::MVPFluidScenePresenter(IMVPFluidScene* model) :
+	IMVPFluidScenePresenter(model),
 	model(model),
 	view(nullptr),
 	mode(Mode::Density)

@@ -69,12 +69,14 @@ public:
 
 	Scene::IPresenter* getPresenter() { return controller.get(); }
 
+	void setPresenter(std::unique_ptr<IMVPFluidScenePresenter> presenter) { this->controller = std::move(presenter); }
+
 	void setLifeLimit(const int limit) { this->lifeLimit = limit; }
 
 	MVPVolumeParticle* create(const Math::Vector3df& position, const float radius, const float weight, const float temperature);
 
 private:
-	std::unique_ptr<MVPFluidScenePresenter> controller;
+	std::unique_ptr<IMVPFluidScenePresenter> controller;
 	std::list<MVPVolumeParticle*> particles;
 	float pressureCoe;
 	float viscosityCoe;

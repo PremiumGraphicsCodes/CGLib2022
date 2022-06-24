@@ -10,7 +10,16 @@ namespace Crystal {
 	namespace Physics {
 		class IMVPFluidScene;
 
-class MVPFluidScenePresenter : public Scene::IPresenter
+class IMVPFluidScenePresenter : public Scene::IPresenter
+{
+public:
+	explicit IMVPFluidScenePresenter(IMVPFluidScene* model)
+	{}
+
+	virtual ~IMVPFluidScenePresenter() {};
+};
+
+class MVPFluidScenePresenter : public IMVPFluidScenePresenter
 {
 public:
 	explicit MVPFluidScenePresenter(IMVPFluidScene* model);
