@@ -195,6 +195,9 @@
     <ClInclude Include="FluidVolumePresenter.h">
       <Filter>Volume</Filter>
     </ClInclude>
+    <ClInclude Include="IMVPFluidScenePresenter.h">
+      <Filter>MVP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPHKernel.cpp" />

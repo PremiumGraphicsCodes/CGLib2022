@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CrystalScene/Scene/IPresenter.h"
+#include "../IMVPFluidScenePresenter.h"
 #include "CrystalScene/Scene/SceneShader.h"
 #include "CrystalScene/Scene/PointShaderScene.h"
 
@@ -9,15 +9,6 @@
 namespace Crystal {
 	namespace Physics {
 		class IMVPFluidScene;
-
-class IMVPFluidScenePresenter : public Scene::IPresenter
-{
-public:
-	explicit IMVPFluidScenePresenter(IMVPFluidScene* model)
-	{}
-
-	virtual ~IMVPFluidScenePresenter() {};
-};
 
 class MVPFluidScenePresenter : public IMVPFluidScenePresenter
 {
