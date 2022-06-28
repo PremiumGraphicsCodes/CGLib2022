@@ -15,6 +15,9 @@ public:
 		Command::Arg<int> sceneId;
 		Command::Arg<double> radius;
 		Command::Arg<double> voxelSize;
+		Command::Arg<bool> isFlame;
+		Command::Arg<float> flameTemperature;
+		Command::Arg<float> smokeTemperature;
 	};
 
 	struct Results : Command::IResults

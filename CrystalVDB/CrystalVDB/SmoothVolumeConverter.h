@@ -15,7 +15,7 @@ class SmoothVolumeConverter
 public:
 	std::vector<VDBVolumeScene*> build(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength, const std::vector<std::string>& floatNames);
 
-	std::vector<VDBVolumeScene*> buildFlame(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength);
+	std::vector<VDBVolumeScene*> buildFlame(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength, const float smokeTemperature, const float flameTemperature);
 
 private:
 };

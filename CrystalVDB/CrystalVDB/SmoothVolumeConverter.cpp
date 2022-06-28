@@ -119,7 +119,7 @@ std::vector<VDBVolumeScene*> SmoothVolumeConverter::build(VDBPointsScene* vdbPar
 }
 
 
-std::vector<VDBVolumeScene*> SmoothVolumeConverter::buildFlame(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength)
+std::vector<VDBVolumeScene*> SmoothVolumeConverter::buildFlame(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength, const float smokeTemperature, const float flameTemperature)
 {
 	std::vector<VDBVolumeScene*> vdbVolumes;
 
@@ -181,5 +181,18 @@ std::vector<VDBVolumeScene*> SmoothVolumeConverter::buildFlame(VDBPointsScene* v
 		}
 	}
 
+	for (auto iter = densityGrid->cbeginValueOn(); iter.test(); ++iter) {
+		const auto value = *iter;
+		const auto c = iter.getCoord();
+		const auto t = temperatureAccessor.getValue(c);
+		const auto tt = t / value;
+		if (tt > flameTemperature) {
+			temperatureAccessor.setValue(c, tt);
+//			iter.setValue(0.0);
+		}
+		else if (tt < smokeTemperature) {
+//			iter.setValue(0.0);
+		}
+	}
 	return vdbVolumes;
 }
