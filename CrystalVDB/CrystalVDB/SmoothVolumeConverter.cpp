@@ -117,3 +117,69 @@ std::vector<VDBVolumeScene*> SmoothVolumeConverter::build(VDBPointsScene* vdbPar
 	}
 	return vdbVolumes;
 }
+
+
+std::vector<VDBVolumeScene*> SmoothVolumeConverter::buildFlame(VDBPointsScene* vdbParticles, const float particleRadius, const float cellLength)
+{
+	std::vector<VDBVolumeScene*> vdbVolumes;
+
+	auto densityVolume = new VDBVolumeScene();
+	densityVolume->getImpl()->getPtr()->setName("density");
+	densityVolume->setScale(cellLength);
+	auto densityGrid = densityVolume->getImpl()->getPtr();
+	auto densityAccessor = densityGrid->getAccessor();
+
+	vdbVolumes.push_back(densityVolume);
+
+	auto temperatureVolume = new VDBVolumeScene();
+	temperatureVolume->getImpl()->getPtr()->setName("temperature");
+	temperatureVolume->setScale(cellLength);
+	auto temperatureGrid = temperatureVolume->getImpl()->getPtr();
+	auto temperatureAccessor = temperatureGrid->getAccessor();
+
+	vdbVolumes.push_back(temperatureVolume);
+
+	const auto r = static_cast<int>(particleRadius / cellLength) / 2;
+
+	auto psGrid = vdbParticles->getImpl()->getPtr();
+	for (auto leafIter = psGrid->tree().cbeginLeaf(); leafIter; ++leafIter) {
+		const auto& posArray = leafIter->constAttributeArray("P");
+		const auto& temperatureArray = leafIter->constAttributeArray("temperature");
+
+		openvdb::points::AttributeHandle<openvdb::Vec3f> positionHandle(posArray);
+		openvdb::points::AttributeHandle<float> temperatureHandle(temperatureArray);
+
+		for (auto indexIter = leafIter->beginIndexOn(); indexIter; ++indexIter) {
+			openvdb::Vec3f voxelPosition = positionHandle.get(*indexIter);
+			const auto xyz = indexIter.getCoord().asVec3d();
+			openvdb::Vec3f worldPosition = psGrid->transform().indexToWorld(voxelPosition + xyz);
+			auto ix = *indexIter;
+			const auto temperature = temperatureHandle.get(ix);
+
+			const auto index = densityGrid->worldToIndex(worldPosition);
+			const auto p = worldPosition;
+
+
+			for (int i = -r; i <= r; ++i) {
+				for (int j = -r; j <= r; ++j) {
+					for (int k = -r; k <= r; ++k) {
+						const auto ix = index[0] + i;
+						const auto iy = index[1] + j;
+						const auto iz = index[2] + k;
+						const auto c = openvdb::math::Coord(ix, iy, iz);
+						const auto pos = densityGrid->indexToWorld(c);
+						const auto dist = std::pow(pos[0] - p[0], 2) + std::pow(pos[1] - p[1], 2) + std::pow(pos[2] - p[2], 2);
+						const auto v = ::getCubicSpline(std::sqrt(dist), particleRadius);
+						const auto vv = densityAccessor.getValue(c) + v;
+						densityAccessor.setValue(c, vv);
+						
+						const auto tt = temperature * ::getCubicSpline(std::sqrt(dist), particleRadius);
+						temperatureAccessor.setValue(c, tt + temperatureAccessor.getValue(c));
+					}
+				}
+			}
+		}
+	}
+
+	return vdbVolumes;
+}
