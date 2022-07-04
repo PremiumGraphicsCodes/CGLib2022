@@ -74,7 +74,7 @@ void SPHAnisotropyEstimatorView::onOk()
 	auto particles = estimator.getParticles();
 	auto world = getWorld();
 
-	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Vol");
+	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Normal");
 	for (auto p : particles) {
 		asScene->addParticle(p);
 	}

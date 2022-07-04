@@ -87,7 +87,7 @@ void SPHDensityEstimatorView::onOk()
 	std::cout << minValue << std::endl;
 	std::cout << maxValue << std::endl;
 
-	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Vol");
+	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Density");
 	for (auto p : particles) {
 		asScene->addParticle(p);
 	}
