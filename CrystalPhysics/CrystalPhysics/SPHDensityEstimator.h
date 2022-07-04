@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-#include "SurfaceConstruction/SPHSurfaceParticle.h"
+#include "SurfaceConstruction/SPHAnisotoropicParticle.h"
 
 namespace Crystal {
 	namespace Physics {
@@ -11,7 +11,7 @@ namespace Crystal {
 		class SPHDensityEstimator
 		{
 		public:
-			void estimate(const std::vector<std::unique_ptr<SPHSurfaceParticle>>& particles,const float searchRadius);
+			void estimate(const std::vector<std::unique_ptr<SPHAnisotoropicParticle>>& particles,const float searchRadius);
 
 			//std::vector < Shape::Volume<double>* > getVolumes() { return volumes; }
 

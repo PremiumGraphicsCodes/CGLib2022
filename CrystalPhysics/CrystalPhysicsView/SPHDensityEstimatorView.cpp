@@ -25,7 +25,7 @@ SPHDensityEstimatorView::SPHDensityEstimatorView(const std::string& name, World*
 
 void SPHDensityEstimatorView::onOk()
 {
-	std::vector<std::unique_ptr<SPHSurfaceParticle>> particles;
+	std::vector<std::unique_ptr<SPHAnisotoropicParticle>> particles;
 	std::vector<Vector3dd> positions;
 
 	const Sphere3d sphere(Vector3dd(50, 50, 50), 10.0);

@@ -47,7 +47,7 @@ std::unique_ptr<SparseVolumef> SPHVolumeConverter::buildIsotoropic(const std::ve
 	const SPHKernel kernel(searchRadius);
 
 	for (const auto& p : positions) {
-		particles.push_back(std::make_unique<SPHSurfaceParticle>(p, particleRadius));
+		particles.push_back(std::make_unique<SPHAnisotoropicParticle>(p, particleRadius));
 	}
 	calculateDensity(particleRadius);
 
@@ -71,7 +71,7 @@ std::unique_ptr<SparseVolumef> SPHVolumeConverter::buildIsotoropic(const std::ve
 		const auto nodePos = node->getPosition();
 		const auto neighbors = spaceHash.findNeighbors(node->getPosition());
 		for (auto n : neighbors) {
-			auto sp = static_cast<SPHSurfaceParticle*>(n);
+			auto sp = static_cast<SPHAnisotoropicParticle*>(n);
 			const auto v = n->getPosition() - nodePos;
 			//const auto coe = 1400.0f / searchRadius / searchRadius / searchRadius;
 			const auto w = /* coe * */ kernel.getCubicSpline(v) * sp->getMass() / sp->getDensity();
@@ -92,7 +92,7 @@ std::unique_ptr<SparseVolumef> SPHVolumeConverter::buildAnisotoropic(const std::
 	const SPHKernel kernel(searchRadius);
 
 	for (const auto& p : positions) {
-		particles.push_back(std::make_unique<SPHSurfaceParticle>(p, particleRadius));
+		particles.push_back(std::make_unique<SPHAnisotoropicParticle>(p, particleRadius));
 	}
 
 	calculateAnisotropy(searchRadius);
@@ -118,7 +118,7 @@ std::unique_ptr<SparseVolumef> SPHVolumeConverter::buildAnisotoropic(const std::
 		const auto nodePos = node->getPosition();
 		const auto neighbors = spaceHash.findNeighbors(node->getPosition());
 		for (auto n : neighbors) {
-			auto sp = static_cast<SPHSurfaceParticle*>(n);
+			auto sp = static_cast<SPHAnisotoropicParticle*>(n);
 			auto m = sp->getMatrix();
 			//auto m = Matrix3df(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5) / searchRadius;
 			const auto v = Vector3dd(sp->getPosition()) - nodePos;

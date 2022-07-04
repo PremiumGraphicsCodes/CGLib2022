@@ -209,7 +209,7 @@
     <ClInclude Include="SPHFlame\SPHFlameSolver.h" />
     <ClInclude Include="SPHKernel.h" />
     <ClInclude Include="SurfaceConstruction\SPHVolumeConverter.h" />
-    <ClInclude Include="SurfaceConstruction\SPHSurfaceParticle.h" />
+    <ClInclude Include="SurfaceConstruction\SPHAnisotoropicParticle.h" />
     <ClInclude Include="SurfaceConstruction\WPCA.h" />
   </ItemGroup>
   <ItemGroup>
@@ -262,7 +262,7 @@
     <ClCompile Include="SPHFlame\SPHFlameSolver.cpp" />
     <ClCompile Include="SPHKernel.cpp" />
     <ClCompile Include="SurfaceConstruction\SPHVolumeConverter.cpp" />
-    <ClCompile Include="SurfaceConstruction\SPHSurfaceParticle.cpp" />
+    <ClCompile Include="SurfaceConstruction\SPHAnisotoropicParticle.cpp" />
     <ClCompile Include="SurfaceConstruction\WPCA.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

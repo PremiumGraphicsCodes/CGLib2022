@@ -5,7 +5,7 @@
 using namespace Crystal::Space;
 using namespace Crystal::Physics;
 
-void SPHDensityEstimator::estimate(const std::vector<std::unique_ptr<SPHSurfaceParticle>>& particles, const float searchRadius)
+void SPHDensityEstimator::estimate(const std::vector<std::unique_ptr<SPHAnisotoropicParticle>>& particles, const float searchRadius)
 {
 	const SPHKernel kernel(searchRadius);
 

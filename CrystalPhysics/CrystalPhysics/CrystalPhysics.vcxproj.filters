@@ -186,7 +186,7 @@
     <ClInclude Include="SurfaceConstruction\SPHVolumeConverter.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
-    <ClInclude Include="SurfaceConstruction\SPHSurfaceParticle.h">
+    <ClInclude Include="SurfaceConstruction\SPHAnisotoropicParticle.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
     <ClInclude Include="SurfaceConstruction\WPCA.h">
@@ -342,7 +342,7 @@
     <ClCompile Include="SurfaceConstruction\SPHVolumeConverter.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
-    <ClCompile Include="SurfaceConstruction\SPHSurfaceParticle.cpp">
+    <ClCompile Include="SurfaceConstruction\SPHAnisotoropicParticle.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
     <ClCompile Include="SurfaceConstruction\WPCA.cpp">
