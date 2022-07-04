@@ -8,7 +8,7 @@ using namespace Crystal::Physics;
 
 void SPHAnisotoropyEstimator::add(const Vector3df& position, const float particleRadius)
 {
-	particles.push_back(std::make_unique<SPHAnisotropicParticle>(position, particleRadius));
+	particles.push_back(new SPHAnisotropicParticle(position, particleRadius));
 }
 
 void SPHAnisotoropyEstimator::estimateIsotoropy(const float searchRadius)
@@ -17,8 +17,8 @@ void SPHAnisotoropyEstimator::estimateIsotoropy(const float searchRadius)
 
 	CompactSpaceHash3d spaceHash(searchRadius, particles.size());
 
-	for (const auto& p : particles) {
-		spaceHash.add(p.get());
+	for (auto p : particles) {
+		spaceHash.add(p);
 	}
 
 #pragma omp parallel for

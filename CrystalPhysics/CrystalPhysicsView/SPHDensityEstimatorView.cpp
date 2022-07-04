@@ -1,6 +1,8 @@
 #include "SPHDensityEstimatorView.h"
 
-#include "../CrystalPhysics/SurfaceConstruction/SPHVolumeConverter.h"
+#include "../CrystalPhysics/SPHAnisotropyEstimator.h"
+#include "../CrystalPhysics/SPHAnisotropicParticleScene.h"
+#include "../CrystalPhysics/SPHAnisotropicParticleScenePresenter.h"
 
 #include "Crystal/Math/Sphere3d.h"
 
@@ -10,22 +12,25 @@ using namespace Crystal::Math;
 using namespace Crystal::Shape;
 using namespace Crystal::UI;
 using namespace Crystal::Scene;
-using namespace Crystal::Space;
 using namespace Crystal::Physics;
 
 
 SPHDensityEstimatorView::SPHDensityEstimatorView(const std::string& name, World* model, Canvas* canvas) :
 	IOkCancelView(name, model, canvas),
 	particleRadiusView("ParticleRadius", 1.0f),
+	searchRadiusView("SearchRadius", 2.5f),
 	colorMapView("ColorMap")
 {
 	add(&particleRadiusView);
+	add(&searchRadiusView);
 	add(&colorMapView);
 }
 
 void SPHDensityEstimatorView::onOk()
 {
-	std::vector<std::unique_ptr<SPHAnisotropicParticle>> particles;
+	SPHAnisotoropyEstimator estimator;
+
+	const auto particleRadius = particleRadiusView.getValue();
 
 	const Sphere3d sphere(Vector3dd(50, 50, 50), 10.0);
 	const Box3d box = sphere.getBoundingBox();
@@ -38,43 +43,46 @@ void SPHDensityEstimatorView::onOk()
 				const auto w = k / 10.0;
 				const auto p = box.getPosition(u, v, w);
 				if (sphere.isInside(p)) {
-					auto ap = std::make_unique<SPHAnisotropicParticle>(p, 1.0f);
+					estimator.add(p, particleRadius);
 				}
 			}
 		}
 	}
+
+	const auto searchRadius = searchRadiusView.getValue();
+	estimator.estimateIsotoropy(searchRadius);
 	//positions.emplace_back(0, 0, 0);
 
 	//Crystal::IO::PCDBinaryFileReader reader;
 	//reader.read("C://Dev//cgstudio4//Blender//CrystalPython//tmp_txt/macro1.pcd");
 	//positions = reader.getPCD().data.positions;
 
-	/*
 	auto world = getWorld();
 
-	SPHVolumeConverter builder;
-	auto sp = builder.buildIsotoropic(positions, particleRadiusView.getValue(), cellLengthView.getValue());
-	//auto sp = builder.buildAnisotoropic(positions, particleRadiusView.getValue(), cellLengthView.getValue());
+	const auto particles = estimator.getParticles();
 
-	//auto volumes = builder.getVolumes();
-	const auto nodes = sp->getNodes();
 	float maxValue = std::numeric_limits<float>::lowest();
 	float minValue = std::numeric_limits<float>::max();
-	for (auto n : nodes) {
-		maxValue = std::max(maxValue, n->getValue());
-		minValue = std::min(minValue, n->getValue());
+
+	for (auto p : particles) {
+		const auto v = p->getDensity();
+		maxValue = std::max(maxValue, v);
+		minValue = std::min(minValue, v);
 	}
 	std::cout << minValue << std::endl;
 	std::cout << maxValue << std::endl;
 
-	SparseVolumeScene* svScene = new SparseVolumeScene(getWorld()->getNextSceneId(), "Vol", std::move(sp));
-	auto presenter = svScene->getPresenter();
+	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Vol");
+	for (auto p : particles) {
+		asScene->addParticle(p);
+	}
+	auto presenter = asScene->getPresenter();
 
 	auto colorMap = this->colorMapView.getValue();
 	colorMap.setMinMax(minValue, maxValue);
-	static_cast<SparseVolumePresenter*>(presenter)->setColorMap(colorMap);
+	static_cast<SPHAnisotropicParticleScenePresenter*>(presenter)->setColorMap(colorMap);
+
 	presenter->createView(world->getRenderer());
 
-	getWorld()->getScenes()->addScene(svScene);
-	*/
+	getWorld()->getScenes()->addScene(asScene);
 }

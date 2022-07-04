@@ -17,6 +17,7 @@ private:
 
 private:
 	FloatView particleRadiusView;
+	FloatView searchRadiusView;
 	ColorMapView colorMapView;
 };
 

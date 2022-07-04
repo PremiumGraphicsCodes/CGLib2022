@@ -27,6 +27,8 @@ public:
 		Density,
 	};
 
+	void setColorMap(const Graphics::ColorMap& cm) { this->colorMap = cm; }
+
 private:
 	SPHAnisotropicParticleScene* model;
 	Scene::PointShaderScene* view;

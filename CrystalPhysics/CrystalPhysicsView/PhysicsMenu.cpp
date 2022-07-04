@@ -12,6 +12,8 @@
 #include "MVPVolumeConverterView.h"
 #include "MVPSamplerView.h"
 
+#include "SPHDensityEstimatorView.h"
+
 #include "CrystalScene/AppBase/MenuItem.h"
 
 using namespace Crystal::Scene;
@@ -56,8 +58,12 @@ PhysicsMenu::PhysicsMenu(const std::string& name, World* world, Canvas* canvas, 
 	add(new MenuItem("SPHVolume", [world, canvas, control] {
 		control->setWindow(new SPHVolumeConverterView("SPHVolume", world, canvas));
 		}));
-	
+
 	add(new MenuItem("MVPVolume", [world, canvas, control] {
 		control->setWindow(new MVPVolumeConverterView("MVPVolume", world, canvas));
+		}));
+
+	add(new MenuItem("SPHDensity", [world, canvas, control] {
+		control->setWindow(new SPHDensityEstimatorView("SPHDensity", world, canvas));
 		}));
 }

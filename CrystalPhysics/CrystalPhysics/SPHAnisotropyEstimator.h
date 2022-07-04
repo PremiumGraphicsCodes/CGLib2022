@@ -17,8 +17,10 @@ public:
 
 	//std::vector < Shape::Volume<double>* > getVolumes() { return volumes; }
 
+	std::vector<SPHAnisotropicParticle*> getParticles() const { return particles; }
+
 private:
-	std::vector<std::unique_ptr<SPHAnisotropicParticle>> particles;
+	std::vector<SPHAnisotropicParticle*> particles;
 
 };
 	}
