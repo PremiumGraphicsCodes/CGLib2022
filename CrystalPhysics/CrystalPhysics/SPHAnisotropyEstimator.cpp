@@ -45,11 +45,12 @@ void SPHAnisotoropyEstimator::estimateAnIsotoropy(const float searchRadius)
 	for (int i = 0; i < particles.size(); ++i) {
 		auto& p = particles[i];
 		const auto neighbors = spaceHash.findNeighbors(p->getPosition());
-		p->calculateDensity(neighbors, searchRadius, kernel);
+		//p->calculateDensity(neighbors, searchRadius, kernel);
 		WPCA wpca;
 		wpca.setup(p, neighbors, searchRadius);
-		const auto wm = wpca.calculateWeightedMean(p, neighbors, searchRadius);
-		p->correctedPosition(0.95, wm);
-		p->calculateAnisotoropicMatrix(neighbors, searchRadius);
+		p->calculateRotationMatrix(neighbors, searchRadius);
+		//const auto wm = wpca.calculateWeightedMean(p, neighbors, searchRadius);
+		//p->correctedPosition(0.95, wm);
+		//p->calculateAnisotoropicMatrix(neighbors, searchRadius);
 	}
 }

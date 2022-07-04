@@ -51,21 +51,21 @@ void SPHAnisotropicParticleWirePresenter::updateView()
 		const auto u = m[0] * r;
 		const auto v = m[1] * r;
 		const auto w = m[2] * r;
-		buffer.addVertex(pos, ColorRGBAf(1, 0, 0, 0));
+		buffer.addVertex(pos - u, ColorRGBAf(1, 0, 0, 0));
 		buffer.addVertex(pos + u, ColorRGBAf(1, 0, 0, 0));
 
 		buffer.addIndex(index);
 		buffer.addIndex(index + 1);
 		index += 2;
 
-		buffer.addVertex(pos, ColorRGBAf(0, 1, 0, 0));
+		buffer.addVertex(pos - v, ColorRGBAf(0, 1, 0, 0));
 		buffer.addVertex(pos + v, ColorRGBAf(0, 1, 0, 0));
 
 		buffer.addIndex(index);
 		buffer.addIndex(index + 1);
 		index += 2;
 
-		buffer.addVertex(pos, ColorRGBAf(0, 0, 1, 0));
+		buffer.addVertex(pos - w, ColorRGBAf(0, 0, 1, 0));
 		buffer.addVertex(pos + w, ColorRGBAf(0, 0, 1, 0));
 
 		buffer.addIndex(index);

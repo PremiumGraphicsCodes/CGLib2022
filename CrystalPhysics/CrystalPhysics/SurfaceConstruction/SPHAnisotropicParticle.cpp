@@ -24,6 +24,25 @@ void SPHAnisotropicParticle::correctedPosition(const float lamda, const Vector3d
 	this->position = (1.0f - lamda) * position + lamda * wm;
 }
 
+void SPHAnisotropicParticle::calculateRotationMatrix(const std::vector<IParticle*>& neighbors, const float searchRadius)
+{
+	//const Matrix3dd scaleMatrix;
+	WPCA wpca;
+	wpca.setup(this, neighbors, searchRadius);
+	this->matrix = wpca.calculateCovarianceMatrix(this, neighbors, searchRadius);
+
+	Crystal::Numerics::SVD svd;
+	auto result = svd.calculateJacobi(matrix);
+	/*
+	if (!result.isOk) {
+		p->matrix = ::identitiyMatrix();
+		return;
+	}
+	*/
+
+	this->matrix = result.eigenVectors;
+}
+
 void SPHAnisotropicParticle::calculateAnisotoropicMatrix(const std::vector<IParticle*>& neighbors, const float searchRadius)
 {
 	//const Matrix3dd scaleMatrix;

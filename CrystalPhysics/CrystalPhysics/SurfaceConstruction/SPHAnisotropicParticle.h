@@ -21,6 +21,8 @@ public:
 
 	void correctedPosition(const float lamda, const Math::Vector3df& weightedMean);
 
+	void calculateRotationMatrix(const std::vector<Shape::IParticle*>& neighbors, const float searchRadius);
+
 	void calculateAnisotoropicMatrix(const std::vector<Shape::IParticle*>& neighbors, const float searchRadius);
 
 	void calculateDensity(const std::vector<Shape::IParticle*>& neighbors, const float searchRadius, const SPHKernel& kernel);

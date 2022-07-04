@@ -68,7 +68,7 @@ void SPHAnisotropyEstimatorView::onOk()
 		estimator.add(p, particleRadius);
 	}
 
-	estimator.estimateIsotoropy(searchRadius);
+	estimator.estimateAnIsotoropy(searchRadius);
 	//positions.emplace_back(0, 0, 0);
 
 	auto particles = estimator.getParticles();
