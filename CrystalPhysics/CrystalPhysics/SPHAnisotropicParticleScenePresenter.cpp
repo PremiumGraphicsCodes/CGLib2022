@@ -42,7 +42,7 @@ void SPHAnisotropicParticleScenePresenter::updateView()
 		else {
 			assert(false);
 		}
-		pb.add(p->getPosition(), c, 10.0);
+		pb.add(p->getPosition(), c, p->getRadius());
 		/*
 		const auto& pts = p->getPoints();
 		for (auto pp : pts) {

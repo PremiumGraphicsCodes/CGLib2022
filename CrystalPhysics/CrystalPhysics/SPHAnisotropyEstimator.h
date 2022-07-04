@@ -15,7 +15,7 @@ public:
 
 	void estimateIsotoropy(const float searchRadius);
 
-	//std::vector < Shape::Volume<double>* > getVolumes() { return volumes; }
+	void estimateAnIsotoropy(const float searchRadius);
 
 	std::vector<SPHAnisotropicParticle*> getParticles() const { return particles; }
 

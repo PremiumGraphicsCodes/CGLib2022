@@ -6,6 +6,8 @@
 
 #include "Crystal/Math/Sphere3d.h"
 
+#include "Crystal/IO/PLYFileReader.h"
+
 #include <iostream>
 
 using namespace Crystal::Math;
@@ -19,11 +21,14 @@ SPHDensityEstimatorView::SPHDensityEstimatorView(const std::string& name, World*
 	IOkCancelView(name, model, canvas),
 	particleRadiusView("ParticleRadius", 1.0f),
 	searchRadiusView("SearchRadius", 2.5f),
-	colorMapView("ColorMap")
+	colorMapView("ColorMap"),
+	fileView("File")
 {
 	add(&particleRadiusView);
 	add(&searchRadiusView);
 	add(&colorMapView);
+	add(&fileView);
+	fileView.addFilter("*.ply");
 }
 
 void SPHDensityEstimatorView::onOk()
@@ -32,6 +37,7 @@ void SPHDensityEstimatorView::onOk()
 
 	const auto particleRadius = particleRadiusView.getValue();
 
+	/*
 	const Sphere3d sphere(Vector3dd(50, 50, 50), 10.0);
 	const Box3d box = sphere.getBoundingBox();
 	const auto center = sphere.getCenter();
@@ -48,14 +54,23 @@ void SPHDensityEstimatorView::onOk()
 			}
 		}
 	}
+	*/
+	const auto filePath = fileView.getFileName();
+	Crystal::IO::PLYFileReader reader;
+	reader.read(filePath);
+	const auto positions = reader.getPLY().vertices;
+	for (const auto& v : positions) {
+		const auto x = v.getValueAs<float>(0);
+		const auto y = v.getValueAs<float>(1);
+		const auto z = v.getValueAs<float>(2);
+		Vector3df p(x, y, z);
+		estimator.add(p, particleRadius);
+	}
 
 	const auto searchRadius = searchRadiusView.getValue();
 	estimator.estimateIsotoropy(searchRadius);
 	//positions.emplace_back(0, 0, 0);
 
-	//Crystal::IO::PCDBinaryFileReader reader;
-	//reader.read("C://Dev//cgstudio4//Blender//CrystalPython//tmp_txt/macro1.pcd");
-	//positions = reader.getPCD().data.positions;
 
 	auto world = getWorld();
 

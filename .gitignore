@@ -36,3 +36,5 @@
 /CrystalPhysics/CrystalPhysicsView/imgui.ini
 /packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.4
 /x64/Debug
+/CrystalPhysics/CrystalPhysicsView/x64/Release
+/x64/Release

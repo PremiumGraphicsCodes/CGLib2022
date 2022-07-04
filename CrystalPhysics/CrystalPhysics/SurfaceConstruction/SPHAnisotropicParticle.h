@@ -31,6 +31,8 @@ public:
 
 	float getMass() const;
 
+	float getRadius() const { return radius; }
+
 private:
 	Math::Vector3df position;
 	Math::Matrix3dd matrix;
