@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CrystalScene/Scene/IScene.h"
-#include "SPHAnisotropicParticleScenePresenter.h"
+#include "ISPHAnisotropicParticlePresenter.h"
 
 namespace Crystal {
 	namespace Physics {
@@ -14,13 +14,11 @@ public:
 
 	virtual ~SPHAnisotropicParticleScene();
 
-	//Space::SparseVolumef* getShape() const { return shape.get(); }
-
-	//void resetShape(std::unique_ptr<Space::SparseVolumef> shape) { this->shape = std::move(shape); }
-
 	Scene::SceneType getType() const { return Scene::SceneType("SPHAnisotropicParticleScene"); }
 
 	Scene::IPresenter* getPresenter() { return presenter.get(); }
+
+	void setPresenter(std::unique_ptr<ISPHAnisotropicParticlePresenter> presenter) { this->presenter = std::move(presenter); }
 
 	Math::Box3dd getBoundingBox() const override;
 
@@ -32,7 +30,7 @@ public:
 
 private:
 	std::list<SPHAnisotropicParticle*> particles;
-	std::unique_ptr<SPHAnisotropicParticleScenePresenter> presenter;
+	std::unique_ptr<ISPHAnisotropicParticlePresenter> presenter;
 };
 
 

@@ -166,6 +166,7 @@
     <ClCompile Include="MVPVolumeConverterView.cpp" />
     <ClCompile Include="PBSPHFluidSimulationView.cpp" />
     <ClCompile Include="PhysicsMenu.cpp" />
+    <ClCompile Include="SPHAnisotropyEstimatorView.cpp" />
     <ClCompile Include="SPHDensityEstimatorView.cpp" />
     <ClCompile Include="SPHFlameSimulationView.cpp" />
     <ClCompile Include="SPHVolumeConverterView.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="MVPVolumeConverterView.h" />
     <ClInclude Include="PBSPHFluidSimulationView.h" />
     <ClInclude Include="PhysicsMenu.h" />
+    <ClInclude Include="SPHAnisotropyEstimatorView.h" />
     <ClInclude Include="SPHDensityEstimatorView.h" />
     <ClInclude Include="SPHFlameSimulationView.h" />
     <ClInclude Include="SPHVolumeConverterView.h" />

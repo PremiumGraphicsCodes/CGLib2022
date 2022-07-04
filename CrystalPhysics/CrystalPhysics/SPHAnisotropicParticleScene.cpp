@@ -1,6 +1,7 @@
 #include "SPHAnisotropicParticleScene.h"
 
 #include "SurfaceConstruction/SPHAnisotropicParticle.h"
+#include "SPHAnisotropicParticleScenePresenter.h"
 
 using namespace Crystal::Math;
 using namespace Crystal::Scene;

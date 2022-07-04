@@ -9,9 +9,9 @@ using namespace Crystal::Scene;
 using namespace Crystal::Physics;
 
 SPHAnisotropicParticleScenePresenter::SPHAnisotropicParticleScenePresenter(SPHAnisotropicParticleScene* model) :
+	ISPHAnisotropicParticlePresenter(model),
 	model(model),
-	view(nullptr),
-	mode(Mode::Density)
+	view(nullptr)
 {
 	colorMap = ColorMap(2.0f, 3.0f, ColorTable::createDefaultTable(270));
 }
@@ -32,23 +32,8 @@ void SPHAnisotropicParticleScenePresenter::updateView()
 	const auto& ps = model->getParticles();
 	PointBuffer pb;
 	for (auto p : ps) {
-		ColorRGBAf c;
-		if (mode == Mode::Uniform) {
-			c = glm::vec4(1, 1, 1, 0.25);
-		}
-		else if (mode == Mode::Density) {
-			c = colorMap.getInterpolatedColor(p->getDensity());
-		}
-		else {
-			assert(false);
-		}
+		const ColorRGBAf c = colorMap.getInterpolatedColor(p->getDensity());
 		pb.add(p->getPosition(), c, p->getRadius());
-		/*
-		const auto& pts = p->getPoints();
-		for (auto pp : pts) {
-			pb.add(pp->getPosition(), glm::vec4(1, 1, 1, 1), 2.0);
-		}
-		*/
 	}
 	pb.setMatrix(Math::Matrix4dd());
 	//	this->view->setBlend(true);

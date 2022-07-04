@@ -207,6 +207,12 @@
     <ClInclude Include="SPHAnisotropicParticleScenePresenter.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
+    <ClInclude Include="SPHAnisotropicParticleWirePresenter.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="ISPHAnisotropicParticlePresenter.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPHKernel.cpp" />

@@ -23,6 +23,7 @@
       <Filter>Volume</Filter>
     </ClCompile>
     <ClCompile Include="SPHDensityEstimatorView.cpp" />
+    <ClCompile Include="SPHAnisotropyEstimatorView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicsMenu.h" />
@@ -46,6 +47,7 @@
       <Filter>Volume</Filter>
     </ClInclude>
     <ClInclude Include="SPHDensityEstimatorView.h" />
+    <ClInclude Include="SPHAnisotropyEstimatorView.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MVP">

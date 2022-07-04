@@ -13,6 +13,7 @@
 #include "MVPSamplerView.h"
 
 #include "SPHDensityEstimatorView.h"
+#include "SPHAnisotropyEstimatorView.h"
 
 #include "CrystalScene/AppBase/MenuItem.h"
 
@@ -65,5 +66,9 @@ PhysicsMenu::PhysicsMenu(const std::string& name, World* world, Canvas* canvas, 
 
 	add(new MenuItem("SPHDensity", [world, canvas, control] {
 		control->setWindow(new SPHDensityEstimatorView("SPHDensity", world, canvas));
+		}));
+
+	add(new MenuItem("SPHAnisotropy", [world, canvas, control] {
+		control->setWindow(new SPHAnisotropyEstimatorView("SPHAnisotropy", world, canvas));
 		}));
 }

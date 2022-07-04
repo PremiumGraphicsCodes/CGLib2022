@@ -176,6 +176,7 @@
     <ClInclude Include="IISPH\IISPHParticle.h" />
     <ClInclude Include="IMVPFluidScenePresenter.h" />
     <ClInclude Include="IPhysicsParticle.h" />
+    <ClInclude Include="ISPHAnisotropicParticlePresenter.h" />
     <ClInclude Include="MPS\MPSFluidSceneController.h" />
     <ClInclude Include="MPS\MPSFluidScene.h" />
     <ClInclude Include="MPS\MPSFluidSolver.h" />
@@ -202,6 +203,7 @@
     <ClInclude Include="PBSPH\PBSPHSolver.h" />
     <ClInclude Include="SPHAnisotropicParticleScene.h" />
     <ClInclude Include="SPHAnisotropicParticleScenePresenter.h" />
+    <ClInclude Include="SPHAnisotropicParticleWirePresenter.h" />
     <ClInclude Include="SPHConstant.h" />
     <ClInclude Include="SPHAnisotropyEstimator.h" />
     <ClInclude Include="SPHFlame\SPHFlameBoundarySolver.h" />
