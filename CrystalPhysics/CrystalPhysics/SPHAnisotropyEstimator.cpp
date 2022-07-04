@@ -2,10 +2,16 @@
 
 #include "CrystalSpace/CrystalSpace/CompactSpaceHash3d.h"
 
+using namespace Crystal::Math;
 using namespace Crystal::Space;
 using namespace Crystal::Physics;
 
-void SPHAnisotoropyEstimator::estimate(const std::vector<std::unique_ptr<SPHAnisotropicParticle>>& particles, const float searchRadius)
+void SPHAnisotoropyEstimator::add(const Vector3df& position, const float particleRadius)
+{
+	particles.push_back(std::make_unique<SPHAnisotropicParticle>(position, particleRadius));
+}
+
+void SPHAnisotoropyEstimator::estimateIsotoropy(const float searchRadius)
 {
 	const SPHKernel kernel(searchRadius);
 

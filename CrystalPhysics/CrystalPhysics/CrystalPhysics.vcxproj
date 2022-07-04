@@ -201,6 +201,7 @@
     <ClInclude Include="PBSPH\PBSPHParticle.h" />
     <ClInclude Include="PBSPH\PBSPHSolver.h" />
     <ClInclude Include="SPHAnisotropicParticleScene.h" />
+    <ClInclude Include="SPHAnisotropicParticleScenePresenter.h" />
     <ClInclude Include="SPHConstant.h" />
     <ClInclude Include="SPHAnisotropyEstimator.h" />
     <ClInclude Include="SPHFlame\SPHFlameBoundarySolver.h" />
@@ -255,6 +256,8 @@
     <ClCompile Include="PBSPH\PBSPHBoundarySolver.cpp" />
     <ClCompile Include="PBSPH\PBSPHParticle.cpp" />
     <ClCompile Include="PBSPH\PBSPHSolver.cpp" />
+    <ClCompile Include="SPHAnisotropicParticleScene.cpp" />
+    <ClCompile Include="SPHAnisotropicParticleScenePresenter.cpp" />
     <ClCompile Include="SPHAnisotropyEstimator.cpp" />
     <ClCompile Include="SPHFlame\SPHFlameBoundarySolver.cpp" />
     <ClCompile Include="SPHFlame\SPHFlameParticle.cpp" />

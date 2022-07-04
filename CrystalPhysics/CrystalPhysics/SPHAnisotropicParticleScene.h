@@ -1,34 +1,39 @@
 #pragma once
 
 #include "CrystalScene/Scene/IScene.h"
-//#include "FluidVolumePresenter.h"
-#include "SurfaceConstruction/SPHAnisotoropicParticle.h"
+#include "SPHAnisotropicParticleScenePresenter.h"
 
 namespace Crystal {
 	namespace Physics {
+		class SPHAnisotropicParticle;
 
-		class SPHAnisotropicParticleScene : public Scene::IScene
-		{
-		public:
-			SPHAnisotropicParticleScene(const int id, const std::string& name, std::unique_ptr<Space::SparseVolumef> shape);
+class SPHAnisotropicParticleScene : public Scene::IScene
+{
+public:
+	SPHAnisotropicParticleScene(const int id, const std::string& name);
 
-			//virtual ~FluidVolumeScene();
+	virtual ~SPHAnisotropicParticleScene();
 
-			//Space::SparseVolumef* getShape() const { return shape.get(); }
+	//Space::SparseVolumef* getShape() const { return shape.get(); }
 
-			//void resetShape(std::unique_ptr<Space::SparseVolumef> shape) { this->shape = std::move(shape); }
+	//void resetShape(std::unique_ptr<Space::SparseVolumef> shape) { this->shape = std::move(shape); }
 
-			Scene::SceneType getType() const { return Scene::SceneType("SPHAnisotoropicParticleScene"); }
+	Scene::SceneType getType() const { return Scene::SceneType("SPHAnisotropicParticleScene"); }
 
-			Scene::IPresenter* getPresenter() { return presenter.get(); }
+	Scene::IPresenter* getPresenter() { return presenter.get(); }
 
-			Math::Box3dd getBoundingBox() const override;
+	Math::Box3dd getBoundingBox() const override;
 
+	void addParticle(SPHAnisotropicParticle* mp) { particles.push_back(mp); }
 
-		private:
-			//std::unique_ptr<FluidVolumePresenter> presenter;
-			//std::unique_ptr<Space::SparseVolumef> shape;
-		};
+	std::list<SPHAnisotropicParticle*> getParticles() const { return particles; }
+
+	void clearParticles();
+
+private:
+	std::list<SPHAnisotropicParticle*> particles;
+	std::unique_ptr<SPHAnisotropicParticleScenePresenter> presenter;
+};
 
 
 	}

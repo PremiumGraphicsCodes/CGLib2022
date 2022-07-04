@@ -204,6 +204,9 @@
     <ClInclude Include="SPHAnisotropicParticleScene.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
+    <ClInclude Include="SPHAnisotropicParticleScenePresenter.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPHKernel.cpp" />
@@ -355,6 +358,12 @@
       <Filter>Volume</Filter>
     </ClCompile>
     <ClCompile Include="SPHAnisotropyEstimator.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHAnisotropicParticleScenePresenter.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHAnisotropicParticleScene.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
   </ItemGroup>
