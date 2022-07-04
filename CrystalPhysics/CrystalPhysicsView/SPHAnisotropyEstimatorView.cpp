@@ -2,7 +2,7 @@
 
 #include "../CrystalPhysics/SPHAnisotropyEstimator.h"
 #include "../CrystalPhysics/SPHAnisotropicParticleScene.h"
-#include "../CrystalPhysics/SPHAnisotropicParticleScenePresenter.h"
+#include "../CrystalPhysics/SPHAnisotropicParticleWirePresenter.h"
 
 #include "Crystal/Math/Sphere3d.h"
 
@@ -34,7 +34,9 @@ void SPHAnisotropyEstimatorView::onOk()
 	SPHAnisotoropyEstimator estimator;
 
 	const auto particleRadius = particleRadiusView.getValue();
+	const auto searchRadius = searchRadiusView.getValue();
 
+	/*
 	const Sphere3d sphere(Vector3dd(50, 50, 50), 10.0);
 	const Box3d box = sphere.getBoundingBox();
 	const auto center = sphere.getCenter();
@@ -52,9 +54,8 @@ void SPHAnisotropyEstimatorView::onOk()
 		}
 	}
 
-	const auto searchRadius = searchRadiusView.getValue();
 	estimator.estimateAnIsotoropy(searchRadius);
-	/*
+	*/
 	const auto filePath = fileView.getFileName();
 	Crystal::IO::PLYFileReader reader;
 	reader.read(filePath);
@@ -70,34 +71,15 @@ void SPHAnisotropyEstimatorView::onOk()
 	estimator.estimateIsotoropy(searchRadius);
 	//positions.emplace_back(0, 0, 0);
 
-
+	auto particles = estimator.getParticles();
 	auto world = getWorld();
-
-	const auto particles = estimator.getParticles();
-
-	float maxValue = std::numeric_limits<float>::lowest();
-	float minValue = std::numeric_limits<float>::max();
-
-	for (auto p : particles) {
-		const auto v = p->getDensity();
-		maxValue = std::max(maxValue, v);
-		minValue = std::min(minValue, v);
-	}
-	std::cout << minValue << std::endl;
-	std::cout << maxValue << std::endl;
 
 	auto asScene = new SPHAnisotropicParticleScene(getWorld()->getNextSceneId(), "Vol");
 	for (auto p : particles) {
 		asScene->addParticle(p);
 	}
-	auto presenter = asScene->getPresenter();
-
-	auto colorMap = this->colorMapView.getValue();
-	colorMap.setMinMax(minValue, maxValue);
-	static_cast<SPHAnisotropicParticleScenePresenter*>(presenter)->setColorMap(colorMap);
-
+	auto presenter = std::make_unique<SPHAnisotropicParticleWirePresenter>(asScene);
 	presenter->createView(world->getRenderer());
 
 	getWorld()->getScenes()->addScene(asScene);
-	*/
 }

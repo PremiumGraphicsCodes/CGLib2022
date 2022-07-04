@@ -372,5 +372,8 @@
     <ClCompile Include="SPHAnisotropicParticleScene.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
+    <ClCompile Include="SPHAnisotropicParticleWirePresenter.cpp">
+      <Filter>Volume\Converter</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

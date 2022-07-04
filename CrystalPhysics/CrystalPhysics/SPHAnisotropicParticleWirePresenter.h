@@ -14,7 +14,7 @@ public:
 
 	void createView(Scene::SceneShader* sceneShader) override;
 
-	void removeView(Scene::SceneShader* sceneShader) override {};
+	void removeView(Scene::SceneShader* sceneShader) override;
 
 	void updateView() override;
 

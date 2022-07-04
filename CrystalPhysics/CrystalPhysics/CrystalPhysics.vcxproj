@@ -260,6 +260,7 @@
     <ClCompile Include="PBSPH\PBSPHSolver.cpp" />
     <ClCompile Include="SPHAnisotropicParticleScene.cpp" />
     <ClCompile Include="SPHAnisotropicParticleScenePresenter.cpp" />
+    <ClCompile Include="SPHAnisotropicParticleWirePresenter.cpp" />
     <ClCompile Include="SPHAnisotropyEstimator.cpp" />
     <ClCompile Include="SPHFlame\SPHFlameBoundarySolver.cpp" />
     <ClCompile Include="SPHFlame\SPHFlameParticle.cpp" />
