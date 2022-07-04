@@ -22,6 +22,7 @@
     <ClCompile Include="MVPVolumeConverterView.cpp">
       <Filter>Volume</Filter>
     </ClCompile>
+    <ClCompile Include="SPHDensityEstimatorView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicsMenu.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="MVPVolumeConverterView.h">
       <Filter>Volume</Filter>
     </ClInclude>
+    <ClInclude Include="SPHDensityEstimatorView.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MVP">

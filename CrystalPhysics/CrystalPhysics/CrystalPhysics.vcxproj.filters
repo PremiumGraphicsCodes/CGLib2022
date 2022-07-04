@@ -198,6 +198,9 @@
     <ClInclude Include="IMVPFluidScenePresenter.h">
       <Filter>MVP</Filter>
     </ClInclude>
+    <ClInclude Include="SPHDensityEstimator.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPHKernel.cpp" />
@@ -347,6 +350,9 @@
     </ClCompile>
     <ClCompile Include="FluidVolumePresenter.cpp">
       <Filter>Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="SPHDensityEstimator.cpp">
+      <Filter>Volume\Converter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

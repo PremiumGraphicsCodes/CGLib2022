@@ -3,38 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "..\Crystal\Math\Math.vcxproj", "{EF054C93-201B-4807-9285-CABC9C68978A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", ".\Crystal\Math\Math.vcxproj", "{EF054C93-201B-4807-9285-CABC9C68978A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphics", "..\Crystal\Graphics\Graphics.vcxproj", "{227E5411-92CB-4E30-A67B-043D8B04A9BC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphics", ".\Crystal\Graphics\Graphics.vcxproj", "{227E5411-92CB-4E30-A67B-043D8B04A9BC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shader", "..\Crystal\Shader\Shader.vcxproj", "{33BDCAB8-A30C-44B1-A93F-1AD3E15461AD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shader", ".\Crystal\Shader\Shader.vcxproj", "{33BDCAB8-A30C-44B1-A93F-1AD3E15461AD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IO", "..\Crystal\IO\IO.vcxproj", "{198160CC-5ED1-499D-AD45-90DBAC4852F8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IO", ".\Crystal\IO\IO.vcxproj", "{198160CC-5ED1-499D-AD45-90DBAC4852F8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{227E5411-92CB-4E30-A67B-043D8B04A9BC} = {227E5411-92CB-4E30-A67B-043D8B04A9BC}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AppBase", "..\CrystalScene\AppBase\AppBase.vcxproj", "{8BCD40A1-4223-4E7A-A84A-93FBF1B6FFD8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AppBase", ".\CrystalScene\AppBase\AppBase.vcxproj", "{8BCD40A1-4223-4E7A-A84A-93FBF1B6FFD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crystal", "Crystal", "{B4537626-CA8F-448A-98CC-0F0FCD392AAD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "..\CrystalScene\Scene\Scene.vcxproj", "{59C5EA30-1E57-417C-9416-17B592E8724E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", ".\CrystalScene\Scene\Scene.vcxproj", "{59C5EA30-1E57-417C-9416-17B592E8724E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Command", "..\CrystalScene\Command\Command.vcxproj", "{5A0D1CB7-6BE7-41A2-B061-431750E47BE0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Command", ".\CrystalScene\Command\Command.vcxproj", "{5A0D1CB7-6BE7-41A2-B061-431750E47BE0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shape", "..\Crystal\Shape\Shape.vcxproj", "{ED61B745-9F00-48C2-B309-F1DBB37F03E3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shape", ".\Crystal\Shape\Shape.vcxproj", "{ED61B745-9F00-48C2-B309-F1DBB37F03E3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysics", "CrystalPhysics\CrystalPhysics.vcxproj", "{4C0EFD78-680E-45C9-9828-9B674EE70DF0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysics", ".\CrystalPhysics\CrystalPhysics\CrystalPhysics.vcxproj", "{4C0EFD78-680E-45C9-9828-9B674EE70DF0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsView", "CrystalPhysicsView\CrystalPhysicsView.vcxproj", "{2D7CBB98-EB56-49AF-BB4E-261EA2010951}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsView", ".\CrystalPhysics\CrystalPhysicsView\CrystalPhysicsView.vcxproj", "{2D7CBB98-EB56-49AF-BB4E-261EA2010951}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsCommand", "CrystalPhysicsCommand\CrystalPhysicsCommand.vcxproj", "{09EE8B6A-2D6F-4B9E-83FF-6A40D03BC465}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsCommand", ".\CrystalPhysics\CrystalPhysicsCommand\CrystalPhysicsCommand.vcxproj", "{09EE8B6A-2D6F-4B9E-83FF-6A40D03BC465}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalSpace", "..\CrystalSpace\CrystalSpace\CrystalSpace.vcxproj", "{D2A606D5-8E40-4FC5-90EE-07B3A0F81383}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalSpace", ".\CrystalSpace\CrystalSpace\CrystalSpace.vcxproj", "{D2A606D5-8E40-4FC5-90EE-07B3A0F81383}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalNumerics", "..\CrystalNumerics\CrystalNumerics\CrystalNumerics.vcxproj", "{C4927D35-7611-4AFD-934A-DA114663BFB2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalNumerics", ".\CrystalNumerics\CrystalNumerics\CrystalNumerics.vcxproj", "{C4927D35-7611-4AFD-934A-DA114663BFB2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsTest", "CrystalPhysicsTest\CrystalPhysicsTest.vcxproj", "{262AC302-E710-423D-A892-D7C805DD19F4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPhysicsTest", ".\CrystalPhysics\CrystalPhysicsTest\CrystalPhysicsTest.vcxproj", "{262AC302-E710-423D-A892-D7C805DD19F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
