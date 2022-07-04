@@ -7,10 +7,10 @@
 namespace Crystal {
 	namespace Physics {
 
-class SPHAnisotoropicParticle : public Shape::IParticle
+class SPHAnisotropicParticle : public Shape::IParticle
 {
 public:
-	SPHAnisotoropicParticle(const Math::Vector3dd& p, const float radius) :
+	SPHAnisotropicParticle(const Math::Vector3dd& p, const float radius) :
 		position(p),
 		matrix(Math::identitiyMatrix<double>()),
 		density(0.0f),

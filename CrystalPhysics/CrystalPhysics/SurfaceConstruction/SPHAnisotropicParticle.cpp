@@ -1,4 +1,4 @@
-#include "SPHAnisotoropicParticle.h"
+#include "SPHAnisotropicParticle.h"
 
 #include "WPCA.h"
 
@@ -19,12 +19,12 @@ void SPHSurfaceBuilder::add(IParticle* particle)
 }
 */
 
-void SPHAnisotoropicParticle::correctedPosition(const float lamda, const Vector3df& wm)
+void SPHAnisotropicParticle::correctedPosition(const float lamda, const Vector3df& wm)
 {
 	this->position = (1.0f - lamda) * position + lamda * wm;
 }
 
-void SPHAnisotoropicParticle::calculateAnisotoropicMatrix(const std::vector<IParticle*>& neighbors, const float searchRadius)
+void SPHAnisotropicParticle::calculateAnisotoropicMatrix(const std::vector<IParticle*>& neighbors, const float searchRadius)
 {
 	//const Matrix3dd scaleMatrix;
 	WPCA wpca;
@@ -63,7 +63,7 @@ void SPHAnisotoropicParticle::calculateAnisotoropicMatrix(const std::vector<IPar
 	this->matrix = rotation * glm::inverse(scaleMatrix) * glm::transpose(rotation) * (1.0 / searchRadius);
 }
 
-void SPHAnisotoropicParticle::calculateDensity(const std::vector<IParticle*>& neighbors, const float searchRadius, const SPHKernel& kernel)
+void SPHAnisotropicParticle::calculateDensity(const std::vector<IParticle*>& neighbors, const float searchRadius, const SPHKernel& kernel)
 {
 	const auto mass = getMass();
 	for (auto n : neighbors) {
@@ -72,7 +72,7 @@ void SPHAnisotoropicParticle::calculateDensity(const std::vector<IParticle*>& ne
 	}
 }
 
-float SPHAnisotoropicParticle::getMass() const
+float SPHAnisotropicParticle::getMass() const
 {
 	const auto diameter = radius * 2.0;
 	return diameter * diameter * diameter;

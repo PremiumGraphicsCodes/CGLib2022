@@ -186,7 +186,7 @@
     <ClInclude Include="SurfaceConstruction\SPHVolumeConverter.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
-    <ClInclude Include="SurfaceConstruction\SPHAnisotoropicParticle.h">
+    <ClInclude Include="SurfaceConstruction\SPHAnisotropicParticle.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
     <ClInclude Include="SurfaceConstruction\WPCA.h">
@@ -198,7 +198,10 @@
     <ClInclude Include="IMVPFluidScenePresenter.h">
       <Filter>MVP</Filter>
     </ClInclude>
-    <ClInclude Include="SPHDensityEstimator.h">
+    <ClInclude Include="SPHAnisotropyEstimator.h">
+      <Filter>Volume\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="SPHAnisotropicParticleScene.h">
       <Filter>Volume\Converter</Filter>
     </ClInclude>
   </ItemGroup>
@@ -342,7 +345,7 @@
     <ClCompile Include="SurfaceConstruction\SPHVolumeConverter.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
-    <ClCompile Include="SurfaceConstruction\SPHAnisotoropicParticle.cpp">
+    <ClCompile Include="SurfaceConstruction\SPHAnisotropicParticle.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
     <ClCompile Include="SurfaceConstruction\WPCA.cpp">
@@ -351,7 +354,7 @@
     <ClCompile Include="FluidVolumePresenter.cpp">
       <Filter>Volume</Filter>
     </ClCompile>
-    <ClCompile Include="SPHDensityEstimator.cpp">
+    <ClCompile Include="SPHAnisotropyEstimator.cpp">
       <Filter>Volume\Converter</Filter>
     </ClCompile>
   </ItemGroup>

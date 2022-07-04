@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-#include "SPHAnisotoropicParticle.h"
+#include "SPHAnisotropicParticle.h"
 
 #include "Crystal/Shape/Volume.h"
 #include "../../../CrystalSpace/CrystalSpace/SparseVolume.h"
@@ -21,7 +21,7 @@ public:
 
 	std::unique_ptr<Space::SparseVolumef> buildAnisotoropic(const std::vector<Math::Vector3dd>& positions, const float particleRadius, const float cellLength);
 
-	const std::vector<std::unique_ptr<SPHAnisotoropicParticle>>& getParticles() const { return particles; }
+	const std::vector<std::unique_ptr<SPHAnisotropicParticle>>& getParticles() const { return particles; }
 
 	//std::vector < Shape::Volume<double>* > getVolumes() { return volumes; }
 
@@ -35,7 +35,7 @@ private:
 	//std::vector<Shape::IParticle*> particles;
 
 	//std::vector<Shape::Volume<double>*> volumes;
-	std::vector<std::unique_ptr<SPHAnisotoropicParticle>> particles;
+	std::vector<std::unique_ptr<SPHAnisotropicParticle>> particles;
 };
 	}
 }

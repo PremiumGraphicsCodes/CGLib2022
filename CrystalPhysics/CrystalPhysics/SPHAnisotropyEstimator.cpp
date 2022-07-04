@@ -1,11 +1,11 @@
-#include "SPHDensityEstimator.h"
+#include "SPHAnisotropyEstimator.h"
 
 #include "CrystalSpace/CrystalSpace/CompactSpaceHash3d.h"
 
 using namespace Crystal::Space;
 using namespace Crystal::Physics;
 
-void SPHDensityEstimator::estimate(const std::vector<std::unique_ptr<SPHAnisotoropicParticle>>& particles, const float searchRadius)
+void SPHAnisotoropyEstimator::estimate(const std::vector<std::unique_ptr<SPHAnisotropicParticle>>& particles, const float searchRadius)
 {
 	const SPHKernel kernel(searchRadius);
 

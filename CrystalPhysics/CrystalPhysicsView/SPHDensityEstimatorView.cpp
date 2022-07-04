@@ -25,8 +25,7 @@ SPHDensityEstimatorView::SPHDensityEstimatorView(const std::string& name, World*
 
 void SPHDensityEstimatorView::onOk()
 {
-	std::vector<std::unique_ptr<SPHAnisotoropicParticle>> particles;
-	std::vector<Vector3dd> positions;
+	std::vector<std::unique_ptr<SPHAnisotropicParticle>> particles;
 
 	const Sphere3d sphere(Vector3dd(50, 50, 50), 10.0);
 	const Box3d box = sphere.getBoundingBox();
@@ -39,7 +38,7 @@ void SPHDensityEstimatorView::onOk()
 				const auto w = k / 10.0;
 				const auto p = box.getPosition(u, v, w);
 				if (sphere.isInside(p)) {
-					positions.push_back(p);
+					auto ap = std::make_unique<SPHAnisotropicParticle>(p, 1.0f);
 				}
 			}
 		}
