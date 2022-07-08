@@ -47,11 +47,9 @@ void SceneShader::render(const Camera& camera)
 	parentIdRenderer->render(camera);
 	childIdRenderer->render(camera);
 
-	/*
 	if (customRenderer != nullptr) {
 		customRenderer->render(camera);
 	}
-	*/
 }
 
 void SceneShader::render(const Graphics::Camera& camera, const int width, const int height)
@@ -86,6 +84,7 @@ void SceneShader::render(const Graphics::Camera& camera, const int width, const 
 	{
 		auto texture = customRenderer->getTexture();
 		renderer->render(*texture);
+		break;
 	}
 	default:
 		assert(false);

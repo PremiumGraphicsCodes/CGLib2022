@@ -3,6 +3,9 @@
 #include "Crystal/Shader/ShaderBuildStatus.h"
 
 namespace Crystal {
+	namespace Shader {
+		class TextureObject;
+	}
 	namespace Scene {
 
 class IShader

@@ -54,6 +54,10 @@ public:
 
 	void setCustomRenderer(std::unique_ptr<IShader> shader) { this->customRenderer = std::move(shader); }
 
+	IShader* getCustomRenderer() { return this->customRenderer.get(); }
+
+	//IShader* getCustomRende
+
 private:
 	std::unique_ptr<ScreenShader> objectRenderer;
 	std::unique_ptr<ScreenIdShader> parentIdRenderer;
