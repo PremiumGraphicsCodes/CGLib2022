@@ -76,6 +76,9 @@ void SceneShader::render(const Graphics::Camera& camera, const int width, const 
 		renderer->render(*texture);
 		break;
 	}
+	case RenderTarget::Custom:
+		auto texture = customRenderer->getTexture();
+		renderer->render(*texture);
 	default:
 		assert(false);
 	}

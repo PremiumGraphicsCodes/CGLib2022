@@ -19,7 +19,21 @@ namespace Crystal {
 	namespace Scene {
 		class ScreenShaderScene;
 
-class ScreenShader
+class IScreenShader
+{
+public:
+	virtual ~IScreenShader() {}
+
+	virtual Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory) = 0;
+
+	virtual void release(Shader::GLObjectFactory& factory) = 0;
+
+	virtual void render(const Graphics::Camera& camera) = 0;
+
+	virtual Shader::TextureObject* getTexture() = 0;
+};
+
+class ScreenShader : public IScreenShader
 {
 public:
 	explicit ScreenShader(const std::string& name);

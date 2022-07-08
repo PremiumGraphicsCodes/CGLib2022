@@ -38,3 +38,5 @@
 /x64/Debug
 /CrystalPhysics/CrystalPhysicsView/x64/Release
 /x64/Release
+/CrystalScene/Viewer/x64/Release
+/CrystalScene/Viewer/imgui.ini

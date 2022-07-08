@@ -22,6 +22,7 @@ enum RenderTarget
 	Shaded,
 	ParentId,
 	ChildId,
+	Custom,
 };
 
 class SceneShader
@@ -55,6 +56,7 @@ private:
 	std::unique_ptr<ScreenShader> objectRenderer;
 	std::unique_ptr<ScreenIdShader> parentIdRenderer;
 	std::unique_ptr<ScreenIdShader> childIdRenderer;
+	std::unique_ptr<IScreenShader> customRenderer;
 
 	RendererRepository renderers;
 
