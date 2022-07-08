@@ -23,6 +23,9 @@ void ScreenMenu::onShow()
 		if (ImGui::MenuItem("ChildId")) {
 			world->getRenderer()->setRenderTarget(Crystal::Scene::RenderTarget::ChildId);
 		}
+		if (ImGui::MenuItem("Custom")) {
+			world->getRenderer()->setRenderTarget(Crystal::Scene::RenderTarget::Custom);
+		}
 		ImGui::EndMenu();
 	}
 }

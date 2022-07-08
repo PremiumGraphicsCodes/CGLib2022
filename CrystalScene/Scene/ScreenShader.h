@@ -5,9 +5,9 @@
 
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"
-#include "Crystal/Shader/ShaderBuildStatus.h"
 
 #include "MaterialShaderScene.h"
+#include "IShader.h"
 
 #include "Crystal/Util/UnCopyable.h"
 #include <memory>
@@ -19,21 +19,7 @@ namespace Crystal {
 	namespace Scene {
 		class ScreenShaderScene;
 
-class IScreenShader
-{
-public:
-	virtual ~IScreenShader() {}
-
-	virtual Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory) = 0;
-
-	virtual void release(Shader::GLObjectFactory& factory) = 0;
-
-	virtual void render(const Graphics::Camera& camera) = 0;
-
-	virtual Shader::TextureObject* getTexture() = 0;
-};
-
-class ScreenShader : public IScreenShader
+class ScreenShader : public IShader
 {
 public:
 	explicit ScreenShader(const std::string& name);

@@ -29,6 +29,7 @@
     <ClInclude Include="IParticleSystemPresenter.h" />
     <ClInclude Include="IPMPresenter.h" />
     <ClInclude Include="IPresenter.h" />
+    <ClInclude Include="IShader.h" />
     <ClInclude Include="IShaderScene.h" />
     <ClInclude Include="ITMPresenter.h" />
     <ClInclude Include="IWireFramePresenter.h" />

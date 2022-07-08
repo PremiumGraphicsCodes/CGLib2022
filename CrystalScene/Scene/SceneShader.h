@@ -52,11 +52,13 @@ public:
 
 	RendererRepository* getRenderers() { return &renderers; }
 
+	void setCustomRenderer(std::unique_ptr<IShader> shader) { this->customRenderer = std::move(shader); }
+
 private:
 	std::unique_ptr<ScreenShader> objectRenderer;
 	std::unique_ptr<ScreenIdShader> parentIdRenderer;
 	std::unique_ptr<ScreenIdShader> childIdRenderer;
-	std::unique_ptr<IScreenShader> customRenderer;
+	std::unique_ptr<IShader> customRenderer;
 
 	RendererRepository renderers;
 
