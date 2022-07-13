@@ -118,6 +118,8 @@ public:
 
 	void drawTriangles(const std::vector<unsigned int>& indices);
 
+	void drawQuads(const int count);
+
 	void bindOutput(const std::string& name);
 
 	void setLineWidth(const float width);

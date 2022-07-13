@@ -334,6 +334,11 @@ void ShaderObject::drawTriangles(const std::vector<unsigned int>& indices)
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, indices.data());
 }
 
+void ShaderObject::drawQuads(const int count)
+{
+	glDrawArrays(GL_QUADS, 0, count);
+}
+
 void ShaderObject::bindOutput(const std::string& name)
 {
 	auto str = name.c_str();
