@@ -28,13 +28,7 @@ public:
 
 	TextureObject* createTextureObject();
 
-	void remove(FrameBufferObject* fbo);
-
-	void remove(VertexBufferObject* vbo);
-
-	void remove(TextureObject* texture);
-
-	void remove(ShaderObject* shader);
+	void remove(IGLObject* fbo);
 
 private:
 	std::list<std::unique_ptr<IGLObject>> objects;

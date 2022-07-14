@@ -46,22 +46,7 @@ TextureObject* GLObjectFactory::createTextureObject()
 	return static_cast<TextureObject*>( objects.back().get() );
 }
 
-void GLObjectFactory::remove(FrameBufferObject* fbo)
+void GLObjectFactory::remove(IGLObject* fbo)
 {
 	objects.remove_if( [fbo](auto& o) { return o.get() == fbo; });
-}
-
-void GLObjectFactory::remove(VertexBufferObject* vbo)
-{
-	objects.remove_if([vbo](auto& o) { return o.get() == vbo; });
-}
-
-void GLObjectFactory::remove(TextureObject* texture)
-{
-	objects.remove_if([texture](auto& o) { return o.get() == texture; });
-}
-
-void GLObjectFactory::remove(ShaderObject* shader)
-{
-	objects.remove_if([shader](auto& s) { return s.get() == shader; });
 }
