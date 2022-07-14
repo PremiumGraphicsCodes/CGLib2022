@@ -81,7 +81,7 @@ void CubeMapShader::render(const Camera& camera)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		SkyBoxRenderer::Buffer buffer;
-		buffer.modelViewMatrix = camera.getModelViewMatrix();
+		buffer.modelViewMatrix = glm::mat4( glm::mat3(camera.getModelViewMatrix()) );
 		buffer.projectionMatrix = camera.getProjectionMatrix();
 		buffer.cubeMapTexture = this->cubeMapTexture;
 
