@@ -3,8 +3,12 @@
 #include "Crystal/Shader/ShaderBuildStatus.h"
 
 namespace Crystal {
+	namespace Graphics {
+		class Camera;
+	}
 	namespace Shader {
 		class TextureObject;
+		class GLObjectFactory;
 	}
 	namespace Scene {
 

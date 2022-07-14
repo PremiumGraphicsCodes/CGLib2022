@@ -158,6 +158,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ColorMenu.cpp" />
+    <ClCompile Include="CubeMapShader.cpp" />
+    <ClCompile Include="CubeMapView.cpp" />
+    <ClCompile Include="RenderingMenu.cpp" />
     <ClCompile Include="Viewer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorMenu.h" />
+    <ClInclude Include="CubeMapShader.h" />
+    <ClInclude Include="CubeMapView.h" />
+    <ClInclude Include="RenderingMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
