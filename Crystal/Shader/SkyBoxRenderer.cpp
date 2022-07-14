@@ -14,6 +14,7 @@ namespace {
 	constexpr char* positionLabel = "position";
 	constexpr char* projectionMatrixLabel = "projectionMatrix";
 	constexpr char* modelViewMatrixLabel = "modelviewMatrix";
+	constexpr auto cubeMapTexLabel = "cubeMapTex";
 	constexpr char* fragColorLabel = "fragColor";
 }
 
@@ -40,6 +41,7 @@ ShaderBuildStatus SkyBoxRenderer::build(GLObjectFactory& factory)
 
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
+	shader->findUniformLocation(::cubeMapTexLabel);
 
 	shader->findAttribLocation(::positionLabel);
 
@@ -100,10 +102,14 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 		 1.0f, -1.0f,  1.0f
 	};
 
+	shader->enableDepthTest();
+
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
 
 	buffer.cubeMapTexture.bind(0);
+
+	glUniform1i(shader->getUniformLocation(cubeMapTexLabel), 0);
 
 	shader->sendVertexAttribute3df(::positionLabel, positions);
 	//shader->sendVertexAttribute4df(::colorLabel, buffer.color);
@@ -116,6 +122,8 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 	shader->bindOutput(::fragColorLabel);
 
 	shader->unbind();
+
+	shader->disableDepthTest();
 
 	assert(GL_NO_ERROR == glGetError());
 }
@@ -145,6 +153,7 @@ out vec4 fragColor;
 uniform samplerCube cubeMapTex;
 void main(void) {
 	fragColor = texture(cubeMapTex, vTexCoord);
+	//fragColor.rgb = vec3(1,1,1);
 }
 )";
 	return fsSource;

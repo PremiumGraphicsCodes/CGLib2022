@@ -13,7 +13,9 @@ CubeMapView::CubeMapView(const std::string& name, World* model, Canvas* canvas) 
 void CubeMapView::onOk()
 {
 	auto factory = getWorld()->getRenderer()->getGLFactory();
-	CubeMapShader shader;
-	shader.build(*factory);
-	//getWorld()->getRenderer()->setCustomRenderer();
+	std::unique_ptr<CubeMapShader> shader = std::make_unique<CubeMapShader>();;
+	shader->build(*factory);
+	getWorld()->getRenderer()->setCustomRenderer(std::move(shader));
+
+	getWorld()->getRenderer()->setRenderTarget(RenderTarget::Custom);
 }
