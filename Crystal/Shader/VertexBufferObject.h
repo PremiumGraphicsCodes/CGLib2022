@@ -1,12 +1,13 @@
 #pragma once
 
 #include <vector>
+#include "IGLObject.h"
 #include "glew.h"
 
 namespace Crystal {
 	namespace Shader {
 
-class VertexBufferObject
+class VertexBufferObject : public IGLObject
 {
 public:
 	VertexBufferObject();
@@ -16,6 +17,8 @@ public:
 	void build();
 
 	void release();
+
+	void clear() override { release(); }
 
 	void send(const std::vector<int>& values);
 

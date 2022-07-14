@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Util/UnCopyable.h"
+#include "IGLObject.h"
 
 #include <list>
 #include <memory>
@@ -36,10 +37,7 @@ public:
 	void remove(ShaderObject* shader);
 
 private:
-	std::list<std::unique_ptr<FrameBufferObject>> fbos;
-	std::list<std::unique_ptr<VertexBufferObject>> vbos;
-	std::list<std::unique_ptr<TextureObject>> textures;
-	std::list<std::unique_ptr<ShaderObject>> shaders;
+	std::list<std::unique_ptr<IGLObject>> objects;
 };
 
 	}

@@ -14,57 +14,54 @@ GLObjectFactory::~GLObjectFactory()
 
 void GLObjectFactory::clear()
 {
-	textures.clear();
-	shaders.clear();
-	vbos.clear();
-	fbos.clear();
+	objects.clear();
 }
 
 FrameBufferObject* GLObjectFactory::createFrameBufferObject()
 {
 	auto fbo = std::make_unique<FrameBufferObject>();
-	fbos.push_back(std::move(fbo));
-	return fbos.back().get();
+	objects.push_back(std::move(fbo));
+	return static_cast<FrameBufferObject*>( objects.back().get() );
 }
 
 VertexBufferObject* GLObjectFactory::createVertexBufferObject()
 {
 	auto vbo = std::make_unique<VertexBufferObject>();
-	vbos.push_back(std::move(vbo));
-	return vbos.back().get();
+	objects.push_back(std::move(vbo));
+	return static_cast<VertexBufferObject*>( objects.back().get() );
 }
 
 ShaderObject* GLObjectFactory::createShaderObject()
 {
 	auto shader = std::make_unique<ShaderObject>();
-	shaders.push_back(std::move(shader));
-	return shaders.back().get();
+	objects.push_back(std::move(shader));
+	return static_cast<ShaderObject*>( objects.back().get() );
 }
 
 TextureObject* GLObjectFactory::createTextureObject()
 {
 	auto texture = std::make_unique<TextureObject>();
 	texture->create("");
-	textures.push_back(std::move(texture));
-	return textures.back().get();
+	objects.push_back(std::move(texture));
+	return static_cast<TextureObject*>( objects.back().get() );
 }
 
 void GLObjectFactory::remove(FrameBufferObject* fbo)
 {
-	fbos.remove_if( [fbo](auto& o) { return o.get() == fbo; });
+	objects.remove_if( [fbo](auto& o) { return o.get() == fbo; });
 }
 
 void GLObjectFactory::remove(VertexBufferObject* vbo)
 {
-	vbos.remove_if([vbo](auto& o) { return o.get() == vbo; });
+	objects.remove_if([vbo](auto& o) { return o.get() == vbo; });
 }
 
 void GLObjectFactory::remove(TextureObject* texture)
 {
-	textures.remove_if([texture](auto& o) { return o.get() == texture; });
+	objects.remove_if([texture](auto& o) { return o.get() == texture; });
 }
 
 void GLObjectFactory::remove(ShaderObject* shader)
 {
-	shaders.remove_if([shader](auto& s) { return s.get() == shader; });
+	objects.remove_if([shader](auto& s) { return s.get() == shader; });
 }

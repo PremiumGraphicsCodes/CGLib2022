@@ -8,7 +8,7 @@ namespace Crystal {
 	namespace Shader {
 		class ITextureObject;
 
-class FrameBufferObject : IGLObject
+class FrameBufferObject : public IGLObject
 {
 //private:
 //	FrameBufferObject() {};

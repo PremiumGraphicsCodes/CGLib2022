@@ -38,14 +38,10 @@ ShaderBuildStatus SkyBoxRenderer::build(GLObjectFactory& factory)
 		return status;
 	}
 
-	/*
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 
 	shader->findAttribLocation(::positionLabel);
-	shader->findAttribLocation(::colorLabel);
-	shader->findAttribLocation(::sizeLabel);
-	*/
 
 	return status;
 }
@@ -59,24 +55,65 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 {
 	shader->bind();
 
-	/*
+	std::vector<float> positions = {
+		// positions          
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		-1.0f,  1.0f, -1.0f,
+		 1.0f,  1.0f, -1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		 1.0f, -1.0f,  1.0f
+	};
+
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
 
-	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
-	shader->sendVertexAttribute4df(::colorLabel, buffer.color);
-	shader->sendVertexAttribute1df(::sizeLabel, buffer.size);
+	buffer.cubeMapTexture.bind(0);
 
-	shader->enableDepthTest();
-	shader->enablePointSprite();
+	shader->sendVertexAttribute3df(::positionLabel, positions);
+	//shader->sendVertexAttribute4df(::colorLabel, buffer.color);
+	//shader->sendVertexAttribute1df(::sizeLabel, buffer.size);
 
-	shader->drawPoints(buffer.count);
+	shader->drawTriangles(positions.size() / 3);
+
+	buffer.cubeMapTexture.unbind();
 
 	shader->bindOutput(::fragColorLabel);
-
-	shader->disablePointSprite();
-	shader->disableDepthTest();
-	*/
 
 	shader->unbind();
 

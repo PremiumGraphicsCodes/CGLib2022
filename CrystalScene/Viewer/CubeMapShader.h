@@ -21,6 +21,8 @@ public:
 
 private:
 	Shader::SkyBoxRenderer skyBoxRenderer;
+	Shader::TextureObject* texture;
+	Shader::FrameBufferObject* frameBufferObject;
 };
 	}
 

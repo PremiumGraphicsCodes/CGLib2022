@@ -18,7 +18,7 @@ namespace Crystal {
 		class VertexBufferObject;
 		class TextureObject;
 
-class ShaderObject : IGLObject, private UnCopyable
+class ShaderObject : public IGLObject, private UnCopyable
 {
 private:
 
