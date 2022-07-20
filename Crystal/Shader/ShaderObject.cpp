@@ -168,6 +168,26 @@ unsigned int ShaderObject::getAttribLocation(const std::string& str)
 	return attribMap[str];
 }
 
+void ShaderObject::bind()
+{
+	glUseProgram(getHandle());
+}
+
+void ShaderObject::unbind()
+{
+	glUseProgram(0);
+}
+
+void ShaderObject::enable(GLenum e)
+{
+	glEnable(e);
+}
+
+void ShaderObject::disable(GLenum e)
+{
+	glDisable(e);
+}
+
 void ShaderObject::sendUniform(const std::string& name, const Matrix4df& matrix)
 {
 	glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);

@@ -67,10 +67,22 @@ void OnScreenRenderer::findLocation()
 	shader->findAttribLocation("position");
 }
 
+namespace {
+	std::vector<float> toArray(const Box2d<float>& box)
+	{
+		return{
+			box.getMinX(), box.getMaxY(),
+			box.getMinX(), box.getMinY(),
+			box.getMaxX(), box.getMinY(),
+			box.getMaxX(), box.getMaxY()
+		};
+	}
+}
+
 void OnScreenRenderer::render(const ITextureObject& texture)
 {
 	const Box2d box(Vector2df(-1.0, -1.0), Vector2df(1.0, 1.0));
-	const auto& positions = box.toArray();
+	const auto& positions = ::toArray(box);
 
 	//glEnable(GL_DEPTH_TEST);
 
@@ -82,7 +94,9 @@ void OnScreenRenderer::render(const ITextureObject& texture)
 	//glUniform1i(shader->getUniformLocation("texture"), 0);
 	shader->sendUniform("texture", texture, 0);
 
-	glVertexAttribPointer(shader->getAttribLocation("position"), 2, GL_FLOAT, GL_FALSE, 0, positions.data());
+	shader->sendVertexAttribute2df("position", positions);
+	//shader->sendVertexAttribute2df("positions", positions);
+	//glVertexAttribPointer(shader->getAttribLocation("position"), 2, GL_FLOAT, GL_FALSE, 0, positions.data());
 
 	glEnableVertexAttribArray(0);
 	glDrawArrays(GL_QUADS, 0, static_cast<GLsizei>(positions.size() / 2));

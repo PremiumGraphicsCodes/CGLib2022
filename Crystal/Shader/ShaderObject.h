@@ -49,22 +49,13 @@ public:
 
 	unsigned int getAttribLocation(const std::string& str);
 
-	void bind() {
-		glUseProgram(getHandle());
-	}
+	void bind();
 
-	void unbind()
-	{
-		glUseProgram(0);
-	}
+	void unbind();
 
-	void enable(GLenum e) {
-		glEnable(e);
-	}
+	void enable(GLenum e);
 
-	void disable(GLenum e) {
-		glDisable(e);
-	}
+	void disable(GLenum e);
 
 	void sendUniform(const std::string& name, const Math::Matrix4df& matrix);
 

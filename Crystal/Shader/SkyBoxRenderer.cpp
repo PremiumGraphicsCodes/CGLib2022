@@ -109,7 +109,7 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 
 	buffer.cubeMapTexture.bind(0);
 
-	glUniform1i(shader->getUniformLocation(cubeMapTexLabel), 0);
+	shader->sendUniform(cubeMapTexLabel, 0);
 
 	shader->sendVertexAttribute3df(::positionLabel, positions);
 	//shader->sendVertexAttribute4df(::colorLabel, buffer.color);

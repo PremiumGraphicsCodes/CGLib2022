@@ -28,7 +28,12 @@ public:
 
 	TextureObject* createTextureObject();
 
-	void remove(IGLObject* fbo);
+	//template<class T>
+	//T create()
+
+	//void add(IGLObject* object);
+
+	void remove(IGLObject* object);
 
 private:
 	std::list<std::unique_ptr<IGLObject>> objects;
