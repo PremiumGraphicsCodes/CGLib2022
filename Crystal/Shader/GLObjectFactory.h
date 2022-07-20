@@ -31,7 +31,7 @@ public:
 	//template<class T>
 	//T create()
 
-	//void add(IGLObject* object);
+	void add(IGLObject* object);
 
 	void remove(IGLObject* object);
 

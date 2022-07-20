@@ -23,7 +23,7 @@ public:
 	{
 		Graphics::Buffer1d<unsigned int> vertexIndices;
 		Graphics::Material material;
-		Shader::TextureObject texture;
+		Shader::TextureObject* texture;
 	};
 
 	struct Buffer

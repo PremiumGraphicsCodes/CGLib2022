@@ -59,7 +59,9 @@ ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
 	this->texture = factory.createTextureObject();
 	this->texture->send(Image(512, 512));
 
-	readCubeMap(this->cubeMapTexture);
+	this->cubeMapTexture = new CubeMapTextureObject();
+	factory.add(cubeMapTexture);
+	readCubeMap(*this->cubeMapTexture);
 
 	return status;
 }

@@ -1,5 +1,4 @@
-#ifndef __CRYSTAL_SHADER_DEPTH_BUFFER_H__
-#define __CRYSTAL_SHADER_DEPTH_BUFFER_H__
+#pragma once
 
 #include "DepthTextureObject.h"
 #include "../Graphics/Image.h"
@@ -14,9 +13,9 @@ public:
 		unbind();
 	}
 
-	void setTexture(const DepthTextureObject& texture);
+	void setTexture(DepthTextureObject* texture);
 
-	bool build(const DepthTextureObject& depthTexture);
+	bool build(DepthTextureObject* depthTexture);
 
 	bool bind(const int slotNumber) const;
 
@@ -26,16 +25,14 @@ public:
 
 	int getHeight() const { return height; }
 
-	DepthTextureObject* getTexture() { return &texture; }
+	DepthTextureObject* getTexture() { return texture; }
 
 private:
 	GLuint frameBuffer;
-	DepthTextureObject texture;
+	DepthTextureObject* texture;
 	int width;
 	int height;
 };
 
 	}
 }
-
-#endif

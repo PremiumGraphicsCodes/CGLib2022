@@ -1,9 +1,11 @@
 #pragma once
 
+#include "../Util/UnCopyable.h"
+
 namespace Crystal {
 	namespace Shader {
 
-class IGLObject
+class IGLObject : private UnCopyable
 {
 public:
 	IGLObject() {};

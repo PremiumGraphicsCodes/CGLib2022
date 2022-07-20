@@ -107,17 +107,15 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
 
-	buffer.cubeMapTexture.bind(0);
+	buffer.cubeMapTexture->bind(0);
 
 	shader->sendUniform(cubeMapTexLabel, 0);
 
 	shader->sendVertexAttribute3df(::positionLabel, positions);
-	//shader->sendVertexAttribute4df(::colorLabel, buffer.color);
-	//shader->sendVertexAttribute1df(::sizeLabel, buffer.size);
 
 	shader->drawTriangles(positions.size() / 3);
 
-	buffer.cubeMapTexture.unbind();
+	buffer.cubeMapTexture->unbind();
 
 	shader->bindOutput(::fragColorLabel);
 

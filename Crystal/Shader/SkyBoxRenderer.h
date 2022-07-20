@@ -15,7 +15,7 @@ public:
 	{
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
-		CubeMapTextureObject cubeMapTexture;
+		CubeMapTextureObject* cubeMapTexture;
 	};
 
 	SkyBoxRenderer();

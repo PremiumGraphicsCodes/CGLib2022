@@ -46,13 +46,12 @@ TextureObject* GLObjectFactory::createTextureObject()
 	return static_cast<TextureObject*>( objects.back().get() );
 }
 
-/*
 void GLObjectFactory::add(IGLObject* object)
 {
-	auto obj = std::make_unique<IGLObject>(object);
+	std::unique_ptr<IGLObject> obj(object);
+	//auto obj = std::make_unique<IGLObject>(object);
 	objects.push_back(std::move(obj));
 }
-*/
 
 void GLObjectFactory::remove(IGLObject* fbo)
 {

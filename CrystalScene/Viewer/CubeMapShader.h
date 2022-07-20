@@ -23,7 +23,7 @@ private:
 	Shader::SkyBoxRenderer skyBoxRenderer;
 	Shader::TextureObject* texture;
 	Shader::FrameBufferObject* fbo;
-	Shader::CubeMapTextureObject cubeMapTexture;
+	Shader::CubeMapTextureObject* cubeMapTexture;
 };
 	}
 

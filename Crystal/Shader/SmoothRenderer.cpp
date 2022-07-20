@@ -129,9 +129,9 @@ void SmoothRenderer::render(const Buffer& buffer)
 		shader->sendUniform("material.Ks", block.material.specular);
 		shader->sendUniform("material.shininess", block.material.shininess);
 
-		block.texture.bind(0);
+		block.texture->bind(0);
 		shader->drawTriangles(block.vertexIndices.get());
-		block.texture.unbind();
+		block.texture->unbind();
 	}
 
 
