@@ -100,7 +100,7 @@ int World::createDefaultCamera()
 	auto c = new Camera(
 			Vector3df(0, 0, 0),
 			Vector3df(0, 0, -10.0),
-			Vector3df(0, 0, 1),
+			Vector3df(0, 1, 0),
 			1.0f, 10.0f);
 	camera = new CameraScene(getNextSceneId(), "MainCamera", c);
 
