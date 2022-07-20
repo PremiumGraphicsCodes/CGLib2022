@@ -46,6 +46,7 @@ void MarchingCubesView::onOk()
 		}
 	}
 
+	/*
 	MarchingCubesAlgo algo;
 	algo.build(v, 0.30f);
 	const auto& triangles = algo.getTriangles();
@@ -57,4 +58,5 @@ void MarchingCubesView::onOk()
 
 	scene->getPresenter()->createView(getWorld()->getRenderer());
 	getWorld()->getScenes()->addScene(scene);
+	*/
 }
