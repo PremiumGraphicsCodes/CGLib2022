@@ -74,11 +74,13 @@ void OnScreenRenderer::render(const ITextureObject& texture)
 
 	//glEnable(GL_DEPTH_TEST);
 
-	glUseProgram(shader->getHandle());
+	shader->bind();
+	//glUseProgram(shader->getHandle());
 
 	texture.bind(0);
 
-	glUniform1i(shader->getUniformLocation("texture"), 0);
+	//glUniform1i(shader->getUniformLocation("texture"), 0);
+	shader->sendUniform("texture", texture, 0);
 
 	glVertexAttribPointer(shader->getAttribLocation("position"), 2, GL_FLOAT, GL_FALSE, 0, positions.data());
 
@@ -86,10 +88,10 @@ void OnScreenRenderer::render(const ITextureObject& texture)
 	glDrawArrays(GL_QUADS, 0, static_cast<GLsizei>(positions.size() / 2));
 	glDisableVertexAttribArray(0);
 
-	glBindFragDataLocation(shader->getHandle(), 0, "fragColor");
+	shader->bindOutput("fragColor");
 
 	texture.unbind();
 	//glDisable(GL_DEPTH_TEST);
 
-	glUseProgram(0);
+	shader->unbind();
 }

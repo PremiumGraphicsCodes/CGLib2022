@@ -188,12 +188,10 @@ void ShaderObject::sendUniform(const std::string& name, const float value)
 	glUniform1f(getUniformLocation(name), value);
 }
 
-void ShaderObject::sendUniform(const std::string& name, const TextureObject& texture, const int slotId)
+void ShaderObject::sendUniform(const std::string& name, const ITextureObject& texture, const int slot)
 {
-	texture.bind(slotId);
 	const auto location = getUniformLocation(name);
-	glUniform1i(location, slotId);
-	texture.unbind();
+	glUniform1i(location, slot);
 }
 
 void ShaderObject::sendVertexAttribute1df(const std::string& name, const std::vector<float>& data)

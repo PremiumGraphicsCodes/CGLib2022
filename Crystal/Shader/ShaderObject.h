@@ -16,7 +16,7 @@
 namespace Crystal {
 	namespace Shader {
 		class VertexBufferObject;
-		class TextureObject;
+		class ITextureObject;
 
 class ShaderObject : public IGLObject, private UnCopyable
 {
@@ -70,7 +70,7 @@ public:
 
 	void sendUniform(const std::string& name, const Math::Vector3df& vector);
 
-	void sendUniform(const std::string& name, const TextureObject& texture, const int slotId);
+	void sendUniform(const std::string& name, const ITextureObject& texture, const int slot);
 
 	void sendUniform(const std::string& name, const int value);
 

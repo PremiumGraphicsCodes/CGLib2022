@@ -1,5 +1,4 @@
-#ifndef __CRYSTAL_SHADER_I_TEXTURE_OBJECT_H__
-#define __CRYSTAL_SHADER_I_TEXTURE_OBJECT_H__
+#pragma once
 
 #include "glew.h"
 
@@ -36,5 +35,3 @@ protected:
 
 	}
 }
-
-#endif
