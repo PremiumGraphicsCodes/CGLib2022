@@ -61,9 +61,6 @@
     <ClInclude Include="IRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="PolygonRenderer.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DepthBuffer.cpp" />
@@ -112,9 +109,6 @@
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="GLObjectFactory.cpp" />
-    <ClCompile Include="PolygonRenderer.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Texture">

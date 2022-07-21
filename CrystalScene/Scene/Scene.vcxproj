@@ -46,6 +46,7 @@
     <ClInclude Include="PointBuffer.h" />
     <ClInclude Include="PointShaderScene.h" />
     <ClInclude Include="PMSmoothPresenter.h" />
+    <ClInclude Include="PolygonRenderer.h" />
     <ClInclude Include="RendererRepository.h" />
     <ClInclude Include="ScreenIdShader.h" />
     <ClInclude Include="ScreenShader.h" />
@@ -96,6 +97,7 @@
     <ClCompile Include="PMWirePresenter.cpp" />
     <ClCompile Include="PointShaderScene.cpp" />
     <ClCompile Include="PMSmoothPresenter.cpp" />
+    <ClCompile Include="PolygonRenderer.cpp" />
     <ClCompile Include="RendererRepository.cpp" />
     <ClCompile Include="ScreenIdShader.cpp" />
     <ClCompile Include="ScreenShader.cpp" />

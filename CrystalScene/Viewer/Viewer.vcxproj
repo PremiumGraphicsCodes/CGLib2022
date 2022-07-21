@@ -160,6 +160,8 @@
     <ClCompile Include="ColorMenu.cpp" />
     <ClCompile Include="CubeMapShader.cpp" />
     <ClCompile Include="CubeMapView.cpp" />
+    <ClCompile Include="PolygonShader.cpp" />
+    <ClCompile Include="PolygonShaderView.cpp" />
     <ClCompile Include="RenderingMenu.cpp" />
     <ClCompile Include="Viewer.cpp" />
   </ItemGroup>
@@ -195,6 +197,8 @@
     <ClInclude Include="ColorMenu.h" />
     <ClInclude Include="CubeMapShader.h" />
     <ClInclude Include="CubeMapView.h" />
+    <ClInclude Include="PolygonShader.h" />
+    <ClInclude Include="PolygonShaderView.h" />
     <ClInclude Include="RenderingMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

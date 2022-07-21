@@ -1,9 +1,9 @@
 #pragma once
 
-#include "ShaderObject.h"
-#include "GLObjectFactory.h"
-#include "VertexBufferObject.h"
-#include "IRenderer.h"
+#include "Crystal/Shader/ShaderObject.h"
+#include "Crystal/Shader/GLObjectFactory.h"
+#include "Crystal/Shader/VertexBufferObject.h"
+#include "Crystal/Shader/IRenderer.h"
 
 namespace Crystal {
 	namespace Shader {

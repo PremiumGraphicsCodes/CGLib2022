@@ -1,18 +1,18 @@
-#include "CubeMapView.h"
+#include "PolygonShaderView.h"
 
-#include "CubeMapShader.h"
+#include "PolygonShader.h"
 
 using namespace Crystal::Scene;
 using namespace Crystal::UI;
 
-CubeMapView::CubeMapView(const std::string& name, World* model, Canvas* canvas) :
+PolygonShaderView::PolygonShaderView(const std::string& name, World* model, Canvas* canvas) :
 	IOkCancelView(name, model, canvas)
 {}
 
-void CubeMapView::onOk()
+void PolygonShaderView::onOk()
 {
 	auto factory = getWorld()->getRenderer()->getGLFactory();
-	std::unique_ptr<CubeMapShader> shader = std::make_unique<CubeMapShader>();
+	std::unique_ptr<PolygonShader> shader = std::make_unique<PolygonShader>();
 	shader->build(*factory);
 	getWorld()->getRenderer()->setCustomRenderer(std::move(shader));
 

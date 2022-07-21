@@ -175,6 +175,9 @@
     <ClInclude Include="SkyBoxRenderer.h">
       <Filter>SceneShader</Filter>
     </ClInclude>
+    <ClInclude Include="PolygonRenderer.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IScene.cpp">
@@ -287,6 +290,9 @@
       <Filter>SceneShader</Filter>
     </ClCompile>
     <ClCompile Include="SkyBoxRenderer.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonRenderer.cpp">
       <Filter>SceneShader</Filter>
     </ClCompile>
   </ItemGroup>

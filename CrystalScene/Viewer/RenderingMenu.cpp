@@ -1,8 +1,10 @@
 #include "RenderingMenu.h"
 #include "CrystalScene/AppBase/IMenuItem.h"
 #include "CrystalScene/AppBase/ControlPanel.h"
-#include "CubeMapView.h"
 #include "CrystalScene/AppBase/MenuItem.h"
+
+#include "CubeMapView.h"
+#include "PolygonShaderView.h"
 
 using namespace Crystal::Scene;
 using namespace Crystal::UI;
@@ -12,7 +14,11 @@ RenderingMenu::RenderingMenu(const std::string& name, World* model, Canvas* canv
 	IMenu(name, model, canvas),
 	control(control)
 {
-	add(new MenuItem(name, [model, canvas, control] {
+	add(new MenuItem("CubeMap", [model, canvas, control] {
 		control->setWindow(new CubeMapView("CubeMap", model, canvas));
+		}));
+
+	add(new MenuItem("Polygon", [model, canvas, control] {
+		control->setWindow(new PolygonShaderView("Polygon", model, canvas));
 		}));
 }
