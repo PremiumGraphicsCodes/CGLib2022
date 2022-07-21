@@ -1,7 +1,6 @@
 #include "PresenterSetCommand.h"
 
 #include "../Scene/PolygonMeshScene.h"
-#include "../Scene/PMSmoothPresenter.h"
 #include "../Scene/PMWirePresenter.h"
 
 using namespace Crystal::Scene;
@@ -38,11 +37,7 @@ bool PresenterSetCommand::execute(World* world)
 		auto scene = static_cast<PolygonMeshScene*>(s);
 		const auto name = args.presenterName.getValue();
 		scene->getPresenter()->removeView(world->getRenderer());
-		if (name == "Smooth") {
-			auto presenter = std::make_unique<PMSmoothPresenter>(scene);
-			scene->setPresenter(std::move(presenter));
-		}
-		else if (name == "Wire") {
+		if (name == "Wire") {
 			auto presenter = std::make_unique<PMWirePresenter>(scene);
 			scene->setPresenter(std::move(presenter));
 		}

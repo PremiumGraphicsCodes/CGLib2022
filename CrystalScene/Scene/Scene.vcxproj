@@ -45,14 +45,12 @@
     <ClInclude Include="PMWirePresenter.h" />
     <ClInclude Include="PointBuffer.h" />
     <ClInclude Include="PointShaderScene.h" />
-    <ClInclude Include="PMSmoothPresenter.h" />
     <ClInclude Include="PolygonRenderer.h" />
     <ClInclude Include="RendererRepository.h" />
     <ClInclude Include="ScreenIdShader.h" />
     <ClInclude Include="ScreenShader.h" />
     <ClInclude Include="SceneShader.h" />
     <ClInclude Include="SkyBoxRenderer.h" />
-    <ClInclude Include="SmoothShaderScene.h" />
     <ClInclude Include="SolidAsWFPresenter.h" />
     <ClInclude Include="SolidScene.h" />
     <ClInclude Include="TexturePresenter.h" />
@@ -96,7 +94,6 @@
     <ClCompile Include="ParticleSystemPresenter.cpp" />
     <ClCompile Include="PMWirePresenter.cpp" />
     <ClCompile Include="PointShaderScene.cpp" />
-    <ClCompile Include="PMSmoothPresenter.cpp" />
     <ClCompile Include="PolygonRenderer.cpp" />
     <ClCompile Include="RendererRepository.cpp" />
     <ClCompile Include="ScreenIdShader.cpp" />
@@ -105,7 +102,6 @@
     <ClCompile Include="PolygonMeshScene.cpp" />
     <ClCompile Include="SceneShader.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
-    <ClCompile Include="SmoothShaderScene.cpp" />
     <ClCompile Include="SolidAsWFPresenter.cpp" />
     <ClCompile Include="SolidScene.cpp" />
     <ClCompile Include="TexturePresenter.cpp" />

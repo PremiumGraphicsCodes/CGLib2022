@@ -92,13 +92,13 @@ void main(void)
 
 std::string PolygonRenderer::getBuiltInFragmentShaderSource() const
 {
-	std::ostringstream stream;
-	stream
-		<< "#version 150" << std::endl
-		<< "in vec4 vColor;" << std::endl
-		<< "out vec4 fragColor;" << std::endl
-		<< "void main(void) {" << std::endl
-		<< "	fragColor = vColor;" << std::endl
-		<< "}" << std::endl;
-	return stream.str();
+	const std::string str = R"(
+#version 150
+in vec4 vColor;
+out vec4 fragColor;
+void main(void) {
+	fragColor = vColor;
+}
+)";
+	return str;
 }

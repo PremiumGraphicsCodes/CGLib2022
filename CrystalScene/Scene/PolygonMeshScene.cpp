@@ -1,7 +1,7 @@
 #include "PolygonMeshScene.h"
 
-//#include "PMWirePresenter.h"
-#include "PMSmoothPresenter.h"
+#include "PMWirePresenter.h"
+//#include "PMSmoothPresenter.h"
 
 using namespace Crystal::Math;
 using namespace Crystal::Shape;
@@ -12,14 +12,14 @@ PolygonMeshScene::PolygonMeshScene() :
 	IShapeScene(-1),
 	shape(nullptr)
 {
-	presenter = std::make_unique<PMSmoothPresenter>(this);
+	presenter = std::make_unique<PMWirePresenter>(this);
 }
 
 PolygonMeshScene::PolygonMeshScene(const int id, const std::string& name, std::unique_ptr<PolygonMesh> shape) :
 	IShapeScene(id, name),
 	shape(std::move(shape))
 {
-	presenter = std::make_unique<PMSmoothPresenter>(this);
+	presenter = std::make_unique<PMWirePresenter>(this);
 }
 
 PolygonMeshScene::~PolygonMeshScene()

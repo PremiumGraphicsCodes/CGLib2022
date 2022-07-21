@@ -118,12 +118,6 @@
     <ClInclude Include="MaterialPresenter.h">
       <Filter>Presenter\Appearance\Material</Filter>
     </ClInclude>
-    <ClInclude Include="PMSmoothPresenter.h">
-      <Filter>Presenter\Shape\PolygonMesh</Filter>
-    </ClInclude>
-    <ClInclude Include="SmoothShaderScene.h">
-      <Filter>SceneShader\Smooth</Filter>
-    </ClInclude>
     <ClInclude Include="IMaterialScene.h">
       <Filter>SceneShader\Material</Filter>
     </ClInclude>
@@ -220,9 +214,6 @@
     <ClCompile Include="LineShaderScene.cpp">
       <Filter>SceneShader\Line</Filter>
     </ClCompile>
-    <ClCompile Include="SmoothShaderScene.cpp">
-      <Filter>SceneShader\Smooth</Filter>
-    </ClCompile>
     <ClCompile Include="SceneShader.cpp">
       <Filter>SceneShader</Filter>
     </ClCompile>
@@ -252,9 +243,6 @@
     </ClCompile>
     <ClCompile Include="MaterialPresenter.cpp">
       <Filter>Presenter\Appearance\Material</Filter>
-    </ClCompile>
-    <ClCompile Include="PMSmoothPresenter.cpp">
-      <Filter>Presenter\Shape\PolygonMesh</Filter>
     </ClCompile>
     <ClCompile Include="MaterialShaderScene.cpp">
       <Filter>SceneShader\Material</Filter>
@@ -332,9 +320,6 @@
     </Filter>
     <Filter Include="SceneShader\Line">
       <UniqueIdentifier>{f769a1c5-59b7-4df8-baee-b951b683673b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneShader\Smooth">
-      <UniqueIdentifier>{ab71925f-3edc-4808-b231-7094ef2b8fc1}</UniqueIdentifier>
     </Filter>
     <Filter Include="SceneShader\Triangle">
       <UniqueIdentifier>{88b8dc67-ef55-415e-8748-bdd81864b242}</UniqueIdentifier>
