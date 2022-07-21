@@ -8,6 +8,7 @@ namespace {
 	constexpr auto projectionMatrixLabel = "projectionMatrix";
 	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
 	constexpr auto positionLabel = "position";
+	constexpr auto colorLabel = "color";
 }
 
 PolygonRenderer::PolygonRenderer() :
@@ -32,8 +33,8 @@ ShaderBuildStatus PolygonRenderer::build(GLObjectFactory& factory)
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 
-	shader->findAttribLocation("position");
-	shader->findAttribLocation("color");
+	shader->findAttribLocation(::positionLabel);
+	shader->findAttribLocation(::colorLabel);
 
 	ShaderBuildStatus status;
 	status.isOk = true;
@@ -73,21 +74,20 @@ void PolygonRenderer::render(const Buffer& buffer)
 
 std::string PolygonRenderer::getBuildInVertexShaderSource() const
 {
-	std::ostringstream stream;
-	stream
-		<< "#version 150" << std::endl
-		<< "in vec3 position;" << std::endl
-		<< "in vec4 color;" << std::endl
-		<< "out vec4 vColor;" << std::endl
-		<< "uniform mat4 projectionMatrix;" << std::endl
-		<< "uniform mat4 modelviewMatrix;" << std::endl
-		<< "void main(void)" << std::endl
-		<< "{" << std::endl
-		<< "	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);" << std::endl
-		<< "	vColor = color;" << std::endl
-		<< "}";
-	return stream.str();
-
+	const std::string str = R"(
+#version 150
+in vec3 position;
+in vec4 color;
+out vec4 vColor;
+uniform mat4 projectionMatrix;
+uniform mat4 modelviewMatrix;
+void main(void)
+{
+	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
+	vColor = color;
+}
+)";
+	return str;
 }
 
 std::string PolygonRenderer::getBuiltInFragmentShaderSource() const
