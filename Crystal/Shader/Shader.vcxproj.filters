@@ -52,9 +52,6 @@
     <ClInclude Include="TriangleRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="SmoothRenderer.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderBuildStatus.h">
       <Filter>Shader</Filter>
     </ClInclude>
@@ -103,9 +100,6 @@
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="TriangleRenderer.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="SmoothRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="GLObjectFactory.cpp" />
