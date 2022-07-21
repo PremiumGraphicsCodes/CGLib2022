@@ -3,7 +3,7 @@
 #include "CrystalScene/AppBase/ControlPanel.h"
 #include "CrystalScene/AppBase/MenuItem.h"
 
-#include "CubeMapView.h"
+#include "CubeMapShaderView.h"
 #include "PolygonShaderView.h"
 
 using namespace Crystal::Scene;
@@ -15,7 +15,7 @@ RenderingMenu::RenderingMenu(const std::string& name, World* model, Canvas* canv
 	control(control)
 {
 	add(new MenuItem("CubeMap", [model, canvas, control] {
-		control->setWindow(new CubeMapView("CubeMap", model, canvas));
+		control->setWindow(new CubeMapShaderView("CubeMap", model, canvas));
 		}));
 
 	add(new MenuItem("Polygon", [model, canvas, control] {

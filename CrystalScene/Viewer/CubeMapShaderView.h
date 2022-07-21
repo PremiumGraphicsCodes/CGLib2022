@@ -5,10 +5,10 @@
 namespace Crystal {
 	namespace UI {
 
-class CubeMapView : public IOkCancelView
+class CubeMapShaderView : public IOkCancelView
 {
 public:
-	CubeMapView(const std::string& name, Scene::World* model, Canvas* canvas);
+	CubeMapShaderView(const std::string& name, Scene::World* model, Canvas* canvas);
 
 protected:
 	void onOk() override;

@@ -27,9 +27,6 @@
     <ClInclude Include="ShaderUnit.h">
       <Filter>Shader</Filter>
     </ClInclude>
-    <ClInclude Include="IShaderCommand.h">
-      <Filter>Shader</Filter>
-    </ClInclude>
     <ClInclude Include="glew.h">
       <Filter>ThirdParty</Filter>
     </ClInclude>
@@ -80,9 +77,6 @@
       <Filter>Shader</Filter>
     </ClCompile>
     <ClCompile Include="ShaderUnit.cpp">
-      <Filter>Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="IShaderCommand.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
     <ClCompile Include="FrameBufferObject.cpp">

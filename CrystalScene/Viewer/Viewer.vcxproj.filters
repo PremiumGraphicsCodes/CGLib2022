@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClCompile Include="Viewer.cpp" />
     <ClCompile Include="ColorMenu.cpp" />
-    <ClCompile Include="CubeMapView.cpp" />
+    <ClCompile Include="CubeMapShaderView.cpp" />
     <ClCompile Include="CubeMapShader.cpp" />
     <ClCompile Include="RenderingMenu.cpp" />
     <ClCompile Include="PolygonShaderView.cpp" />
@@ -12,7 +12,7 @@
   <ItemGroup>
     <ClInclude Include="ColorMenu.h" />
     <ClInclude Include="RenderingMenu.h" />
-    <ClInclude Include="CubeMapView.h" />
+    <ClInclude Include="CubeMapShaderView.h" />
     <ClInclude Include="CubeMapShader.h" />
     <ClInclude Include="PolygonShaderView.h" />
     <ClInclude Include="PolygonShader.h" />

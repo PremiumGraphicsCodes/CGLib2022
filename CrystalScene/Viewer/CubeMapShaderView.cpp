@@ -1,15 +1,15 @@
-#include "CubeMapView.h"
+#include "CubeMapShaderView.h"
 
 #include "CubeMapShader.h"
 
 using namespace Crystal::Scene;
 using namespace Crystal::UI;
 
-CubeMapView::CubeMapView(const std::string& name, World* model, Canvas* canvas) :
+CubeMapShaderView::CubeMapShaderView(const std::string& name, World* model, Canvas* canvas) :
 	IOkCancelView(name, model, canvas)
 {}
 
-void CubeMapView::onOk()
+void CubeMapShaderView::onOk()
 {
 	auto factory = getWorld()->getRenderer()->getGLFactory();
 	std::unique_ptr<CubeMapShader> shader = std::make_unique<CubeMapShader>();

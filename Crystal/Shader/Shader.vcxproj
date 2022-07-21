@@ -145,7 +145,6 @@
     <ClInclude Include="IGLObject.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IShader.h" />
-    <ClInclude Include="IShaderCommand.h" />
     <ClInclude Include="ITextureObject.h" />
     <ClInclude Include="LineRenderer.h" />
     <ClInclude Include="OnScreenRenderer.h" />
@@ -166,7 +165,6 @@
     <ClCompile Include="DepthTextureObject.cpp" />
     <ClCompile Include="FrameBufferObject.cpp" />
     <ClCompile Include="GLObjectFactory.cpp" />
-    <ClCompile Include="IShaderCommand.cpp" />
     <ClCompile Include="LineRenderer.cpp" />
     <ClCompile Include="OnScreenRenderer.cpp" />
     <ClCompile Include="PointRenderer.cpp" />
