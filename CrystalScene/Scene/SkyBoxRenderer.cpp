@@ -113,7 +113,9 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 
 	shader->sendVertexAttribute3df(::positionLabel, positions);
 
+	glEnableVertexAttribArray(0);
 	shader->drawTriangles(positions.size() / 3);
+	glDisableVertexAttribArray(0);
 
 	buffer.cubeMapTexture->unbind();
 
