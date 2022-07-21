@@ -302,7 +302,7 @@ void ShaderObject::enableVertexAttribute(const std::string& name)
 void ShaderObject::disableVertexAttribute(const std::string& name)
 {
 	const auto location = getAttribLocation(name);
-	glDisableVertexAttribArray(2);
+	glDisableVertexAttribArray(location);
 }
 
 void ShaderObject::enableDepthTest()

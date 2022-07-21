@@ -7,10 +7,24 @@
 
 #include "Crystal/IO/ImageFileReader.h"
 
+using namespace Crystal::Math;
 using namespace Crystal::IO;
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
 using namespace Crystal::UI;
+
+namespace {
+	bool readTexture(TextureObject& cubeMap)
+	{
+		ImageFileReader reader;
+		if (!reader.read("../../ThirdParty/forest-skyboxes/Brudslojan/posx.jpg")) {
+			return false;
+		}
+		cubeMap.send(reader.getImage());
+		return true;
+	}
+}
+
 
 ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 {
@@ -24,11 +38,23 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	this->texture = factory.createTextureObject();
 	this->texture->send(Image(512, 512));
 
-	/*
-	this->cubeMapTexture = new CubeMapTextureObject();
-	factory.add(cubeMapTexture);
-	readCubeMap(*this->cubeMapTexture);
-	*/
+	this->polygonTexture = factory.createTextureObject();
+	this->polygonTexture->send(Image(512, 512, 255));
+	readTexture(*this->polygonTexture);
+
+	positions.add(Vector3dd(0.0, 0.0, 0.0));
+	positions.add(Vector3dd(1.0, 0.0, 0.0));
+	positions.add(Vector3dd(0.0, 1.0, 0.0));
+
+	texCoords.add(Vector2dd(0.0, 0.0));
+	texCoords.add(Vector2dd(1.0, 0.0));
+	texCoords.add(Vector2dd(0.0, 1.0));
+
+	buffer.position.build();
+	buffer.texCoord.build();
+	buffer.indices.push_back(0);
+	buffer.indices.push_back(1);
+	buffer.indices.push_back(2);
 
 	return status;
 }
@@ -49,12 +75,13 @@ void PolygonShader::render(const Camera& camera)
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		//SkyBoxRenderer::Buffer buffer;
-		//buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
-		//buffer.projectionMatrix = camera.getProjectionMatrix();
-		//buffer.cubeMapTexture = this->cubeMapTexture;
+		buffer.position.send(positions.get());
+		buffer.texCoord.send(texCoords.get());
+		buffer.projectionMatrix = camera.getProjectionMatrix();
+		buffer.modelViewMatrix = camera.getModelViewMatrix();
+		buffer.texture = this->polygonTexture;
 
-		//skyBoxRenderer.render(buffer);
+		this->renderer.render(buffer);
 
 		this->fbo->unbind();
 	}

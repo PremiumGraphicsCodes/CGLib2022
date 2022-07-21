@@ -14,9 +14,10 @@ public:
 	struct Buffer
 	{
 		Shader::VertexBufferObject position;
-		Shader::VertexBufferObject color;
+		Shader::VertexBufferObject texCoord;
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
+		Shader::TextureObject* texture;
 		std::vector<unsigned int> indices;
 	};
 

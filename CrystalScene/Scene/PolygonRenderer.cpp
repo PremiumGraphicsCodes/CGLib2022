@@ -1,5 +1,7 @@
 #include "PolygonRenderer.h"
 
+#include "Crystal/Shader/TextureObject.h"
+
 #include <sstream>
 
 using namespace Crystal::Shader;
@@ -8,7 +10,8 @@ namespace {
 	constexpr auto projectionMatrixLabel = "projectionMatrix";
 	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
 	constexpr auto positionLabel = "position";
-	constexpr auto colorLabel = "color";
+	constexpr auto texCoordLabel = "texCoord";
+	constexpr auto textureLabel = "texture";
 }
 
 PolygonRenderer::PolygonRenderer() :
@@ -32,9 +35,10 @@ ShaderBuildStatus PolygonRenderer::build(GLObjectFactory& factory)
 
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
+	shader->findUniformLocation(::textureLabel);
 
 	shader->findAttribLocation(::positionLabel);
-	shader->findAttribLocation(::colorLabel);
+	shader->findAttribLocation(::texCoordLabel);
 
 	ShaderBuildStatus status;
 	status.isOk = true;
@@ -53,21 +57,26 @@ void PolygonRenderer::render(const Buffer& buffer)
 
 	shader->enableDepthTest();
 
+	buffer.texture->bind(0);
+
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
+	shader->sendUniform(::textureLabel, *buffer.texture, 0);
 
-	shader->sendVertexAttribute3df("position", buffer.position);
-	shader->sendVertexAttribute4df("color", buffer.color);
+	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
+	shader->sendVertexAttribute2df(::texCoordLabel, buffer.texCoord);
 
-	shader->enableVertexAttribute("position");
-	shader->enableVertexAttribute("color");
+	shader->enableVertexAttribute(::positionLabel);
+	shader->enableVertexAttribute(::texCoordLabel);
 
 	shader->drawTriangles(buffer.indices);
 
-	shader->disableVertexAttribute("color");
-	shader->disableVertexAttribute("position");
+	shader->disableVertexAttribute(::positionLabel);
+	shader->disableVertexAttribute(::texCoordLabel);
 
 	shader->disableDepthTest();
+
+	buffer.texture->unbind();
 
 	shader->unbind();
 }
@@ -77,14 +86,14 @@ std::string PolygonRenderer::getBuildInVertexShaderSource() const
 	const std::string str = R"(
 #version 150
 in vec3 position;
-in vec4 color;
-out vec4 vColor;
+in vec2 texCoord;
+out vec2 vTexCoord;
 uniform mat4 projectionMatrix;
 uniform mat4 modelviewMatrix;
 void main(void)
 {
 	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
-	vColor = color;
+	vTexCoord = texCoord;
 }
 )";
 	return str;
@@ -94,10 +103,11 @@ std::string PolygonRenderer::getBuiltInFragmentShaderSource() const
 {
 	const std::string str = R"(
 #version 150
-in vec4 vColor;
+in vec2 vTexCoord;
 out vec4 fragColor;
+uniform sampler2D texture;
 void main(void) {
-	fragColor = vColor;
+	fragColor = texture2D(texture, vTexCoord);
 }
 )";
 	return str;
