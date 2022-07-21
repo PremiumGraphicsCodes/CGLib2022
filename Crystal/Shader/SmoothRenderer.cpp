@@ -148,95 +148,95 @@ void SmoothRenderer::render(const Buffer& buffer)
 
 std::string SmoothRenderer::getBuildInVertexShaderSource() const
 {
-	std::ostringstream stream;
-	stream
-		<< "#version 150" << std::endl
-		<< "in vec3 position;" << std::endl
-		<< "in vec3 normal;" << std::endl
-		<< "in vec2 texCoord;" << std::endl
-		<< "out vec3 vNormal;" << std::endl
-		<< "out vec3 vPosition;" << std::endl
-		<< "out vec2 vTexCoord;" << std::endl
-		<< "uniform mat4 projectionMatrix;"
-		<< "uniform mat4 modelviewMatrix;"
-		<< "void main(void) {" << std::endl
-		<< "	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);" << std::endl
-		<< "	vNormal = normalize(normal);" << std::endl
-		<< "	vPosition = position;" << std::endl
-		<< "	vTexCoord = texCoord;" << std::endl
-		<< "}" << std::endl;
-	return stream.str();
+	const std::string str = R"(
+#version 150
+in vec3 position;
+in vec3 normal;
+in vec2 texCoord;
+out vec3 vNormal;
+out vec3 vPosition;
+out vec2 vTexCoord;
+uniform mat4 projectionMatrix;
+uniform mat4 modelviewMatrix;
+void main(void) {
+	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
+	vNormal = normalize(normal);
+	vPosition = position;
+	vTexCoord = texCoord;
+};
+)";
+	return str;
 }
 
 std::string SmoothRenderer::getBuiltInFragmentShaderSource() const
 {
-	std::ostringstream stream;
-	stream
-		<< "#version 150" << std::endl
-		<< "in vec3 vNormal;" << std::endl
-		<< "in vec3 vPosition;" << std::endl
-		<< "in vec2 vTexCoord;" << std::endl
-		<< "out vec4 fragColor;" << std::endl
-		<< "uniform vec3 eyePosition;" << std::endl
-		<< "uniform sampler2D ambientTexture;" << std::endl
-		<< "uniform sampler2D diffuseTexture;" << std::endl
-		<< "uniform sampler2D specularTexture;" << std::endl
-		<< "struct LightInfo {" << std::endl
-		<< "	vec3 position;" << std::endl
-		<< "	vec3 La;" << std::endl
-		<< "	vec3 Ld;" << std::endl
-		<< "	vec3 Ls;" << std::endl
-		<< "};"
-		<< "uniform LightInfo lights[8];" << std::endl
-		<< "struct MaterialInfo {" << std::endl
-		<< "	vec3 Ka;" << std::endl
-		<< "	vec3 Kd;" << std::endl
-		<< "	vec3 Ks;" << std::endl
-		<< "	float shininess;" << std::endl
-		<< "};"
-		<< "uniform MaterialInfo material;" << std::endl
-		<< "vec3 getAmbientColor(LightInfo light, MaterialInfo material){" << std::endl
-		<< "	vec3 ambient = light.La * material.Ka;" << std::endl
-		<< "	return ambient * texture2D(ambientTexture, vTexCoord).rgb;" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getS(LightInfo light){" << std::endl
-		<< "	return normalize(light.position - vPosition);" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getV() {" << std::endl
-		<< "	return normalize(vPosition - eyePosition);" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getR(LightInfo light, vec3 normal) {" << std::endl
-		<< "	vec3 s = getS(light);" << std::endl
-		<< "	return reflect( -s, normal );" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getDiffuseColor(LightInfo light, float innerProduct){" << std::endl
-		<< "	vec3 diffuse = light.Ld * material.Kd * innerProduct;" << std::endl
-		<< "	return diffuse * texture2D(diffuseTexture, vTexCoord).rgb;" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getSpecularColor(LightInfo light, float innerProduct, vec3 normal){" << std::endl
-		<< "	vec3 s = getS(light);" << std::endl
-		<< "	vec3 v = getV();" << std::endl
-		<< "	vec3 r = reflect( -s, normal );" << std::endl
-		<< "	vec3 specular = vec3(0.0);" << std::endl
-		<< "	if(innerProduct > 0.0) {" << std::endl
-		<< "		specular = light.Ls * material.Ks * pow( max( dot(r,v), 0.0 ), material.shininess );" << std::endl
-		<< "	}" << std::endl
-		<< "	return specular * texture2D(specularTexture, vTexCoord).rgb;" << std::endl
-		<< "};" << std::endl
-		<< "vec3 getPhongShadedColor( vec3 position, vec3 normal) {"
-		<< "	LightInfo light = lights[0];" << std::endl
-		<< "	vec3 s = getS(light);" << std::endl
-		<< "	vec3 r = getR(light, normal);" << std::endl
-		<< "	vec3 ambient = getAmbientColor(light, material);" << std::endl
-		<< "	float innerProduct = max( dot(s,normal), 0.0);" << std::endl
-		<< "	vec3 diffuse = getDiffuseColor(light, innerProduct);" << std::endl
-		<< "	vec3 specular = getSpecularColor(light, innerProduct, normal);" << std::endl
-		<< "	return ambient + diffuse + specular;" << std::endl
-		<< "}"
-		<< "void main(void) {" << std::endl
-		<< "	fragColor.rgb = getPhongShadedColor( eyePosition, vNormal);" << std::endl
-		//		<< "	fragColor.rgb = getPhongShadedColor( eyePosition, vNormal) * getTextureColor();" << std::endl
-		<< "	fragColor.a = 1.0;" << std::endl
-		<< "}" << std::endl;
-	return stream.str();
+	const std::string str = R"(
+#version 150
+in vec3 vNormal;
+in vec3 vPosition;
+in vec2 vTexCoord;
+out vec4 fragColor;
+uniform vec3 eyePosition;
+uniform sampler2D ambientTexture;
+uniform sampler2D diffuseTexture;
+uniform sampler2D specularTexture;
+struct LightInfo {
+	vec3 position;
+	vec3 La;
+	vec3 Ld;
+	vec3 Ls;
+};
+uniform LightInfo lights[8];
+struct MaterialInfo {
+	vec3 Ka;
+	vec3 Kd;
+	vec3 Ks;
+	float shininess;
+};
+uniform MaterialInfo material;
+vec3 getAmbientColor(LightInfo light, MaterialInfo material){
+	vec3 ambient = light.La * material.Ka;
+	return ambient * texture2D(ambientTexture, vTexCoord).rgb;
+};
+vec3 getS(LightInfo light){
+	return normalize(light.position - vPosition);
+};
+vec3 getV() {
+	return normalize(vPosition - eyePosition);
+};
+vec3 getR(LightInfo light, vec3 normal) {
+	vec3 s = getS(light);
+	return reflect( -s, normal );
+};
+vec3 getDiffuseColor(LightInfo light, float innerProduct){
+	vec3 diffuse = light.Ld * material.Kd * innerProduct;
+	return diffuse * texture2D(diffuseTexture, vTexCoord).rgb;
+};
+vec3 getSpecularColor(LightInfo light, float innerProduct, vec3 normal){
+	vec3 s = getS(light);
+	vec3 v = getV();
+	vec3 r = reflect( -s, normal );
+	vec3 specular = vec3(0.0);
+	if(innerProduct > 0.0) {
+		specular = light.Ls * material.Ks * pow( max( dot(r,v), 0.0 ), material.shininess );
+	}
+	return specular * texture2D(specularTexture, vTexCoord).rgb;
+};
+vec3 getPhongShadedColor( vec3 position, vec3 normal) {
+	LightInfo light = lights[0];
+	vec3 s = getS(light);
+	vec3 r = getR(light, normal);
+	vec3 ambient = getAmbientColor(light, material);
+	float innerProduct = max( dot(s,normal), 0.0);
+	vec3 diffuse = getDiffuseColor(light, innerProduct);
+	vec3 specular = getSpecularColor(light, innerProduct, normal);
+	return ambient + diffuse + specular;
+}
+void main(void) {
+	fragColor.rgb = getPhongShadedColor( eyePosition, vNormal);
+		//	fragColor.rgb = getPhongShadedColor( eyePosition, vNormal) * getTextureColor();
+	fragColor.a = 1.0;
+};
+)";
+	return str;
 }
