@@ -18,18 +18,11 @@ Box3dd Scene::getBoundingBox() const
 {
 	Box3dd bb = Box3dd::createDegeneratedBox();
 	for (auto c : children) {
-		if (bb.isDegenerated()) {
-			bb = c->getBoundingBox();
-			continue;
-		}
-		auto b = c->getBoundingBox();
-		if (b.isDegenerated()) {
-			continue;
-		}
+		const auto b = c->getBoundingBox();
 		bb.add(b);
 	}
 	if (bb.isDegenerated()) {
-		return Box3dd();
+		return Box3dd(Vector3dd(-0.5,-0.5,-0.5), Vector3dd(0.5, 0.5, 0.5));
 	}
 
 	return bb;
