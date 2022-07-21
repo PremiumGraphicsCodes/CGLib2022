@@ -1,6 +1,6 @@
 #include "CubeMapShader.h"
 
-#include "Crystal/Shader/SkyBoxRenderer.h"
+#include "CrystalScene/Scene/SkyBoxRenderer.h"
 
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"

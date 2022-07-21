@@ -172,6 +172,9 @@
     <ClInclude Include="IShader.h">
       <Filter>SceneShader</Filter>
     </ClInclude>
+    <ClInclude Include="SkyBoxRenderer.h">
+      <Filter>SceneShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IScene.cpp">
@@ -281,6 +284,9 @@
       <Filter>Presenter\Shape\TriangleMesh</Filter>
     </ClCompile>
     <ClCompile Include="RendererRepository.cpp">
+      <Filter>SceneShader</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyBoxRenderer.cpp">
       <Filter>SceneShader</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "IRenderer.h"
+#include "Crystal/Shader/IRenderer.h"
 
-#include "CubeMapTextureObject.h"
+#include "Crystal/Shader/CubeMapTextureObject.h"
 #include <string>
 
 namespace Crystal {

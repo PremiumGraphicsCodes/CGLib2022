@@ -1,6 +1,5 @@
 #include "CubeMapView.h"
 
-#include "Crystal/Shader/SkyBoxRenderer.h"
 #include "CubeMapShader.h"
 
 using namespace Crystal::Scene;

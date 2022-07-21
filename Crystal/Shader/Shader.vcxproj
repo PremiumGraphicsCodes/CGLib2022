@@ -154,7 +154,6 @@
     <ClInclude Include="ShaderBuildStatus.h" />
     <ClInclude Include="ShaderObject.h" />
     <ClInclude Include="ShaderUnit.h" />
-    <ClInclude Include="SkyBoxRenderer.h" />
     <ClInclude Include="SmoothRenderer.h" />
     <ClInclude Include="TextureObject.h" />
     <ClInclude Include="TriangleRenderer.h" />
@@ -176,7 +175,6 @@
     <ClCompile Include="PolygonRenderer.cpp" />
     <ClCompile Include="ShaderObject.cpp" />
     <ClCompile Include="ShaderUnit.cpp" />
-    <ClCompile Include="SkyBoxRenderer.cpp" />
     <ClCompile Include="SmoothRenderer.cpp" />
     <ClCompile Include="TextureObject.cpp" />
     <ClCompile Include="TriangleRenderer.cpp" />
