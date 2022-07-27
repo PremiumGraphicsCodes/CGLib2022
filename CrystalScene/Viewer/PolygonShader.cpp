@@ -44,21 +44,37 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	positions.add(Vector3dd(0.0, 0.0, 0.0));
 	positions.add(Vector3dd(1.0, 0.0, 0.0));
+	positions.add(Vector3dd(1.0, 1.0, 0.0));
 	positions.add(Vector3dd(0.0, 1.0, 0.0));
 
 	texCoords.add(Vector2dd(0.0, 0.0));
 	texCoords.add(Vector2dd(1.0, 0.0));
+	texCoords.add(Vector2dd(1.0, 1.0));
 	texCoords.add(Vector2dd(0.0, 1.0));
 
 	buffer.position.build();
 	buffer.texCoord.build();
 
-	Shader::PolygonRenderer::Buffer::FaceGroup fg;
-	fg.indices.push_back(0);
-	fg.indices.push_back(1);
-	fg.indices.push_back(2);
-	fg.texture = this->polygonTexture;
-	buffer.faceGroups.push_back(fg);
+	Shader::PolygonRenderer::Buffer::FaceGroup fg1;
+	fg1.indices.push_back(0);
+	fg1.indices.push_back(1);
+	fg1.indices.push_back(2);
+
+	fg1.indices.push_back(0);
+	fg1.indices.push_back(2);
+	fg1.indices.push_back(3);
+
+	fg1.texture = this->polygonTexture;
+	buffer.faceGroups.push_back(fg1);
+
+	//Shader::PolygonRenderer::Buffer::FaceGroup fg2;
+	//fg2.indices.push_back(0);
+	//fg2.indices.push_back(2);
+	//fg2.indices.push_back(3);
+
+	//fg2.texture = this->polygonTexture;
+	//buffer.faceGroups.push_back(fg2);
+
 
 	return status;
 }
