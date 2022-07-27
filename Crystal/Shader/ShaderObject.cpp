@@ -363,6 +363,12 @@ void ShaderObject::bindOutput(const std::string& name)
 	glBindFragDataLocation(getHandle(), 0, str);
 }
 
+void ShaderObject::bindOutput(const std::string& name, unsigned int number)
+{
+	auto str = name.c_str();
+	glBindFragDataLocation(getHandle(), number, str);
+}
+
 void ShaderObject::setLineWidth(const float width)
 {
 	glLineWidth(width);

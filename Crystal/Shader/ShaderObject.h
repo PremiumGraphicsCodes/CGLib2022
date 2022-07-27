@@ -113,6 +113,8 @@ public:
 
 	void bindOutput(const std::string& name);
 
+	void bindOutput(const std::string& name, unsigned int number);
+
 	void setLineWidth(const float width);
 
 public:

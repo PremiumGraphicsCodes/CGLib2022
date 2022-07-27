@@ -57,10 +57,16 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	texCoords.add(Vector2dd(1.0, 1.0));
 	texCoords.add(Vector2dd(0.0, 1.0));
 
+	normals.add(Vector3dd(0, 0, 1));
+	normals.add(Vector3dd(0, 0, 1));
+	normals.add(Vector3dd(0, 0, 1));
+	normals.add(Vector3dd(0, 0, 1));
+
 	buffer.position.build();
 	buffer.texCoord.build();
 
 	gBuffer.position.build();
+	gBuffer.normal.build();
 
 	Shader::PolygonRenderer::Buffer::FaceGroup fg1;
 	fg1.indices.push_back(0);
@@ -125,6 +131,7 @@ void PolygonShader::render(const Camera& camera)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		gBuffer.position.send(positions.get());
+		gBuffer.normal.send(normals.get());
 		gBuffer.projectionMatrix = camera.getProjectionMatrix();
 		gBuffer.modelViewMatrix = camera.getModelViewMatrix();
 

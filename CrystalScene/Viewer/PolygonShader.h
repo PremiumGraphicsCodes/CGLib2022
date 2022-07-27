@@ -32,6 +32,7 @@ private:
 	Shader::FrameBufferObject* fbo;
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer2d<float> texCoords;
+	Graphics::Buffer3d<float> normals;
 	Shader::PolygonRenderer::Buffer buffer;
 
 //			Shader::CubeMapTextureObject* cubeMapTexture;

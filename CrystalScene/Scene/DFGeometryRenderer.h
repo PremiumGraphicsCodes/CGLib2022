@@ -14,6 +14,7 @@ public:
 	struct Buffer
 	{
 		Shader::VertexBufferObject position;
+		Shader::VertexBufferObject normal;
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
 		std::vector<unsigned int> indices;

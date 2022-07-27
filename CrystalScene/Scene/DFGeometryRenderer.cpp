@@ -10,6 +10,7 @@ namespace {
 	constexpr auto projectionMatrixLabel = "projectionMatrix";
 	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
 	constexpr auto positionLabel = "position";
+	constexpr auto normalLabel = "normal";
 }
 
 DFGeometryRenderer::DFGeometryRenderer() :
@@ -35,6 +36,7 @@ ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 	shader->findUniformLocation(::modelViewMatrixLabel);
 
 	shader->findAttribLocation(::positionLabel);
+	shader->findAttribLocation(::normalLabel);
 
 	ShaderBuildStatus status;
 	status.isOk = true;
@@ -49,7 +51,8 @@ void DFGeometryRenderer::release(GLObjectFactory& factory)
 void DFGeometryRenderer::render(const Buffer& buffer)
 {
 	shader->bind();
-	shader->bindOutput("gPosition");
+	shader->bindOutput("gPosition", 0);
+	shader->bindOutput("gNormal", 1);
 
 	shader->enableDepthTest();
 
@@ -58,12 +61,15 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
 
 	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
+	shader->sendVertexAttribute3df(::normalLabel, buffer.normal);
 
 	shader->enableVertexAttribute(::positionLabel);
+	shader->enableVertexAttribute(::normalLabel);
 
 	shader->drawTriangles(buffer.indices);
 
 	shader->disableVertexAttribute(::positionLabel);
+	shader->disableVertexAttribute(::normalLabel);
 
 	shader->disableDepthTest();
 
@@ -76,13 +82,16 @@ std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
 	const std::string str = R"(
 #version 150
 in vec3 position;
+in vec3 normal;
 out vec4 vPosition;
+out vec4 vNormal;
 uniform mat4 projectionMatrix;
 uniform mat4 modelviewMatrix;
 void main(void)
 {
 	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
 	vPosition = gl_Position;
+	vNormal = vec4(normal, 1.0);
 }
 )";
 	return str;
@@ -93,10 +102,13 @@ std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
 	const std::string str = R"(
 #version 150
 in vec4 vPosition;
+in vec4 vNormal;
 out vec4 gPosition;
+out vec4 gNormal;
 
 void main(void) {
 	gPosition = vPosition;
+	gNormal = vNormal;
 }
 )";
 	return str;
