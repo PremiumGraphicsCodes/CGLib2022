@@ -37,6 +37,16 @@ ShaderBuildStatus PolygonRenderer::build(GLObjectFactory& factory)
 	shader->findUniformLocation(::modelViewMatrixLabel);
 	shader->findUniformLocation(::textureLabel);
 
+	shader->findUniformLocation("material.ambient");
+	shader->findUniformLocation("material.diffuse");
+	shader->findUniformLocation("material.specular");
+	shader->findUniformLocation("material.shininess");
+
+	shader->findUniformLocation("light.position");
+	shader->findUniformLocation("light.ambient");
+	shader->findUniformLocation("light.diffuse");
+	shader->findUniformLocation("light.specular");
+
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::texCoordLabel);
 
@@ -107,8 +117,38 @@ std::string PolygonRenderer::getBuiltInFragmentShaderSource() const
 #version 150
 in vec2 vTexCoord;
 out vec4 fragColor;
+struct Light {
+	vec3 position;
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
+};
+struct Material {
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
+	float shininess;
+};
+uniform Light light;
+uniform Material material;
 uniform sampler2D texture;
+
+/*
+vec3 getPhongShadedColor(vec3 position, vec3 normal) {
+
+}
+*/
+
 void main(void) {
+	fragColor.rgb = light.position;
+	fragColor.rgb = light.ambient;
+	fragColor.rgb = light.diffuse;
+	fragColor.rgb = light.specular;
+
+	fragColor.rgb = material.ambient;
+	fragColor.rgb = material.diffuse;
+	fragColor.rgb = material.specular;
+	fragColor.r = material.shininess;
 	fragColor = texture2D(texture, vTexCoord);
 }
 )";
