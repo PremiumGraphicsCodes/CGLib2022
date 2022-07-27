@@ -25,6 +25,7 @@
     <ClInclude Include="CameraScene.h" />
     <ClInclude Include="CSGScene.h" />
     <ClInclude Include="DFGeometryRenderer.h" />
+    <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="IAnimator.h" />
     <ClInclude Include="IMaterialScene.h" />
     <ClInclude Include="IParticleSystemPresenter.h" />
@@ -86,6 +87,7 @@
     <ClCompile Include="CameraScene.cpp" />
     <ClCompile Include="CSGScene.cpp" />
     <ClCompile Include="DFGeometryRenderer.cpp" />
+    <ClCompile Include="DFLightRenderer.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="LightPresenter.cpp" />
     <ClCompile Include="LightScene.cpp" />

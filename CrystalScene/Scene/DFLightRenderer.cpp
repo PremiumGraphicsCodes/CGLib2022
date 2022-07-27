@@ -1,4 +1,4 @@
-#include "DFGeometryRenderer.h"
+#include "DFLightRenderer.h"
 
 #include "Crystal/Shader/TextureObject.h"
 
@@ -7,19 +7,15 @@
 using namespace Crystal::Shader;
 
 namespace {
-	constexpr auto projectionMatrixLabel = "projectionMatrix";
-	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
-	constexpr auto normalMatrixLabel = "normalMatrix";
 	constexpr auto positionLabel = "position";
-	constexpr auto normalLabel = "normal";
 }
 
-DFGeometryRenderer::DFGeometryRenderer() :
+DFLightRenderer::DFLightRenderer() :
 	shader(nullptr)
 {
 }
 
-ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
+ShaderBuildStatus DFLightRenderer::build(GLObjectFactory& factory)
 {
 	const auto& vsSource = getBuildInVertexShaderSource();
 	const auto& fsSource = getBuiltInFragmentShaderSource();
@@ -33,25 +29,28 @@ ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 		return status;
 	}
 
+	/*
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 	shader->findUniformLocation(::normalMatrixLabel);
 
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::normalLabel);
+	*/
 
 	ShaderBuildStatus status;
 	status.isOk = true;
 	return status;
 }
 
-void DFGeometryRenderer::release(GLObjectFactory& factory)
+void DFLightRenderer::release(GLObjectFactory& factory)
 {
 	factory.remove(shader);
 }
 
-void DFGeometryRenderer::render(const Buffer& buffer)
+void DFLightRenderer::render(const Buffer& buffer)
 {
+	/*
 	shader->bind();
 	shader->bindOutput("gPosition", 0);
 	shader->bindOutput("gNormal", 1);
@@ -78,41 +77,32 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 
 
 	shader->unbind();
+	*/
 }
 
-std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
+std::string DFLightRenderer::getBuildInVertexShaderSource() const
 {
 	const std::string str = R"(
 #version 150
-in vec3 position;
-in vec3 normal;
-out vec4 vPosition;
-out vec3 vNormal;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
-uniform mat3 normalMatrix;
-void main(void)
-{
-	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
-	vPosition = gl_Position;
-	vNormal = normalMatrix * normal;
+in vec2 position;
+out vec2 texCoord;
+void main(void) {
+	texCoord = (position + vec2(1.0,1.0))/2.0;
+	gl_Position = vec4(position, 0.0, 1.0);
 }
 )";
 	return str;
 }
 
-std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
+std::string DFLightRenderer::getBuiltInFragmentShaderSource() const
 {
 	const std::string str = R"(
 #version 150
-in vec4 vPosition;
-in vec3 vNormal;
-out vec4 gPosition;
-out vec3 gNormal;
-
+uniform sampler2D texture;
+in vec2 texCoord;
+out vec4 fragColor;
 void main(void) {
-	gPosition = vPosition;
-	gNormal.rgb = normalize(vNormal);
+	fragColor = texture2D(texture, texCoord);
 }
 )";
 	return str;
