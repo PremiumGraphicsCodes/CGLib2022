@@ -24,6 +24,7 @@
   <ItemGroup>
     <ClInclude Include="CameraScene.h" />
     <ClInclude Include="CSGScene.h" />
+    <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="IAnimator.h" />
     <ClInclude Include="IMaterialScene.h" />
     <ClInclude Include="IParticleSystemPresenter.h" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="CameraScene.cpp" />
     <ClCompile Include="CSGScene.cpp" />
+    <ClCompile Include="DFGeometryRenderer.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="LightPresenter.cpp" />
     <ClCompile Include="LightScene.cpp" />

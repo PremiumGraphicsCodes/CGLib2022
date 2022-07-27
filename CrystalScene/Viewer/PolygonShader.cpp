@@ -31,6 +31,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	ShaderBuildStatus status;
 
 	status.add(renderer.build(factory));
+	status.add(gRenderer.build(factory));
 
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);
@@ -40,6 +41,10 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	this->polygonTexture = factory.createTextureObject();
 	this->polygonTexture->send(Image(512, 512, 255));
+
+	this->geometryTexture = factory.createTextureObject();
+	this->geometryTexture->send(Imagef(512, 512));
+
 	readTexture(*this->polygonTexture);
 
 	positions.add(Vector3dd(0.0, 0.0, 0.0));
@@ -55,6 +60,8 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	buffer.position.build();
 	buffer.texCoord.build();
 
+	gBuffer.position.build();
+
 	Shader::PolygonRenderer::Buffer::FaceGroup fg1;
 	fg1.indices.push_back(0);
 	fg1.indices.push_back(1);
@@ -66,6 +73,8 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	fg1.texture = this->polygonTexture;
 	buffer.faceGroups.push_back(fg1);
+
+	gBuffer.indices = fg1.indices;
 
 	//Shader::PolygonRenderer::Buffer::FaceGroup fg2;
 	//fg2.indices.push_back(0);
@@ -87,6 +96,7 @@ void PolygonShader::release(GLObjectFactory& factory)
 
 void PolygonShader::render(const Camera& camera)
 {
+	/*
 	{
 		this->fbo->bind();
 		this->fbo->setTexture(*this->texture);
@@ -104,10 +114,28 @@ void PolygonShader::render(const Camera& camera)
 
 		this->fbo->unbind();
 	}
+	*/
+
+	{
+		this->fbo->bind();
+		this->fbo->setTexture(*geometryTexture);
+
+		glViewport(0, 0, texture->getWidth(), texture->getHeight());
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		gBuffer.position.send(positions.get());
+		gBuffer.projectionMatrix = camera.getProjectionMatrix();
+		gBuffer.modelViewMatrix = camera.getModelViewMatrix();
+
+		this->gRenderer.render(gBuffer);
+
+		this->fbo->unbind();
+	}
 }
 
 TextureObject* PolygonShader::getTexture()
 {
-	return this->texture;
+	return this->geometryTexture;//this->texture;
 }
 
