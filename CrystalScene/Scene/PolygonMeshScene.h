@@ -11,13 +11,6 @@
 namespace Crystal {
 	namespace Scene {
 
-class FaceGroup
-{
-public:
-	Graphics::Material material;
-	std::vector<Shape::Face> faces;
-};
-
 class PolygonMeshScene : public IShapeScene
 {
 public:

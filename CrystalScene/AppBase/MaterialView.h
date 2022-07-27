@@ -6,7 +6,6 @@
 
 #include "FloatView.h"
 #include "Float4View.h"
-#include "StringView.h"
 
 #include "../../Crystal/Graphics/Material.h"
 
@@ -30,10 +29,6 @@ public:
 	Float4View diffuseView;
 	Float4View specularView;
 	FloatView shininessView;
-
-	StringView ambientTextureNameView;
-	StringView diffuseTextureNameView;
-	StringView specularTextureNameView;
 };
 	}
 }

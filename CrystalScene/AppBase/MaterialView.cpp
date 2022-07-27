@@ -13,18 +13,12 @@ MaterialView::MaterialView(const std::string& name) :
 	ambientView("Ambient", glm::vec4(0, 0, 0, 0)),
 	diffuseView("Diffuse", glm::vec4(0, 0, 0, 0)),
 	specularView("Specular", glm::vec4(0, 0, 0, 0)),
-	shininessView("Shininess", 1.0f),
-	ambientTextureNameView("AmbientTexture"),
-	diffuseTextureNameView("DiffuseTexture"),
-	specularTextureNameView("SpecularTexture")
+	shininessView("Shininess", 1.0f)
 {
 	add(&ambientView);
 	add(&diffuseView);
 	add(&specularView);
 	add(&shininessView);
-	add(&ambientTextureNameView);
-	add(&diffuseTextureNameView);
-	add(&specularTextureNameView);
 }
 
 void MaterialView::setValue(const Material& m)
@@ -33,10 +27,6 @@ void MaterialView::setValue(const Material& m)
 	diffuseView.setValue(m.diffuse);
 	specularView.setValue(m.specular);
 	shininessView.setValue(m.shininess);
-
-	ambientTextureNameView.setValue(m.ambientTexName);
-	diffuseTextureNameView.setValue(m.diffuseTexName);
-	specularTextureNameView.setValue(m.specularTexName);
 }
 
 Material MaterialView::getValue() const
@@ -46,9 +36,5 @@ Material MaterialView::getValue() const
 	m.diffuse = diffuseView.getValue();
 	m.specular = specularView.getValue();
 	m.shininess = shininessView.getValue();
-
-	m.ambientTexName = ambientTextureNameView.getValue();
-	m.diffuseTexName = diffuseTextureNameView.getValue();
-	m.specularTexName = specularTextureNameView.getValue();
 	return m;
 }
