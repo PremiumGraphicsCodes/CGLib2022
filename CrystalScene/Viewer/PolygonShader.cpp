@@ -144,10 +144,14 @@ void PolygonShader::render(const Camera& camera)
 		gBuffer.normal.send(normals.get());
 		gBuffer.projectionMatrix = camera.getProjectionMatrix();
 		gBuffer.modelViewMatrix = camera.getModelViewMatrix();
+		gBuffer.normalMatrix = glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix())));
 
 		this->gRenderer.render(gBuffer);
 
 		this->fbo->unbind();
+
+		const GLenum bufs1[] = { GL_COLOR_ATTACHMENT0 };
+		//glDrawBuffers(1, bufs1);
 	}
 }
 
@@ -155,4 +159,3 @@ TextureObject* PolygonShader::getTexture()
 {
 	return this->normalTexture;//this->geometryTexture;//this->texture;
 }
-

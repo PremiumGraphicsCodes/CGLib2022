@@ -4,6 +4,7 @@
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/VertexBufferObject.h"
 #include "Crystal/Shader/IRenderer.h"
+#include "Crystal/Math/Matrix3d.h"
 
 namespace Crystal {
 	namespace Shader {
@@ -17,6 +18,7 @@ public:
 		Shader::VertexBufferObject normal;
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
+		Math::Matrix3dd normalMatrix;
 		std::vector<unsigned int> indices;
 	};
 

@@ -9,6 +9,7 @@ using namespace Crystal::Shader;
 namespace {
 	constexpr auto projectionMatrixLabel = "projectionMatrix";
 	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
+	constexpr auto normalMatrixLabel = "normalMatrix";
 	constexpr auto positionLabel = "position";
 	constexpr auto normalLabel = "normal";
 }
@@ -34,6 +35,7 @@ ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
+	shader->findUniformLocation(::normalMatrixLabel);
 
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::normalLabel);
@@ -59,6 +61,7 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
+	shader->sendUniform(::normalMatrixLabel, buffer.normalMatrix);
 
 	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
 	shader->sendVertexAttribute3df(::normalLabel, buffer.normal);
@@ -84,14 +87,15 @@ std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
 in vec3 position;
 in vec3 normal;
 out vec4 vPosition;
-out vec4 vNormal;
+out vec3 vNormal;
 uniform mat4 projectionMatrix;
 uniform mat4 modelviewMatrix;
+uniform mat3 normalMatrix;
 void main(void)
 {
 	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
 	vPosition = gl_Position;
-	vNormal = vec4(normal, 1.0);
+	vNormal = normalMatrix * normal;
 }
 )";
 	return str;
@@ -102,14 +106,13 @@ std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
 	const std::string str = R"(
 #version 150
 in vec4 vPosition;
-in vec4 vNormal;
+in vec3 vNormal;
 out vec4 gPosition;
-out vec4 gNormal;
+out vec3 gNormal;
 
 void main(void) {
 	gPosition = vPosition;
-	gNormal = vNormal;
-	gNormal.r = 1;
+	gNormal.rgb = vNormal;
 }
 )";
 	return str;

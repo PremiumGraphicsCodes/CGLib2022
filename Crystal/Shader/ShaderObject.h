@@ -7,6 +7,7 @@
 #include <string>
 
 #include "../Math/Vector3d.h"
+#include "../Math/Matrix3d.h"
 #include "../Math/Matrix4d.h"
 #include "glew.h"
 
@@ -56,6 +57,8 @@ public:
 	void enable(GLenum e);
 
 	void disable(GLenum e);
+
+	void sendUniform(const std::string& name, const Math::Matrix3df& matrix);
 
 	void sendUniform(const std::string& name, const Math::Matrix4df& matrix);
 

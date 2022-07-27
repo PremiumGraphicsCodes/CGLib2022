@@ -188,6 +188,11 @@ void ShaderObject::disable(GLenum e)
 	glDisable(e);
 }
 
+void ShaderObject::sendUniform(const std::string& name, const Matrix3df& matrix)
+{
+	glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
+}
+
 void ShaderObject::sendUniform(const std::string& name, const Matrix4df& matrix)
 {
 	glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
