@@ -17,13 +17,15 @@ public:
 	class FaceGroup
 	{
 	public:
-		FaceGroup(const std::vector<Shape::Face>& faces, MaterialScene* material) :
+		FaceGroup(const std::vector<Shape::Face>& faces, MaterialScene* material, TextureScene* texture) :
 			faces(faces),
-			material(material)
+			material(material),
+			texture(texture)
 		{}
 
 		std::vector<Shape::Face> faces;
 		MaterialScene* material;
+		TextureScene* texture;
 	};
 
 	PolygonMeshScene();
