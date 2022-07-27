@@ -31,13 +31,19 @@ void FrameBufferObject::clear()
 void FrameBufferObject::setTexture(const ITextureObject& texture)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.getHandle(), 0);
 
 	//glBindRenderbuffer(GL_RENDERBUFFER, 0);
 	//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 }
+
+void FrameBufferObject::setTexture(const ITextureObject& texture, unsigned int number)
+{
+	glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + number, GL_TEXTURE_2D, texture.getHandle(), 0);
+}
+
 
 void FrameBufferObject::bind()
 {

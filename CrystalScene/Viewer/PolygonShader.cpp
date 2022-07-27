@@ -45,6 +45,9 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	this->geometryTexture = factory.createTextureObject();
 	this->geometryTexture->send(Imagef(512, 512));
 
+	this->normalTexture = factory.createTextureObject();
+	this->normalTexture->send(Imagef(512, 512));
+
 	readTexture(*this->polygonTexture);
 
 	positions.add(Vector3dd(0.0, 0.0, 0.0));
@@ -124,7 +127,14 @@ void PolygonShader::render(const Camera& camera)
 
 	{
 		this->fbo->bind();
+
+		const GLenum bufs[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
+		glDrawBuffers(2, bufs);
+
+		//this->geometryTexture->bind(0);
 		this->fbo->setTexture(*geometryTexture);
+		//this->normalTexture->bind(1);
+		this->fbo->setTexture(*normalTexture, 1);
 
 		glViewport(0, 0, texture->getWidth(), texture->getHeight());
 		glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -143,6 +153,6 @@ void PolygonShader::render(const Camera& camera)
 
 TextureObject* PolygonShader::getTexture()
 {
-	return this->geometryTexture;//this->texture;
+	return this->normalTexture;//this->geometryTexture;//this->texture;
 }
 

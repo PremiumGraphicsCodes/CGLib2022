@@ -109,6 +109,7 @@ out vec4 gNormal;
 void main(void) {
 	gPosition = vPosition;
 	gNormal = vNormal;
+	gNormal.r = 1;
 }
 )";
 	return str;

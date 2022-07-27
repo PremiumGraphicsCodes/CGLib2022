@@ -20,6 +20,8 @@ public:
 
 	void setTexture(const ITextureObject& texture);
 
+	void setTexture(const ITextureObject& texture, unsigned int number);
+
 	void bind();
 
 	void unbind();
