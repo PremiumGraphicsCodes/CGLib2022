@@ -52,9 +52,13 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	buffer.position.build();
 	buffer.texCoord.build();
-	buffer.indices.push_back(0);
-	buffer.indices.push_back(1);
-	buffer.indices.push_back(2);
+
+	Shader::PolygonRenderer::Buffer::FaceGroup fg;
+	fg.indices.push_back(0);
+	fg.indices.push_back(1);
+	fg.indices.push_back(2);
+	fg.texture = this->polygonTexture;
+	buffer.faceGroups.push_back(fg);
 
 	return status;
 }
@@ -79,7 +83,6 @@ void PolygonShader::render(const Camera& camera)
 		buffer.texCoord.send(texCoords.get());
 		buffer.projectionMatrix = camera.getProjectionMatrix();
 		buffer.modelViewMatrix = camera.getModelViewMatrix();
-		buffer.texture = this->polygonTexture;
 
 		this->renderer.render(buffer);
 

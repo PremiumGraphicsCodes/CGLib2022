@@ -57,11 +57,9 @@ void PolygonRenderer::render(const Buffer& buffer)
 
 	shader->enableDepthTest();
 
-	buffer.texture->bind(0);
 
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
-	shader->sendUniform(::textureLabel, *buffer.texture, 0);
 
 	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
 	shader->sendVertexAttribute2df(::texCoordLabel, buffer.texCoord);
@@ -69,14 +67,18 @@ void PolygonRenderer::render(const Buffer& buffer)
 	shader->enableVertexAttribute(::positionLabel);
 	shader->enableVertexAttribute(::texCoordLabel);
 
-	shader->drawTriangles(buffer.indices);
+	for(const auto& fg : buffer.faceGroups) {
+		shader->sendUniform(::textureLabel, *fg.texture, 0);
+		fg.texture->bind(0);
+		shader->drawTriangles(fg.indices);
+		fg.texture->unbind();
+	}
 
 	shader->disableVertexAttribute(::positionLabel);
 	shader->disableVertexAttribute(::texCoordLabel);
 
 	shader->disableDepthTest();
 
-	buffer.texture->unbind();
 
 	shader->unbind();
 }

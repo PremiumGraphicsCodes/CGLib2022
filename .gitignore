@@ -44,3 +44,6 @@
 /ThirdParty/forest-skyboxes
 /CrystalPhysics/CrystalPhysicsTest/x64/Debug/CrystalPhysicsTest.log
 /CrystalSpace/CrystalSpaceView/x64/Debug
+/Crystal/.vs/Crystal/v16
+/Crystal/IOTest/IOTest.vcxproj.user
+/Crystal/IOTest/OBJFileWriterTest.obj
