@@ -8,6 +8,8 @@ using namespace Crystal::Shader;
 
 namespace {
 	constexpr auto positionLabel = "position";
+	constexpr auto inverseModelViewMatrixLabel = "inverseModelViewMatrix";
+	constexpr auto inverseProjectionMatrixLabel = "inverseProjectionMatrix";
 }
 
 DFLightRenderer::DFLightRenderer() :
@@ -98,11 +100,46 @@ std::string DFLightRenderer::getBuiltInFragmentShaderSource() const
 {
 	const std::string str = R"(
 #version 150
-uniform sampler2D texture;
+uniform sampler2D positionTexture;
+uniform sampler2D normalTexture;
+uniform sampler2D colorTexture;
+uniform mat4 InvProjectionMatrix;
+uniform mat4 InvModelViewMatrix;
+uniform mat3 InvNormalMatrix;
+struct Light {
+	vec3 position;
+	vec3 color;
+};
+uniform Light light;
 in vec2 texCoord;
 out vec4 fragColor;
+
+vec3 getWorldPosition(vec3 pos)
+{
+	vec4 pos4 = InvModelViewMatrix * InvProjectionMatrix * vec4(pos, 1.0);
+	return pos4.rgb;
+}
+
+vec3 getWorldNormal(vec3 normal)
+{
+	return InvNormalMatrix * normal;
+}
+
+vec3 getDiffuseColor(vec3 position, vec3 normal, vec3 color)
+{
+	vec3 lightDir = normalize(light.position - position);
+	vec3 diffuse = max( dot(normal, lightDir), 0.0 ) * color * light.color;
+	return diffuse;
+}
+
 void main(void) {
-	fragColor = texture2D(texture, texCoord);
+	vec3 pos = texture(positionTexture, texCoord).rgb;
+	vec3 normal = texture(normalTexture, texCoord).rgb;
+	vec3 worldPos = getWorldPosition(pos);
+	vec3 worldNormal = getWorldNormal(normal);
+	vec3 color = texture(colorTexture, texCoord).rgb;
+	vec3 lighting = getDiffuseColor(worldPos, worldNormal, color); 
+	fragColor = vec4(lighting, 1.0);
 }
 )";
 	return str;

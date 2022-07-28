@@ -17,6 +17,8 @@ public:
 		Shader::TextureObject* positionTex;
 		Shader::TextureObject* normalTex;
 		Shader::TextureObject* albedoTex;
+		Math::Matrix4dd inverseModelViewMatrix;
+		Math::Matrix4dd inverseProjectionMatrix;
 	};
 
 	DFLightRenderer();

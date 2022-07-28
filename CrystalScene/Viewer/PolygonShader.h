@@ -7,6 +7,7 @@
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Graphics/Buffer2d.h"
 #include "CrystalScene/Scene/DFGeometryRenderer.h"
+#include "CrystalScene/Scene/DFLightRenderer.h"
 
 namespace Crystal {
 	namespace UI {
@@ -26,6 +27,8 @@ private:
 	Shader::PolygonRenderer renderer;
 	Shader::DFGeometryRenderer gRenderer;
 	Shader::DFGeometryRenderer::Buffer gBuffer;
+	Shader::DFLightRenderer lightRenderer;
+	Shader::DFLightRenderer::Buffer lightBuffer;
 	Shader::TextureObject* texture;
 	Shader::TextureObject* polygonTexture;
 	Shader::TextureObject* geometryTexture;

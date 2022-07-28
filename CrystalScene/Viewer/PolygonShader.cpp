@@ -32,6 +32,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	status.add(renderer.build(factory));
 	status.add(gRenderer.build(factory));
+	status.add(lightRenderer.build(factory));
 
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);
