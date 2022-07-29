@@ -29,7 +29,7 @@ private:
 	Shader::DFGeometryRenderer::Buffer gBuffer;
 	Shader::DFLightRenderer lightRenderer;
 	Shader::DFLightRenderer::Buffer lightBuffer;
-	Shader::TextureObject* texture;
+	Shader::TextureObject* colorTexture;
 	Shader::TextureObject* polygonTexture;
 	Shader::TextureObject* geometryTexture;
 	Shader::TextureObject* normalTexture;

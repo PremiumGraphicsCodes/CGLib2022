@@ -95,8 +95,6 @@ void OnScreenRenderer::render(const ITextureObject& texture)
 	shader->sendUniform("texture", texture, 0);
 
 	shader->sendVertexAttribute2df("position", positions);
-	//shader->sendVertexAttribute2df("positions", positions);
-	//glVertexAttribPointer(shader->getAttribLocation("position"), 2, GL_FLOAT, GL_FALSE, 0, positions.data());
 
 	glEnableVertexAttribArray(0);
 	glDrawArrays(GL_QUADS, 0, static_cast<GLsizei>(positions.size() / 2));

@@ -37,8 +37,8 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);
 
-	this->texture = factory.createTextureObject();
-	this->texture->send(Image(512, 512));
+	this->colorTexture = factory.createTextureObject();
+	this->colorTexture->send(Image(512, 512));
 
 	this->polygonTexture = factory.createTextureObject();
 	this->polygonTexture->send(Image(512, 512, 255));
@@ -101,17 +101,18 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 void PolygonShader::release(GLObjectFactory& factory)
 {
 	factory.remove(this->fbo);
-	factory.remove(this->texture);
+	factory.remove(this->colorTexture);
 }
 
 void PolygonShader::render(const Camera& camera)
 {
-	/*
+	const int width = 512;
+	const int height = 512;
 	{
 		this->fbo->bind();
-		this->fbo->setTexture(*this->texture);
+		this->fbo->setTexture(*this->colorTexture);
 
-		glViewport(0, 0, texture->getWidth(), texture->getHeight());
+		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -124,7 +125,6 @@ void PolygonShader::render(const Camera& camera)
 
 		this->fbo->unbind();
 	}
-	*/
 
 	{
 		this->fbo->bind();
@@ -137,7 +137,7 @@ void PolygonShader::render(const Camera& camera)
 		//this->normalTexture->bind(1);
 		this->fbo->setTexture(*normalTexture, 1);
 
-		glViewport(0, 0, texture->getWidth(), texture->getHeight());
+		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -151,7 +151,7 @@ void PolygonShader::render(const Camera& camera)
 
 		this->fbo->unbind();
 
-		const GLenum bufs1[] = { GL_COLOR_ATTACHMENT0 };
+		//const GLenum bufs1[] = { GL_COLOR_ATTACHMENT0 };
 		//glDrawBuffers(1, bufs1);
 	}
 }

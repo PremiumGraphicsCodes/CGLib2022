@@ -1,15 +1,21 @@
 #include "DFLightRenderer.h"
 
+#include "Crystal/Math/Box2d.h"
 #include "Crystal/Shader/TextureObject.h"
 
 #include <sstream>
 
+using namespace Crystal::Math;
 using namespace Crystal::Shader;
 
 namespace {
 	constexpr auto positionLabel = "position";
-	constexpr auto inverseModelViewMatrixLabel = "inverseModelViewMatrix";
-	constexpr auto inverseProjectionMatrixLabel = "inverseProjectionMatrix";
+	constexpr auto positionTextureLabel = "positionTexture";
+	constexpr auto normalTextureLabel = "normalTexture";
+	constexpr auto colorTextureLabel = "colorTexture";
+	constexpr auto invModelViewMatrixLabel = "invModelViewMatrix";
+	constexpr auto invProjectionMatrixLabel = "invProjectionMatrix";
+	constexpr auto invNormalMatrixLabel = "invNormalMatrix";
 }
 
 DFLightRenderer::DFLightRenderer() :
@@ -19,29 +25,31 @@ DFLightRenderer::DFLightRenderer() :
 
 ShaderBuildStatus DFLightRenderer::build(GLObjectFactory& factory)
 {
+	ShaderBuildStatus status;
+	status.isOk = true;
+
 	const auto& vsSource = getBuildInVertexShaderSource();
 	const auto& fsSource = getBuiltInFragmentShaderSource();
 
 	shader = factory.createShaderObject();
 	const auto isOk = shader->build(vsSource, fsSource);
 	if (!isOk) {
-		ShaderBuildStatus status;
 		status.isOk = false;
 		status.log = shader->getLog();
 		return status;
 	}
 
-	/*
-	shader->findUniformLocation(::projectionMatrixLabel);
-	shader->findUniformLocation(::modelViewMatrixLabel);
-	shader->findUniformLocation(::normalMatrixLabel);
+	shader->findUniformLocation(::invProjectionMatrixLabel);
+	shader->findUniformLocation(::invModelViewMatrixLabel);
+	shader->findUniformLocation(::invNormalMatrixLabel);
+	shader->findUniformLocation(::positionTextureLabel);
+	shader->findUniformLocation(::normalTextureLabel);
+	shader->findUniformLocation(::colorTextureLabel);
+	shader->findUniformLocation("light.position");
+	shader->findUniformLocation("light.color");
 
 	shader->findAttribLocation(::positionLabel);
-	shader->findAttribLocation(::normalLabel);
-	*/
 
-	ShaderBuildStatus status;
-	status.isOk = true;
 	return status;
 }
 
@@ -50,36 +58,48 @@ void DFLightRenderer::release(GLObjectFactory& factory)
 	factory.remove(shader);
 }
 
+namespace {
+	std::vector<float> toArray(const Box2d<float>& box)
+	{
+		return{
+			box.getMinX(), box.getMaxY(),
+			box.getMinX(), box.getMinY(),
+			box.getMaxX(), box.getMinY(),
+			box.getMaxX(), box.getMaxY()
+		};
+	}
+}
+
 void DFLightRenderer::render(const Buffer& buffer)
 {
-	/*
+	const Box2d box(Vector2df(-1.0, -1.0), Vector2df(1.0, 1.0));
+	const auto& positions = ::toArray(box);
+
 	shader->bind();
-	shader->bindOutput("gPosition", 0);
-	shader->bindOutput("gNormal", 1);
+	shader->bindOutput("fragColor", 0);
 
-	shader->enableDepthTest();
+	shader->sendUniform(::invProjectionMatrixLabel, buffer.invProjectionMatrix);
+	shader->sendUniform(::invModelViewMatrixLabel, buffer.invModelViewMatrix);
+	shader->sendUniform(::invNormalMatrixLabel, buffer.invNormalMatrix);
 
+	buffer.positionTex->bind(0);
+	buffer.normalTex->bind(1);
+	buffer.albedoTex->bind(2);
 
-	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
-	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
-	shader->sendUniform(::normalMatrixLabel, buffer.normalMatrix);
+	shader->sendUniform(::positionTextureLabel, 0);
+	shader->sendUniform(::normalTextureLabel, 1);
+	shader->sendUniform(::colorTextureLabel, *buffer.albedoTex, 2);
 
-	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
-	shader->sendVertexAttribute3df(::normalLabel, buffer.normal);
+	glEnableVertexAttribArray(0);
+	shader->sendVertexAttribute2df(::positionLabel, positions);
+	shader->drawQuads(positions.size() / 2);
+	glDisableVertexAttribArray(0);
 
-	shader->enableVertexAttribute(::positionLabel);
-	shader->enableVertexAttribute(::normalLabel);
-
-	shader->drawTriangles(buffer.indices);
-
-	shader->disableVertexAttribute(::positionLabel);
-	shader->disableVertexAttribute(::normalLabel);
-
-	shader->disableDepthTest();
-
+	buffer.positionTex->unbind();
+	buffer.normalTex->unbind();
+	buffer.albedoTex->unbind();
 
 	shader->unbind();
-	*/
 }
 
 std::string DFLightRenderer::getBuildInVertexShaderSource() const
@@ -103,9 +123,9 @@ std::string DFLightRenderer::getBuiltInFragmentShaderSource() const
 uniform sampler2D positionTexture;
 uniform sampler2D normalTexture;
 uniform sampler2D colorTexture;
-uniform mat4 InvProjectionMatrix;
-uniform mat4 InvModelViewMatrix;
-uniform mat3 InvNormalMatrix;
+uniform mat4 invProjectionMatrix;
+uniform mat4 invModelViewMatrix;
+uniform mat3 invNormalMatrix;
 struct Light {
 	vec3 position;
 	vec3 color;
@@ -116,13 +136,13 @@ out vec4 fragColor;
 
 vec3 getWorldPosition(vec3 pos)
 {
-	vec4 pos4 = InvModelViewMatrix * InvProjectionMatrix * vec4(pos, 1.0);
+	vec4 pos4 = invModelViewMatrix * invProjectionMatrix * vec4(pos, 1.0);
 	return pos4.rgb;
 }
 
 vec3 getWorldNormal(vec3 normal)
 {
-	return InvNormalMatrix * normal;
+	return invNormalMatrix * normal;
 }
 
 vec3 getDiffuseColor(vec3 position, vec3 normal, vec3 color)
