@@ -42,6 +42,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalSpaceView", "Crystal
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBRView", "CrystalPBR\CrystalPBRView\CrystalPBRView.vcxproj", "{F7B41760-359B-49FF-9177-006490E52ED4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBR", "CrystalPBR\CrystalPBR\CrystalPBR.vcxproj", "{571960E5-CEE8-4A3E-82E3-7ADF50629391}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +224,16 @@ Global
 		{F7B41760-359B-49FF-9177-006490E52ED4}.Release|x64.Build.0 = Release|x64
 		{F7B41760-359B-49FF-9177-006490E52ED4}.Release|x86.ActiveCfg = Release|Win32
 		{F7B41760-359B-49FF-9177-006490E52ED4}.Release|x86.Build.0 = Release|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Debug|x64.ActiveCfg = Debug|x64
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Debug|x64.Build.0 = Debug|x64
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Debug|x86.ActiveCfg = Debug|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Debug|x86.Build.0 = Debug|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Release|Any CPU.ActiveCfg = Release|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Release|x64.ActiveCfg = Release|x64
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Release|x64.Build.0 = Release|x64
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Release|x86.ActiveCfg = Release|Win32
+		{571960E5-CEE8-4A3E-82E3-7ADF50629391}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
