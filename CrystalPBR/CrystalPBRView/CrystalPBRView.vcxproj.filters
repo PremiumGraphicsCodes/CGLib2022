@@ -3,9 +3,4 @@
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Filter Include="imgui">
-      <UniqueIdentifier>{666902b4-511c-4a9b-914f-7e93330f14aa}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
 </Project>
