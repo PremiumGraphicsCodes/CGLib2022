@@ -33,6 +33,7 @@ private:
 	Shader::TextureObject* polygonTexture;
 	Shader::TextureObject* geometryTexture;
 	Shader::TextureObject* normalTexture;
+	Shader::TextureObject* shadedTexture;
 	Shader::FrameBufferObject* fbo;
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer2d<float> texCoords;

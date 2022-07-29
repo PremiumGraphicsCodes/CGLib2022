@@ -81,6 +81,8 @@ void DFLightRenderer::render(const Buffer& buffer)
 	shader->sendUniform(::invProjectionMatrixLabel, buffer.invProjectionMatrix);
 	shader->sendUniform(::invModelViewMatrixLabel, buffer.invModelViewMatrix);
 	shader->sendUniform(::invNormalMatrixLabel, buffer.invNormalMatrix);
+	shader->sendUniform("light.position", buffer.lightPosition);
+	shader->sendUniform("light.color", buffer.lightColor);
 
 	buffer.positionTex->bind(0);
 	buffer.normalTex->bind(1);
