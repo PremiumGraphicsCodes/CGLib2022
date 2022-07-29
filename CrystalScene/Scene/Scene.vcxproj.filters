@@ -169,9 +169,6 @@
     <ClInclude Include="PolygonRenderer.h">
       <Filter>SceneShader</Filter>
     </ClInclude>
-    <ClInclude Include="DFGeometryRenderer.h">
-      <Filter>SceneShader\Deffered</Filter>
-    </ClInclude>
     <ClInclude Include="DFLightRenderer.h">
       <Filter>SceneShader\Deffered</Filter>
     </ClInclude>
@@ -282,9 +279,6 @@
     </ClCompile>
     <ClCompile Include="PolygonRenderer.cpp">
       <Filter>SceneShader</Filter>
-    </ClCompile>
-    <ClCompile Include="DFGeometryRenderer.cpp">
-      <Filter>SceneShader\Deffered</Filter>
     </ClCompile>
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>SceneShader\Deffered</Filter>

@@ -2,8 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="SkyBoxRenderer.h" />
+    <ClInclude Include="DFGeometryRenderer.h">
+      <Filter>Deffered</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkyBoxRenderer.cpp" />
+    <ClCompile Include="DFGeometryRenderer.cpp">
+      <Filter>Deffered</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Deffered">
+      <UniqueIdentifier>{ac2cccec-3e2d-49d1-834e-2f9c70ee37c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
