@@ -1,20 +1,65 @@
-﻿// CrystalPBRView.cpp : このファイルには 'main' 関数が含まれています。プログラム実行の開始と終了がそこで行われます。
-//
+﻿#include "Crystal/ThirdParty/glew-2.1.0/include/GL/glew.h"
+#include "CrystalScene/ThirdParty/glfw-3.3/include/GLFW/glfw3.h"
 
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    // GLFW エラーのコールバック
+    glfwSetErrorCallback(
+        [](auto id, auto description) { std::cerr << description << std::endl; });
+
+    const GLuint width = 960;
+    const GLuint height = 540;
+
+    // GLFWの初期化
+    if (!glfwInit()) {
+        return false;
+    }
+
+    // OpenGL Version 4.6 Core Profileを選択する
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    // リサイズ不可
+    //glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+
+    // ウィンドウの作成
+    GLFWwindow* window =
+        glfwCreateWindow(width, height, "Game", nullptr, nullptr);
+    if (window == nullptr) {
+        std::cerr << "Can't create GLFW window." << std::endl;
+        return false;
+    }
+    glfwMakeContextCurrent(window);
+
+    // GLEWの初期化
+    if (glewInit() != GLEW_OK) {
+        std::cerr << "Can't initialize GLEW." << std::endl;
+        return false;
+    }
+
+    // VSyncを待つ
+    glfwSwapInterval(1);
+
+    // OpenGL エラーのコールバック
+    glEnable(GL_DEBUG_OUTPUT);
+    glDebugMessageCallback(
+        [](auto source, auto type, auto id, auto severity, auto length,
+            const auto* message, const void* userParam) {
+                auto t = type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : "";
+                std::cerr << "GL CALLBACK: " << t << " type = " << type
+                    << ", severity = " << severity << ", message = " << message
+                    << std::endl;
+        },
+        0);
+
+    // メインループ
+    while (glfwWindowShouldClose(window) == GL_FALSE) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
 }
-
-// プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
-// プログラムのデバッグ: F5 または [デバッグ] > [デバッグの開始] メニュー
-
-// 作業を開始するためのヒント: 
-//    1. ソリューション エクスプローラー ウィンドウを使用してファイルを追加/管理します 
-//   2. チーム エクスプローラー ウィンドウを使用してソース管理に接続します
-//   3. 出力ウィンドウを使用して、ビルド出力とその他のメッセージを表示します
-//   4. エラー一覧ウィンドウを使用してエラーを表示します
-//   5. [プロジェクト] > [新しい項目の追加] と移動して新しいコード ファイルを作成するか、[プロジェクト] > [既存の項目の追加] と移動して既存のコード ファイルをプロジェクトに追加します
-//   6. 後ほどこのプロジェクトを再び開く場合、[ファイル] > [開く] > [プロジェクト] と移動して .sln ファイルを選択します
