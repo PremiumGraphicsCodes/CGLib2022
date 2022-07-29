@@ -93,12 +93,6 @@
     <ClCompile Include="TranslateView.cpp" />
     <ClCompile Include="Vector3dView.cpp" />
     <ClCompile Include="VertexView.cpp" />
-    <ClCompile Include="imgui.cpp" />
-    <ClCompile Include="imgui_draw.cpp" />
-    <ClCompile Include="imgui_impl_glfw.cpp" />
-    <ClCompile Include="imgui_impl_opengl3.cpp" />
-    <ClCompile Include="imgui_stdlib.cpp" />
-    <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="IPanel.cpp" />
     <ClCompile Include="IPopupButton.cpp" />
     <ClCompile Include="LightAddView.cpp" />
@@ -207,16 +201,7 @@
     <ClInclude Include="TranslateView.h" />
     <ClInclude Include="VertexView.h" />
     <ClInclude Include="Quad3dView.h" />
-    <ClInclude Include="imconfig.h" />
     <ClInclude Include="IMenu.h" />
-    <ClInclude Include="imgui.h" />
-    <ClInclude Include="imgui_impl_glfw.h" />
-    <ClInclude Include="imgui_impl_opengl3.h" />
-    <ClInclude Include="imgui_internal.h" />
-    <ClInclude Include="imgui_stdlib.h" />
-    <ClInclude Include="imstb_rectpack.h" />
-    <ClInclude Include="imstb_textedit.h" />
-    <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="IntView.h" />
     <ClInclude Include="IPanel.h" />
     <ClInclude Include="IPopupButton.h" />
@@ -261,6 +246,11 @@
     <ClInclude Include="WFTorusView.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WireFrameEditView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CrystalUI\CrystalUI\CrystalUI.vcxproj">
+      <Project>{cf4ad4c8-5351-48d6-9087-48c812dfc4f7}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8BCD40A1-4223-4E7A-A84A-93FBF1B6FFD8}</ProjectGuid>

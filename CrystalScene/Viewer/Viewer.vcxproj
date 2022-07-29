@@ -109,7 +109,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../ThirdParty/nativefiledialog/build/lib/$(Configuration)/x64;../../Crystal/ThirdParty/glew-2.1.0/lib/Release/x64;../ThirdParty/glfw-3.3/lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../ThirdParty/nativefiledialog/build/lib/$(Configuration)/x64;../../Crystal/ThirdParty/glew-2.1.0/lib/Release/x64;../../CrystalUI/ThirdParty/glfw-3.3/lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\Crystal\ThirdParty\glew-2.1.0\bin\Release\x64\glew32.dll .\</Command>
@@ -166,6 +166,9 @@
     <ClCompile Include="Viewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CrystalUI\CrystalUI\CrystalUI.vcxproj">
+      <Project>{cf4ad4c8-5351-48d6-9087-48c812dfc4f7}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\Crystal\Graphics\Graphics.vcxproj">
       <Project>{227e5411-92cb-4e30-a67b-043d8b04a9bc}</Project>
     </ProjectReference>

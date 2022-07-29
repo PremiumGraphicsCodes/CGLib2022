@@ -2,29 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Window.cpp" />
-    <ClCompile Include="imgui.cpp">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_draw.cpp">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClCompile>
     <ClCompile Include="IPopupButton.cpp">
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="IPanel.cpp">
       <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_impl_glfw.cpp">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_impl_opengl3.cpp">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_widgets.cpp">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_stdlib.cpp">
-      <Filter>ThirdParty\imgui</Filter>
     </ClCompile>
     <ClCompile Include="CameraMenu.cpp">
       <Filter>View</Filter>
@@ -331,9 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h" />
-    <ClInclude Include="imgui.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
     <ClInclude Include="IPopupButton.h">
       <Filter>Window</Filter>
     </ClInclude>
@@ -348,27 +327,6 @@
     </ClInclude>
     <ClInclude Include="ITreeList.h">
       <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="imgui_impl_glfw.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imgui_impl_opengl3.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imgui_internal.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imstb_rectpack.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imstb_textedit.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imstb_truetype.h">
-      <Filter>ThirdParty\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="imconfig.h">
-      <Filter>ThirdParty\imgui</Filter>
     </ClInclude>
     <ClInclude Include="DoubleView.h">
       <Filter>Primitive</Filter>
@@ -402,9 +360,6 @@
     </ClInclude>
     <ClInclude Include="StringView.h">
       <Filter>Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="imgui_stdlib.h">
-      <Filter>ThirdParty\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plane3dView.h">
       <Filter>Math</Filter>
@@ -823,9 +778,6 @@
     </Filter>
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{dc4896c0-6bca-46ee-a40f-7803c34057cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ThirdParty\imgui">
-      <UniqueIdentifier>{662b1c1e-ae3f-44f1-9bee-a62584f1809b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Math\Vector">
       <UniqueIdentifier>{5336a907-956d-437b-9038-0da11a41ac0b}</UniqueIdentifier>
