@@ -169,9 +169,6 @@
     <ClInclude Include="PolygonRenderer.h">
       <Filter>SceneShader</Filter>
     </ClInclude>
-    <ClInclude Include="DFLightRenderer.h">
-      <Filter>SceneShader\Deffered</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IScene.cpp">
@@ -280,9 +277,6 @@
     <ClCompile Include="PolygonRenderer.cpp">
       <Filter>SceneShader</Filter>
     </ClCompile>
-    <ClCompile Include="DFLightRenderer.cpp">
-      <Filter>SceneShader\Deffered</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -374,9 +368,6 @@
     </Filter>
     <Filter Include="Presenter\Shape\TriangleMesh">
       <UniqueIdentifier>{ebb728a7-35f7-46ea-8941-bafaf111efb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneShader\Deffered">
-      <UniqueIdentifier>{60a8d27b-36ee-416a-b948-44c51dd870d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

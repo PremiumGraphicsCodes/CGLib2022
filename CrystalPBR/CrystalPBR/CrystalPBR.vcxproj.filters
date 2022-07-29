@@ -5,10 +5,16 @@
     <ClInclude Include="DFGeometryRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
+    <ClInclude Include="DFLightRenderer.h">
+      <Filter>Deffered</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkyBoxRenderer.cpp" />
     <ClCompile Include="DFGeometryRenderer.cpp">
+      <Filter>Deffered</Filter>
+    </ClCompile>
+    <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
   </ItemGroup>

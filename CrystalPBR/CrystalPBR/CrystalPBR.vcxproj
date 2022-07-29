@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DFGeometryRenderer.h" />
+    <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="SkyBoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFGeometryRenderer.cpp" />
+    <ClCompile Include="DFLightRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
