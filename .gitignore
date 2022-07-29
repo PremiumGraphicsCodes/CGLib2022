@@ -49,3 +49,5 @@
 /Crystal/IOTest/OBJFileWriterTest.obj
 /CrystalPBR/CrystalPBRView/x64/Debug
 /CrystalPBR/CrystalPBR/x64/Debug
+/CrystalPBR/ThirdParty/imgui-1.88/backends
+/CrystalPBR/CrystalPBRView/imgui.ini
