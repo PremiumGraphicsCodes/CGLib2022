@@ -72,7 +72,7 @@ namespace {
 
 void DFLightRenderer::render(const Buffer& buffer)
 {
-	const Box2d box(Vector2df(-1.0, -1.0), Vector2df(1.0, 1.0));
+	const Box2d<float> box(Vector2df(-1.0, -1.0), Vector2df(1.0, 1.0));
 	const auto& positions = ::toArray(box);
 
 	shader->bind();
