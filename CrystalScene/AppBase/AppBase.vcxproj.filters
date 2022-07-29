@@ -654,6 +654,9 @@
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="CheckBox.h" />
+    <ClInclude Include="imgui.h">
+      <Filter>ThirdParty</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Window">

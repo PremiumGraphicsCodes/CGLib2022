@@ -143,6 +143,7 @@
     <ClInclude Include="glfw3.h" />
     <ClInclude Include="IEditCancelView.h" />
     <ClInclude Include="ImageView.h" />
+    <ClInclude Include="imgui.h" />
     <ClInclude Include="IOkCancelView.h" />
     <ClInclude Include="IPMAddView.h" />
     <ClInclude Include="IPSAddView.h" />
