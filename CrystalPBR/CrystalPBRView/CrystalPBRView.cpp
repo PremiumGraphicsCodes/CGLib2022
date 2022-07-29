@@ -3,11 +3,11 @@
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
+#include "CrystalUI/CrystalUI/imgui.h"
+#include "CrystalUI/CrystalUI/imgui_impl_glfw.h"
+#include "CrystalUI/CrystalUI/imgui_impl_opengl3.h"
 #include <stdio.h>
-#include "CrystalScene/ThirdParty/glfw-3.3/include/GLFW/glfw3.h"
+#include "CrystalUI/ThirdParty/glfw-3.3/include/GLFW/glfw3.h"
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
