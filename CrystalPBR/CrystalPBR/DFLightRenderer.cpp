@@ -150,7 +150,11 @@ vec3 getWorldNormal(vec3 normal)
 vec3 getDiffuseColor(vec3 position, vec3 normal, vec3 color)
 {
 	vec3 lightDir = normalize(light.position - position);
-	vec3 diffuse = max( dot(normal, lightDir), 0.0 ) * color * light.color;
+	float d = dot(normal, lightDir);
+	if( d <= 0.0 ) {
+		return vec3(1,1,1);
+	}
+	vec3 diffuse = max(d, 0.0 ) * color * light.color;
 	return diffuse;
 }
 
