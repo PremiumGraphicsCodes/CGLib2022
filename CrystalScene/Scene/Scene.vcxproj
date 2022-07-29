@@ -52,7 +52,6 @@
     <ClInclude Include="ScreenIdShader.h" />
     <ClInclude Include="ScreenShader.h" />
     <ClInclude Include="SceneShader.h" />
-    <ClInclude Include="SkyBoxRenderer.h" />
     <ClInclude Include="SolidAsWFPresenter.h" />
     <ClInclude Include="SolidScene.h" />
     <ClInclude Include="TexturePresenter.h" />
@@ -105,7 +104,6 @@
     <ClCompile Include="ParticleSystemScene.cpp" />
     <ClCompile Include="PolygonMeshScene.cpp" />
     <ClCompile Include="SceneShader.cpp" />
-    <ClCompile Include="SkyBoxRenderer.cpp" />
     <ClCompile Include="SolidAsWFPresenter.cpp" />
     <ClCompile Include="SolidScene.cpp" />
     <ClCompile Include="TexturePresenter.cpp" />
