@@ -40,11 +40,14 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	this->colorTexture = factory.createTextureObject();
 	this->colorTexture->send(Image(512, 512));
 
+	//this->polygonTexture = factory.createTextureObject();
+	//this->polygonTexture->send(Imagef(512, 512));
+
 	this->polygonTexture = factory.createTextureObject();
 	this->polygonTexture->send(Image(512, 512, 255));
 
-	this->geometryTexture = factory.createTextureObject();
-	this->geometryTexture->send(Imagef(512, 512));
+	this->positionTexture = factory.createTextureObject();
+	this->positionTexture->send(Imagef(512, 512));
 
 	this->normalTexture = factory.createTextureObject();
 	this->normalTexture->send(Imagef(512, 512));
@@ -136,7 +139,7 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glDrawBuffers(2, bufs);
 
 		//this->geometryTexture->bind(0);
-		this->fbo->setTexture(*geometryTexture);
+		this->fbo->setTexture(*positionTexture);
 		//this->normalTexture->bind(1);
 		this->fbo->setTexture(*normalTexture, 1);
 
@@ -171,7 +174,7 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		lightBuffer.albedoTex = this->colorTexture;
-		lightBuffer.positionTex = this->polygonTexture;
+		lightBuffer.positionTex = this->positionTexture;
 		lightBuffer.normalTex = this->normalTexture;
 		lightBuffer.invModelViewMatrix = glm::inverse(camera.getModelViewMatrix());
 		lightBuffer.invProjectionMatrix = glm::inverse(camera.getProjectionMatrix());

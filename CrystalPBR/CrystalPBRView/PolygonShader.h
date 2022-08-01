@@ -31,7 +31,7 @@ namespace Crystal {
 			Shader::DFLightRenderer::Buffer lightBuffer;
 			Shader::TextureObject* colorTexture;
 			Shader::TextureObject* polygonTexture;
-			Shader::TextureObject* geometryTexture;
+			Shader::TextureObject* positionTexture;
 			Shader::TextureObject* normalTexture;
 			Shader::TextureObject* shadedTexture;
 			Shader::FrameBufferObject* fbo;
