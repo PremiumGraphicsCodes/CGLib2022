@@ -8,21 +8,17 @@
 namespace Crystal {
 	namespace UI {
 
-		class CubeMapShader : public Scene::IShader
+		class CubeMapShader
 		{
 		public:
-			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory) override;
+			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory);
 
-			void release(Shader::GLObjectFactory& factory) override;
+			void release(Shader::GLObjectFactory& factory);
 
-			void render(const Graphics::Camera& camera) override;
-
-			Shader::TextureObject* getTexture() override;
+			void render(const Graphics::Camera& camera, const int width, const int height);
 
 		private:
 			Shader::SkyBoxRenderer skyBoxRenderer;
-			Shader::TextureObject* texture;
-			Shader::FrameBufferObject* fbo;
 			Shader::CubeMapTextureObject* cubeMapTexture;
 		};
 	}

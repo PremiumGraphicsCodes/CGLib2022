@@ -53,12 +53,6 @@ ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
 
 	status.add(skyBoxRenderer.build(factory));
 
-	this->fbo = factory.createFrameBufferObject();
-	this->fbo->build(512, 512);
-
-	this->texture = factory.createTextureObject();
-	this->texture->send(Image(512, 512));
-
 	this->cubeMapTexture = new CubeMapTextureObject();
 	factory.add(cubeMapTexture);
 	readCubeMap(*this->cubeMapTexture);
@@ -68,17 +62,14 @@ ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
 
 void CubeMapShader::release(GLObjectFactory& factory)
 {
-	factory.remove(this->fbo);
-	factory.remove(this->texture);
+
 }
 
-void CubeMapShader::render(const Camera& camera)
+void CubeMapShader::render(const Camera& camera, const int width, const int height)
 {
 	{
-		this->fbo->bind();
-		this->fbo->setTexture(*this->texture);
 
-		glViewport(0, 0, texture->getWidth(), texture->getHeight());
+		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -89,12 +80,5 @@ void CubeMapShader::render(const Camera& camera)
 
 		skyBoxRenderer.render(buffer);
 
-		this->fbo->unbind();
 	}
 }
-
-TextureObject* CubeMapShader::getTexture()
-{
-	return this->texture;
-}
-

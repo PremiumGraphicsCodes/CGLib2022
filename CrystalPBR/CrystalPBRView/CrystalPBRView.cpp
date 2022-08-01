@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "CrystalUI/ThirdParty/glfw-3.3/include/GLFW/glfw3.h"
 
+#include "CubeMapShader.h"
 #include "PolygonShader.h"
 
 //#include "Crystal/ThirdParty/glew-2.1.0/include/GL/glew.h"
@@ -21,18 +22,21 @@ namespace {
         fprintf(stderr, "Glfw Error %d: %s\n", error, description);
     }
 
-    UI::PolygonShader renderer;
+    //UI::PolygonShader renderer;
+	UI::CubeMapShader cubeMapRenderer;
     Shader::GLObjectFactory factory;
     Graphics::Camera camera(Vector3df(0,0,1), Vector3df(0,0,0), Vector3df(0,1,0), 0.1, 10.0);
 
     void onInit()
     {
-        renderer.build(factory);
+		cubeMapRenderer.build(factory);
+        //renderer.build(factory);
     }
 
     void onRender(const int width, const int height)
     {
-        renderer.render(camera, width, height);
+		cubeMapRenderer.render(camera, width, height);
+        //renderer.render(camera, width, height);
     }
 
 	bool isLeftDown;
