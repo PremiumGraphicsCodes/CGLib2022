@@ -12,16 +12,16 @@
 namespace Crystal {
 	namespace UI {
 
-		class PolygonShader : public Scene::IShader
+		class PolygonShader //: public Scene::IShader
 		{
 		public:
-			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory) override;
+			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory); //override;
 
-			void release(Shader::GLObjectFactory& factory) override;
+			void release(Shader::GLObjectFactory& factory); //override;
 
-			void render(const Graphics::Camera& camera) override;
+			void render(const Graphics::Camera& camera); //override;
 
-			Shader::TextureObject* getTexture() override;
+			Shader::TextureObject* getTexture();// override;
 
 		private:
 			Shader::PolygonRenderer renderer;

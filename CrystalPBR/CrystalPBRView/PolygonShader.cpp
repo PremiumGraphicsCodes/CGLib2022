@@ -176,7 +176,7 @@ void PolygonShader::render(const Camera& camera)
 		lightBuffer.invModelViewMatrix = glm::inverse(camera.getModelViewMatrix());
 		lightBuffer.invProjectionMatrix = glm::inverse(camera.getProjectionMatrix());
 		lightBuffer.invNormalMatrix = glm::inverse(glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix()))));
-		lightBuffer.lightPosition = Vector3dd(1, 1, 1);
+		lightBuffer.lightPosition = Vector3dd(0, 0, 10);
 		lightBuffer.lightColor = Vector3dd(1, 1, 1);
 
 		this->lightRenderer.render(lightBuffer);

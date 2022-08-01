@@ -34,6 +34,58 @@ namespace {
     {
         renderer.render(camera);
     }
+
+	bool isLeftDown;
+	bool isRightDown;
+
+	Vector2df toScreenCoord(GLFWwindow* window, const double x, const double y) {
+		int width, height;
+		glfwGetWindowSize(window, &width, &height);
+		const auto xx = x / (float)width;
+		const auto yy = 1.0 - y / (float)height;
+		return Vector2df(xx, yy);
+	}
+
+	void onMouse(GLFWwindow* window, int button, int action, int mods) {
+		if (ImGui::IsMouseHoveringAnyWindow()) {
+			return;
+		}
+
+		double x, y;
+		glfwGetCursorPos(window, &x, &y);
+		const auto& coord = toScreenCoord(window, x, y);
+		if (button == GLFW_MOUSE_BUTTON_LEFT) {
+			if (action == GLFW_PRESS) {
+				//canvas->onLeftButtonDown(coord);
+				isLeftDown = true;
+			}
+			else if (action == GLFW_RELEASE) {
+				//canvas->onLeftButtonUp(coord);
+				isLeftDown = false;
+			}
+		}
+		else if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+			if (action == GLFW_PRESS) {
+				//canvas->onRightButtonDown(coord);
+				isRightDown = true;
+			}
+			else if (action == GLFW_RELEASE) {
+				//canvas->onRightButtonUp(coord);
+				isRightDown = false;
+			}
+		}
+	}
+
+	void onMouseMove(GLFWwindow* window, double xpos, double ypos)
+	{
+		const auto& coord = toScreenCoord(window, xpos, ypos);
+		if (isLeftDown) {
+			//canvas->onLeftDragging(coord);
+		}
+		else if (isRightDown) {
+			//canvas->onRightDragging(coord);
+		}
+	}
 }
 
 int main() {
@@ -74,8 +126,8 @@ int main() {
 
 
    // glfwSetScrollCallback(window, onWheel);
-   // glfwSetMouseButtonCallback(window, onMouse);
-   // glfwSetCursorPosCallback(window, onMouseMove);
+	glfwSetMouseButtonCallback(window, onMouse);
+	glfwSetCursorPosCallback(window, onMouseMove);
 
    // glfwSetWindowCloseCallback(window, onClose);
 
