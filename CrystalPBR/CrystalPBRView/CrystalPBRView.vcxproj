@@ -146,13 +146,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
+    <ClCompile Include="PolygonShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CrystalScene\Scene\Scene.vcxproj">
+      <Project>{59c5ea30-1e57-417c-9416-17b592e8724e}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\CrystalUI\CrystalUI\CrystalUI.vcxproj">
       <Project>{cf4ad4c8-5351-48d6-9087-48c812dfc4f7}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Crystal\Graphics\Graphics.vcxproj">
       <Project>{227e5411-92cb-4e30-a67b-043d8b04a9bc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Crystal\IO\IO.vcxproj">
+      <Project>{198160cc-5ed1-499d-ad45-90dbac4852f8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Crystal\Math\Math.vcxproj">
       <Project>{ef054c93-201b-4807-9285-cabc9c68978a}</Project>
@@ -163,6 +170,9 @@
     <ProjectReference Include="..\CrystalPBR\CrystalPBR.vcxproj">
       <Project>{571960e5-cee8-4a3e-82e3-7adf50629391}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PolygonShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

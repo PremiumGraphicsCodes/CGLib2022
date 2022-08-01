@@ -7,7 +7,7 @@
 using namespace Crystal::Math;
 using namespace Crystal::Graphics;
 
-Camera::Camera() :
+Camera::Camera() :	
 	near_(1.0f),
 	far_(10.0f),
 	scale(1.0f),
