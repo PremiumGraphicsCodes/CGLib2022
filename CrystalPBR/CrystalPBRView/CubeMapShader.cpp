@@ -41,7 +41,7 @@ namespace {
 			return false;
 		}
 		images[5] = reader.getImage();
-//		CubeMapTextureObject cubeMap;
+		//		CubeMapTextureObject cubeMap;
 		cubeMap.create(images);
 		return true;
 	}
@@ -51,7 +51,7 @@ ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
 {
 	ShaderBuildStatus status;
 
-	status.add( skyBoxRenderer.build(factory) );
+	status.add(skyBoxRenderer.build(factory));
 
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);
@@ -83,7 +83,7 @@ void CubeMapShader::render(const Camera& camera)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		SkyBoxRenderer::Buffer buffer;
-		buffer.modelViewMatrix = glm::mat4( glm::mat3(camera.getModelViewMatrix()) );
+		buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
 		buffer.projectionMatrix = camera.getProjectionMatrix();
 		buffer.cubeMapTexture = this->cubeMapTexture;
 

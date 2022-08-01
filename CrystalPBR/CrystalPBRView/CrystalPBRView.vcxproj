@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
+    <ClCompile Include="CubeMapShader.cpp" />
     <ClCompile Include="PolygonShader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +173,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CubeMapShader.h" />
     <ClInclude Include="PolygonShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

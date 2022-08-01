@@ -3,14 +3,8 @@
   <ItemGroup>
     <ClCompile Include="Viewer.cpp" />
     <ClCompile Include="ColorMenu.cpp" />
-    <ClCompile Include="CubeMapShaderView.cpp" />
-    <ClCompile Include="CubeMapShader.cpp" />
-    <ClCompile Include="RenderingMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorMenu.h" />
-    <ClInclude Include="RenderingMenu.h" />
-    <ClInclude Include="CubeMapShaderView.h" />
-    <ClInclude Include="CubeMapShader.h" />
   </ItemGroup>
 </Project>

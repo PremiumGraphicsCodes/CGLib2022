@@ -14,7 +14,6 @@
 #include "../Scene/World.h"
 
 #include "ColorMenu.h"
-#include "RenderingMenu.h"
 
 using namespace Crystal::Math;
 using namespace Crystal::Graphics;
@@ -44,7 +43,6 @@ int main(int, char**)
 	window.add(new AppearanceMenu("Appearance", &world, &canvas, control));
 	window.add(new SelectionMenu("Selection", &world, &canvas, control));
 	window.add(new ColorMenu("Color", &world, &canvas, control));
-	window.add(new RenderingMenu("Rendering", &world, &canvas, control));
 
 	window.add(new SceneListPanel("SceneList", &world, &canvas, control));
 
