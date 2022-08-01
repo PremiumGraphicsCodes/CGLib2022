@@ -30,9 +30,9 @@ namespace {
         renderer.build(factory);
     }
 
-    void onRender()
+    void onRender(const int width, const int height)
     {
-        renderer.render(camera);
+        renderer.render(camera, width, height);
     }
 
 	bool isLeftDown;
@@ -46,6 +46,8 @@ namespace {
 		return Vector2df(xx, yy);
 	}
 
+	Vector2df prevCoord(0, 0);
+
 	void onMouse(GLFWwindow* window, int button, int action, int mods) {
 		if (ImGui::IsMouseHoveringAnyWindow()) {
 			return;
@@ -56,6 +58,7 @@ namespace {
 		const auto& coord = toScreenCoord(window, x, y);
 		if (button == GLFW_MOUSE_BUTTON_LEFT) {
 			if (action == GLFW_PRESS) {
+				prevCoord = coord;
 				//canvas->onLeftButtonDown(coord);
 				isLeftDown = true;
 			}
@@ -76,10 +79,15 @@ namespace {
 		}
 	}
 
+
 	void onMouseMove(GLFWwindow* window, double xpos, double ypos)
 	{
 		const auto& coord = toScreenCoord(window, xpos, ypos);
 		if (isLeftDown) {
+			const auto diff = (coord - prevCoord) * 1.0f;
+			camera.setEye(camera.getEye() + Vector3df(diff, 0.0));
+			camera.setTarget(camera.getTarget() + Vector3df(diff, 0.0));
+			prevCoord = coord;
 			//canvas->onLeftDragging(coord);
 		}
 		else if (isRightDown) {
@@ -155,7 +163,7 @@ int main() {
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
 
-        onRender();
+        onRender(width, height);
 		//world->getRenderer()->render(*world->getCamera()->getCamera(), width, height);
 		//const auto animations = world->getAnimations();
 		//for (auto& a : animations) {

@@ -107,7 +107,7 @@ void PolygonShader::release(GLObjectFactory& factory)
 	factory.remove(this->colorTexture);
 }
 
-void PolygonShader::render(const Camera& camera)
+void PolygonShader::render(const Camera& camera, const int wwidth, const int hheight)
 {
 	const int width = 512;
 	const int height = 512;
@@ -166,7 +166,7 @@ void PolygonShader::render(const Camera& camera)
 
 //		this->fbo->setTexture(*shadedTexture);
 
-		glViewport(0, 0, width, height);
+		glViewport(0, 0, wwidth, hheight);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

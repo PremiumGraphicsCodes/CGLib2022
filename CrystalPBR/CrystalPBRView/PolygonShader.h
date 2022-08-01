@@ -19,7 +19,7 @@ namespace Crystal {
 
 			void release(Shader::GLObjectFactory& factory); //override;
 
-			void render(const Graphics::Camera& camera); //override;
+			void render(const Graphics::Camera& camera, const int width, const int height); //override;
 
 			Shader::TextureObject* getTexture();// override;
 
