@@ -8,6 +8,10 @@
     <ClInclude Include="DFLightRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
+    <ClInclude Include="DFPBLightRenderer.h">
+      <Filter>Deffered</Filter>
+    </ClInclude>
+    <ClInclude Include="PBLightRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkyBoxRenderer.cpp" />
@@ -17,6 +21,10 @@
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
+    <ClCompile Include="DFPBLightRenderer.cpp">
+      <Filter>Deffered</Filter>
+    </ClCompile>
+    <ClCompile Include="PBLightRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">

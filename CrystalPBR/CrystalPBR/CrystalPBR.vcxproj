@@ -21,11 +21,15 @@
   <ItemGroup>
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
+    <ClInclude Include="DFPBLightRenderer.h" />
+    <ClInclude Include="PBLightRenderer.h" />
     <ClInclude Include="SkyBoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFGeometryRenderer.cpp" />
     <ClCompile Include="DFLightRenderer.cpp" />
+    <ClCompile Include="DFPBLightRenderer.cpp" />
+    <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
