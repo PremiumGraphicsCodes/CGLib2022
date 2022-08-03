@@ -2,6 +2,12 @@
 
 using namespace Crystal::Shader;
 
+namespace {
+	constexpr auto projectionMatrixLabel = "projection";
+	constexpr auto viewMatrixLabel = "view";
+	constexpr auto textureLabel = "equirectangularMap";
+}
+
 CubeMapRenderer::CubeMapRenderer() :
 	shader(nullptr)
 {

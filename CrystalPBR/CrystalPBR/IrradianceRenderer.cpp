@@ -2,6 +2,13 @@
 
 using namespace Crystal::Shader;
 
+namespace {
+    constexpr auto projectionMatrixLabel = "projection";
+    constexpr auto viewMatrixLabel = "view";
+    constexpr auto cubeMapTexLabel = "environmentMap";
+    constexpr auto positionLabel = "aPos";
+}
+
 IrradianceRenderer::IrradianceRenderer() :
     shader(nullptr)
 {}
@@ -19,6 +26,13 @@ ShaderBuildStatus IrradianceRenderer::build(GLObjectFactory& factory)
         status.log = shader->getLog();
         return status;
     }
+
+    shader->findUniformLocation(::projectionMatrixLabel);
+    shader->findUniformLocation(::viewMatrixLabel);
+    shader->findUniformLocation(::cubeMapTexLabel);
+    
+    shader->findAttribLocation(::positionLabel);
+
     ShaderBuildStatus status;
     status.isOk = true;
     return status;
