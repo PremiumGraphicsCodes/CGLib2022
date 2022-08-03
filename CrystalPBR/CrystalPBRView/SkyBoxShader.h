@@ -8,7 +8,7 @@
 namespace Crystal {
 	namespace UI {
 
-		class CubeMapShader
+		class SkyBoxShader
 		{
 		public:
 			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory);

@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
-    <ClCompile Include="CubeMapShader.cpp" />
+    <ClCompile Include="SkyBoxShader.cpp" />
     <ClCompile Include="PBLightShader.cpp" />
     <ClCompile Include="PolygonShader.cpp" />
   </ItemGroup>
@@ -174,7 +174,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CubeMapShader.h" />
+    <ClInclude Include="SkyBoxShader.h" />
     <ClInclude Include="PBLightShader.h" />
     <ClInclude Include="PolygonShader.h" />
   </ItemGroup>

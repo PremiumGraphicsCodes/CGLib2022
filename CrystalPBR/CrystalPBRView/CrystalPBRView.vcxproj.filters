@@ -3,12 +3,12 @@
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
     <ClCompile Include="PolygonShader.cpp" />
-    <ClCompile Include="CubeMapShader.cpp" />
+    <ClCompile Include="SkyBoxShader.cpp" />
     <ClCompile Include="PBLightShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PolygonShader.h" />
-    <ClInclude Include="CubeMapShader.h" />
+    <ClInclude Include="SkyBoxShader.h" />
     <ClInclude Include="PBLightShader.h" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-#include "CubeMapShader.h"
+#include "SkyBoxShader.h"
 
 #include "CrystalPBR/CrystalPBR/SkyBoxRenderer.h"
 
@@ -47,7 +47,7 @@ namespace {
 	}
 }
 
-ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
+ShaderBuildStatus SkyBoxShader::build(GLObjectFactory& factory)
 {
 	ShaderBuildStatus status;
 
@@ -60,12 +60,12 @@ ShaderBuildStatus CubeMapShader::build(GLObjectFactory& factory)
 	return status;
 }
 
-void CubeMapShader::release(GLObjectFactory& factory)
+void SkyBoxShader::release(GLObjectFactory& factory)
 {
 
 }
 
-void CubeMapShader::render(const Camera& camera, const int width, const int height)
+void SkyBoxShader::render(const Camera& camera, const int width, const int height)
 {
 	{
 

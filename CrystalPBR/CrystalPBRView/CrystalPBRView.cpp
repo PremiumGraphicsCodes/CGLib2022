@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "CrystalUI/ThirdParty/glfw-3.3/include/GLFW/glfw3.h"
 
-#include "CubeMapShader.h"
+#include "SkyBoxShader.h"
 #include "PolygonShader.h"
 #include "PBLightShader.h"
 
@@ -27,7 +27,7 @@ namespace {
 
     //UI::PolygonShader renderer;
 	Shader::IrradianceRenderer irradianceRenderer;
-	UI::CubeMapShader cubeMapRenderer;
+	UI::SkyBoxShader cubeMapRenderer;
 	UI::PBLightShader pbLightRenderer;
     Shader::GLObjectFactory factory;
     Graphics::Camera camera(Vector3df(0,0,1), Vector3df(0,0,0), Vector3df(0,1,0), 0.1, 10.0);

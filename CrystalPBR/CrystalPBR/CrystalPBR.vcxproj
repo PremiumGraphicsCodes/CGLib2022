@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CubeMapRenderer.h" />
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="DFPBLightRenderer.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="DFGeometryRenderer.cpp" />
     <ClCompile Include="DFLightRenderer.cpp" />
     <ClCompile Include="DFPBLightRenderer.cpp" />
+    <ClCompile Include="CubeMapRenderer.cpp" />
     <ClCompile Include="IrradianceRenderer.cpp" />
     <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
