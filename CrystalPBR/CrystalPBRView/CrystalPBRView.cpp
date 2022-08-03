@@ -10,6 +10,8 @@
 #include "PolygonShader.h"
 #include "PBLightShader.h"
 
+#include "CrystalPBR/CrystalPBR/IrradianceRenderer.h"
+
 //#include "Crystal/ThirdParty/glew-2.1.0/include/GL/glew.h"
 
 #include <iostream>
@@ -24,6 +26,7 @@ namespace {
     }
 
     //UI::PolygonShader renderer;
+	Shader::IrradianceRenderer irradianceRenderer;
 	UI::CubeMapShader cubeMapRenderer;
 	UI::PBLightShader pbLightRenderer;
     Shader::GLObjectFactory factory;
@@ -31,6 +34,7 @@ namespace {
 
     void onInit()
     {
+		irradianceRenderer.build(factory);
 		pbLightRenderer.build(factory);
 		//cubeMapRenderer.build(factory);
         //renderer.build(factory);
