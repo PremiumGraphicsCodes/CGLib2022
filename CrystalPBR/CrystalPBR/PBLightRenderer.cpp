@@ -12,6 +12,16 @@ namespace {
     constexpr auto positionLabel = "aPos";
     constexpr auto normalLabel = "aNormal";
 
+    constexpr auto albedoLabel = "albedo";
+    constexpr auto metaricLabel = "metallic";
+    constexpr auto roughbessLabel = "roughness";
+    constexpr auto aoLabel = "ao";
+
+    // lights
+    //uniform vec3 lightPositions[4];
+    //uniform vec3 lightColors[4];
+
+    constexpr auto camerPosLabel = "camPos";
 }
 
 PBLightRenderer::PBLightRenderer() :
@@ -37,6 +47,18 @@ ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
 	shader->findUniformLocation(::modelMatrixLabel);
     shader->findUniformLocation(::viewMatrixLabel);
 
+    shader->findUniformLocation(::albedoLabel);
+    shader->findUniformLocation(::metaricLabel);
+    shader->findUniformLocation(::roughbessLabel);
+    shader->findUniformLocation(::aoLabel);
+
+    shader->findUniformLocation(::camerPosLabel);
+
+    for (int i = 0; i < 1; ++i) {
+        shader->findUniformLocation("lightPositions[" + std::to_string(i) + "]");
+        shader->findUniformLocation("lightColors[" + std::to_string(i) + "]");
+    }
+
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::normalLabel);
 
@@ -52,30 +74,40 @@ void PBLightRenderer::release(GLObjectFactory& factory)
 
 void PBLightRenderer::render(const Buffer& buffer)
 {
-    /*
 	shader->bind();
-	shader->bindOutput("fragColor");
+	shader->bindOutput("FragColor");
 
 	shader->enableDepthTest();
 
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
-	shader->sendUniform(::modelViewMatrixLabel, buffer.modelViewMatrix);
+	shader->sendUniform(::modelMatrixLabel, buffer.modelMatrix);
+    shader->sendUniform(::viewMatrixLabel, buffer.viewMatrix);
+    shader->sendUniform(::camerPosLabel, buffer.eyePosition);
 
-	shader->sendVertexAttribute3df("position", buffer.position);
-	shader->sendVertexAttribute4df("color", buffer.color);
+    shader->sendUniform(::albedoLabel, buffer.albedo);
+    shader->sendUniform(::metaricLabel, buffer.metalic);
+    shader->sendUniform(::roughbessLabel, buffer.roughness);
+    shader->sendUniform(::aoLabel, buffer.ao);
 
-	shader->enableVertexAttribute("position");
-	shader->enableVertexAttribute("color");
+    shader->sendUniform("lightPositions[0]", buffer.lightPosition);
+    shader->sendUniform("lightColors[0]", buffer.lightColor);
+
+	shader->sendVertexAttribute3df(::positionLabel, buffer.position);
+	shader->sendVertexAttribute3df(::normalLabel, buffer.normal);
+
+    buffer.position.bind();
+    buffer.normal.bind();
+	shader->enableVertexAttribute(::positionLabel);
+	shader->enableVertexAttribute(::normalLabel);
 
 	shader->drawTriangles(buffer.indices);
 
-	shader->disableVertexAttribute("color");
-	shader->disableVertexAttribute("position");
+	shader->disableVertexAttribute(::positionLabel);
+	shader->disableVertexAttribute(::normalLabel);
 
 	shader->disableDepthTest();
 
 	shader->unbind();
-    */
 }
 
 std::string PBLightRenderer::getBuildInVertexShaderSource() const
@@ -118,8 +150,8 @@ uniform float roughness;
 uniform float ao;
 
 // lights
-uniform vec3 lightPositions[4];
-uniform vec3 lightColors[4];
+uniform vec3 lightPositions[1];
+uniform vec3 lightColors[1];
 
 uniform vec3 camPos;
 
@@ -177,7 +209,7 @@ void main()
 
     // reflectance equation
     vec3 Lo = vec3(0.0);
-    for(int i = 0; i < 4; ++i) 
+    for(int i = 0; i < 1; ++i) 
     {
         // calculate per-light radiance
         vec3 L = normalize(lightPositions[i] - WorldPos);

@@ -8,7 +8,7 @@
 
 #include "CubeMapShader.h"
 #include "PolygonShader.h"
-#include "CrystalPBR/CrystalPBR/PBLightRenderer.h"
+#include "PBLightShader.h"
 
 //#include "Crystal/ThirdParty/glew-2.1.0/include/GL/glew.h"
 
@@ -25,20 +25,21 @@ namespace {
 
     //UI::PolygonShader renderer;
 	UI::CubeMapShader cubeMapRenderer;
-	Shader::PBLightRenderer pbLightRenderer;
+	UI::PBLightShader pbLightRenderer;
     Shader::GLObjectFactory factory;
     Graphics::Camera camera(Vector3df(0,0,1), Vector3df(0,0,0), Vector3df(0,1,0), 0.1, 10.0);
 
     void onInit()
     {
-		//pbLightRenderer.build(factory);
-		cubeMapRenderer.build(factory);
+		pbLightRenderer.build(factory);
+		//cubeMapRenderer.build(factory);
         //renderer.build(factory);
     }
 
     void onRender(const int width, const int height)
     {
-		cubeMapRenderer.render(camera, width, height);
+		pbLightRenderer.render(camera, width, height);
+		//cubeMapRenderer.render(camera, width, height);
         //renderer.render(camera, width, height);
     }
 
