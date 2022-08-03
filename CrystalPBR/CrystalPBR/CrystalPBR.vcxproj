@@ -38,6 +38,10 @@
     <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GLSL\DFGeometry.fs" />
+    <None Include="..\..\GLSL\DFGeometry.vs" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

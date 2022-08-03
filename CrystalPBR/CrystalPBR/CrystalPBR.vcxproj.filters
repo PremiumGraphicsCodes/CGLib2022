@@ -36,5 +36,16 @@
     <Filter Include="Deffered">
       <UniqueIdentifier>{ac2cccec-3e2d-49d1-834e-2f9c70ee37c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GLSL">
+      <UniqueIdentifier>{1fe38510-afa6-4c43-9905-3df54c497163}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GLSL\DFGeometry.vs">
+      <Filter>GLSL</Filter>
+    </None>
+    <None Include="..\..\GLSL\DFGeometry.fs">
+      <Filter>GLSL</Filter>
+    </None>
   </ItemGroup>
 </Project>

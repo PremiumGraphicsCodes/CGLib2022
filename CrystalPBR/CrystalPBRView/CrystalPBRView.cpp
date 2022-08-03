@@ -25,7 +25,7 @@ namespace {
         fprintf(stderr, "Glfw Error %d: %s\n", error, description);
     }
 
-    //UI::PolygonShader renderer;
+    UI::PolygonShader renderer;
 	Shader::IrradianceRenderer irradianceRenderer;
 	UI::SkyBoxShader cubeMapRenderer;
 	UI::PBLightShader pbLightRenderer;
@@ -34,6 +34,7 @@ namespace {
 
     void onInit()
     {
+		renderer.build(factory);
 		irradianceRenderer.build(factory);
 		pbLightRenderer.build(factory);
 		//cubeMapRenderer.build(factory);

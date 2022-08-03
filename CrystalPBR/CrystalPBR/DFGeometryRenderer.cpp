@@ -80,40 +80,26 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 	shader->unbind();
 }
 
+#include <fstream>
+
 std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
 {
-	const std::string str = R"(
-#version 150
-in vec3 position;
-in vec3 normal;
-out vec4 vPosition;
-out vec3 vNormal;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
-uniform mat3 normalMatrix;
-void main(void)
-{
-	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
-	vPosition = gl_Position;
-	vNormal = normalMatrix * normal;
-}
-)";
+	std::ifstream stream("../../GLSL/DFGeometry.vs");
+	std::string str;
+	std::string line;
+	while (std::getline(stream, line)) {
+		str += line;
+	}
 	return str;
 }
 
 std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
 {
-	const std::string str = R"(
-#version 150
-in vec4 vPosition;
-in vec3 vNormal;
-out vec4 gPosition;
-out vec3 gNormal;
-
-void main(void) {
-	gPosition = vPosition;
-	gNormal.rgb = normalize(vNormal);
-}
-)";
+	std::ifstream stream("../../GLSL/DFGeometry.fs");
+	std::string str;
+	std::string line;
+	while (std::getline(stream, line)) {
+		str += line;
+	}
 	return str;
 }
