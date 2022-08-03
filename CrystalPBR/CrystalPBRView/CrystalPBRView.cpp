@@ -24,21 +24,21 @@ namespace {
     }
 
     //UI::PolygonShader renderer;
-	//UI::CubeMapShader cubeMapRenderer;
+	UI::CubeMapShader cubeMapRenderer;
 	Shader::PBLightRenderer pbLightRenderer;
     Shader::GLObjectFactory factory;
     Graphics::Camera camera(Vector3df(0,0,1), Vector3df(0,0,0), Vector3df(0,1,0), 0.1, 10.0);
 
     void onInit()
     {
-		pbLightRenderer.build(factory);
-		//cubeMapRenderer.build(factory);
+		//pbLightRenderer.build(factory);
+		cubeMapRenderer.build(factory);
         //renderer.build(factory);
     }
 
     void onRender(const int width, const int height)
     {
-		//cubeMapRenderer.render(camera, width, height);
+		cubeMapRenderer.render(camera, width, height);
         //renderer.render(camera, width, height);
     }
 
@@ -76,6 +76,7 @@ namespace {
 		}
 		else if (button == GLFW_MOUSE_BUTTON_RIGHT) {
 			if (action == GLFW_PRESS) {
+				prevCoord = coord;
 				//canvas->onRightButtonDown(coord);
 				isRightDown = true;
 			}
@@ -98,7 +99,22 @@ namespace {
 			//canvas->onLeftDragging(coord);
 		}
 		else if (isRightDown) {
-			//canvas->onRightDragging(coord);
+			const auto diff = prevCoord - coord;
+			//const auto bb = world->getBoundingBox();
+			const auto scale = 1.0;//glm::distance(bb.getMin(), bb.getMax()) * 0.1;
+
+			const auto& matrix = camera.getRotationMatrix();
+			const auto v = glm::transpose(Matrix3dd(matrix)) * Vector3dd(diff, 0.0);
+
+			{
+				const Vector3df t = v;
+				const auto& eye = camera.getEye();
+				const auto& target = camera.getTarget();
+				const auto& up = camera.getUp();
+				camera.lookAt(eye + t, target, up);
+			}
+
+			prevCoord = coord;
 		}
 	}
 }

@@ -31,6 +31,10 @@ public:
 
 	Math::Vector3df getEye() const { return eye; }
 
+	Math::Matrix4df getModelMatrix() const;
+
+	Math::Matrix4df getViewMatrix() const;
+
 	Math::Matrix4df getModelViewMatrix() const;
 
 	void setFar(const float f) { this->far_ = f; }

@@ -46,6 +46,16 @@ void Camera::lookAt(const Vector3df& eye, const Vector3df& target, const Vector3
 	this->up = up;
 }
 
+Matrix4df Camera::getModelMatrix() const
+{
+	return glm::scale(glm::mat4(1.0f), glm::vec3(scale));
+}
+
+Matrix4df Camera::getViewMatrix() const
+{
+	return glm::lookAt(eye, target, up);
+}
+
 Matrix4df Camera::getModelViewMatrix() const
 {
 	const auto rotation = getRotationMatrix();

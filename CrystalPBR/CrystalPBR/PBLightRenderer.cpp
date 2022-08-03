@@ -5,8 +5,13 @@
 using namespace Crystal::Shader;
 
 namespace {
-	constexpr auto projectionMatrixLabel = "projectionMatrix";
-	constexpr auto modelViewMatrixLabel = "modelviewMatrix";
+	constexpr auto projectionMatrixLabel = "projection";
+	constexpr auto modelMatrixLabel = "model";
+    constexpr auto viewMatrixLabel = "view";
+
+    constexpr auto positionLabel = "aPos";
+    constexpr auto normalLabel = "aNormal";
+
 }
 
 PBLightRenderer::PBLightRenderer() :
@@ -28,13 +33,12 @@ ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
 		return status;
 	}
 
-    /*
 	shader->findUniformLocation(::projectionMatrixLabel);
-	shader->findUniformLocation(::modelViewMatrixLabel);
+	shader->findUniformLocation(::modelMatrixLabel);
+    shader->findUniformLocation(::viewMatrixLabel);
 
-	shader->findAttribLocation("position");
-	shader->findAttribLocation("color");
-    */
+	shader->findAttribLocation(::positionLabel);
+	shader->findAttribLocation(::normalLabel);
 
 	ShaderBuildStatus status;
 	status.isOk = true;
@@ -80,9 +84,7 @@ std::string PBLightRenderer::getBuildInVertexShaderSource() const
 #version 330 core
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec3 aNormal;
-layout (location = 2) in vec2 aTexCoords;
 
-out vec2 TexCoords;
 out vec3 WorldPos;
 out vec3 Normal;
 
@@ -92,7 +94,6 @@ uniform mat4 model;
 
 void main()
 {
-    TexCoords = aTexCoords;
     WorldPos = vec3(model * vec4(aPos, 1.0));
     Normal = mat3(model) * aNormal;   
 
@@ -107,7 +108,6 @@ std::string PBLightRenderer::getBuiltInFragmentShaderSource() const
 	const std::string str = R"(
 #version 330 core
 out vec4 FragColor;
-in vec2 TexCoords;
 in vec3 WorldPos;
 in vec3 Normal;
 

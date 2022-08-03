@@ -16,7 +16,8 @@ public:
 		Shader::VertexBufferObject position;
 		Shader::VertexBufferObject color;
 		Math::Matrix4dd projectionMatrix;
-		Math::Matrix4dd modelViewMatrix;
+		Math::Matrix4dd modelMatrix;
+		Math::Matrix4dd viewMatrix;
 		std::vector<unsigned int> indices;
 	};
 

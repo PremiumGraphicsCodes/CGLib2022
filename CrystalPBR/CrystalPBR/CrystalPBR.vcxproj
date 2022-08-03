@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="DFPBLightRenderer.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="SkyBoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DFGeometryRenderer.cpp" />
     <ClCompile Include="DFLightRenderer.cpp" />
     <ClCompile Include="DFPBLightRenderer.cpp" />
