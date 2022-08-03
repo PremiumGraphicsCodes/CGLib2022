@@ -85,21 +85,17 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
 {
 	std::ifstream stream("../../GLSL/DFGeometry.vs");
-	std::string str;
-	std::string line;
-	while (std::getline(stream, line)) {
-		str += line;
-	}
+	std::istreambuf_iterator<char> it(stream);
+	std::istreambuf_iterator<char> last;
+	std::string str(it, last);
 	return str;
 }
 
 std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
 {
 	std::ifstream stream("../../GLSL/DFGeometry.fs");
-	std::string str;
-	std::string line;
-	while (std::getline(stream, line)) {
-		str += line;
-	}
+	std::istreambuf_iterator<char> it(stream);
+	std::istreambuf_iterator<char> last;
+	std::string str(it, last);
 	return str;
 }

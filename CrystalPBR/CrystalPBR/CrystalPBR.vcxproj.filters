@@ -47,5 +47,11 @@
     <None Include="..\..\GLSL\DFGeometry.fs">
       <Filter>GLSL</Filter>
     </None>
+    <None Include="..\..\GLSL\PBLight.vs">
+      <Filter>GLSL</Filter>
+    </None>
+    <None Include="..\..\GLSL\PBLight.fs">
+      <Filter>GLSL</Filter>
+    </None>
   </ItemGroup>
 </Project>

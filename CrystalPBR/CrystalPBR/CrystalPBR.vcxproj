@@ -41,6 +41,8 @@
   <ItemGroup>
     <None Include="..\..\GLSL\DFGeometry.fs" />
     <None Include="..\..\GLSL\DFGeometry.vs" />
+    <None Include="..\..\GLSL\PBLight.fs" />
+    <None Include="..\..\GLSL\PBLight.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
