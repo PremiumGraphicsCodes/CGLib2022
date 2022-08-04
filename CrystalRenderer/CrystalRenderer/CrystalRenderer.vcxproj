@@ -41,6 +41,8 @@
   <ItemGroup>
     <None Include="..\..\GLSL\DFGeometry.fs" />
     <None Include="..\..\GLSL\DFGeometry.vs" />
+    <None Include="..\..\GLSL\DFLight.fs" />
+    <None Include="..\..\GLSL\DFLight.vs" />
     <None Include="..\..\GLSL\Irradiance.fs" />
     <None Include="..\..\GLSL\Irradiance.vs" />
     <None Include="..\..\GLSL\PBLight.fs" />

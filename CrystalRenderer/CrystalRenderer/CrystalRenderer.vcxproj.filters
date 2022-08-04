@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="DFLightRenderer.h">
-      <Filter>Deffered</Filter>
-    </ClInclude>
     <ClInclude Include="DFPBLightRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
@@ -23,11 +20,11 @@
     <ClInclude Include="IrradianceRenderer.h">
       <Filter>Irradiance</Filter>
     </ClInclude>
+    <ClInclude Include="DFLightRenderer.h">
+      <Filter>Deffered\DFLight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DFLightRenderer.cpp">
-      <Filter>Deffered</Filter>
-    </ClCompile>
     <ClCompile Include="DFPBLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
@@ -46,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="IrradianceRenderer.cpp">
       <Filter>Irradiance</Filter>
+    </ClCompile>
+    <ClCompile Include="DFLightRenderer.cpp">
+      <Filter>Deffered\DFLight</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +66,9 @@
     </Filter>
     <Filter Include="Irradiance">
       <UniqueIdentifier>{dbc9d97e-6097-4889-99ae-1da27f49dd93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Deffered\DFLight">
+      <UniqueIdentifier>{68040117-1daa-4abf-89ae-79bcef1c46d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +95,12 @@
     </None>
     <None Include="..\..\GLSL\Irradiance.vs">
       <Filter>Irradiance</Filter>
+    </None>
+    <None Include="..\..\GLSL\DFLight.fs">
+      <Filter>Deffered\DFLight</Filter>
+    </None>
+    <None Include="..\..\GLSL\DFLight.vs">
+      <Filter>Deffered\DFLight</Filter>
     </None>
   </ItemGroup>
 </Project>
