@@ -58,6 +58,7 @@ ShaderBuildStatus SkyBoxShader::build()
 			status.log += shader->getLog();
 		}
 		skyBoxRenderer.setShader(std::move(shader));
+		skyBoxRenderer.link();
 	}
 
 	//status.add(skyBoxRenderer.build(factory));

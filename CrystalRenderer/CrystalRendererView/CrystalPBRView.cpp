@@ -37,15 +37,15 @@ namespace {
 		renderer.build(factory);
 		//irradianceRenderer.build(factory);
 		//pbLightRenderer.build();
-		//cubeMapRenderer.build();
+		cubeMapRenderer.build();
         //renderer.build(factory);
     }
 
     void onRender(const int width, const int height)
     {
 		//pbLightRenderer.render(camera, width, height);
-		//cubeMapRenderer.render(camera, width, height);
-        renderer.render(camera, width, height);
+		cubeMapRenderer.render(camera, width, height);
+        //renderer.render(camera, width, height);
     }
 
 	bool isLeftDown;
