@@ -48,6 +48,7 @@
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered\DFLight</Filter>
     </ClCompile>
+    <ClCompile Include="IScreenRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">

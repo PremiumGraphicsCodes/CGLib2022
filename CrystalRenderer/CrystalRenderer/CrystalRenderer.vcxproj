@@ -36,6 +36,7 @@
     <ClCompile Include="DFPBLightRenderer.cpp" />
     <ClCompile Include="CubeMapRenderer.cpp" />
     <ClCompile Include="IrradianceRenderer.cpp" />
+    <ClCompile Include="IScreenRenderer.h" />
     <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>

@@ -10,7 +10,7 @@ using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
 using namespace Crystal::UI;
 
-ShaderBuildStatus PBLightShader::build(GLObjectFactory& factory)
+ShaderBuildStatus PBLightShader::build()
 {
 	ShaderBuildStatus status;
 
@@ -63,9 +63,7 @@ ShaderBuildStatus PBLightShader::build(GLObjectFactory& factory)
 
 void PBLightShader::render(const Camera& camera, const int width, const int height)
 {
-
 	{
-
 		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

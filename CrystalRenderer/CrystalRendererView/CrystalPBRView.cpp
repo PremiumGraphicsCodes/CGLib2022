@@ -36,7 +36,7 @@ namespace {
     {
 		renderer.build(factory);
 		irradianceRenderer.build(factory);
-		pbLightRenderer.build(factory);
+		pbLightRenderer.build();
 		cubeMapRenderer.build();
         //renderer.build(factory);
     }
