@@ -31,11 +31,8 @@ PBLightRenderer::PBLightRenderer() :
 
 ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
 {
-	const auto& vsSource = getBuildInVertexShaderSource();
-	const auto& fsSource = getBuiltInFragmentShaderSource();
-
 	shader = factory.createShaderObject();
-	const auto isOk = shader->build(vsSource, fsSource);
+	const auto isOk = shader->buildFromFile("../../GLSL/PBLight.vs", "../../GLSL/PBLight.fs");
 	if (!isOk) {
 		ShaderBuildStatus status;
 		status.isOk = false;
@@ -108,24 +105,4 @@ void PBLightRenderer::render(const Buffer& buffer)
 	shader->disableDepthTest();
 
 	shader->unbind();
-}
-
-#include <fstream>
-
-std::string PBLightRenderer::getBuildInVertexShaderSource() const
-{
-    std::ifstream stream("../../GLSL/PBLight.vs");
-    std::istreambuf_iterator<char> it(stream);
-    std::istreambuf_iterator<char> last;
-    std::string str(it, last);
-    return str;
-}
-
-std::string PBLightRenderer::getBuiltInFragmentShaderSource() const
-{
-    std::ifstream stream("../../GLSL/PBLight.fs");
-    std::istreambuf_iterator<char> it(stream);
-    std::istreambuf_iterator<char> last;
-    std::string str(it, last);
-    return str;
 }

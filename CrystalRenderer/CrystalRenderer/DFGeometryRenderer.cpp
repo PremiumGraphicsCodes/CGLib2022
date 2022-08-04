@@ -21,11 +21,8 @@ DFGeometryRenderer::DFGeometryRenderer() :
 
 ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 {
-	const auto& vsSource = getBuildInVertexShaderSource();
-	const auto& fsSource = getBuiltInFragmentShaderSource();
-
 	shader = factory.createShaderObject();
-	const auto isOk = shader->build(vsSource, fsSource);
+	const auto isOk = shader->buildFromFile("../../GLSL/DFGeometry.vs", "../../GLSL/DFGeometry.fs");
 	if (!isOk) {
 		ShaderBuildStatus status;
 		status.isOk = false;
@@ -78,24 +75,4 @@ void DFGeometryRenderer::render(const Buffer& buffer)
 
 
 	shader->unbind();
-}
-
-#include <fstream>
-
-std::string DFGeometryRenderer::getBuildInVertexShaderSource() const
-{
-	std::ifstream stream("../../GLSL/DFGeometry.vs");
-	std::istreambuf_iterator<char> it(stream);
-	std::istreambuf_iterator<char> last;
-	std::string str(it, last);
-	return str;
-}
-
-std::string DFGeometryRenderer::getBuiltInFragmentShaderSource() const
-{
-	std::ifstream stream("../../GLSL/DFGeometry.fs");
-	std::istreambuf_iterator<char> it(stream);
-	std::istreambuf_iterator<char> last;
-	std::string str(it, last);
-	return str;
 }

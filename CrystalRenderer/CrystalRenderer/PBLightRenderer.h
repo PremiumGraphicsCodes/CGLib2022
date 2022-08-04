@@ -42,10 +42,6 @@ public:
 	std::string getName() const override { return "PBLightRenderer"; }
 
 private:
-	std::string getBuildInVertexShaderSource() const;
-
-	std::string getBuiltInFragmentShaderSource() const;
-
 	Shader::ShaderObject* shader;
 };
 
