@@ -1,7 +1,5 @@
 #include "PBLightShader.h"
 
-#include "CrystalScene/Scene/PolygonRenderer.h"
-
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"
 

@@ -1,7 +1,5 @@
 #include "PolygonShader.h"
 
-#include "CrystalScene/Scene/PolygonRenderer.h"
-
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"
 
@@ -97,7 +95,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	gRenderer.buffer.position.build();
 	gRenderer.buffer.normal.build();
 
-	Shader::PolygonRenderer::Buffer::FaceGroup fg1;
+	Crystal::Renderer::PolygonRenderer::Buffer::FaceGroup fg1;
 	fg1.indices.push_back(0);
 	fg1.indices.push_back(1);
 	fg1.indices.push_back(2);

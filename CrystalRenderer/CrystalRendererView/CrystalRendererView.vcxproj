@@ -151,9 +151,6 @@
     <ClCompile Include="PolygonShader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CrystalScene\Scene\Scene.vcxproj">
-      <Project>{59c5ea30-1e57-417c-9416-17b592e8724e}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\CrystalUI\CrystalUI\CrystalUI.vcxproj">
       <Project>{cf4ad4c8-5351-48d6-9087-48c812dfc4f7}</Project>
     </ProjectReference>

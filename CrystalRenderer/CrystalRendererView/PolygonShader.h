@@ -5,11 +5,11 @@
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"
-#include "CrystalScene/Scene/PolygonRenderer.h"
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Graphics/Buffer2d.h"
 #include "CrystalRenderer/CrystalRenderer/DFGeometryRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/DFLightRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/PolygonRenderer.h"
 
 namespace Crystal {
 	namespace UI {
@@ -22,7 +22,9 @@ public:
 	void render(const Graphics::Camera& camera, const int width, const int height); //override;
 
 private:
-	Shader::PolygonRenderer renderer;
+	Renderer::PolygonRenderer renderer;
+	Renderer::PolygonRenderer::Buffer buffer;
+
 	Renderer::DFGeometryRenderer gRenderer;
 	Renderer::DFLightRenderer lightRenderer;
 	std::unique_ptr<Shader::TextureObject> colorTexture;
@@ -34,7 +36,6 @@ private:
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer2d<float> texCoords;
 	Graphics::Buffer3d<float> normals;
-	Shader::PolygonRenderer::Buffer buffer;
 };
 
 	}
