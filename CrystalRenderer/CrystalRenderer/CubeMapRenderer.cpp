@@ -1,11 +1,15 @@
 #include "CubeMapRenderer.h"
 
+#include "Crystal/Shader/TextureObject.h"
+
 using namespace Crystal::Shader;
 
 namespace {
 	constexpr auto projectionMatrixLabel = "projection";
 	constexpr auto viewMatrixLabel = "view";
 	constexpr auto textureLabel = "equirectangularMap";
+	constexpr auto positionLabel = "aPos";
+	constexpr auto fragColorLabel = "FragColor";
 }
 
 CubeMapRenderer::CubeMapRenderer() :
@@ -29,11 +33,11 @@ ShaderBuildStatus CubeMapRenderer::build(GLObjectFactory& factory)
 		return status;
 	}
 
-	//shader->findUniformLocation(::projectionMatrixLabel);
-	//shader->findUniformLocation(::modelViewMatrixLabel);
-	//shader->findUniformLocation(::cubeMapTexLabel);
+	shader->findUniformLocation(::projectionMatrixLabel);
+	shader->findUniformLocation(::viewMatrixLabel);
+	shader->findUniformLocation(::textureLabel);
 
-	//shader->findAttribLocation(::positionLabel);
+	shader->findAttribLocation(::positionLabel);
 
 	return status;
 }
@@ -43,9 +47,39 @@ void CubeMapRenderer::release(GLObjectFactory& factory)
 
 }
 
+namespace {
+	std::vector<float> getCubePositions()
+	{
+		return {};
+	}
+}
+
 void CubeMapRenderer::render(const Buffer& buffer)
 {
+	shader->bind();
 
+	std::vector<float> positions = getCubePositions();
+
+	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
+	shader->sendUniform(::viewMatrixLabel, buffer.modelViewMatrix);
+
+	buffer.texture->bind(0);
+
+	shader->sendUniform(textureLabel, 0);
+
+	shader->sendVertexAttribute3df(::positionLabel, positions);
+
+	glEnableVertexAttribArray(0);
+	shader->drawTriangles(positions.size() / 3);
+	glDisableVertexAttribArray(0);
+
+	buffer.texture->unbind();
+
+	shader->bindOutput(::fragColorLabel);
+
+	shader->unbind();
+
+	assert(GL_NO_ERROR == glGetError());
 }
 
 std::string CubeMapRenderer::getBuiltInVertexShaderSource() const

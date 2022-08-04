@@ -13,9 +13,10 @@ class CubeMapRenderer : public IRenderer
 public:
 	struct Buffer
 	{
+		//VertexBufferObject* positions;
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
-		CubeMapTextureObject* cubeMapTexture;
+		TextureObject* texture;
 	};
 
 	CubeMapRenderer();
