@@ -53,25 +53,25 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 		lightRenderer.link();
 	}
 
-	this->fbo = factory.createFrameBufferObject();
+	this->fbo = std::make_unique<FrameBufferObject>();
 	this->fbo->build(512, 512);
 
-	this->colorTexture = factory.createTextureObject();
+	this->colorTexture = std::make_unique<TextureObject>();
 	this->colorTexture->send(Image(512, 512));
 
 	//this->polygonTexture = factory.createTextureObject();
 	//this->polygonTexture->send(Imagef(512, 512));
 
-	this->polygonTexture = factory.createTextureObject();
+	this->polygonTexture = std::make_unique<TextureObject>();
 	this->polygonTexture->send(Image(512, 512, 255));
 
-	this->positionTexture = factory.createTextureObject();
+	this->positionTexture = std::make_unique<TextureObject>();
 	this->positionTexture->send(Imagef(512, 512));
 
-	this->normalTexture = factory.createTextureObject();
+	this->normalTexture = std::make_unique<TextureObject>();
 	this->normalTexture->send(Imagef(512, 512));
 
-	this->shadedTexture = factory.createTextureObject();
+	this->shadedTexture = std::make_unique<TextureObject>();
 	this->shadedTexture->send(Image(512, 512));
 
 	readTexture(*this->polygonTexture);
@@ -106,7 +106,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	fg1.indices.push_back(2);
 	fg1.indices.push_back(3);
 
-	fg1.texture = this->polygonTexture;
+	fg1.texture = this->polygonTexture.get();
 	buffer.faceGroups.push_back(fg1);
 
 	gRenderer.buffer.indices = fg1.indices;
@@ -121,12 +121,6 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 
 	return status;
-}
-
-void PolygonShader::release(GLObjectFactory& factory)
-{
-	factory.remove(this->fbo);
-	factory.remove(this->colorTexture);
 }
 
 void PolygonShader::render(const Camera& camera, const int wwidth, const int hheight)
@@ -192,9 +186,9 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		lightRenderer.buffer.albedoTex = this->colorTexture;
-		lightRenderer.buffer.positionTex = this->positionTexture;
-		lightRenderer.buffer.normalTex = this->normalTexture;
+		lightRenderer.buffer.albedoTex = this->colorTexture.get();
+		lightRenderer.buffer.positionTex = this->positionTexture.get();
+		lightRenderer.buffer.normalTex = this->normalTexture.get();
 		lightRenderer.buffer.invModelViewMatrix = glm::inverse(camera.getModelViewMatrix());
 		lightRenderer.buffer.invProjectionMatrix = glm::inverse(camera.getProjectionMatrix());
 		lightRenderer.buffer.invNormalMatrix = glm::inverse(glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix()))));
@@ -206,9 +200,4 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 //		this->fbo->unbind();
 
 	}
-}
-
-TextureObject* PolygonShader::getTexture()
-{
-	return this->shadedTexture;//this->normalTexture;//this->geometryTexture;//this->texture;
 }
