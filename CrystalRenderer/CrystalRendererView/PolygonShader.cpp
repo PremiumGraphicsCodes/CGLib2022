@@ -55,21 +55,26 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	this->fbo->build(512, 512);
 
 	this->colorTexture = std::make_unique<TextureObject>();
+	this->colorTexture->create("");
 	this->colorTexture->send(Image(512, 512));
 
 	//this->polygonTexture = factory.createTextureObject();
 	//this->polygonTexture->send(Imagef(512, 512));
 
 	this->polygonTexture = std::make_unique<TextureObject>();
+	this->polygonTexture->create("");
 	this->polygonTexture->send(Image(512, 512, 255));
 
 	this->positionTexture = std::make_unique<TextureObject>();
+	this->polygonTexture->create("");
 	this->positionTexture->send(Imagef(512, 512));
 
 	this->normalTexture = std::make_unique<TextureObject>();
+	this->normalTexture->create("");
 	this->normalTexture->send(Imagef(512, 512));
 
 	this->shadedTexture = std::make_unique<TextureObject>();
+	this->shadedTexture->create("");
 	this->shadedTexture->send(Image(512, 512));
 
 	readTexture(*this->polygonTexture);
@@ -180,7 +185,7 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 
 //		this->fbo->setTexture(*shadedTexture);
 
-		glViewport(0, 0, wwidth, hheight);
+		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
