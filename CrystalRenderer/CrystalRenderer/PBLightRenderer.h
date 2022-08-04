@@ -3,10 +3,10 @@
 #include "Crystal/Shader/ShaderObject.h"
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/VertexBufferObject.h"
-#include "Crystal/Shader/IRenderer.h"
+#include "IRenderer.h"
 
 namespace Crystal {
-	namespace Shader {
+	namespace Renderer {
 
 class PBLightRenderer : public IRenderer
 {
@@ -33,16 +33,14 @@ public:
 
 	PBLightRenderer();
 
-	ShaderBuildStatus build(Shader::GLObjectFactory& glFactory) override;
+	void setShader(std::unique_ptr<Shader::ShaderObject> shader) override;
 
-	void release(Shader::GLObjectFactory& glFactory) override;
+	void render() override;
 
-	void render(const Buffer& buffer);
-
-	std::string getName() const override { return "PBLightRenderer"; }
+	Buffer buffer;
 
 private:
-	Shader::ShaderObject* shader;
+	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}

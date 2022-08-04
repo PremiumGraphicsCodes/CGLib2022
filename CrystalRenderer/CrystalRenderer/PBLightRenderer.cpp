@@ -3,6 +3,7 @@
 #include <sstream>
 
 using namespace Crystal::Shader;
+using namespace Crystal::Renderer;
 
 namespace {
 	constexpr auto projectionMatrixLabel = "projection";
@@ -29,16 +30,9 @@ PBLightRenderer::PBLightRenderer() :
 {
 }
 
-ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
+void PBLightRenderer::setShader(std::unique_ptr<Shader::ShaderObject> s)
 {
-	shader = factory.createShaderObject();
-	const auto isOk = shader->buildFromFile("../GLSL/PBLight.vs", "../GLSL/PBLight.fs");
-	if (!isOk) {
-		ShaderBuildStatus status;
-		status.isOk = false;
-		status.log = shader->getLog();
-		return status;
-	}
+    shader = std::move(s);
 
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelMatrixLabel);
@@ -58,18 +52,9 @@ ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
 
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::normalLabel);
-
-	ShaderBuildStatus status;
-	status.isOk = true;
-	return status;
 }
 
-void PBLightRenderer::release(GLObjectFactory& factory)
-{
-	factory.remove(shader);
-}
-
-void PBLightRenderer::render(const Buffer& buffer)
+void PBLightRenderer::render()
 {
 	shader->bind();
 	shader->bindOutput("FragColor");
