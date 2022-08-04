@@ -7,8 +7,7 @@
 using namespace Crystal::Math;
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
-//using namespace Crystal::Scene;
-
+using namespace Crystal::Renderer;
 
 namespace {
 	constexpr auto positionLabel = "position";
@@ -23,34 +22,18 @@ SkyBoxRenderer::SkyBoxRenderer() :
 {
 }
 
-ShaderBuildStatus SkyBoxRenderer::build(GLObjectFactory& factory)
+void SkyBoxRenderer::setShader(std::unique_ptr<ShaderObject> s)
 {
-	ShaderBuildStatus status;
-	status.isOk = true;
-
-	shader = factory.createShaderObject();
-	const auto isOk = shader->build("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
-	status.log = shader->getLog();
-	if (!isOk) {
-		status.isOk = false;
-		return status;
-	}
+	this->shader = std::move(s);
 
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 	shader->findUniformLocation(::cubeMapTexLabel);
 
 	shader->findAttribLocation(::positionLabel);
-
-	return status;
 }
 
-void SkyBoxRenderer::release(GLObjectFactory& factory)
-{
-	factory.remove(shader);
-}
-
-void SkyBoxRenderer::render(const Buffer& buffer)
+void SkyBoxRenderer::render()
 {
 	shader->bind();
 

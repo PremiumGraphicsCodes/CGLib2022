@@ -8,19 +8,18 @@
 namespace Crystal {
 	namespace UI {
 
-		class SkyBoxShader
-		{
-		public:
-			Shader::ShaderBuildStatus build(Shader::GLObjectFactory& factory);
+class SkyBoxShader
+{
+public:
+	Shader::ShaderBuildStatus build();
 
-			void release(Shader::GLObjectFactory& factory);
+	void render(const Graphics::Camera& camera, const int width, const int height);
 
-			void render(const Graphics::Camera& camera, const int width, const int height);
+private:
+	Renderer::SkyBoxRenderer skyBoxRenderer;
+	std::unique_ptr<Shader::CubeMapTextureObject> cubeMapTexture;
+};
 
-		private:
-			Shader::SkyBoxRenderer skyBoxRenderer;
-			Shader::CubeMapTextureObject* cubeMapTexture;
-		};
 	}
 
 }

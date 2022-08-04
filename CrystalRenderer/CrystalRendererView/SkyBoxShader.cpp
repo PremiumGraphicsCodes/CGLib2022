@@ -47,22 +47,25 @@ namespace {
 	}
 }
 
-ShaderBuildStatus SkyBoxShader::build(GLObjectFactory& factory)
+ShaderBuildStatus SkyBoxShader::build()
 {
 	ShaderBuildStatus status;
 
-	status.add(skyBoxRenderer.build(factory));
+	{
+		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+		skyBoxRenderer.setShader(std::move(shader));
+	}
 
-	this->cubeMapTexture = new CubeMapTextureObject();
-	factory.add(cubeMapTexture);
+	//status.add(skyBoxRenderer.build(factory));
+
+	this->cubeMapTexture = std::make_unique<CubeMapTextureObject>();
 	readCubeMap(*this->cubeMapTexture);
 
 	return status;
-}
-
-void SkyBoxShader::release(GLObjectFactory& factory)
-{
-
 }
 
 void SkyBoxShader::render(const Camera& camera, const int width, const int height)
@@ -73,12 +76,11 @@ void SkyBoxShader::render(const Camera& camera, const int width, const int heigh
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		SkyBoxRenderer::Buffer buffer;
-		buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
-		buffer.projectionMatrix = camera.getProjectionMatrix();
-		buffer.cubeMapTexture = this->cubeMapTexture;
+		skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
+		skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		skyBoxRenderer.buffer.cubeMapTexture = this->cubeMapTexture.get();
 
-		skyBoxRenderer.render(buffer);
+		skyBoxRenderer.render();
 
 	}
 }
