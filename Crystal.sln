@@ -40,9 +40,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Viewer", "CrystalScene\View
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalSpaceView", "CrystalSpace\CrystalSpaceView\CrystalSpaceView.vcxproj", "{611C9BAF-6623-4B9D-92F7-02A75605EE46}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBRView", "CrystalPBR\CrystalPBRView\CrystalPBRView.vcxproj", "{F7B41760-359B-49FF-9177-006490E52ED4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBRView", "CrystalRenderer\CrystalPBRView\CrystalPBRView.vcxproj", "{F7B41760-359B-49FF-9177-006490E52ED4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBR", "CrystalPBR\CrystalPBR\CrystalPBR.vcxproj", "{571960E5-CEE8-4A3E-82E3-7ADF50629391}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalPBR", "CrystalRenderer\CrystalPBR\CrystalPBR.vcxproj", "{571960E5-CEE8-4A3E-82E3-7ADF50629391}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrystalUI", "CrystalUI\CrystalUI\CrystalUI.vcxproj", "{CF4AD4C8-5351-48D6-9087-48C812DFC4F7}"
 EndProject
