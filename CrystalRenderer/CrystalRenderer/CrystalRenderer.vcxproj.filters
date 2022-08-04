@@ -23,6 +23,7 @@
     <ClInclude Include="DFLightRenderer.h">
       <Filter>Deffered\DFLight</Filter>
     </ClInclude>
+    <ClInclude Include="IRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">

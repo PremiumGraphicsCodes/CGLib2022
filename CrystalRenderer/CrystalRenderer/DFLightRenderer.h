@@ -1,13 +1,14 @@
 #pragma once
 
+#include "IRenderer.h"
+
 #include "Crystal/Shader/ShaderObject.h"
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/VertexBufferObject.h"
-#include "Crystal/Shader/IRenderer.h"
 #include "Crystal/Math/Matrix3d.h"
 
 namespace Crystal {
-	namespace Shader {
+	namespace Renderer {
 
 class DFLightRenderer : public IRenderer
 {
@@ -26,16 +27,14 @@ public:
 
 	DFLightRenderer();
 
-	ShaderBuildStatus build(Shader::GLObjectFactory& glFactory) override;
+	Shader::ShaderBuildStatus build() override;
 
-	void release(Shader::GLObjectFactory& glFactory) override;
+	void render();
 
-	void render(const Buffer& buffer);
-
-	std::string getName() const override { return "DFLightRenderer"; }
+	Buffer buffer;
 
 private:
-	Shader::ShaderObject* shader;
+	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}

@@ -1,21 +1,14 @@
 #pragma once
 
+#include "IRenderer.h"
+
 #include "Crystal/Shader/ShaderObject.h"
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/VertexBufferObject.h"
-#include "Crystal/Shader/IRenderer.h"
 #include "Crystal/Math/Matrix3d.h"
 
 namespace Crystal {
 	namespace Renderer {
-
-class IRenderer
-{
-public:
-	virtual Shader::ShaderBuildStatus build() = 0;
-
-	virtual void render() = 0;
-};
 
 class DFGeometryRenderer : public IRenderer
 {

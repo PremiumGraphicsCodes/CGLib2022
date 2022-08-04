@@ -32,7 +32,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 
 	status.add(renderer.build(factory));
 	status.add(gRenderer.build());
-	status.add(lightRenderer.build(factory));
+	status.add(lightRenderer.build());
 
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);
@@ -173,16 +173,16 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		lightBuffer.albedoTex = this->colorTexture;
-		lightBuffer.positionTex = this->positionTexture;
-		lightBuffer.normalTex = this->normalTexture;
-		lightBuffer.invModelViewMatrix = glm::inverse(camera.getModelViewMatrix());
-		lightBuffer.invProjectionMatrix = glm::inverse(camera.getProjectionMatrix());
-		lightBuffer.invNormalMatrix = glm::inverse(glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix()))));
-		lightBuffer.lightPosition = Vector3dd(0, 0, 10);
-		lightBuffer.lightColor = Vector3dd(1, 1, 1);
+		lightRenderer.buffer.albedoTex = this->colorTexture;
+		lightRenderer.buffer.positionTex = this->positionTexture;
+		lightRenderer.buffer.normalTex = this->normalTexture;
+		lightRenderer.buffer.invModelViewMatrix = glm::inverse(camera.getModelViewMatrix());
+		lightRenderer.buffer.invProjectionMatrix = glm::inverse(camera.getProjectionMatrix());
+		lightRenderer.buffer.invNormalMatrix = glm::inverse(glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix()))));
+		lightRenderer.buffer.lightPosition = Vector3dd(0, 0, 10);
+		lightRenderer.buffer.lightColor = Vector3dd(1, 1, 1);
 
-		this->lightRenderer.render(lightBuffer);
+		this->lightRenderer.render();
 
 //		this->fbo->unbind();
 

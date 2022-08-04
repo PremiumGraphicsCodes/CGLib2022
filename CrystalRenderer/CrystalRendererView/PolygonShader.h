@@ -26,8 +26,7 @@ namespace Crystal {
 		private:
 			Shader::PolygonRenderer renderer;
 			Renderer::DFGeometryRenderer gRenderer;
-			Shader::DFLightRenderer lightRenderer;
-			Shader::DFLightRenderer::Buffer lightBuffer;
+			Renderer::DFLightRenderer lightRenderer;
 			Shader::TextureObject* colorTexture;
 			Shader::TextureObject* polygonTexture;
 			Shader::TextureObject* positionTexture;

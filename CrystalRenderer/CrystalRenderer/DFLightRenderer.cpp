@@ -7,6 +7,7 @@
 
 using namespace Crystal::Math;
 using namespace Crystal::Shader;
+using namespace Crystal::Renderer;
 
 namespace {
 	constexpr auto positionLabel = "position";
@@ -23,12 +24,12 @@ DFLightRenderer::DFLightRenderer() :
 {
 }
 
-ShaderBuildStatus DFLightRenderer::build(GLObjectFactory& factory)
+ShaderBuildStatus DFLightRenderer::build()
 {
 	ShaderBuildStatus status;
 	status.isOk = true;
 
-	shader = factory.createShaderObject();
+	shader = std::make_unique<ShaderObject>();
 	const auto isOk = shader->buildFromFile("../GLSL/DFLight.vs", "../GLSL/DFLight.fs");
 	if (!isOk) {
 		status.isOk = false;
@@ -50,11 +51,6 @@ ShaderBuildStatus DFLightRenderer::build(GLObjectFactory& factory)
 	return status;
 }
 
-void DFLightRenderer::release(GLObjectFactory& factory)
-{
-	factory.remove(shader);
-}
-
 namespace {
 	std::vector<float> toArray(const Box2d<float>& box)
 	{
@@ -67,7 +63,7 @@ namespace {
 	}
 }
 
-void DFLightRenderer::render(const Buffer& buffer)
+void DFLightRenderer::render()
 {
 	const Box2d<float> box(Vector2df(-1.0, -1.0), Vector2df(1.0, 1.0));
 	const auto& positions = ::toArray(box);
