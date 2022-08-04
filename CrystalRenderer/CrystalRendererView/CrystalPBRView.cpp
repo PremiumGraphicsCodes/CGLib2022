@@ -10,7 +10,7 @@
 #include "PolygonShader.h"
 #include "PBLightShader.h"
 
-#include "CrystalPBR/CrystalPBR/IrradianceRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
 
 //#include "Crystal/ThirdParty/glew-2.1.0/include/GL/glew.h"
 

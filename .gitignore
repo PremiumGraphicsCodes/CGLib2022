@@ -57,3 +57,6 @@
 /CrystalUI/CrystalUI/x64/Release
 /CrystalPBR/CrystalPBRView/x64/Release
 /CrystalSpace/CrystalSpaceView/x64/Release
+/CrystalRenderer/CrystalRenderer/x64
+/CrystalRenderer/CrystalRendererView/x64
+/CrystalRenderer/CrystalRendererView/imgui.ini

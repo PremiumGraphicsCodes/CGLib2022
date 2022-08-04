@@ -4,7 +4,7 @@
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Graphics/Buffer2d.h"
-#include "CrystalPBR/CrystalPBR/PBLightRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/PBLightRenderer.h"
 
 namespace Crystal {
 	namespace UI {

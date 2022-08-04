@@ -3,7 +3,7 @@
 #include "CrystalScene/Scene/IShader.h"
 #include "Crystal/Graphics/Camera.h"
 #include "Crystal/Shader/GLObjectFactory.h"
-#include "CrystalPBR/CrystalPBR/SkyBoxRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
 
 namespace Crystal {
 	namespace UI {

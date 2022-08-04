@@ -6,8 +6,8 @@
 #include "CrystalScene/Scene/PolygonRenderer.h"
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Graphics/Buffer2d.h"
-#include "CrystalPBR/CrystalPBR/DFGeometryRenderer.h"
-#include "CrystalPBR/CrystalPBR/DFLightRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/DFGeometryRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/DFLightRenderer.h"
 
 namespace Crystal {
 	namespace UI {

@@ -1,6 +1,6 @@
 #include "SkyBoxShader.h"
 
-#include "CrystalPBR/CrystalPBR/SkyBoxRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
 
 #include "Crystal/Shader/FrameBufferObject.h"
 #include "Crystal/Shader/TextureObject.h"
