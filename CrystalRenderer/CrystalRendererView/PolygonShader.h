@@ -7,9 +7,10 @@
 #include "Crystal/Shader/TextureObject.h"
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Graphics/Buffer2d.h"
+
+#include "CrystalRenderer/CrystalRenderer/DFAlbedoRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/DFGeometryRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/DFLightRenderer.h"
-#include "CrystalRenderer/CrystalRenderer/PolygonRenderer.h"
 
 namespace Crystal {
 	namespace UI {
@@ -22,8 +23,8 @@ public:
 	void render(const Graphics::Camera& camera, const int width, const int height); //override;
 
 private:
-	Renderer::PolygonRenderer renderer;
-	Renderer::PolygonRenderer::Buffer buffer;
+	Renderer::DFAlbedoRenderer albedoRenderer;
+	Renderer::DFAlbedoRenderer::Buffer buffer;
 
 	Renderer::DFGeometryRenderer gRenderer;
 	Renderer::DFLightRenderer lightRenderer;

@@ -27,7 +27,7 @@
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IrradianceRenderer.h" />
     <ClInclude Include="PBLightRenderer.h" />
-    <ClInclude Include="PolygonRenderer.h" />
+    <ClInclude Include="DFAlbedoRenderer.h" />
     <ClInclude Include="SkyBoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -39,7 +39,7 @@
     <ClCompile Include="IrradianceRenderer.cpp" />
     <ClCompile Include="IScreenRenderer.h" />
     <ClCompile Include="PBLightRenderer.cpp" />
-    <ClCompile Include="PolygonRenderer.cpp" />
+    <ClCompile Include="DFAlbedoRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>

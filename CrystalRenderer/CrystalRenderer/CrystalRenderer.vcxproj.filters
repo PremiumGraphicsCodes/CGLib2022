@@ -24,8 +24,8 @@
       <Filter>Deffered\DFLight</Filter>
     </ClInclude>
     <ClInclude Include="IRenderer.h" />
-    <ClInclude Include="PolygonRenderer.h">
-      <Filter>Polygon</Filter>
+    <ClInclude Include="DFAlbedoRenderer.h">
+      <Filter>Deffered\DFAlbedo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -52,8 +52,8 @@
       <Filter>Deffered\DFLight</Filter>
     </ClCompile>
     <ClCompile Include="IScreenRenderer.h" />
-    <ClCompile Include="PolygonRenderer.cpp">
-      <Filter>Polygon</Filter>
+    <ClCompile Include="DFAlbedoRenderer.cpp">
+      <Filter>Deffered\DFAlbedo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,8 +78,8 @@
     <Filter Include="Deffered\DFLight">
       <UniqueIdentifier>{68040117-1daa-4abf-89ae-79bcef1c46d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Polygon">
-      <UniqueIdentifier>{1c0b4398-609e-42cf-8865-980cbf35f54a}</UniqueIdentifier>
+    <Filter Include="Deffered\DFAlbedo">
+      <UniqueIdentifier>{774a8e0c-28ad-4bdf-a03b-e209de3288c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

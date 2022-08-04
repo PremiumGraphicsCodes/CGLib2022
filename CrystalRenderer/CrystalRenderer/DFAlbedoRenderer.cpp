@@ -1,4 +1,4 @@
-#include "PolygonRenderer.h"
+#include "DFAlbedoRenderer.h"
 
 #include "Crystal/Shader/TextureObject.h"
 
@@ -15,12 +15,12 @@ namespace {
 	constexpr auto textureLabel = "texture";
 }
 
-PolygonRenderer::PolygonRenderer() :
+DFAlbedoRenderer::DFAlbedoRenderer() :
 	shader(nullptr)
 {
 }
 
-ShaderBuildStatus PolygonRenderer::build(GLObjectFactory& factory)
+ShaderBuildStatus DFAlbedoRenderer::build(GLObjectFactory& factory)
 {
 	const auto& vsSource = getBuildInVertexShaderSource();
 	const auto& fsSource = getBuiltInFragmentShaderSource();
@@ -56,12 +56,12 @@ ShaderBuildStatus PolygonRenderer::build(GLObjectFactory& factory)
 	return status;
 }
 
-void PolygonRenderer::release(GLObjectFactory& factory)
+void DFAlbedoRenderer::release(GLObjectFactory& factory)
 {
 	factory.remove(shader);
 }
 
-void PolygonRenderer::render(const Buffer& buffer)
+void DFAlbedoRenderer::render(const Buffer& buffer)
 {
 	shader->bind();
 	shader->bindOutput("fragColor");
@@ -94,7 +94,7 @@ void PolygonRenderer::render(const Buffer& buffer)
 	shader->unbind();
 }
 
-std::string PolygonRenderer::getBuildInVertexShaderSource() const
+std::string DFAlbedoRenderer::getBuildInVertexShaderSource() const
 {
 	const std::string str = R"(
 #version 150
@@ -112,7 +112,7 @@ void main(void)
 	return str;
 }
 
-std::string PolygonRenderer::getBuiltInFragmentShaderSource() const
+std::string DFAlbedoRenderer::getBuiltInFragmentShaderSource() const
 {
 	const std::string str = R"(
 #version 150
