@@ -43,6 +43,8 @@
     <None Include="..\..\GLSL\DFGeometry.vs" />
     <None Include="..\..\GLSL\PBLight.fs" />
     <None Include="..\..\GLSL\PBLight.vs" />
+    <None Include="..\..\GLSL\SkyBox.fs" />
+    <None Include="..\..\GLSL\SkyBox.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="SkyBoxRenderer.h" />
     <ClInclude Include="DFLightRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
@@ -19,9 +18,11 @@
     <ClInclude Include="PBLightRenderer.h">
       <Filter>PBLight</Filter>
     </ClInclude>
+    <ClInclude Include="SkyBoxRenderer.h">
+      <Filter>SkyBox</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SkyBoxRenderer.cpp" />
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
@@ -39,6 +40,9 @@
     <ClCompile Include="PBLightRenderer.cpp">
       <Filter>PBLight</Filter>
     </ClCompile>
+    <ClCompile Include="SkyBoxRenderer.cpp">
+      <Filter>SkyBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
@@ -53,6 +57,9 @@
     <Filter Include="PBLight">
       <UniqueIdentifier>{18e9ff9c-1f37-46c6-bc74-8a30e2bb7122}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SkyBox">
+      <UniqueIdentifier>{d517fc8e-b3ed-4f97-aa0d-2bcb88a29fb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\GLSL\DFGeometry.fs">
@@ -66,6 +73,12 @@
     </None>
     <None Include="..\..\GLSL\PBLight.vs">
       <Filter>PBLight</Filter>
+    </None>
+    <None Include="..\..\GLSL\SkyBox.fs">
+      <Filter>SkyBox</Filter>
+    </None>
+    <None Include="..\..\GLSL\SkyBox.vs">
+      <Filter>SkyBox</Filter>
     </None>
   </ItemGroup>
 </Project>

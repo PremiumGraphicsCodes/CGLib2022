@@ -29,10 +29,6 @@ public:
 	std::string getName() const override { return "SkyBoxRenderer"; }
 
 private:
-	std::string getBuiltInVertexShaderSource() const;
-
-	std::string getBuiltInFragmentShaderSource() const;
-
 	Shader::ShaderObject* shader;
 };
 

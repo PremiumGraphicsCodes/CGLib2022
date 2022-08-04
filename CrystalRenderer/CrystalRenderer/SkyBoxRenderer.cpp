@@ -28,11 +28,8 @@ ShaderBuildStatus SkyBoxRenderer::build(GLObjectFactory& factory)
 	ShaderBuildStatus status;
 	status.isOk = true;
 
-	const auto& vsSource = getBuiltInVertexShaderSource();
-	const auto& fsSource = getBuiltInFragmentShaderSource();
-
 	shader = factory.createShaderObject();
-	const auto isOk = shader->build(vsSource, fsSource);
+	const auto isOk = shader->build("../../GLSL/SkyBox.vs", "../../GLSL/SkyBox.fs");
 	status.log = shader->getLog();
 	if (!isOk) {
 		status.isOk = false;
@@ -126,35 +123,4 @@ void SkyBoxRenderer::render(const Buffer& buffer)
 	shader->disableDepthTest();
 
 	assert(GL_NO_ERROR == glGetError());
-}
-
-std::string SkyBoxRenderer::getBuiltInVertexShaderSource() const
-{
-	const std::string vsSource = R"(
-#version 150
-in vec3 position;
-out vec3 vTexCoord;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
-void main(void) {
-	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
-	vTexCoord = position;
-}
-)";
-	return vsSource;
-}
-
-std::string SkyBoxRenderer::getBuiltInFragmentShaderSource() const
-{
-	const std::string fsSource = R"(
-#version 150
-in vec3 vTexCoord;
-out vec4 fragColor;
-uniform samplerCube cubeMapTex;
-void main(void) {
-	fragColor = texture(cubeMapTex, vTexCoord);
-	//fragColor.rgb = vec3(1,1,1);
-}
-)";
-	return fsSource;
 }
