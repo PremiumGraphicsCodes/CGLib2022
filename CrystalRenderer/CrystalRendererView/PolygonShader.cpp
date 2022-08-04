@@ -31,7 +31,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	ShaderBuildStatus status;
 
 	status.add(renderer.build(factory));
-	status.add(gRenderer.build(factory));
+	status.add(gRenderer.build());
 	status.add(lightRenderer.build(factory));
 
 	this->fbo = factory.createFrameBufferObject();
@@ -75,8 +75,8 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	buffer.position.build();
 	buffer.texCoord.build();
 
-	gBuffer.position.build();
-	gBuffer.normal.build();
+	gRenderer.buffer.position.build();
+	gRenderer.buffer.normal.build();
 
 	Shader::PolygonRenderer::Buffer::FaceGroup fg1;
 	fg1.indices.push_back(0);
@@ -90,7 +90,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	fg1.texture = this->polygonTexture;
 	buffer.faceGroups.push_back(fg1);
 
-	gBuffer.indices = fg1.indices;
+	gRenderer.buffer.indices = fg1.indices;
 
 	//Shader::PolygonRenderer::Buffer::FaceGroup fg2;
 	//fg2.indices.push_back(0);
@@ -147,13 +147,13 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		gBuffer.position.send(positions.get());
-		gBuffer.normal.send(normals.get());
-		gBuffer.projectionMatrix = camera.getProjectionMatrix();
-		gBuffer.modelViewMatrix = camera.getModelViewMatrix();
-		gBuffer.normalMatrix = glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix())));
+		this->gRenderer.buffer.position.send(positions.get());
+		this->gRenderer.buffer.normal.send(normals.get());
+		this->gRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		this->gRenderer.buffer.modelViewMatrix = camera.getModelViewMatrix();
+		this->gRenderer.buffer.normalMatrix = glm::transpose(glm::inverse(glm::mat3(camera.getRotationMatrix())));
 
-		this->gRenderer.render(gBuffer);
+		this->gRenderer.render();
 
 		this->fbo->unbind();
 

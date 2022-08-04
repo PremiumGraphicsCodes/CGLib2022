@@ -5,6 +5,7 @@
 #include <sstream>
 
 using namespace Crystal::Shader;
+using namespace Crystal::Renderer;
 
 namespace {
 	constexpr auto projectionMatrixLabel = "projectionMatrix";
@@ -19,9 +20,9 @@ DFGeometryRenderer::DFGeometryRenderer() :
 {
 }
 
-ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
+ShaderBuildStatus DFGeometryRenderer::build()
 {
-	shader = factory.createShaderObject();
+	shader = std::make_unique<ShaderObject>();
 	const auto isOk = shader->buildFromFile("../GLSL/DFGeometry.vs", "../GLSL/DFGeometry.fs");
 	if (!isOk) {
 		ShaderBuildStatus status;
@@ -42,12 +43,7 @@ ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 	return status;
 }
 
-void DFGeometryRenderer::release(GLObjectFactory& factory)
-{
-	factory.remove(shader);
-}
-
-void DFGeometryRenderer::render(const Buffer& buffer)
+void DFGeometryRenderer::render()
 {
 	shader->bind();
 	shader->bindOutput("gPosition", 0);

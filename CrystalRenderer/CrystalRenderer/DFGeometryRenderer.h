@@ -7,7 +7,15 @@
 #include "Crystal/Math/Matrix3d.h"
 
 namespace Crystal {
-	namespace Shader {
+	namespace Renderer {
+
+class IRenderer
+{
+public:
+	virtual Shader::ShaderBuildStatus build() = 0;
+
+	virtual void render() = 0;
+};
 
 class DFGeometryRenderer : public IRenderer
 {
@@ -24,16 +32,14 @@ public:
 
 	DFGeometryRenderer();
 
-	ShaderBuildStatus build(Shader::GLObjectFactory& glFactory) override;
+	Shader::ShaderBuildStatus build() override;
 
-	void release(Shader::GLObjectFactory& glFactory) override;
+	void render() override;
 
-	void render(const Buffer& buffer);
-
-	std::string getName() const override { return "DFGeometryRenderer"; }
+	Buffer buffer;
 
 private:
-	Shader::ShaderObject* shader;
+	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}
