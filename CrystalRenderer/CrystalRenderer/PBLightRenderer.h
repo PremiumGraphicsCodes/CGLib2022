@@ -33,14 +33,17 @@ public:
 
 	PBLightRenderer();
 
-	void setShader(std::unique_ptr<Shader::ShaderObject> shader) override;
+	explicit PBLightRenderer(std::unique_ptr<Shader::ShaderObject> shader) :
+		IRenderer(std::move(shader))
+	{}
+
+	void link() override;
 
 	void render() override;
 
 	Buffer buffer;
 
 private:
-	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}

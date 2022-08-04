@@ -19,15 +19,12 @@ namespace {
 	constexpr auto invNormalMatrixLabel = "invNormalMatrix";
 }
 
-DFLightRenderer::DFLightRenderer() :
-	shader(nullptr)
+DFLightRenderer::DFLightRenderer()
 {
 }
 
-void DFLightRenderer::setShader(std::unique_ptr<ShaderObject> shader)
+void DFLightRenderer::link()
 {
-	shader = std::move(shader);
-
 	shader->findUniformLocation(::invProjectionMatrixLabel);
 	shader->findUniformLocation(::invModelViewMatrixLabel);
 	shader->findUniformLocation(::invNormalMatrixLabel);

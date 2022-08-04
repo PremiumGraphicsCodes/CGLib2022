@@ -17,15 +17,12 @@ namespace {
 	constexpr auto fragColorLabel = "fragColor";
 }
 
-SkyBoxRenderer::SkyBoxRenderer() :
-	shader(nullptr)
+SkyBoxRenderer::SkyBoxRenderer()
 {
 }
 
-void SkyBoxRenderer::setShader(std::unique_ptr<ShaderObject> s)
+void SkyBoxRenderer::link()
 {
-	this->shader = std::move(s);
-
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 	shader->findUniformLocation(::cubeMapTexLabel);

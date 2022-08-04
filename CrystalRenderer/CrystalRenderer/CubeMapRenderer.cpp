@@ -13,12 +13,11 @@ namespace {
 	constexpr auto fragColorLabel = "FragColor";
 }
 
-CubeMapRenderer::CubeMapRenderer() :
-	shader(nullptr)
+CubeMapRenderer::CubeMapRenderer()
 {
 }
 
-void CubeMapRenderer::setShader(std::unique_ptr<ShaderObject> shader)
+void CubeMapRenderer::link()
 {
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::viewMatrixLabel);

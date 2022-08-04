@@ -40,6 +40,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 			status.log += gShader->getLog();
 		}
 		gRenderer.setShader(std::move(gShader));
+		gRenderer.link();
 	}
 
 	{
@@ -49,6 +50,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 			status.log += shader->getLog();
 		}
 		lightRenderer.setShader(std::move(shader));
+		lightRenderer.link();
 	}
 
 	this->fbo = factory.createFrameBufferObject();

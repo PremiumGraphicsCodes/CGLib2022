@@ -25,14 +25,17 @@ public:
 
 	DFGeometryRenderer();
 
-	void setShader(std::unique_ptr<Shader::ShaderObject> shader);
+	explicit DFGeometryRenderer(std::unique_ptr<Shader::ShaderObject> shader) :
+		IRenderer(std::move(shader))
+	{}
+
+	void link() override;
 
 	void render() override;
 
 	Buffer buffer;
 
 private:
-	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}

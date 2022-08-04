@@ -25,15 +25,12 @@ namespace {
     constexpr auto camerPosLabel = "camPos";
 }
 
-PBLightRenderer::PBLightRenderer() :
-	shader(nullptr)
+PBLightRenderer::PBLightRenderer()
 {
 }
 
-void PBLightRenderer::setShader(std::unique_ptr<Shader::ShaderObject> s)
+void PBLightRenderer::link()
 {
-    shader = std::move(s);
-
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelMatrixLabel);
     shader->findUniformLocation(::viewMatrixLabel);

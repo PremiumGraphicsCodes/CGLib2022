@@ -15,15 +15,12 @@ namespace {
 	constexpr auto normalLabel = "normal";
 }
 
-DFGeometryRenderer::DFGeometryRenderer() :
-	shader(nullptr)
+DFGeometryRenderer::DFGeometryRenderer()
 {
 }
 
-void DFGeometryRenderer::setShader(std::unique_ptr<Shader::ShaderObject> shader)
+void DFGeometryRenderer::link()
 {
-	this->shader = std::move(shader);
-
 	this->shader->findUniformLocation(::projectionMatrixLabel);
 	this->shader->findUniformLocation(::modelViewMatrixLabel);
 	this->shader->findUniformLocation(::normalMatrixLabel);

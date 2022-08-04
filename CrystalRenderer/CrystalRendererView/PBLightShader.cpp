@@ -21,6 +21,7 @@ ShaderBuildStatus PBLightShader::build(GLObjectFactory& factory)
 			status.log += shader->getLog();
 		}
 		renderer.setShader(std::move(shader));
+		renderer.link();
 	}
 
 	//status.add(renderer.build(factory));

@@ -27,14 +27,17 @@ public:
 
 	DFLightRenderer();
 
-	void setShader(std::unique_ptr<Shader::ShaderObject> shader);
+	explicit DFLightRenderer(std::unique_ptr<Shader::ShaderObject> shader) :
+		IRenderer(std::move(shader))
+	{}
+
+	void link();
 
 	void render();
 
 	Buffer buffer;
 
 private:
-	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}
