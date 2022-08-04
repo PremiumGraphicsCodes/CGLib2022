@@ -20,27 +20,16 @@ DFGeometryRenderer::DFGeometryRenderer() :
 {
 }
 
-ShaderBuildStatus DFGeometryRenderer::build()
+void DFGeometryRenderer::setShader(std::unique_ptr<Shader::ShaderObject> shader)
 {
-	shader = std::make_unique<ShaderObject>();
-	const auto isOk = shader->buildFromFile("../GLSL/DFGeometry.vs", "../GLSL/DFGeometry.fs");
-	if (!isOk) {
-		ShaderBuildStatus status;
-		status.isOk = false;
-		status.log = shader->getLog();
-		return status;
-	}
+	this->shader = std::move(shader);
 
-	shader->findUniformLocation(::projectionMatrixLabel);
-	shader->findUniformLocation(::modelViewMatrixLabel);
-	shader->findUniformLocation(::normalMatrixLabel);
+	this->shader->findUniformLocation(::projectionMatrixLabel);
+	this->shader->findUniformLocation(::modelViewMatrixLabel);
+	this->shader->findUniformLocation(::normalMatrixLabel);
 
-	shader->findAttribLocation(::positionLabel);
-	shader->findAttribLocation(::normalLabel);
-
-	ShaderBuildStatus status;
-	status.isOk = true;
-	return status;
+	this->shader->findAttribLocation(::positionLabel);
+	this->shader->findAttribLocation(::normalLabel);
 }
 
 void DFGeometryRenderer::render()

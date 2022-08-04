@@ -22,7 +22,7 @@ public:
 
 	CubeMapRenderer();
 
-	Shader::ShaderBuildStatus build() override;
+	void setShader(std::unique_ptr<Shader::ShaderObject> shader) override;
 
 	void render() override;
 

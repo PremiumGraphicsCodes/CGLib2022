@@ -30,9 +30,26 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 {
 	ShaderBuildStatus status;
 
-	status.add(renderer.build(factory));
-	status.add(gRenderer.build());
-	status.add(lightRenderer.build());
+	{
+		status.add(renderer.build(factory));
+	}
+	{
+		std::unique_ptr<ShaderObject> gShader = std::make_unique<ShaderObject>();
+		const auto isOk = gShader->buildFromFile("../GLSL/DFGeometry.vs", "../GLSL/DFGeometry.fs");
+		if (!isOk) {
+			status.log += gShader->getLog();
+		}
+		gRenderer.setShader(std::move(gShader));
+	}
+
+	{
+		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/DFLight.vs", "../GLSL/DFLight.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+		lightRenderer.setShader(std::move(shader));
+	}
 
 	this->fbo = factory.createFrameBufferObject();
 	this->fbo->build(512, 512);

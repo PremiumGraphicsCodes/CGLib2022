@@ -25,7 +25,7 @@ public:
 
 	DFGeometryRenderer();
 
-	Shader::ShaderBuildStatus build() override;
+	void setShader(std::unique_ptr<Shader::ShaderObject> shader);
 
 	void render() override;
 

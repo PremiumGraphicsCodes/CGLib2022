@@ -18,26 +18,13 @@ CubeMapRenderer::CubeMapRenderer() :
 {
 }
 
-ShaderBuildStatus CubeMapRenderer::build()
+void CubeMapRenderer::setShader(std::unique_ptr<ShaderObject> shader)
 {
-	ShaderBuildStatus status;
-	status.isOk = true;
-
-	shader = std::make_unique<ShaderObject>();
-	const auto isOk = shader->build("../GLSL/CubeMap.vs", "../GLSL/CubeMap.fs");
-	status.log = shader->getLog();
-	if (!isOk) {
-		status.isOk = false;
-		return status;
-	}
-
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::viewMatrixLabel);
 	shader->findUniformLocation(::textureLabel);
 
 	shader->findAttribLocation(::positionLabel);
-
-	return status;
 }
 
 namespace {

@@ -24,18 +24,9 @@ DFLightRenderer::DFLightRenderer() :
 {
 }
 
-ShaderBuildStatus DFLightRenderer::build()
+void DFLightRenderer::setShader(std::unique_ptr<ShaderObject> shader)
 {
-	ShaderBuildStatus status;
-	status.isOk = true;
-
-	shader = std::make_unique<ShaderObject>();
-	const auto isOk = shader->buildFromFile("../GLSL/DFLight.vs", "../GLSL/DFLight.fs");
-	if (!isOk) {
-		status.isOk = false;
-		status.log = shader->getLog();
-		return status;
-	}
+	shader = std::move(shader);
 
 	shader->findUniformLocation(::invProjectionMatrixLabel);
 	shader->findUniformLocation(::invModelViewMatrixLabel);
@@ -47,8 +38,6 @@ ShaderBuildStatus DFLightRenderer::build()
 	shader->findUniformLocation("light.color");
 
 	shader->findAttribLocation(::positionLabel);
-
-	return status;
 }
 
 namespace {
