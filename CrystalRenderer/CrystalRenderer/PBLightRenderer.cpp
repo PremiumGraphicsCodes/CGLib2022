@@ -32,7 +32,7 @@ PBLightRenderer::PBLightRenderer() :
 ShaderBuildStatus PBLightRenderer::build(GLObjectFactory& factory)
 {
 	shader = factory.createShaderObject();
-	const auto isOk = shader->buildFromFile("../../GLSL/PBLight.vs", "../../GLSL/PBLight.fs");
+	const auto isOk = shader->buildFromFile("../GLSL/PBLight.vs", "../GLSL/PBLight.fs");
 	if (!isOk) {
 		ShaderBuildStatus status;
 		status.isOk = false;

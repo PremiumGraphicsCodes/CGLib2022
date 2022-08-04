@@ -29,7 +29,7 @@ ShaderBuildStatus SkyBoxRenderer::build(GLObjectFactory& factory)
 	status.isOk = true;
 
 	shader = factory.createShaderObject();
-	const auto isOk = shader->build("../../GLSL/SkyBox.vs", "../../GLSL/SkyBox.fs");
+	const auto isOk = shader->build("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
 	status.log = shader->getLog();
 	if (!isOk) {
 		status.isOk = false;

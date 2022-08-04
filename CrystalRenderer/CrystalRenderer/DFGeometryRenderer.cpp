@@ -22,7 +22,7 @@ DFGeometryRenderer::DFGeometryRenderer() :
 ShaderBuildStatus DFGeometryRenderer::build(GLObjectFactory& factory)
 {
 	shader = factory.createShaderObject();
-	const auto isOk = shader->buildFromFile("../../GLSL/DFGeometry.vs", "../../GLSL/DFGeometry.fs");
+	const auto isOk = shader->buildFromFile("../GLSL/DFGeometry.vs", "../GLSL/DFGeometry.fs");
 	if (!isOk) {
 		ShaderBuildStatus status;
 		status.isOk = false;

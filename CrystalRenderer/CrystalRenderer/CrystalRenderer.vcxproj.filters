@@ -72,35 +72,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\GLSL\DFGeometry.fs">
+    <None Include="..\GLSL\DFGeometry.fs">
       <Filter>Deffered\DFGeometry</Filter>
     </None>
-    <None Include="..\..\GLSL\DFGeometry.vs">
+    <None Include="..\GLSL\DFGeometry.vs">
       <Filter>Deffered\DFGeometry</Filter>
     </None>
-    <None Include="..\..\GLSL\PBLight.fs">
-      <Filter>PBLight</Filter>
-    </None>
-    <None Include="..\..\GLSL\PBLight.vs">
-      <Filter>PBLight</Filter>
-    </None>
-    <None Include="..\..\GLSL\SkyBox.fs">
-      <Filter>SkyBox</Filter>
-    </None>
-    <None Include="..\..\GLSL\SkyBox.vs">
-      <Filter>SkyBox</Filter>
-    </None>
-    <None Include="..\..\GLSL\Irradiance.fs">
-      <Filter>Irradiance</Filter>
-    </None>
-    <None Include="..\..\GLSL\Irradiance.vs">
-      <Filter>Irradiance</Filter>
-    </None>
-    <None Include="..\..\GLSL\DFLight.fs">
+    <None Include="..\GLSL\DFLight.fs">
       <Filter>Deffered\DFLight</Filter>
     </None>
-    <None Include="..\..\GLSL\DFLight.vs">
+    <None Include="..\GLSL\DFLight.vs">
       <Filter>Deffered\DFLight</Filter>
+    </None>
+    <None Include="..\GLSL\Irradiance.fs">
+      <Filter>Irradiance</Filter>
+    </None>
+    <None Include="..\GLSL\Irradiance.vs">
+      <Filter>Irradiance</Filter>
+    </None>
+    <None Include="..\GLSL\PBLight.fs">
+      <Filter>PBLight</Filter>
+    </None>
+    <None Include="..\GLSL\PBLight.vs">
+      <Filter>PBLight</Filter>
+    </None>
+    <None Include="..\GLSL\SkyBox.fs">
+      <Filter>SkyBox</Filter>
+    </None>
+    <None Include="..\GLSL\SkyBox.vs">
+      <Filter>SkyBox</Filter>
     </None>
   </ItemGroup>
 </Project>

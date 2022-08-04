@@ -29,7 +29,7 @@ ShaderBuildStatus DFLightRenderer::build(GLObjectFactory& factory)
 	status.isOk = true;
 
 	shader = factory.createShaderObject();
-	const auto isOk = shader->buildFromFile("../../GLSL/DFLight.vs", "../../GLSL/DFLight.fs");
+	const auto isOk = shader->buildFromFile("../GLSL/DFLight.vs", "../GLSL/DFLight.fs");
 	if (!isOk) {
 		status.isOk = false;
 		status.log = shader->getLog();

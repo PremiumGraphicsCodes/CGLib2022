@@ -16,7 +16,7 @@ IrradianceRenderer::IrradianceRenderer() :
 ShaderBuildStatus IrradianceRenderer::build(GLObjectFactory& factory)
 {
     shader = factory.createShaderObject();
-    const auto isOk = shader->build("../../GLSL/Irradiance.vs", "../../GLSL/Irradiance.fs");
+    const auto isOk = shader->build("../GLSL/Irradiance.vs", "../GLSL/Irradiance.fs");
     if (!isOk) {
         ShaderBuildStatus status;
         status.isOk = false;
