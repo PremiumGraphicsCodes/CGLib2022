@@ -37,7 +37,7 @@ namespace {
 		renderer.build(factory);
 		irradianceRenderer.build(factory);
 		pbLightRenderer.build(factory);
-		//cubeMapRenderer.build(factory);
+		cubeMapRenderer.build(factory);
         //renderer.build(factory);
     }
 
@@ -183,6 +183,16 @@ int main() {
 		ImGui::NewFrame();
 
 		if (ImGui::BeginMainMenuBar()) {
+			if (ImGui::BeginMenu("File")) {
+				if (ImGui::MenuItem("Save")) {
+
+				}
+				if (ImGui::MenuItem("Load")) {
+
+				}
+
+				ImGui::EndMenu();
+			}
 			ImGui::EndMainMenuBar();
 		}
 

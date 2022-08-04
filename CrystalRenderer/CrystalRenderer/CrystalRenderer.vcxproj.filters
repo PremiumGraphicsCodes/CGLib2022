@@ -8,7 +8,6 @@
       <Filter>Deffered</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="IrradianceRenderer.h" />
     <ClInclude Include="CubeMapRenderer.h">
       <Filter>CubeMap</Filter>
     </ClInclude>
@@ -21,6 +20,9 @@
     <ClInclude Include="SkyBoxRenderer.h">
       <Filter>SkyBox</Filter>
     </ClInclude>
+    <ClInclude Include="IrradianceRenderer.h">
+      <Filter>Irradiance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFLightRenderer.cpp">
@@ -30,7 +32,6 @@
       <Filter>Deffered</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="IrradianceRenderer.cpp" />
     <ClCompile Include="CubeMapRenderer.cpp">
       <Filter>CubeMap</Filter>
     </ClCompile>
@@ -42,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="SkyBoxRenderer.cpp">
       <Filter>SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="IrradianceRenderer.cpp">
+      <Filter>Irradiance</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +63,9 @@
     </Filter>
     <Filter Include="SkyBox">
       <UniqueIdentifier>{d517fc8e-b3ed-4f97-aa0d-2bcb88a29fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Irradiance">
+      <UniqueIdentifier>{dbc9d97e-6097-4889-99ae-1da27f49dd93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +86,12 @@
     </None>
     <None Include="..\..\GLSL\SkyBox.vs">
       <Filter>SkyBox</Filter>
+    </None>
+    <None Include="..\..\GLSL\Irradiance.fs">
+      <Filter>Irradiance</Filter>
+    </None>
+    <None Include="..\..\GLSL\Irradiance.vs">
+      <Filter>Irradiance</Filter>
     </None>
   </ItemGroup>
 </Project>

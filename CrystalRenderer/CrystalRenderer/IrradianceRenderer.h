@@ -26,10 +26,6 @@ public:
 	std::string getName() const override { return "IrradianceRenderer"; }
 
 private:
-	std::string getBuildInVertexShaderSource() const;
-
-	std::string getBuiltInFragmentShaderSource() const;
-
 	Shader::ShaderObject* shader;
 };
 
