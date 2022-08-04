@@ -3,6 +3,7 @@
 #include "Crystal/Shader/TextureObject.h"
 
 using namespace Crystal::Shader;
+using namespace Crystal::Renderer;
 
 namespace {
 	constexpr auto projectionMatrixLabel = "projection";
@@ -17,16 +18,13 @@ CubeMapRenderer::CubeMapRenderer() :
 {
 }
 
-ShaderBuildStatus CubeMapRenderer::build(GLObjectFactory& factory)
+ShaderBuildStatus CubeMapRenderer::build()
 {
 	ShaderBuildStatus status;
 	status.isOk = true;
 
-	const auto& vsSource = getBuiltInVertexShaderSource();
-	const auto& fsSource = getBuiltInFragmentShaderSource();
-
-	shader = factory.createShaderObject();
-	const auto isOk = shader->build(vsSource, fsSource);
+	shader = std::make_unique<ShaderObject>();
+	const auto isOk = shader->build("../GLSL/CubeMap.vs", "../GLSL/CubeMap.fs");
 	status.log = shader->getLog();
 	if (!isOk) {
 		status.isOk = false;
@@ -42,11 +40,6 @@ ShaderBuildStatus CubeMapRenderer::build(GLObjectFactory& factory)
 	return status;
 }
 
-void CubeMapRenderer::release(GLObjectFactory& factory)
-{
-
-}
-
 namespace {
 	std::vector<float> getCubePositions()
 	{
@@ -54,7 +47,7 @@ namespace {
 	}
 }
 
-void CubeMapRenderer::render(const Buffer& buffer)
+void CubeMapRenderer::render()
 {
 	shader->bind();
 
@@ -80,54 +73,4 @@ void CubeMapRenderer::render(const Buffer& buffer)
 	shader->unbind();
 
 	assert(GL_NO_ERROR == glGetError());
-}
-
-std::string CubeMapRenderer::getBuiltInVertexShaderSource() const
-{
-	const std::string str = R"(
-#version 330 core
-layout (location = 0) in vec3 aPos;
-
-out vec3 WorldPos;
-
-uniform mat4 projection;
-uniform mat4 view;
-
-void main()
-{
-    WorldPos = aPos;  
-    gl_Position =  projection * view * vec4(WorldPos, 1.0);
-}
-)";
-	return str;
-}
-
-std::string CubeMapRenderer::getBuiltInFragmentShaderSource() const
-{
-	const std::string str = R"(
-#version 330 core
-out vec4 FragColor;
-in vec3 WorldPos;
-
-uniform sampler2D equirectangularMap;
-
-const vec2 invAtan = vec2(0.1591, 0.3183);
-vec2 SampleSphericalMap(vec3 v)
-{
-    vec2 uv = vec2(atan(v.z, v.x), asin(v.y));
-    uv *= invAtan;
-    uv += 0.5;
-    return uv;
-}
-
-void main()
-{		
-    vec2 uv = SampleSphericalMap(normalize(WorldPos));
-    vec3 color = texture(equirectangularMap, uv).rgb;
-    
-    FragColor = vec4(color, 1.0);
-}
-
-)";
-	return str;
 }

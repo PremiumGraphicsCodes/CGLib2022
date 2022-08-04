@@ -103,5 +103,11 @@
     <None Include="..\GLSL\SkyBox.vs">
       <Filter>SkyBox</Filter>
     </None>
+    <None Include="..\GLSL\CubeMap.fs">
+      <Filter>CubeMap</Filter>
+    </None>
+    <None Include="..\GLSL\CubeMap.vs">
+      <Filter>CubeMap</Filter>
+    </None>
   </ItemGroup>
 </Project>

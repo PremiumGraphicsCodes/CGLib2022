@@ -2,6 +2,7 @@
 
 #include "Crystal/Util/UnCopyable.h"
 #include "Crystal/Shader/ShaderBuildStatus.h"
+#include "Crystal/Shader/ShaderObject.h"
 
 namespace Crystal {
 	namespace Renderer {

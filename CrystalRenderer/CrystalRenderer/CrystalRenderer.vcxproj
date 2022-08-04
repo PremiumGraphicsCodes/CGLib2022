@@ -40,6 +40,8 @@
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\GLSL\CubeMap.fs" />
+    <None Include="..\GLSL\CubeMap.vs" />
     <None Include="..\GLSL\DFGeometry.fs" />
     <None Include="..\GLSL\DFGeometry.vs" />
     <None Include="..\GLSL\DFLight.fs" />

@@ -1,40 +1,35 @@
 #pragma once
 
-#include "Crystal/Shader/IRenderer.h"
+#include "IRenderer.h"
 
-#include "Crystal/Shader/CubeMapTextureObject.h"
+#include "Crystal/Math/Matrix4d.h"
+#include "Crystal/Shader/TextureObject.h"
 #include <string>
+#include <memory>
 
 namespace Crystal {
-	namespace Shader {
+	namespace Renderer {
 
 class CubeMapRenderer : public IRenderer
 {
 public:
 	struct Buffer
 	{
-		//VertexBufferObject* positions;
 		Math::Matrix4dd projectionMatrix;
 		Math::Matrix4dd modelViewMatrix;
-		TextureObject* texture;
+		Shader::TextureObject* texture;
 	};
 
 	CubeMapRenderer();
 
-	ShaderBuildStatus build(Shader::GLObjectFactory& factory) override;
+	Shader::ShaderBuildStatus build() override;
 
-	void release(Shader::GLObjectFactory& factory) override;
+	void render() override;
 
-	void render(const Buffer& buffer);
-
-	std::string getName() const override { return "CubeMapRenderer"; }
+	Buffer buffer;
 
 private:
-	std::string getBuiltInVertexShaderSource() const;
-
-	std::string getBuiltInFragmentShaderSource() const;
-
-	Shader::ShaderObject* shader;
+	std::unique_ptr<Shader::ShaderObject> shader;
 };
 
 	}
