@@ -2,56 +2,70 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="SkyBoxRenderer.h" />
-    <ClInclude Include="DFGeometryRenderer.h">
-      <Filter>Deffered</Filter>
-    </ClInclude>
     <ClInclude Include="DFLightRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
     <ClInclude Include="DFPBLightRenderer.h">
       <Filter>Deffered</Filter>
     </ClInclude>
-    <ClInclude Include="PBLightRenderer.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="IrradianceRenderer.h" />
-    <ClInclude Include="CubeMapRenderer.h" />
+    <ClInclude Include="CubeMapRenderer.h">
+      <Filter>CubeMap</Filter>
+    </ClInclude>
+    <ClInclude Include="DFGeometryRenderer.h">
+      <Filter>Deffered\DFGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PBLightRenderer.h">
+      <Filter>PBLight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SkyBoxRenderer.cpp" />
-    <ClCompile Include="DFGeometryRenderer.cpp">
-      <Filter>Deffered</Filter>
-    </ClCompile>
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
     <ClCompile Include="DFPBLightRenderer.cpp">
       <Filter>Deffered</Filter>
     </ClCompile>
-    <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="IrradianceRenderer.cpp" />
-    <ClCompile Include="CubeMapRenderer.cpp" />
+    <ClCompile Include="CubeMapRenderer.cpp">
+      <Filter>CubeMap</Filter>
+    </ClCompile>
+    <ClCompile Include="DFGeometryRenderer.cpp">
+      <Filter>Deffered\DFGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PBLightRenderer.cpp">
+      <Filter>PBLight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
       <UniqueIdentifier>{ac2cccec-3e2d-49d1-834e-2f9c70ee37c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GLSL">
-      <UniqueIdentifier>{1fe38510-afa6-4c43-9905-3df54c497163}</UniqueIdentifier>
+    <Filter Include="CubeMap">
+      <UniqueIdentifier>{d822e823-cfc5-445c-be46-e0111d3170f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Deffered\DFGeometry">
+      <UniqueIdentifier>{8e8e6e00-052a-4da1-92dd-4c501e546e8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PBLight">
+      <UniqueIdentifier>{18e9ff9c-1f37-46c6-bc74-8a30e2bb7122}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\GLSL\DFGeometry.vs">
-      <Filter>GLSL</Filter>
-    </None>
     <None Include="..\..\GLSL\DFGeometry.fs">
-      <Filter>GLSL</Filter>
+      <Filter>Deffered\DFGeometry</Filter>
     </None>
-    <None Include="..\..\GLSL\PBLight.vs">
-      <Filter>GLSL</Filter>
+    <None Include="..\..\GLSL\DFGeometry.vs">
+      <Filter>Deffered\DFGeometry</Filter>
     </None>
     <None Include="..\..\GLSL\PBLight.fs">
-      <Filter>GLSL</Filter>
+      <Filter>PBLight</Filter>
+    </None>
+    <None Include="..\..\GLSL\PBLight.vs">
+      <Filter>PBLight</Filter>
     </None>
   </ItemGroup>
 </Project>
