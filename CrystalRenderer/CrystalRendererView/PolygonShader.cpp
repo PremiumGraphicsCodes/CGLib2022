@@ -24,7 +24,7 @@ namespace {
 }
 
 
-ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
+ShaderBuildStatus PolygonShader::build()
 {
 	ShaderBuildStatus status;
 

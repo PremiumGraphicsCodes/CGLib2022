@@ -34,7 +34,7 @@ namespace {
 
     void onInit()
     {
-		renderer.build(factory);
+		renderer.build();
 		//irradianceRenderer.build(factory);
 		//pbLightRenderer.build();
 		cubeMapRenderer.build();
