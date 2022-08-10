@@ -25,7 +25,9 @@ namespace {
         fprintf(stderr, "Glfw Error %d: %s\n", error, description);
     }
 
-    UI::PolygonShader renderer;
+	Renderer::IScreenRenderer* activeRenderer = nullptr;
+
+    UI::PolygonShader polygonRenderer;
 	Shader::IrradianceRenderer irradianceRenderer;
 	UI::SkyBoxShader cubeMapRenderer;
 	UI::PBLightShader pbLightRenderer;
@@ -34,17 +36,19 @@ namespace {
 
     void onInit()
     {
-		renderer.build();
+		polygonRenderer.build();
 		//irradianceRenderer.build(factory);
-		//pbLightRenderer.build();
+		pbLightRenderer.build();
 		cubeMapRenderer.build();
-        //renderer.build(factory);
+        
+		activeRenderer = &polygonRenderer;
     }
 
     void onRender(const int width, const int height)
     {
+		activeRenderer->render(camera, width, height);
 		//pbLightRenderer.render(camera, width, height);
-		cubeMapRenderer.render(camera, width, height);
+		//cubeMapRenderer.render(camera, width, height);
         //renderer.render(camera, width, height);
     }
 
@@ -183,12 +187,15 @@ int main() {
 		ImGui::NewFrame();
 
 		if (ImGui::BeginMainMenuBar()) {
-			if (ImGui::BeginMenu("File")) {
-				if (ImGui::MenuItem("Save")) {
-
+			if (ImGui::BeginMenu("Renderer")) {
+				if (ImGui::MenuItem("SkyBox")) {
+					::activeRenderer = &cubeMapRenderer;
 				}
-				if (ImGui::MenuItem("Load")) {
-
+				if (ImGui::MenuItem("Polygon")) {
+					::activeRenderer = &polygonRenderer;
+				}
+				if (ImGui::MenuItem("PBLight")) {
+					::activeRenderer = &pbLightRenderer;
 				}
 
 				ImGui::EndMenu();
