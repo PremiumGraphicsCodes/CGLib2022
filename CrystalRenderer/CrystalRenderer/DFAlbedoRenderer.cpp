@@ -15,43 +15,21 @@ namespace {
 	constexpr auto textureLabel = "texture";
 }
 
-DFAlbedoRenderer::DFAlbedoRenderer() :
-	shader(nullptr)
+DFAlbedoRenderer::DFAlbedoRenderer()
 {
 }
 
-ShaderBuildStatus DFAlbedoRenderer::build(GLObjectFactory& factory)
+void DFAlbedoRenderer::link()
 {
-	const auto& vsSource = getBuildInVertexShaderSource();
-	const auto& fsSource = getBuiltInFragmentShaderSource();
-
-	shader = factory.createShaderObject();
-	const auto isOk = shader->build(vsSource, fsSource);
-	if (!isOk) {
-		ShaderBuildStatus status;
-		status.isOk = false;
-		status.log = shader->getLog();
-		return status;
-	}
-
 	shader->findUniformLocation(::projectionMatrixLabel);
 	shader->findUniformLocation(::modelViewMatrixLabel);
 	shader->findUniformLocation(::textureLabel);
 
 	shader->findAttribLocation(::positionLabel);
 	shader->findAttribLocation(::texCoordLabel);
-
-	ShaderBuildStatus status;
-	status.isOk = true;
-	return status;
 }
 
-void DFAlbedoRenderer::release(GLObjectFactory& factory)
-{
-	factory.remove(shader);
-}
-
-void DFAlbedoRenderer::render(const Buffer& buffer)
+void DFAlbedoRenderer::render()
 {
 	shader->bind();
 	shader->bindOutput("fragColor");
@@ -82,37 +60,4 @@ void DFAlbedoRenderer::render(const Buffer& buffer)
 
 
 	shader->unbind();
-}
-
-std::string DFAlbedoRenderer::getBuildInVertexShaderSource() const
-{
-	const std::string str = R"(
-#version 150
-in vec3 position;
-in vec2 texCoord;
-out vec2 vTexCoord;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
-void main(void)
-{
-	gl_Position = projectionMatrix * modelviewMatrix * vec4(position, 1.0);
-	vTexCoord = texCoord;
-}
-)";
-	return str;
-}
-
-std::string DFAlbedoRenderer::getBuiltInFragmentShaderSource() const
-{
-	const std::string str = R"(
-#version 150
-in vec2 vTexCoord;
-out vec4 fragColor;
-uniform sampler2D texture;
-
-void main(void) {
-	fragColor = texture2D(texture, vTexCoord);
-}
-)";
-	return str;
 }

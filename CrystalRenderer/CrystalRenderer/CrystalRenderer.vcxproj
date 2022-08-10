@@ -45,6 +45,8 @@
   <ItemGroup>
     <None Include="..\GLSL\CubeMap.fs" />
     <None Include="..\GLSL\CubeMap.vs" />
+    <None Include="..\GLSL\DFAlbedo.fs" />
+    <None Include="..\GLSL\DFAlbedo.vs" />
     <None Include="..\GLSL\DFGeometry.fs" />
     <None Include="..\GLSL\DFGeometry.vs" />
     <None Include="..\GLSL\DFLight.fs" />

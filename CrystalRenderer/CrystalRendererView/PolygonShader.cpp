@@ -29,7 +29,13 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	ShaderBuildStatus status;
 
 	{
-		status.add(albedoRenderer.build(factory));
+		auto shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/DFAlbedo.vs", "../GLSL/DFAlbedo.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+		albedoRenderer.setShader(std::move(shader));
+		albedoRenderer.link();
 	}
 	{
 		std::unique_ptr<ShaderObject> gShader = std::make_unique<ShaderObject>();
@@ -94,8 +100,8 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	normals.add(Vector3dd(0, 0, 1));
 	normals.add(Vector3dd(0, 0, 1));
 
-	buffer.position.build();
-	buffer.texCoord.build();
+	albedoRenderer.buffer.position.build();
+	albedoRenderer.buffer.texCoord.build();
 
 	gRenderer.buffer.position.build();
 	gRenderer.buffer.normal.build();
@@ -110,7 +116,7 @@ ShaderBuildStatus PolygonShader::build(GLObjectFactory& factory)
 	fg1.indices.push_back(3);
 
 	fg1.texture = this->polygonTexture.get();
-	buffer.faceGroups.push_back(fg1);
+	albedoRenderer.buffer.faceGroups.push_back(fg1);
 
 	gRenderer.buffer.indices = fg1.indices;
 
@@ -138,12 +144,12 @@ void PolygonShader::render(const Camera& camera, const int wwidth, const int hhe
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		buffer.position.send(positions.get());
-		buffer.texCoord.send(texCoords.get());
-		buffer.projectionMatrix = camera.getProjectionMatrix();
-		buffer.modelViewMatrix = camera.getModelViewMatrix();
+		albedoRenderer.buffer.position.send(positions.get());
+		albedoRenderer.buffer.texCoord.send(texCoords.get());
+		albedoRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		albedoRenderer.buffer.modelViewMatrix = camera.getModelViewMatrix();
 
-		this->albedoRenderer.render(buffer);
+		this->albedoRenderer.render();
 
 		this->fbo->unbind();
 	}

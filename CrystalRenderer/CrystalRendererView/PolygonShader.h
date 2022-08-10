@@ -24,10 +24,9 @@ public:
 
 private:
 	Renderer::DFAlbedoRenderer albedoRenderer;
-	Renderer::DFAlbedoRenderer::Buffer buffer;
-
 	Renderer::DFGeometryRenderer gRenderer;
 	Renderer::DFLightRenderer lightRenderer;
+
 	std::unique_ptr<Shader::TextureObject> colorTexture;
 	std::unique_ptr<Shader::TextureObject> polygonTexture;
 	std::unique_ptr<Shader::TextureObject> positionTexture;

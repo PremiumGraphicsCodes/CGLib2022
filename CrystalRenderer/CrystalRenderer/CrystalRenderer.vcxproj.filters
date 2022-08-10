@@ -119,5 +119,11 @@
     <None Include="..\GLSL\CubeMap.vs">
       <Filter>CubeMap</Filter>
     </None>
+    <None Include="..\GLSL\DFAlbedo.vs">
+      <Filter>Deffered\DFAlbedo</Filter>
+    </None>
+    <None Include="..\GLSL\DFAlbedo.fs">
+      <Filter>Deffered\DFAlbedo</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -3,12 +3,12 @@
 #include "Crystal/Shader/ShaderObject.h"
 #include "Crystal/Shader/GLObjectFactory.h"
 #include "Crystal/Shader/VertexBufferObject.h"
-#include "Crystal/Shader/IRenderer.h"
+#include "IRenderer.h"
 
 namespace Crystal {
 	namespace Renderer {
 
-class DFAlbedoRenderer : public Shader::IRenderer
+class DFAlbedoRenderer : public IRenderer
 {
 public:
 	struct Buffer
@@ -27,20 +27,12 @@ public:
 
 	DFAlbedoRenderer();
 
-	Shader::ShaderBuildStatus build(Shader::GLObjectFactory& glFactory) override;
+	virtual void link() override;
 
-	void release(Shader::GLObjectFactory& glFactory) override;
+	virtual void render() override;
 
-	void render(const Buffer& buffer);
-
-	std::string getName() const override { return "PolygonRenderer"; }
-
+	Buffer buffer;
 private:
-	std::string getBuildInVertexShaderSource() const;
-
-	std::string getBuiltInFragmentShaderSource() const;
-
-	Shader::ShaderObject* shader;
 };
 
 	}
