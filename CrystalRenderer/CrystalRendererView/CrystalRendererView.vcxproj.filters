@@ -5,10 +5,12 @@
     <ClCompile Include="PolygonShader.cpp" />
     <ClCompile Include="SkyBoxShader.cpp" />
     <ClCompile Include="PBLightShader.cpp" />
+    <ClCompile Include="IBLShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PolygonShader.h" />
     <ClInclude Include="SkyBoxShader.h" />
     <ClInclude Include="PBLightShader.h" />
+    <ClInclude Include="IBLShader.h" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
     </ClInclude>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CubeMapRenderer.h">
-      <Filter>CubeMap</Filter>
+      <Filter>IBL\CubeMap</Filter>
     </ClInclude>
     <ClInclude Include="DFGeometryRenderer.h">
       <Filter>Deffered\DFGeometry</Filter>
@@ -18,7 +18,7 @@
       <Filter>SkyBox</Filter>
     </ClInclude>
     <ClInclude Include="IrradianceRenderer.h">
-      <Filter>Irradiance</Filter>
+      <Filter>IBL\Irradiance</Filter>
     </ClInclude>
     <ClInclude Include="DFLightRenderer.h">
       <Filter>Deffered\DFLight</Filter>
@@ -34,7 +34,7 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CubeMapRenderer.cpp">
-      <Filter>CubeMap</Filter>
+      <Filter>IBL\CubeMap</Filter>
     </ClCompile>
     <ClCompile Include="DFGeometryRenderer.cpp">
       <Filter>Deffered\DFGeometry</Filter>
@@ -46,7 +46,7 @@
       <Filter>SkyBox</Filter>
     </ClCompile>
     <ClCompile Include="IrradianceRenderer.cpp">
-      <Filter>Irradiance</Filter>
+      <Filter>IBL\Irradiance</Filter>
     </ClCompile>
     <ClCompile Include="DFLightRenderer.cpp">
       <Filter>Deffered\DFLight</Filter>
@@ -60,9 +60,6 @@
     <Filter Include="Deffered">
       <UniqueIdentifier>{ac2cccec-3e2d-49d1-834e-2f9c70ee37c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CubeMap">
-      <UniqueIdentifier>{d822e823-cfc5-445c-be46-e0111d3170f2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Deffered\DFGeometry">
       <UniqueIdentifier>{8e8e6e00-052a-4da1-92dd-4c501e546e8b}</UniqueIdentifier>
     </Filter>
@@ -72,14 +69,20 @@
     <Filter Include="SkyBox">
       <UniqueIdentifier>{d517fc8e-b3ed-4f97-aa0d-2bcb88a29fb4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Irradiance">
-      <UniqueIdentifier>{dbc9d97e-6097-4889-99ae-1da27f49dd93}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Deffered\DFLight">
       <UniqueIdentifier>{68040117-1daa-4abf-89ae-79bcef1c46d5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Deffered\DFAlbedo">
       <UniqueIdentifier>{774a8e0c-28ad-4bdf-a03b-e209de3288c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL">
+      <UniqueIdentifier>{2a98f679-d7a4-4327-a2be-0a14dbc24c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL\CubeMap">
+      <UniqueIdentifier>{d822e823-cfc5-445c-be46-e0111d3170f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL\Irradiance">
+      <UniqueIdentifier>{dbc9d97e-6097-4889-99ae-1da27f49dd93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,10 +99,10 @@
       <Filter>Deffered\DFLight</Filter>
     </None>
     <None Include="..\GLSL\Irradiance.fs">
-      <Filter>Irradiance</Filter>
+      <Filter>IBL\Irradiance</Filter>
     </None>
     <None Include="..\GLSL\Irradiance.vs">
-      <Filter>Irradiance</Filter>
+      <Filter>IBL\Irradiance</Filter>
     </None>
     <None Include="..\GLSL\PBLight.fs">
       <Filter>PBLight</Filter>
@@ -114,10 +117,10 @@
       <Filter>SkyBox</Filter>
     </None>
     <None Include="..\GLSL\CubeMap.fs">
-      <Filter>CubeMap</Filter>
+      <Filter>IBL\CubeMap</Filter>
     </None>
     <None Include="..\GLSL\CubeMap.vs">
-      <Filter>CubeMap</Filter>
+      <Filter>IBL\CubeMap</Filter>
     </None>
     <None Include="..\GLSL\DFAlbedo.vs">
       <Filter>Deffered\DFAlbedo</Filter>

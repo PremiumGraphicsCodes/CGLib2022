@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrystalPBRView.cpp" />
+    <ClCompile Include="IBLShader.cpp" />
     <ClCompile Include="SkyBoxShader.cpp" />
     <ClCompile Include="PBLightShader.cpp" />
     <ClCompile Include="PolygonShader.cpp" />
@@ -171,6 +172,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IBLShader.h" />
     <ClInclude Include="SkyBoxShader.h" />
     <ClInclude Include="PBLightShader.h" />
     <ClInclude Include="PolygonShader.h" />

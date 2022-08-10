@@ -9,6 +9,7 @@
 #include "SkyBoxShader.h"
 #include "PolygonShader.h"
 #include "PBLightShader.h"
+#include "IBLShader.h"
 
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
 
@@ -28,18 +29,18 @@ namespace {
 	Renderer::IScreenRenderer* activeRenderer = nullptr;
 
     UI::PolygonShader polygonRenderer;
-	Shader::IrradianceRenderer irradianceRenderer;
 	UI::SkyBoxShader cubeMapRenderer;
 	UI::PBLightShader pbLightRenderer;
-    Shader::GLObjectFactory factory;
+	UI::IBLShader iblRenderer;
+
     Graphics::Camera camera(Vector3df(0,0,1), Vector3df(0,0,0), Vector3df(0,1,0), 0.1, 10.0);
 
     void onInit()
     {
 		polygonRenderer.build();
-		//irradianceRenderer.build(factory);
 		pbLightRenderer.build();
 		cubeMapRenderer.build();
+		iblRenderer.build();
         
 		activeRenderer = &polygonRenderer;
     }
