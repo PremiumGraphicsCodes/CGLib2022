@@ -16,7 +16,7 @@ public:
 	struct Buffer
 	{
 		Math::Matrix4dd projectionMatrix;
-		Math::Matrix4dd modelViewMatrix;
+		Math::Matrix4dd viewMatrix;
 		Shader::TextureObject* texture;
 	};
 

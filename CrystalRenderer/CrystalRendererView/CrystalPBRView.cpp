@@ -198,6 +198,9 @@ int main() {
 				if (ImGui::MenuItem("PBLight")) {
 					::activeRenderer = &pbLightRenderer;
 				}
+				if (ImGui::MenuItem("IBL")) {
+					::activeRenderer = &iblRenderer;
+				}
 
 				ImGui::EndMenu();
 			}

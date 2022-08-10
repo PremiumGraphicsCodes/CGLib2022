@@ -1,9 +1,11 @@
 #pragma once
 
+#include "Crystal/Shader/FrameBufferObject.h"
+
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
-#include "Crystal/Shader/ShaderBuildStatus.h"
 #include "CrystalRenderer/CrystalRenderer/CubeMapRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/IScreenRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
 
 namespace Crystal {
 	namespace UI {
@@ -18,6 +20,11 @@ public:
 private:
 	Renderer::CubeMapRenderer cubeMapRenderer;
 	Renderer::IrradianceRenderer irradianceRenderer;
+	Renderer::SkyBoxRenderer skyBoxRenderer;
+
+	Shader::FrameBufferObject fbo;
+	Shader::CubeMapTextureObject cubeMapTex;
+	Shader::TextureObject hdrTex;
 	//Graphics::Buffer3d<float> positions;
 	//Graphics::Buffer3d<float> normals;
 };

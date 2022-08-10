@@ -83,7 +83,7 @@ void CubeMapRenderer::render()
 	std::vector<float> positions = getCubePositions();
 
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
-	shader->sendUniform(::viewMatrixLabel, buffer.modelViewMatrix);
+	shader->sendUniform(::viewMatrixLabel, buffer.viewMatrix);
 
 	buffer.texture->bind(0);
 
