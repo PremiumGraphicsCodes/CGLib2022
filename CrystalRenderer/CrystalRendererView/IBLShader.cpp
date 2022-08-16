@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <iostream>
 
+using namespace Crystal::Math;
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
 using namespace Crystal::UI;
@@ -133,6 +134,32 @@ ShaderBuildStatus IBLShader::build()
 		skyBoxRenderer.setShader(std::move(shader));
 		skyBoxRenderer.link();
 	}
+
+	{
+		positions.add(Vector3dd(0.0, 0.0, 0.0));
+		positions.add(Vector3dd(1.0, 0.0, 0.0));
+		positions.add(Vector3dd(1.0, 1.0, 0.0));
+		positions.add(Vector3dd(0.0, 1.0, 0.0));
+
+		normals.add(Vector3dd(0, 0, 1));
+		normals.add(Vector3dd(0, 0, 1));
+		normals.add(Vector3dd(0, 0, 1));
+		normals.add(Vector3dd(0, 0, 1));
+
+		positionVBO.build();
+		positionVBO.send(positions.get());
+
+		normalVBO.build();
+		normalVBO.send(normals.get());
+
+		indices.push_back(0);
+		indices.push_back(1);
+		indices.push_back(2);
+
+		indices.push_back(0);
+		indices.push_back(2);
+		indices.push_back(3);
+	}
 	return status;
 }
 
@@ -181,14 +208,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	}
 
-	{
-		this->fbo.bind();
-
-		//diffuseRenderer.render();
-
-		this->fbo.unbind();
-	}
-
+	/*
 	{
 
 		glViewport(0, 0, width, height);
@@ -202,5 +222,25 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		skyBoxRenderer.render();
 
 	}
-}
+	*/
 
+	{
+		glViewport(0, 0, width, height);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		diffuseRenderer.buffer.modelMatrix = camera.getModelMatrix();
+		diffuseRenderer.buffer.viewMatrix = camera.getViewMatrix();
+		diffuseRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		diffuseRenderer.buffer.eyePosition = camera.getEye();
+		diffuseRenderer.buffer.irradianceMapTex = &this->irradianceTex;
+		diffuseRenderer.buffer.position = &this->positionVBO;
+		diffuseRenderer.buffer.normal = &this->normalVBO;
+		diffuseRenderer.buffer.albedo = Vector3df(1, 0, 0);
+		diffuseRenderer.buffer.metalic = 0.7;
+		diffuseRenderer.buffer.ao = 0.5;
+		diffuseRenderer.buffer.indices = indices;
+
+		diffuseRenderer.render();
+	}
+}

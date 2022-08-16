@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Shader/FrameBufferObject.h"
 
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
@@ -28,8 +29,12 @@ private:
 	Shader::CubeMapTextureObject cubeMapTex;
 	Shader::CubeMapTextureObject irradianceTex;
 	Shader::TextureObject hdrTex;
-	//Graphics::Buffer3d<float> positions;
-	//Graphics::Buffer3d<float> normals;
+	
+	Graphics::Buffer3d<float> positions;
+	Graphics::Buffer3d<float> normals;
+	Shader::VertexBufferObject positionVBO;
+	Shader::VertexBufferObject normalVBO;
+	std::vector<unsigned int> indices;
 };
 
 	}

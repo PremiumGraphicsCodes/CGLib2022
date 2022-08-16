@@ -16,7 +16,10 @@ public:
 		Shader::CubeMapTextureObject* irradianceMapTex;
 		Shader::VertexBufferObject* position;
 		Shader::VertexBufferObject* normal;
-		float albedo;
+		Math::Vector3df albedo;
+		Math::Matrix4dd projectionMatrix;
+		Math::Matrix4dd modelMatrix;
+		Math::Matrix4dd viewMatrix;
 		float metalic;
 		float ao;
 		Math::Vector3df eyePosition;
