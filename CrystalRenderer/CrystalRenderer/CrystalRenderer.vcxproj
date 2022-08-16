@@ -24,6 +24,7 @@
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="DFPBLightRenderer.h" />
+    <ClInclude Include="IBLDiffuseRenderer.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IrradianceRenderer.h" />
     <ClInclude Include="PBLightRenderer.h" />
@@ -51,6 +52,8 @@
     <None Include="..\GLSL\DFGeometry.vs" />
     <None Include="..\GLSL\DFLight.fs" />
     <None Include="..\GLSL\DFLight.vs" />
+    <None Include="..\GLSL\IBLDiffuse.fs" />
+    <None Include="..\GLSL\IBLDiffuse.vs" />
     <None Include="..\GLSL\Irradiance.fs" />
     <None Include="..\GLSL\Irradiance.vs" />
     <None Include="..\GLSL\PBLight.fs" />

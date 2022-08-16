@@ -155,6 +155,14 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		for (int i = 0; i < 6; ++i) {
 			glViewport(0, 0, 32, 32);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->irradianceTex.getHandle(), 0);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			irradianceRenderer.buffer.projectionMatrix = ::captureProjection;
+			irradianceRenderer.buffer.viewMatrix = ::captureViews[i];
+			irradianceRenderer.buffer.cubeMapTex = &this->cubeMapTex;
+
+			irradianceRenderer.render();
 			//glClea
 		}
 
@@ -170,7 +178,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
 		skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
-		skyBoxRenderer.buffer.cubeMapTexture = &this->cubeMapTex;
+		skyBoxRenderer.buffer.cubeMapTexture = &this->irradianceTex;
 
 		skyBoxRenderer.render();
 

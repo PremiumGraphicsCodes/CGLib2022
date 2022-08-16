@@ -27,6 +27,9 @@
     <ClInclude Include="DFAlbedoRenderer.h">
       <Filter>Deffered\DFAlbedo</Filter>
     </ClInclude>
+    <ClInclude Include="IBLDiffuseRenderer.h">
+      <Filter>IBL\Diffuse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -84,6 +87,9 @@
     <Filter Include="IBL\Irradiance">
       <UniqueIdentifier>{dbc9d97e-6097-4889-99ae-1da27f49dd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="IBL\Diffuse">
+      <UniqueIdentifier>{7df1dd1c-0bf4-41b9-b7e2-934cc5a20a79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GLSL\DFGeometry.fs">
@@ -127,6 +133,12 @@
     </None>
     <None Include="..\GLSL\DFAlbedo.fs">
       <Filter>Deffered\DFAlbedo</Filter>
+    </None>
+    <None Include="..\GLSL\IBLDiffuse.fs">
+      <Filter>IBL\Diffuse</Filter>
+    </None>
+    <None Include="..\GLSL\IBLDiffuse.vs">
+      <Filter>IBL\Diffuse</Filter>
     </None>
   </ItemGroup>
 </Project>
