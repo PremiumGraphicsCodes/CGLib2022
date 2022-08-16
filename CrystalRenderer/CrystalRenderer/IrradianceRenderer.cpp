@@ -1,6 +1,6 @@
 #include "IrradianceRenderer.h"
 
-#include "Crystal/Shape/TriangleMeshBuilder.h"
+#include "GLCube.h"
 
 using namespace Crystal::Math;
 using namespace Crystal::Shader;
@@ -26,36 +26,10 @@ void IrradianceRenderer::link()
     shader->findAttribLocation(::positionLabel);
 }
 
-namespace {
-    std::vector<float> getCubePositions()
-    {
-        Crystal::Shape::TriangleMeshBuilder builder;
-        Box3dd box(Vector3dd(-1, -1, -1), Vector3dd(1, 1, 1));
-        builder.add(box, 2, 2, 2);
-        const auto tm = builder.build();
-        const auto fs = tm->getFaces();
-        std::vector<float> positions;
-        for (auto t : fs) {
-            const auto v0 = t.triangle.getV0();
-            const auto v1 = t.triangle.getV1();
-            const auto v2 = t.triangle.getV2();
-            positions.push_back(v0.x);
-            positions.push_back(v0.y);
-            positions.push_back(v0.z);
-            positions.push_back(v1.x);
-            positions.push_back(v1.y);
-            positions.push_back(v1.z);
-            positions.push_back(v2.x);
-            positions.push_back(v2.y);
-            positions.push_back(v2.z);
-        }
-        return positions;
-    }
-}
-
 void IrradianceRenderer::render()
 {
-    const auto positions = ::getCubePositions();
+    const GLCube cube(Vector3df(-1, -1, -1), Vector3df(1, 1, 1));
+    const auto positions = cube.toGLArray();
 
     shader->bind();
 

@@ -13,7 +13,7 @@ public:
 
 	GLCube(const Math::Vector3df& min, const Math::Vector3df& max);
 
-	std::vector<Math::Vector3df> toGLArray() const;
+	std::vector<float> toGLArray() const;
 
 private:
 	Math::Vector3df min;

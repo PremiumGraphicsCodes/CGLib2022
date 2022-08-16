@@ -169,9 +169,6 @@
     <ProjectReference Include="..\..\Crystal\Shader\Shader.vcxproj">
       <Project>{33bdcab8-a30c-44b1-a93f-1ad3e15461ad}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Crystal\Shape\Shape.vcxproj">
-      <Project>{ed61b745-9f00-48c2-b309-f1dbb37f03e3}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\CrystalRenderer\CrystalRenderer.vcxproj">
       <Project>{571960e5-cee8-4a3e-82e3-7adf50629391}</Project>
     </ProjectReference>

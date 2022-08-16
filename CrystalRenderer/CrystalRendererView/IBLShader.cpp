@@ -197,7 +197,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
 		skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
-		skyBoxRenderer.buffer.cubeMapTexture = &this->irradianceTex;
+		skyBoxRenderer.buffer.cubeMapTexture = &this->cubeMapTex;
 
 		skyBoxRenderer.render();
 
