@@ -3,6 +3,12 @@
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
 
+void CubeMapTextureObject::create()
+{
+	glGenTextures(1, &handle);
+}
+
+
 void CubeMapTextureObject::create(const std::array<Imagef, 6>& images)
 {
 	//glActiveTexture(GL_TEXTURE0 + id);

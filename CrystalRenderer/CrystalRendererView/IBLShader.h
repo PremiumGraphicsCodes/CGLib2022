@@ -24,6 +24,7 @@ private:
 
 	Shader::FrameBufferObject fbo;
 	Shader::CubeMapTextureObject cubeMapTex;
+	Shader::CubeMapTextureObject irradianceTex;
 	Shader::TextureObject hdrTex;
 	//Graphics::Buffer3d<float> positions;
 	//Graphics::Buffer3d<float> normals;

@@ -12,6 +12,8 @@ namespace Crystal {
 class CubeMapTextureObject : public ITextureObject
 {
 public:
+	void create();
+
 	void create(const std::array<Graphics::Imagef, 6>& images);
 
 	void create(const std::array<Graphics::Image, 6>& images);

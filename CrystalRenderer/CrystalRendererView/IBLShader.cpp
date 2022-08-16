@@ -80,6 +80,19 @@ ShaderBuildStatus IBLShader::build()
 	}
 	cubeMapTex.create(images);
 
+	irradianceTex.create();
+	glBindTexture(GL_TEXTURE_CUBE_MAP, irradianceTex.getHandle());
+	for (unsigned int i = 0; i < 6; ++i)
+	{
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB16F, 32, 32, 0, GL_RGB, GL_FLOAT, nullptr);
+	}
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	irradianceTex.unbind();
+
 	ShaderBuildStatus status;
 	{
 		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
@@ -133,6 +146,20 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		this->cubeMapTex.unbind();
 		this->fbo.unbind();
+	}
+
+	{
+		this->fbo.bind();
+
+		irradianceRenderer.buffer.cubeMapTex = &cubeMapTex;
+
+		for (int i = 0; i < 6; ++i) {
+			glViewport(0, 0, 32, 32);
+			//glClea
+		}
+
+		this->fbo.unbind();
+
 	}
 
 	{
