@@ -14,6 +14,13 @@ public:
 	struct Buffer
 	{
 		Shader::CubeMapTextureObject* irradianceMapTex;
+		Shader::VertexBufferObject* position;
+		Shader::VertexBufferObject* normal;
+		float albedo;
+		float metalic;
+		float ao;
+		Math::Vector3df eyePosition;
+		std::vector<unsigned int> indices;
 	};
 
 	IBLDiffuseRenderer();

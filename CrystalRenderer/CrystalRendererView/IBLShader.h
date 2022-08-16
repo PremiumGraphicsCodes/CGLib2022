@@ -3,6 +3,7 @@
 #include "Crystal/Shader/FrameBufferObject.h"
 
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/IBLDiffuseRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/CubeMapRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/IScreenRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
@@ -20,6 +21,7 @@ public:
 private:
 	Renderer::CubeMapRenderer cubeMapRenderer;
 	Renderer::IrradianceRenderer irradianceRenderer;
+	Renderer::IBLDiffuseRenderer diffuseRenderer;
 	Renderer::SkyBoxRenderer skyBoxRenderer;
 
 	Shader::FrameBufferObject fbo;

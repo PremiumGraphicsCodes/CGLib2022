@@ -24,6 +24,7 @@
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="DFPBLightRenderer.h" />
+    <ClInclude Include="GLCube.h" />
     <ClInclude Include="IBLDiffuseRenderer.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IrradianceRenderer.h" />
@@ -37,6 +38,8 @@
     <ClCompile Include="DFLightRenderer.cpp" />
     <ClCompile Include="DFPBLightRenderer.cpp" />
     <ClCompile Include="CubeMapRenderer.cpp" />
+    <ClCompile Include="GLCube.cpp" />
+    <ClCompile Include="IBLDiffuseRenderer.cpp" />
     <ClCompile Include="IrradianceRenderer.cpp" />
     <ClCompile Include="IScreenRenderer.h" />
     <ClCompile Include="PBLightRenderer.cpp" />

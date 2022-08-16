@@ -30,6 +30,7 @@
     <ClInclude Include="IBLDiffuseRenderer.h">
       <Filter>IBL\Diffuse</Filter>
     </ClInclude>
+    <ClInclude Include="GLCube.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -58,6 +59,10 @@
     <ClCompile Include="DFAlbedoRenderer.cpp">
       <Filter>Deffered\DFAlbedo</Filter>
     </ClCompile>
+    <ClCompile Include="IBLDiffuseRenderer.cpp">
+      <Filter>IBL\Diffuse</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">

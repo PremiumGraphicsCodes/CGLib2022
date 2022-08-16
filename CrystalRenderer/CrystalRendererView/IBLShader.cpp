@@ -103,6 +103,7 @@ ShaderBuildStatus IBLShader::build()
 		cubeMapRenderer.setShader(std::move(shader));
 		cubeMapRenderer.link();
 	}
+
 	{
 		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
 		const auto isOk = shader->buildFromFile("../GLSL/Irradiance.vs", "../GLSL/Irradiance.fs");
@@ -111,6 +112,16 @@ ShaderBuildStatus IBLShader::build()
 		}
 		irradianceRenderer.setShader(std::move(shader));
 		irradianceRenderer.link();
+	}
+
+	{
+		auto shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/IBLDiffuse.vs", "../GLSL/IBLDiffuse.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+		diffuseRenderer.setShader(std::move(shader));
+		diffuseRenderer.link();
 	}
 
 	{
@@ -168,6 +179,14 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		this->fbo.unbind();
 
+	}
+
+	{
+		this->fbo.bind();
+
+		//diffuseRenderer.render();
+
+		this->fbo.unbind();
 	}
 
 	{
