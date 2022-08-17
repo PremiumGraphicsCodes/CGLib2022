@@ -127,6 +127,16 @@ ShaderBuildStatus IBLShader::build()
 
 	{
 		auto shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/BRDFLUT.vs", "../GLSL/BRDFLUT.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+		brdfLutRenderer.setShader(std::move(shader));
+		brdfLutRenderer.link();
+	}
+
+	{
+		auto shader = std::make_unique<ShaderObject>();
 		const auto isOk = shader->buildFromFile("../GLSL/IBLSpecular.vs", "../GLSL/IBLSpecular.fs");
 		if (!isOk) {
 			status.log += shader->getLog();
@@ -232,6 +242,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	}
 	*/
 
+	/*
 	{
 		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -250,5 +261,14 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		diffuseRenderer.buffer.indices = indices;
 
 		diffuseRenderer.render();
+	}
+	*/
+
+	{
+		glViewport(0, 0, width, height);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		brdfLutRenderer.render();
 	}
 }

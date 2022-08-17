@@ -34,6 +34,13 @@
     <ClInclude Include="IBLSpecularRenderer.h">
       <Filter>IBL\Specular</Filter>
     </ClInclude>
+    <ClInclude Include="GLPolygonBuilder.h" />
+    <ClInclude Include="ShadowRenderer.h">
+      <Filter>Shadow</Filter>
+    </ClInclude>
+    <ClInclude Include="BRDFLUTRenderer.h">
+      <Filter>IBL\Specular\BRDFLUT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -69,6 +76,12 @@
     <ClCompile Include="IBLSpecularRenderer.cpp">
       <Filter>IBL\Specular</Filter>
     </ClCompile>
+    <ClCompile Include="ShadowRenderer.cpp">
+      <Filter>Shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="BRDFLUTRenderer.cpp">
+      <Filter>IBL\Specular\BRDFLUT</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
@@ -103,6 +116,12 @@
     </Filter>
     <Filter Include="IBL\Specular">
       <UniqueIdentifier>{b46bfcce-4b01-4d27-af14-46f55ebec369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shadow">
+      <UniqueIdentifier>{af5e3925-7ea3-4f5f-ab22-fd7ea4ecb525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL\Specular\BRDFLUT">
+      <UniqueIdentifier>{e95b88d0-1daf-489b-b7e6-34b30bd2798a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +178,18 @@
     </None>
     <None Include="..\GLSL\IBLSpecular.vs">
       <Filter>IBL\Specular</Filter>
+    </None>
+    <None Include="..\GLSL\ShadowDepth.fs">
+      <Filter>Shadow</Filter>
+    </None>
+    <None Include="..\GLSL\ShadowDepth.vs">
+      <Filter>Shadow</Filter>
+    </None>
+    <None Include="..\GLSL\BRDFLUT.fs">
+      <Filter>IBL\Specular\BRDFLUT</Filter>
+    </None>
+    <None Include="..\GLSL\BRDFLUT.vs">
+      <Filter>IBL\Specular\BRDFLUT</Filter>
     </None>
   </ItemGroup>
 </Project>

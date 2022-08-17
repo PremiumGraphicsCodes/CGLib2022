@@ -19,21 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BRDFLUTRenderer.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CubeMapRenderer.h" />
     <ClInclude Include="DFGeometryRenderer.h" />
     <ClInclude Include="DFLightRenderer.h" />
     <ClInclude Include="DFPBLightRenderer.h" />
     <ClInclude Include="GLCube.h" />
+    <ClInclude Include="GLPolygonBuilder.h" />
     <ClInclude Include="IBLDiffuseRenderer.h" />
     <ClInclude Include="IBLSpecularRenderer.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IrradianceRenderer.h" />
     <ClInclude Include="PBLightRenderer.h" />
     <ClInclude Include="DFAlbedoRenderer.h" />
+    <ClInclude Include="ShadowRenderer.h" />
     <ClInclude Include="SkyBoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BRDFLUTRenderer.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DFGeometryRenderer.cpp" />
     <ClCompile Include="DFLightRenderer.cpp" />
@@ -46,9 +50,12 @@
     <ClCompile Include="IScreenRenderer.h" />
     <ClCompile Include="PBLightRenderer.cpp" />
     <ClCompile Include="DFAlbedoRenderer.cpp" />
+    <ClCompile Include="ShadowRenderer.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\GLSL\BRDFLUT.fs" />
+    <None Include="..\GLSL\BRDFLUT.vs" />
     <None Include="..\GLSL\CubeMap.fs" />
     <None Include="..\GLSL\CubeMap.vs" />
     <None Include="..\GLSL\DFAlbedo.fs" />
@@ -65,6 +72,8 @@
     <None Include="..\GLSL\Irradiance.vs" />
     <None Include="..\GLSL\PBLight.fs" />
     <None Include="..\GLSL\PBLight.vs" />
+    <None Include="..\GLSL\ShadowDepth.fs" />
+    <None Include="..\GLSL\ShadowDepth.vs" />
     <None Include="..\GLSL\SkyBox.fs" />
     <None Include="..\GLSL\SkyBox.vs" />
   </ItemGroup>
