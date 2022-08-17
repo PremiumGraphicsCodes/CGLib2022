@@ -129,6 +129,8 @@ ShaderBuildStatus IBLShader::build()
 
 	{
 		auto shader = shaderBuilder.build("../GLSL/Importance.vs", "../GLSL/Importance.fs");
+		renderers.importanceRenderer.setShader(std::move(shader));
+		renderers.importanceRenderer.link();
 	}
 
 	{
@@ -213,6 +215,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	}
 
+	/*
 	{
 
 		glViewport(0, 0, width, height);
@@ -226,6 +229,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		renderers.skyBoxRenderer.render();
 
 	}
+	*/
 
 	/*
 	{
@@ -258,4 +262,19 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		brdfLutRenderer.render();
 	}
 	*/
+
+	{
+		glViewport(0, 0, width, height);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
+		renderers.importanceRenderer.buffer.positions = &positionVBO;
+		renderers.importanceRenderer.buffer.indices = this->indices;
+		renderers.importanceRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		renderers.importanceRenderer.buffer.viewMatrix = camera.getViewMatrix();
+		renderers.importanceRenderer.buffer.roughness = 0.1f;
+		
+		renderers.importanceRenderer.render();
+	}
 }
