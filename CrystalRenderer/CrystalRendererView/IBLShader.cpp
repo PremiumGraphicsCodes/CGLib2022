@@ -1,7 +1,6 @@
 #include "IBLShader.h"
 #include "../../Crystal/Shader/ShaderObject.h"
-
-#include "../../Crystal/ThirdParty/stb/stb_image.h"
+#include "../CrystalRenderer/HDRImage.h"
 
 #include "../../Crystal/ThirdParty/glm-0.9.9.3/glm/gtc/matrix_transform.hpp"
 
@@ -11,34 +10,11 @@
 using namespace Crystal::Math;
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
+using namespace Crystal::Renderer;
 using namespace Crystal::UI;
 
 namespace 
 {
-	class HDRImage
-	{
-	public:
-		bool load(const std::filesystem::path& path)
-		{
-			stbi_set_flip_vertically_on_load(true);
-			int nrComponents;
-			float* d = stbi_loadf(path.string().c_str(), &width, &height, &nrComponents, 0);
-			if (d == nullptr) {
-				return false;
-			}
-			const auto size = width * height * nrComponents;
-			this->data.resize(size);
-			for (int i = 0; i < size; ++i) {
-				this->data[i] = d[i];
-			}
-			stbi_image_free(d);
-			return true;
-		}
-
-		std::vector<float> data;
-		int width;
-		int height;
-	};
 
 	void sendHDRTexture(const HDRImage& hdr, TextureObject& hdrTex)
 	{
@@ -243,7 +219,6 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	}
 
-	/*
 	{
 
 		glViewport(0, 0, width, height);
@@ -257,7 +232,6 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		skyBoxRenderer.render();
 
 	}
-	*/
 
 	/*
 	{
@@ -281,6 +255,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	}
 	*/
 
+	/*
 	{
 		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -288,4 +263,5 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 		brdfLutRenderer.render();
 	}
+	*/
 }

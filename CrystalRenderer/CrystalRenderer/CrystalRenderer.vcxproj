@@ -27,6 +27,7 @@
     <ClInclude Include="DFPBLightRenderer.h" />
     <ClInclude Include="GLCube.h" />
     <ClInclude Include="GLPolygonBuilder.h" />
+    <ClInclude Include="HDRImage.h" />
     <ClInclude Include="IBLDiffuseRenderer.h" />
     <ClInclude Include="IBLSpecularRenderer.h" />
     <ClInclude Include="ImportanceRenderer.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="DFPBLightRenderer.cpp" />
     <ClCompile Include="CubeMapRenderer.cpp" />
     <ClCompile Include="GLCube.cpp" />
+    <ClCompile Include="HDRImage.cpp" />
     <ClCompile Include="IBLDiffuseRenderer.cpp" />
     <ClCompile Include="IBLSpecularRenderer.cpp" />
     <ClCompile Include="ImportanceRenderer.cpp" />

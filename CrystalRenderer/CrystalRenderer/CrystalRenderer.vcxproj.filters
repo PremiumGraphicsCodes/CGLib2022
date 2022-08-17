@@ -44,6 +44,7 @@
     <ClInclude Include="ImportanceRenderer.h">
       <Filter>IBL\Specular\Importance</Filter>
     </ClInclude>
+    <ClInclude Include="HDRImage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -88,6 +89,7 @@
     <ClCompile Include="ImportanceRenderer.cpp">
       <Filter>IBL\Specular\Importance</Filter>
     </ClCompile>
+    <ClCompile Include="HDRImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
