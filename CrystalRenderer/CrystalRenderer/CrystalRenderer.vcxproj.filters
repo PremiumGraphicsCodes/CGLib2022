@@ -31,6 +31,9 @@
       <Filter>IBL\Diffuse</Filter>
     </ClInclude>
     <ClInclude Include="GLCube.h" />
+    <ClInclude Include="IBLSpecularRenderer.h">
+      <Filter>IBL\Specular</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -63,6 +66,9 @@
       <Filter>IBL\Diffuse</Filter>
     </ClCompile>
     <ClCompile Include="GLCube.cpp" />
+    <ClCompile Include="IBLSpecularRenderer.cpp">
+      <Filter>IBL\Specular</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
@@ -94,6 +100,9 @@
     </Filter>
     <Filter Include="IBL\Diffuse">
       <UniqueIdentifier>{7df1dd1c-0bf4-41b9-b7e2-934cc5a20a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL\Specular">
+      <UniqueIdentifier>{b46bfcce-4b01-4d27-af14-46f55ebec369}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +153,12 @@
     </None>
     <None Include="..\GLSL\IBLDiffuse.vs">
       <Filter>IBL\Diffuse</Filter>
+    </None>
+    <None Include="..\GLSL\IBLSpecular.fs">
+      <Filter>IBL\Specular</Filter>
+    </None>
+    <None Include="..\GLSL\IBLSpecular.vs">
+      <Filter>IBL\Specular</Filter>
     </None>
   </ItemGroup>
 </Project>

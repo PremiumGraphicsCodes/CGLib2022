@@ -126,6 +126,14 @@ ShaderBuildStatus IBLShader::build()
 	}
 
 	{
+		auto shader = std::make_unique<ShaderObject>();
+		const auto isOk = shader->buildFromFile("../GLSL/IBLSpecular.vs", "../GLSL/IBLSpecular.fs");
+		if (!isOk) {
+			status.log += shader->getLog();
+		}
+	}
+
+	{
 		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
 		const auto isOk = shader->buildFromFile("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
 		if (!isOk) {

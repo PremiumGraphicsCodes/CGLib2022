@@ -5,6 +5,7 @@
 
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/IBLDiffuseRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/IBLSpecularRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/CubeMapRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/IScreenRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
@@ -23,6 +24,7 @@ private:
 	Renderer::CubeMapRenderer cubeMapRenderer;
 	Renderer::IrradianceRenderer irradianceRenderer;
 	Renderer::IBLDiffuseRenderer diffuseRenderer;
+	Renderer::IBLSpecularRenderer specularRenderer;
 	Renderer::SkyBoxRenderer skyBoxRenderer;
 
 	Shader::FrameBufferObject fbo;
