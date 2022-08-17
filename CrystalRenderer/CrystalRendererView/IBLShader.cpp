@@ -63,6 +63,41 @@ namespace
 		glm::lookAt(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f,  0.0f, -1.0f), glm::vec3(0.0f, -1.0f,  0.0f))
 	};
 
+	/*
+	class RendererFactory
+	{
+		template<class T>
+		std::unique_ptr<T> create(const std::string& vsFile, const std::string& fsFile)
+		{
+			std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
+			const auto isOk = shader->buildFromFile(vsFile, fsFile);
+			if (!isOk) {
+				status.log += shader->getLog();
+			}
+			std::unique_ptr<T> renderer = std::make_unique<T>();
+			renderer.setShader(std::move(shader));
+			renderer.link();
+
+		}
+	};
+	*/
+
+	class ShaderBuilder
+	{
+	public:
+		std::unique_ptr<ShaderObject> build(const std::string& vsFile, const std::string& fsFile)
+		{
+			std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
+			const auto isOk = shader->buildFromFile(vsFile, fsFile);
+			if (!isOk) {
+				status.log += shader->getLog();
+			}
+			return std::move(shader);
+		}
+
+	private:
+		ShaderBuildStatus status;
+	};
 }
 
 ShaderBuildStatus IBLShader::build()
@@ -94,69 +129,43 @@ ShaderBuildStatus IBLShader::build()
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	irradianceTex.unbind();
 
+	ShaderBuilder shaderBuilder;
+
 	ShaderBuildStatus status;
 	{
-		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/CubeMap.vs", "../GLSL/CubeMap.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/CubeMap.vs", "../GLSL/CubeMap.fs");
 		cubeMapRenderer.setShader(std::move(shader));
 		cubeMapRenderer.link();
 	}
 
 	{
-		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/Irradiance.vs", "../GLSL/Irradiance.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/Irradiance.vs", "../GLSL/Irradiance.fs");
 		irradianceRenderer.setShader(std::move(shader));
 		irradianceRenderer.link();
 	}
 
 	{
-		auto shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/IBLDiffuse.vs", "../GLSL/IBLDiffuse.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/IBLDiffuse.vs", "../GLSL/IBLDiffuse.fs");
 		diffuseRenderer.setShader(std::move(shader));
 		diffuseRenderer.link();
 	}
 
 	{
-		auto shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/BRDFLUT.vs", "../GLSL/BRDFLUT.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/BRDFLUT.vs", "../GLSL/BRDFLUT.fs");
 		brdfLutRenderer.setShader(std::move(shader));
 		brdfLutRenderer.link();
 	}
 
 	{
-		auto shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/Importance.vs", "../GLSL/Importance.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/Importance.vs", "../GLSL/Importance.fs");
 	}
 
 	{
-		auto shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/IBLSpecular.vs", "../GLSL/IBLSpecular.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/IBLSpecular.vs", "../GLSL/IBLSpecular.fs");
 	}
 
 	{
-		std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
-		const auto isOk = shader->buildFromFile("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
-		if (!isOk) {
-			status.log += shader->getLog();
-		}
+		auto shader = shaderBuilder.build("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
 		skyBoxRenderer.setShader(std::move(shader));
 		skyBoxRenderer.link();
 	}
