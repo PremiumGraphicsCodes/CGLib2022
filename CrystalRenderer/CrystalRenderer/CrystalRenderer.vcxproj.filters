@@ -41,6 +41,9 @@
     <ClInclude Include="BRDFLUTRenderer.h">
       <Filter>IBL\Specular\BRDFLUT</Filter>
     </ClInclude>
+    <ClInclude Include="ImportanceRenderer.h">
+      <Filter>IBL\Specular\Importance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DFPBLightRenderer.cpp">
@@ -82,6 +85,9 @@
     <ClCompile Include="BRDFLUTRenderer.cpp">
       <Filter>IBL\Specular\BRDFLUT</Filter>
     </ClCompile>
+    <ClCompile Include="ImportanceRenderer.cpp">
+      <Filter>IBL\Specular\Importance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Deffered">
@@ -122,6 +128,9 @@
     </Filter>
     <Filter Include="IBL\Specular\BRDFLUT">
       <UniqueIdentifier>{e95b88d0-1daf-489b-b7e6-34b30bd2798a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IBL\Specular\Importance">
+      <UniqueIdentifier>{c2598d51-d567-40f2-a2a5-4edbce29a6dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +199,12 @@
     </None>
     <None Include="..\GLSL\BRDFLUT.vs">
       <Filter>IBL\Specular\BRDFLUT</Filter>
+    </None>
+    <None Include="..\GLSL\Importance.fs">
+      <Filter>IBL\Specular\Importance</Filter>
+    </None>
+    <None Include="..\GLSL\Importance.vs">
+      <Filter>IBL\Specular\Importance</Filter>
     </None>
   </ItemGroup>
 </Project>

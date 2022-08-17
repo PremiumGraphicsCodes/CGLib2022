@@ -10,6 +10,7 @@
 #include "CrystalRenderer/CrystalRenderer/IScreenRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/SkyBoxRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/BRDFLUTRenderer.h"
+#include "CrystalRenderer/CrystalRenderer/ImportanceRenderer.h"
 
 namespace Crystal {
 	namespace UI {
@@ -27,6 +28,7 @@ private:
 	Renderer::IBLDiffuseRenderer diffuseRenderer;
 	Renderer::IBLSpecularRenderer specularRenderer;
 	Renderer::BRDFLUTRenderer brdfLutRenderer;
+	Renderer::ImportanceRenderer importanceRenderer;
 	Renderer::SkyBoxRenderer skyBoxRenderer;
 
 	Shader::FrameBufferObject fbo;
