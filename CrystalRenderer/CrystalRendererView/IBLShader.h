@@ -23,13 +23,18 @@ public:
 	void render(const Graphics::Camera& camera, const int width, const int height) override;
 
 private:
-	Renderer::CubeMapRenderer cubeMapRenderer;
-	Renderer::IrradianceRenderer irradianceRenderer;
-	Renderer::IBLDiffuseRenderer diffuseRenderer;
-	Renderer::IBLSpecularRenderer specularRenderer;
-	Renderer::BRDFLUTRenderer brdfLutRenderer;
-	Renderer::ImportanceRenderer importanceRenderer;
-	Renderer::SkyBoxRenderer skyBoxRenderer;
+	struct Renderers
+	{
+		Renderer::CubeMapRenderer cubeMapRenderer;
+		Renderer::IrradianceRenderer irradianceRenderer;
+		Renderer::IBLDiffuseRenderer diffuseRenderer;
+		Renderer::IBLSpecularRenderer specularRenderer;
+		Renderer::BRDFLUTRenderer brdfLutRenderer;
+		Renderer::ImportanceRenderer importanceRenderer;
+		Renderer::SkyBoxRenderer skyBoxRenderer;
+	};
+
+	Renderers renderers;
 
 	Shader::FrameBufferObject fbo;
 	Shader::CubeMapTextureObject cubeMapTex;

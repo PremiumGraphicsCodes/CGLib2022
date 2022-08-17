@@ -39,24 +39,6 @@ namespace
 		glm::lookAt(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f,  0.0f, -1.0f), glm::vec3(0.0f, -1.0f,  0.0f))
 	};
 
-	/*
-	class RendererFactory
-	{
-		template<class T>
-		std::unique_ptr<T> create(const std::string& vsFile, const std::string& fsFile)
-		{
-			std::unique_ptr<ShaderObject> shader = std::make_unique<ShaderObject>();
-			const auto isOk = shader->buildFromFile(vsFile, fsFile);
-			if (!isOk) {
-				status.log += shader->getLog();
-			}
-			std::unique_ptr<T> renderer = std::make_unique<T>();
-			renderer.setShader(std::move(shader));
-			renderer.link();
-
-		}
-	};
-	*/
 
 	class ShaderBuilder
 	{
@@ -74,6 +56,19 @@ namespace
 	private:
 		ShaderBuildStatus status;
 	};
+
+
+	/*
+	class RendererFactory
+	{
+		void create(std::unique_ptr<ShaderObject> shader, IRenderer& renderer)
+		{
+			renderer.setShader(std::move(shader));
+			renderer.link();
+		}
+	};
+	*/
+
 }
 
 ShaderBuildStatus IBLShader::build()
@@ -110,26 +105,26 @@ ShaderBuildStatus IBLShader::build()
 	ShaderBuildStatus status;
 	{
 		auto shader = shaderBuilder.build("../GLSL/CubeMap.vs", "../GLSL/CubeMap.fs");
-		cubeMapRenderer.setShader(std::move(shader));
-		cubeMapRenderer.link();
+		renderers.cubeMapRenderer.setShader(std::move(shader));
+		renderers.cubeMapRenderer.link();
 	}
 
 	{
 		auto shader = shaderBuilder.build("../GLSL/Irradiance.vs", "../GLSL/Irradiance.fs");
-		irradianceRenderer.setShader(std::move(shader));
-		irradianceRenderer.link();
+		renderers.irradianceRenderer.setShader(std::move(shader));
+		renderers.irradianceRenderer.link();
 	}
 
 	{
 		auto shader = shaderBuilder.build("../GLSL/IBLDiffuse.vs", "../GLSL/IBLDiffuse.fs");
-		diffuseRenderer.setShader(std::move(shader));
-		diffuseRenderer.link();
+		renderers.diffuseRenderer.setShader(std::move(shader));
+		renderers.diffuseRenderer.link();
 	}
 
 	{
 		auto shader = shaderBuilder.build("../GLSL/BRDFLUT.vs", "../GLSL/BRDFLUT.fs");
-		brdfLutRenderer.setShader(std::move(shader));
-		brdfLutRenderer.link();
+		renderers.brdfLutRenderer.setShader(std::move(shader));
+		renderers.brdfLutRenderer.link();
 	}
 
 	{
@@ -142,8 +137,8 @@ ShaderBuildStatus IBLShader::build()
 
 	{
 		auto shader = shaderBuilder.build("../GLSL/SkyBox.vs", "../GLSL/SkyBox.fs");
-		skyBoxRenderer.setShader(std::move(shader));
-		skyBoxRenderer.link();
+		renderers.skyBoxRenderer.setShader(std::move(shader));
+		renderers.skyBoxRenderer.link();
 	}
 
 	{
@@ -186,11 +181,11 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->cubeMapTex.getHandle(), 0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			cubeMapRenderer.buffer.projectionMatrix = ::captureProjection;
-			cubeMapRenderer.buffer.viewMatrix = ::captureViews[i];
-			cubeMapRenderer.buffer.texture = &this->hdrTex;
+			renderers.cubeMapRenderer.buffer.projectionMatrix = ::captureProjection;
+			renderers.cubeMapRenderer.buffer.viewMatrix = ::captureViews[i];
+			renderers.cubeMapRenderer.buffer.texture = &this->hdrTex;
 
-			cubeMapRenderer.render();
+			renderers.cubeMapRenderer.render();
 		}
 
 		this->cubeMapTex.unbind();
@@ -200,19 +195,18 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	{
 		this->fbo.bind();
 
-		irradianceRenderer.buffer.cubeMapTex = &cubeMapTex;
+		renderers.irradianceRenderer.buffer.cubeMapTex = &cubeMapTex;
 
 		for (int i = 0; i < 6; ++i) {
 			glViewport(0, 0, 32, 32);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->irradianceTex.getHandle(), 0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			irradianceRenderer.buffer.projectionMatrix = ::captureProjection;
-			irradianceRenderer.buffer.viewMatrix = ::captureViews[i];
-			irradianceRenderer.buffer.cubeMapTex = &this->cubeMapTex;
+			renderers.irradianceRenderer.buffer.projectionMatrix = ::captureProjection;
+			renderers.irradianceRenderer.buffer.viewMatrix = ::captureViews[i];
+			renderers.irradianceRenderer.buffer.cubeMapTex = &this->cubeMapTex;
 
-			irradianceRenderer.render();
-			//glClea
+			renderers.irradianceRenderer.render();
 		}
 
 		this->fbo.unbind();
@@ -225,11 +219,11 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
-		skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
-		skyBoxRenderer.buffer.cubeMapTexture = &this->cubeMapTex;
+		renderers.skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
+		renderers.skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		renderers.skyBoxRenderer.buffer.cubeMapTexture = &this->cubeMapTex;
 
-		skyBoxRenderer.render();
+		renderers.skyBoxRenderer.render();
 
 	}
 
