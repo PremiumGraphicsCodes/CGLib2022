@@ -78,8 +78,8 @@ ShaderBuildStatus IBLShader::build()
 	textures.hdrTex.create("");
 	sendHDRTexture(hdr, textures.hdrTex);
 
-	fbo.build(512, 512);
-	rbo.create();
+	buffers.fbo.build(512, 512);
+	buffers.rbo.create();
 
 	{
 		std::array<Graphics::Image, 6> images;
@@ -159,11 +159,11 @@ ShaderBuildStatus IBLShader::build()
 		normals.add(Vector3dd(0, 0, 1));
 		normals.add(Vector3dd(0, 0, 1));
 
-		positionVBO.build();
-		positionVBO.send(positions.get());
+		buffers.positionVBO.build();
+		buffers.positionVBO.send(positions.get());
 
-		normalVBO.build();
-		normalVBO.send(normals.get());
+		buffers.normalVBO.build();
+		buffers.normalVBO.send(normals.get());
 
 		indices.push_back(0);
 		indices.push_back(1);
@@ -205,7 +205,7 @@ ShaderBuildStatus IBLShader::build()
 void IBLShader::render(const Camera& camera, const int width, const int height)
 {
 	{
-		this->fbo.bind();
+		buffers.fbo.bind();
 		//this->cubeMapTex.bind(0);
 
 		for (int i = 0; i < 6; ++i) {
@@ -222,11 +222,11 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		}
 
 		this->textures.cubeMapTex.unbind();
-		this->fbo.unbind();
+		buffers.fbo.unbind();
 	}
 
 	{
-		this->fbo.bind();
+		buffers.fbo.bind();
 
 		renderers.irradianceRenderer.buffer.cubeMapTex = &textures.cubeMapTex;
 
@@ -242,7 +242,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 			renderers.irradianceRenderer.render();
 		}
 
-		this->fbo.unbind();
+		buffers.fbo.unbind();
 
 	}
 
@@ -270,18 +270,18 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	*/
 
 	{
-		this->fbo.bind();
-		this->fbo.setTexture(this->textures.brdfLutTex);
+		buffers.fbo.bind();
+		buffers.fbo.setTexture(this->textures.brdfLutTex);
 		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		renderers.brdfLutRenderer.render();
-		this->fbo.unbind();
+		buffers.fbo.unbind();
 	}
 
 	{
-		this->fbo.bind();
+		buffers.fbo.bind();
 
 		//glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, this->rbo.getHandle());
 		
@@ -289,7 +289,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		for (unsigned int mip = 0; mip < maxMipLevels; mip++) {
 			const unsigned int mipWidth = 128 * std::pow(0.5, mip);
 			const unsigned int mipHeight = 128 * std::pow(0.5, mip);
-			glBindRenderbuffer(GL_RENDERBUFFER, this->rbo.getHandle());
+			glBindRenderbuffer(GL_RENDERBUFFER, buffers.rbo.getHandle());
 			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, mipWidth, mipHeight);
 
 			glViewport(0, 0, mipWidth, mipHeight);
@@ -309,7 +309,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 				renderers.importanceRenderer.render();
 			}
 		}
-		this->fbo.unbind();
+		buffers.fbo.unbind();
 	}
 
 
@@ -332,8 +332,8 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		renderers.specularRenderer.buffer.position = &positionVBO;
-		renderers.specularRenderer.buffer.normal = &normalVBO;
+		renderers.specularRenderer.buffer.position = &buffers.positionVBO;
+		renderers.specularRenderer.buffer.normal = &buffers.normalVBO;
 		renderers.specularRenderer.buffer.indices = this->indices;
 		renderers.specularRenderer.buffer.eyePosition = camera.getEye();
 		renderers.specularRenderer.buffer.viewMatrix = camera.getViewMatrix();

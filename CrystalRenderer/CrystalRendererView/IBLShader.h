@@ -35,10 +35,6 @@ private:
 		Renderer::SkyBoxRenderer skyBoxRenderer;
 	};
 
-	Renderers renderers;
-
-	Shader::FrameBufferObject fbo;
-	Shader::RenderBufferObject rbo;
 
 	struct Textures
 	{
@@ -49,12 +45,20 @@ private:
 		Shader::TextureObject brdfLutTex;
 	};
 
+	struct Buffers
+	{
+		Shader::FrameBufferObject fbo;
+		Shader::RenderBufferObject rbo;
+		Shader::VertexBufferObject positionVBO;
+		Shader::VertexBufferObject normalVBO;
+	};
+
+	Renderers renderers;
 	Textures textures;
+	Buffers buffers;
 	
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer3d<float> normals;
-	Shader::VertexBufferObject positionVBO;
-	Shader::VertexBufferObject normalVBO;
 	std::vector<unsigned int> indices;
 };
 
