@@ -14,6 +14,8 @@ class FrameBufferObject : public IGLObject
 //	FrameBufferObject() {};
 
 public:
+	void create();
+
 	void build(int width, int height);
 
 	void clear() override;

@@ -6,6 +6,11 @@
 using namespace Crystal::Graphics;
 using namespace Crystal::Shader;
 
+void FrameBufferObject::create()
+{
+	glGenFramebuffers(1, &frameBuffer);
+}
+
 void FrameBufferObject::build(int width, int height)
 {
 	this->width = width;

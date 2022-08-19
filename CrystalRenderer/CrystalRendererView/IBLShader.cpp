@@ -81,12 +81,14 @@ ShaderBuildStatus IBLShader::build()
 	fbo.build(512, 512);
 	rbo.create();
 
-	std::array<Graphics::Image, 6> images;
-	for (int i = 0; i < 6; ++i) {
-		Graphics::Image im(512, 512, 0);
-		images[i] = im;
+	{
+		std::array<Graphics::Image, 6> images;
+		for (int i = 0; i < 6; ++i) {
+			Graphics::Image im(512, 512, 0);
+			images[i] = im;
+		}
+		cubeMapTex.create(images);
 	}
-	cubeMapTex.create(images);
 
 	irradianceTex.create();
 	glBindTexture(GL_TEXTURE_CUBE_MAP, irradianceTex.getHandle());
@@ -169,6 +171,30 @@ ShaderBuildStatus IBLShader::build()
 		indices.push_back(2);
 		indices.push_back(3);
 	}
+
+	{
+		std::array<Graphics::Image, 6> images;
+		for (int i = 0; i < 6; ++i) {
+			Graphics::Image im(128, 128, 0);
+			images[i] = im;
+		}
+		importanceTex.create(images);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, importanceTex.getHandle());
+		glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+	}
+
+	{
+		this->fbo2.create();
+		this->fbo2.bind();
+		//glBindFramebuffer(GL_FRAMEBUFFER, this->fbo2.getHandle());
+		glBindRenderbuffer(GL_RENDERBUFFER, this->rbo.getHandle());
+		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, 512, 512);
+		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, this->rbo.getHandle());
+
+		this->fbo2.unbind();
+	}
+	
 	return status;
 }
 
@@ -216,19 +242,6 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	}
 
-	{
-
-		glViewport(0, 0, width, height);
-		glClearColor(0.0, 0.0, 0.0, 0.0);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		renderers.skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
-		renderers.skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
-		renderers.skyBoxRenderer.buffer.cubeMapTexture = &this->cubeMapTex;
-
-		renderers.skyBoxRenderer.render();
-
-	}
 
 	/*
 	{
@@ -262,9 +275,10 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	}
 	*/
 
-	/*
 	{
-		this->fbo.bind();
+		this->fbo2.bind();
+
+		//glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, this->rbo.getHandle());
 		
 		const unsigned int maxMipLevels = 5;
 		for (unsigned int mip = 0; mip < maxMipLevels; mip++) {
@@ -272,15 +286,29 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 			const unsigned int mipHeight = 128 * std::pow(0.5, mip);
 			glBindRenderbuffer(GL_RENDERBUFFER, this->rbo.getHandle());
 			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, mipWidth, mipHeight);
+
 			glViewport(0, 0, mipWidth, mipHeight);
 
+
+			const auto roughness = (float)mip / (float)(maxMipLevels - 1);
+
+			renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
+			renderers.importanceRenderer.buffer.projectionMatrix = ::captureProjection;
+			renderers.importanceRenderer.buffer.roughness = roughness;
+
 			for (unsigned int i = 0; i < 6; ++i) {
-				renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
-				renderers.importanceRenderer.buffer.projectionMatrix = ::captureProjection;
 				renderers.importanceRenderer.buffer.viewMatrix = ::captureViews[i];
-				renderers.importanceRenderer.buffer.roughness = 0.1f;
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, importanceTex.getHandle(), mip);
+				assert(GL_NO_ERROR == glGetError());
+
+
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				auto error = glGetError();
+				assert(GL_NO_ERROR == error);
 
 				renderers.importanceRenderer.render();
+				assert(GL_NO_ERROR == glGetError());
+
 
 			}
 
@@ -289,8 +317,21 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-			this->fbo.unbind();
 		}
+		this->fbo2.unbind();
 	}
-	*/
+
+	{
+
+		glViewport(0, 0, width, height);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		renderers.skyBoxRenderer.buffer.modelViewMatrix = glm::mat4(glm::mat3(camera.getModelViewMatrix()));
+		renderers.skyBoxRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
+		renderers.skyBoxRenderer.buffer.cubeMapTexture = &this->importanceTex;
+
+		renderers.skyBoxRenderer.render();
+	}
+
 }
