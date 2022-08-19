@@ -2,6 +2,7 @@
 
 #include "Crystal/Graphics/Buffer3d.h"
 #include "Crystal/Shader/FrameBufferObject.h"
+#include "Crystal/Shader/RenderBufferObject.h"
 
 #include "CrystalRenderer/CrystalRenderer/IrradianceRenderer.h"
 #include "CrystalRenderer/CrystalRenderer/IBLDiffuseRenderer.h"
@@ -37,6 +38,7 @@ private:
 	Renderers renderers;
 
 	Shader::FrameBufferObject fbo;
+	Shader::RenderBufferObject rbo;
 	Shader::CubeMapTextureObject cubeMapTex;
 	Shader::CubeMapTextureObject irradianceTex;
 	Shader::TextureObject hdrTex;

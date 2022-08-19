@@ -79,6 +79,7 @@ ShaderBuildStatus IBLShader::build()
 	sendHDRTexture(hdr, hdrTex);
 
 	fbo.build(512, 512);
+	rbo.create();
 
 	std::array<Graphics::Image, 6> images;
 	for (int i = 0; i < 6; ++i) {
@@ -215,7 +216,6 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	}
 
-	/*
 	{
 
 		glViewport(0, 0, width, height);
@@ -229,7 +229,6 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		renderers.skyBoxRenderer.render();
 
 	}
-	*/
 
 	/*
 	{
@@ -263,18 +262,35 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 	}
 	*/
 
+	/*
 	{
-		glViewport(0, 0, width, height);
-		glClearColor(0.0, 0.0, 0.0, 0.0);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
-		renderers.importanceRenderer.buffer.positions = &positionVBO;
-		renderers.importanceRenderer.buffer.indices = this->indices;
-		renderers.importanceRenderer.buffer.projectionMatrix = camera.getProjectionMatrix();
-		renderers.importanceRenderer.buffer.viewMatrix = camera.getViewMatrix();
-		renderers.importanceRenderer.buffer.roughness = 0.1f;
+		this->fbo.bind();
 		
-		renderers.importanceRenderer.render();
+		const unsigned int maxMipLevels = 5;
+		for (unsigned int mip = 0; mip < maxMipLevels; mip++) {
+			const unsigned int mipWidth = 128 * std::pow(0.5, mip);
+			const unsigned int mipHeight = 128 * std::pow(0.5, mip);
+			glBindRenderbuffer(GL_RENDERBUFFER, this->rbo.getHandle());
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, mipWidth, mipHeight);
+			glViewport(0, 0, mipWidth, mipHeight);
+
+			for (unsigned int i = 0; i < 6; ++i) {
+				renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
+				renderers.importanceRenderer.buffer.projectionMatrix = ::captureProjection;
+				renderers.importanceRenderer.buffer.viewMatrix = ::captureViews[i];
+				renderers.importanceRenderer.buffer.roughness = 0.1f;
+
+				renderers.importanceRenderer.render();
+
+			}
+
+			//glViewport(0, 0, width, height);
+			//glClearColor(0.0, 0.0, 0.0, 0.0);
+			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+			this->fbo.unbind();
+		}
 	}
+	*/
 }

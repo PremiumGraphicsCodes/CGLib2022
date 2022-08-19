@@ -58,6 +58,7 @@
     <ClInclude Include="SkyBoxRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="RenderBufferObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DepthBuffer.cpp" />
@@ -103,6 +104,7 @@
     <ClCompile Include="SkyBoxRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="RenderBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Texture">

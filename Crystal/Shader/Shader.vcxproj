@@ -149,6 +149,7 @@
     <ClInclude Include="LineRenderer.h" />
     <ClInclude Include="OnScreenRenderer.h" />
     <ClInclude Include="PointRenderer.h" />
+    <ClInclude Include="RenderBufferObject.h" />
     <ClInclude Include="ShaderBuildStatus.h" />
     <ClInclude Include="ShaderObject.h" />
     <ClInclude Include="ShaderUnit.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="LineRenderer.cpp" />
     <ClCompile Include="OnScreenRenderer.cpp" />
     <ClCompile Include="PointRenderer.cpp" />
+    <ClCompile Include="RenderBufferObject.cpp" />
     <ClCompile Include="ShaderObject.cpp" />
     <ClCompile Include="ShaderUnit.cpp" />
     <ClCompile Include="SkyBoxRenderer.cpp" />
