@@ -39,12 +39,17 @@ private:
 
 	Shader::FrameBufferObject fbo;
 	Shader::RenderBufferObject rbo;
-	Shader::CubeMapTextureObject cubeMapTex;
-	Shader::CubeMapTextureObject irradianceTex;
-	Shader::CubeMapTextureObject importanceTex;
 
-	Shader::TextureObject hdrTex;
-	Shader::TextureObject brdfLutTex;
+	struct Textures
+	{
+		Shader::CubeMapTextureObject cubeMapTex;
+		Shader::CubeMapTextureObject irradianceTex;
+		Shader::CubeMapTextureObject importanceTex;
+		Shader::TextureObject hdrTex;
+		Shader::TextureObject brdfLutTex;
+	};
+
+	Textures textures;
 	
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer3d<float> normals;

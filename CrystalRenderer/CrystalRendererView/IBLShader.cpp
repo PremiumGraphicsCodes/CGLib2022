@@ -75,8 +75,8 @@ ShaderBuildStatus IBLShader::build()
 {
 	HDRImage hdr;
 	hdr.load(std::filesystem::path("../../ThirdParty/hdr/newport_loft.hdr"));
-	hdrTex.create("");
-	sendHDRTexture(hdr, hdrTex);
+	textures.hdrTex.create("");
+	sendHDRTexture(hdr, textures.hdrTex);
 
 	fbo.build(512, 512);
 	rbo.create();
@@ -87,11 +87,11 @@ ShaderBuildStatus IBLShader::build()
 			Graphics::Image im(512, 512, 0);
 			images[i] = im;
 		}
-		cubeMapTex.create(images);
+		textures.cubeMapTex.create(images);
 	}
 
-	irradianceTex.create();
-	glBindTexture(GL_TEXTURE_CUBE_MAP, irradianceTex.getHandle());
+	textures.irradianceTex.create();
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textures.irradianceTex.getHandle());
 	for (unsigned int i = 0; i < 6; ++i)
 	{
 		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB16F, 32, 32, 0, GL_RGB, GL_FLOAT, nullptr);
@@ -101,7 +101,7 @@ ShaderBuildStatus IBLShader::build()
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	irradianceTex.unbind();
+	textures.irradianceTex.unbind();
 
 	ShaderBuilder shaderBuilder;
 
@@ -180,8 +180,8 @@ ShaderBuildStatus IBLShader::build()
 			Graphics::Image im(128, 128, 0);
 			images[i] = im;
 		}
-		importanceTex.create(images);
-		glBindTexture(GL_TEXTURE_CUBE_MAP, importanceTex.getHandle());
+		textures.importanceTex.create(images);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, textures.importanceTex.getHandle());
 		glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	}
@@ -211,33 +211,33 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		for (int i = 0; i < 6; ++i) {
 			glViewport(0, 0, 512, 512);
 			glClearColor(0.0, 0.0, 0.0, 0.0);
-			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->cubeMapTex.getHandle(), 0);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->textures.cubeMapTex.getHandle(), 0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			renderers.cubeMapRenderer.buffer.projectionMatrix = ::captureProjection;
 			renderers.cubeMapRenderer.buffer.viewMatrix = ::captureViews[i];
-			renderers.cubeMapRenderer.buffer.texture = &this->hdrTex;
+			renderers.cubeMapRenderer.buffer.texture = &this->textures.hdrTex;
 
 			renderers.cubeMapRenderer.render();
 		}
 
-		this->cubeMapTex.unbind();
+		this->textures.cubeMapTex.unbind();
 		this->fbo.unbind();
 	}
 
 	{
 		this->fbo.bind();
 
-		renderers.irradianceRenderer.buffer.cubeMapTex = &cubeMapTex;
+		renderers.irradianceRenderer.buffer.cubeMapTex = &textures.cubeMapTex;
 
 		for (int i = 0; i < 6; ++i) {
 			glViewport(0, 0, 32, 32);
-			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->irradianceTex.getHandle(), 0);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, this->textures.irradianceTex.getHandle(), 0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			renderers.irradianceRenderer.buffer.projectionMatrix = ::captureProjection;
 			renderers.irradianceRenderer.buffer.viewMatrix = ::captureViews[i];
-			renderers.irradianceRenderer.buffer.cubeMapTex = &this->cubeMapTex;
+			renderers.irradianceRenderer.buffer.cubeMapTex = &this->textures.cubeMapTex;
 
 			renderers.irradianceRenderer.render();
 		}
@@ -271,7 +271,7 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 	{
 		this->fbo.bind();
-		this->fbo.setTexture(this->brdfLutTex);
+		this->fbo.setTexture(this->textures.brdfLutTex);
 		glViewport(0, 0, width, height);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -297,31 +297,17 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 
 			const auto roughness = (float)mip / (float)(maxMipLevels - 1);
 
-			renderers.importanceRenderer.buffer.evnMapTex = &cubeMapTex;
+			renderers.importanceRenderer.buffer.evnMapTex = &textures.cubeMapTex;
 			renderers.importanceRenderer.buffer.projectionMatrix = ::captureProjection;
 			renderers.importanceRenderer.buffer.roughness = roughness;
 
 			for (unsigned int i = 0; i < 6; ++i) {
 				renderers.importanceRenderer.buffer.viewMatrix = ::captureViews[i];
-				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, importanceTex.getHandle(), mip);
-				assert(GL_NO_ERROR == glGetError());
-
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, textures.importanceTex.getHandle(), mip);
 
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-				auto error = glGetError();
-				assert(GL_NO_ERROR == error);
-
 				renderers.importanceRenderer.render();
-				assert(GL_NO_ERROR == glGetError());
-
-
 			}
-
-			//glViewport(0, 0, width, height);
-			//glClearColor(0.0, 0.0, 0.0, 0.0);
-			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
 		}
 		this->fbo.unbind();
 	}
@@ -356,9 +342,9 @@ void IBLShader::render(const Camera& camera, const int width, const int height)
 		renderers.specularRenderer.buffer.metalic = 0.1;
 		renderers.specularRenderer.buffer.ao = 0.1;
 		renderers.specularRenderer.buffer.albedo = Vector3df(1, 1, 1);
-		renderers.specularRenderer.buffer.importanceMapTex = &this->importanceTex;
-		renderers.specularRenderer.buffer.irradianceMapTex = &this->irradianceTex;
-		renderers.specularRenderer.buffer.brdfLutTex = &this->brdfLutTex;
+		renderers.specularRenderer.buffer.importanceMapTex = &this->textures.importanceTex;
+		renderers.specularRenderer.buffer.irradianceMapTex = &this->textures.irradianceTex;
+		renderers.specularRenderer.buffer.brdfLutTex = &this->textures.brdfLutTex;
 
 		renderers.specularRenderer.render();
 	}
