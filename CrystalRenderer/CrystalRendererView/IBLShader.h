@@ -38,12 +38,13 @@ private:
 	Renderers renderers;
 
 	Shader::FrameBufferObject fbo;
-	Shader::FrameBufferObject fbo2;
 	Shader::RenderBufferObject rbo;
 	Shader::CubeMapTextureObject cubeMapTex;
 	Shader::CubeMapTextureObject irradianceTex;
-	Shader::TextureObject hdrTex;
 	Shader::CubeMapTextureObject importanceTex;
+
+	Shader::TextureObject hdrTex;
+	Shader::TextureObject brdfLutTex;
 	
 	Graphics::Buffer3d<float> positions;
 	Graphics::Buffer3d<float> normals;

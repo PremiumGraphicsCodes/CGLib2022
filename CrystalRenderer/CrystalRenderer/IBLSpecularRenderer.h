@@ -14,6 +14,8 @@ public:
 	struct Buffer
 	{
 		Shader::CubeMapTextureObject* irradianceMapTex;
+		Shader::CubeMapTextureObject* importanceMapTex;
+		Shader::ITextureObject* brdfLutTex;
 		Shader::VertexBufferObject* position;
 		Shader::VertexBufferObject* normal;
 		Math::Vector3df albedo;

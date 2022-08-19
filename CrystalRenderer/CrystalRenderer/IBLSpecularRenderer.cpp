@@ -14,6 +14,9 @@ namespace {
 	constexpr auto metalicLabel = "metallic";
 	constexpr auto ambientOcclusionLabel = "ao";
 	constexpr auto irradianceMapLabel = "irradianceMap";
+	constexpr auto importanceMapLabel = "prefilterMap";
+	constexpr auto brdfLutTexLabel = "brdfLUT";
+
 	constexpr auto cameraPosLabel = "camPos";
 	constexpr auto fragColorLabel = "FragColor";
 }
@@ -35,6 +38,8 @@ void IBLSpecularRenderer::link()
 	shader->findUniformLocation(::metalicLabel);
 	shader->findUniformLocation(::ambientOcclusionLabel);
 	shader->findUniformLocation(::irradianceMapLabel);
+	shader->findUniformLocation(::importanceMapLabel);
+	shader->findUniformLocation(::brdfLutTexLabel);
 	shader->findUniformLocation(::cameraPosLabel);
 }
 
@@ -44,8 +49,12 @@ void IBLSpecularRenderer::render()
 	shader->bindOutput(::fragColorLabel);
 
 	buffer.irradianceMapTex->bind(0);
+	buffer.importanceMapTex->bind(1);
+	buffer.brdfLutTex->bind(2);
 
 	shader->sendUniform(::irradianceMapLabel, 0);
+	shader->sendUniform(::importanceMapLabel, 1);
+	shader->sendUniform(::brdfLutTexLabel, 2);
 
 	shader->sendUniform(::projectionMatrixLabel, buffer.projectionMatrix);
 	shader->sendUniform(::modelMatrixLabel, buffer.modelMatrix);
@@ -73,6 +82,7 @@ void IBLSpecularRenderer::render()
 	buffer.normal->unbind();
 
 	buffer.irradianceMapTex->unbind();
+	buffer.importanceMapTex->unbind();
 
 	shader->unbind();
 }
